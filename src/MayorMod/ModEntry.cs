@@ -1,11 +1,9 @@
 ﻿using MayorMod.Data;
+using Microsoft.Xna.Framework.Graphics;
 using Netcode;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
-using StardewModdingAPI.Utilities;
 using StardewValley;
-using StardewValley.Menus;
-using xTile.Dimensions;
 
 namespace MayorMod
 {
@@ -13,6 +11,8 @@ namespace MayorMod
     internal sealed class ModEntry : Mod
     {
         private static NetStringHashSet MasterPlayerMail => Game1.MasterPlayer.mailReceived;
+
+        private bool _loadNewMayorGovernorSprite = false;
 
         /*********
         ** Public methods
@@ -22,10 +22,25 @@ namespace MayorMod
         public override void Entry(IModHelper helper)
         {
             //helper.Events.Input.ButtonPressed += this.OnButtonPressed;
-           // helper.Events.Content.AssetRequested += this.OnAssetRequested;
+            helper.Events.Content.AssetRequested += this.OnAssetRequested;
 
             TileActions.Init(this.Monitor);
         }
+
+        private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
+        {
+            if (e.NameWithoutLocale.IsEquivalentTo("Data/Events/Custom_MayorMod_NewMayor"))
+            {
+                //Loading the "NewMayor" event so swap the sprite for the Governor
+                _loadNewMayorGovernorSprite = true;
+            }
+            else if (e.NameWithoutLocale.IsEquivalentTo("Characters/Governor") && _loadNewMayorGovernorSprite)
+            {
+                e.Edit(asset => { asset.ReplaceWith(Helper.GameContent.Load<Texture2D>("Characters/Governor_NewMayorEvent")); });
+                _loadNewMayorGovernorSprite = false;
+            }
+        }
+
 
         //#region Mail
         //private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)

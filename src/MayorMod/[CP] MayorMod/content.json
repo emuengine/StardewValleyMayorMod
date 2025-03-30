@@ -3,13 +3,22 @@
 	"Changes": [
 		//Dialogue
 		{
+			"Action": "Include",
+			"FromFile": "Data/Dialogue/OfficerMike.json"
+		},
+		//Events
+		{
 			"Action": "Load",
 			"Target": "Data/Events/Custom_MayorMod_NewMayor",
 			"FromFile": "blank.json"
 		},
 		{
 			"Action": "Include",
-			"FromFile": "Data/Dialogue/OfficerMike.json"
+			"FromFile": "Data/Events/Custom_MayorMod_NewMayor.json"
+		},
+		{
+			"Action": "Include",
+			"FromFile": "Data/Events/Custom_MayorMod_NewMayor.json"
 		},
 		//Festivals
 		{
@@ -42,6 +51,11 @@
 		{
 			"Action": "Include",
 			"FromFile": "Data/MapData/MapWarps.json"
+		},
+		//NPCs
+		{
+			"Action": "Include",
+			"FromFile": "Data/NPCData/ImageLoad.json"
 		},
 		//Tilesheets
 		{

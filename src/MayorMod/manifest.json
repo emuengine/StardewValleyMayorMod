@@ -1,9 +1,9 @@
 {
     "Name": "MayorMod",
-    "Author": "HammyKal",
+    "Author": "EmuEngine",
     "Version": "1.0.0",
     "Description": "Bring democracy back to Stardew valley",
-    "UniqueID": "HammyKal.MayorMod",
+    "UniqueID": "EmuEngine.MayorMod",
     "EntryDll": "MayorMod.dll",
     "MinimumApiVersion": "4.0.0",
     "UpdateKeys": []

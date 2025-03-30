@@ -1,0 +1,10 @@
+{
+    "Changes": [
+        {
+            "LogName": "Load New Mayor Speech into Assets",
+            "Action": "Load",
+            "Target": "Characters/Governor_NewMayorEvent",
+            "FromFile": "Assets/Characters/Governor_NewMayorEvent.png"
+        }
+    ]
+}

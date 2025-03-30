@@ -10,7 +10,6 @@
 
         },
 
-
         //Send mail
         {
             "Action": "EditData",
@@ -32,13 +31,34 @@
             }
         },
 
+
         //Events
-        {
-            "Action": "EditData",
-            "Target": "Data/Events/Custom_MayorMod_NewMayor",
-            "Entries": {
-                "MayorMod.NewMayorEvent/f Abigail 250/t 600 2600": "continue/-1000 -1000/farmer 0 0 0 Abigail 1 1 0/skippable/pause 1000/speak Abigail \"Dialogue here.\"/pause 1000/globalFade/viewport -1000 -1000/stopMusic/end"
-            }
-        }
+        //{
+        //    "LogName": "Governor Appearance Data",
+        //    "Action": "EditData",
+        //    "Target": "Data/Characters",
+        //    "TargetField": [ "Governor", "Appearance" ],
+        //    "Entries": {
+        //        //Regular Outfits
+        //        "{{ModId}}.GovernorMayorSpeech": {
+        //            "Id": "{{ModId}}.Governor_MayorSpeech",
+        //            "Condition": null,
+        //            "Sprite": "Characters/Governor_MayorSpeech",
+        //            "Portrait": "Portraits/Governor",
+        //            "Indoors": true,
+        //            "Outdoors": true,
+        //            "Precedence": -120
+        //        }
+        //    }
+        //},
+
+
+		//{
+        //    "Action": "EditData",
+        //    "Target": "Data/Events/Custom_MayorMod_NewMayor",
+        //    "Entries": {
+        //        "MayorMod.NewMayorEvent/f Abigail 250/t 600 2600": "continue/18 14/farmer 16 13 2 Governor 18 14 2/skippable/pause 1000/speak Governor \"Thank you all for coming. I am now happy to introduce you to your new Mayor @\"/move Governor 2 0 1/move Governor 0 -1 2/move farmer 2 0 1/move farmer 0 1 2/pause 1000/globalFade/viewport -1000 -1000/stopMusic/end"
+        //    }
+        //}
     ]
 }
