@@ -14,6 +14,14 @@ public class TileActions
         GameLocation.RegisterTileAction(Constants.ActionKey.Action, GetVoteCard);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="location"></param>
+    /// <param name="arg2"></param>
+    /// <param name="farmer"></param>
+    /// <param name="point"></param>
+    /// <returns></returns>
     private static bool GetVoteCard(GameLocation location, string[] arg2, Farmer farmer, Point point)
     {
         if (!farmer.mailReceived.Contains(Constants.ProgressKey.VotedForMayor))
@@ -36,11 +44,16 @@ public class TileActions
         return true;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="farmer"></param>
     public static void DeskAction(Farmer farmer)
     {
         if (farmer.Items.Any(i => i != null && i.Name == Constants.ItemKey.Ballot))
         {
             Utils.DrawDialogueCharacterString(Constants.DialogueKey.NeedToFillBallot);
+
         }
         else if (farmer.Items.HasEmptySlots())
         {
@@ -55,6 +68,12 @@ public class TileActions
         //dont let leave if you have a voting card
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="location"></param>
+    /// <param name="farmer"></param>
+    /// <param name="args"></param>
     public static void VotingBoothAction(GameLocation location, Farmer farmer, string[] args)
     {
         var ballot = farmer.Items.FirstOrDefault(i => i != null && i.Name == Constants.ItemKey.Ballot);
@@ -83,6 +102,10 @@ public class TileActions
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="farmer"></param>
     public static void BallotBoxAction(Farmer farmer)
     {
         var ballot = farmer.Items.FirstOrDefault(i => i != null && i.Name == Constants.ItemKey.BallotUsed);

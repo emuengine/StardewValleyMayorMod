@@ -12,7 +12,7 @@ namespace MayorMod
     {
         private static NetStringHashSet MasterPlayerMail => Game1.MasterPlayer.mailReceived;
 
-        private bool _loadNewMayorGovernorSprite = false;
+        private TempNPC? _tempNPCs;
 
         /*********
         ** Public methods
@@ -22,24 +22,28 @@ namespace MayorMod
         public override void Entry(IModHelper helper)
         {
             //helper.Events.Input.ButtonPressed += this.OnButtonPressed;
-            helper.Events.Content.AssetRequested += this.OnAssetRequested;
+            //helper.Events.Content.AssetRequested += this.OnAssetRequested;
 
             TileActions.Init(this.Monitor);
+
+            //_tempNPCs = new TempNPC(helper.Events.Content, helper);
+            //_tempNPCs.RegisterAssetReplacementForEvent("Data/Events/Custom_MayorMod_NewMayor", "Characters/Governor");
+
         }
 
-        private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
-        {
-            if (e.NameWithoutLocale.IsEquivalentTo("Data/Events/Custom_MayorMod_NewMayor"))
-            {
-                //Loading the "NewMayor" event so swap the sprite for the Governor
-                _loadNewMayorGovernorSprite = true;
-            }
-            else if (e.NameWithoutLocale.IsEquivalentTo("Characters/Governor") && _loadNewMayorGovernorSprite)
-            {
-                e.Edit(asset => { asset.ReplaceWith(Helper.GameContent.Load<Texture2D>("Characters/Governor_NewMayorEvent")); });
-                _loadNewMayorGovernorSprite = false;
-            }
-        }
+        //private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
+        //{
+        //    if (e.NameWithoutLocale.IsEquivalentTo("Data/Events/Custom_MayorMod_NewMayor"))
+        //    {
+        //        //Loading the "NewMayor" event so swap the sprite for the Governor
+        //        _loadNewMayorGovernorSprite = true;
+        //    }
+        //    else if (e.NameWithoutLocale.IsEquivalentTo("Characters/Governor") && _loadNewMayorGovernorSprite)
+        //    {
+        //        e.Edit(asset => { asset.ReplaceWith(Helper.GameContent.Load<Texture2D>("Characters/Governor_NewMayorEvent")); });
+        //        _loadNewMayorGovernorSprite = false;
+        //    }
+        //}
 
 
         //#region Mail
