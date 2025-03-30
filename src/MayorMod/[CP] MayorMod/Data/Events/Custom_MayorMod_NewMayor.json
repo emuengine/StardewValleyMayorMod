@@ -4,7 +4,7 @@
             "Action": "EditData",
             "Target": "Data/Events/Custom_MayorMod_NewMayor",
             "Entries": {
-                "MayorMod.NewMayorEvent/f Abigail 250/t 600 2600": "continue/18 14/farmer 16 13 2 Governor 18 14 2/skippable/pause 1000/speak Governor \"Thank you all for coming. I am now happy to introduce you to your new Mayor @\"/move Governor 2 0 1/move Governor 0 -1 2/move farmer 2 0 1/move farmer 0 1 2/pause 1000/question null \"What's in your acceptance speach?#Talk about your great plans for the future#I belive and Stardew Valley and the flag#You're all pretty fucked now!\"/globalFade/viewport -1000 -1000/changeLocation FarmHouse/end warpOut/stopMusic/end"
+                "MayorMod.NewMayorEvent/f Abigail 250/t 600 2600": "continue/18 14/farmer 16 13 2 Governor -100 -100 0/addTemporaryActor Governor_NewMayorEvent 16 32 18 14 2 true Character/skippable/pause 1000/speak Governor \"Thank you all for coming. I am now happy to introduce you to your new Mayor @\"/move Governor_NewMayorEvent 2 0 1/move Governor_NewMayorEvent 0 -1 2/move farmer 2 0 1/move farmer 0 1 2/pause 1000/question null \"What's in your acceptance speach?#Talk about your great plans for the future#I belive and Stardew Valley and the flag#You're all pretty fucked now!\"/globalFade/viewport -1000 -1000/changeLocation FarmHouse/end warpOut/stopMusic/end"
             }
         }
     ]

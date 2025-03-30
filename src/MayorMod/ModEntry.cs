@@ -12,7 +12,6 @@ namespace MayorMod
     {
         private static NetStringHashSet MasterPlayerMail => Game1.MasterPlayer.mailReceived;
 
-        private TempNPC? _tempNPCs;
 
         /*********
         ** Public methods
@@ -25,10 +24,10 @@ namespace MayorMod
             //helper.Events.Content.AssetRequested += this.OnAssetRequested;
 
             TileActions.Init(this.Monitor);
+        }
 
-            //_tempNPCs = new TempNPC(helper.Events.Content, helper);
-            //_tempNPCs.RegisterAssetReplacementForEvent("Data/Events/Custom_MayorMod_NewMayor", "Characters/Governor");
-
+        private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
+        {
         }
 
         //private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
