@@ -25,12 +25,12 @@ public static class Constants
     }
     public static class DialogueKey
     {
-        public const string GetBallot = "GetBallot";
-        public const string NeedToFillBallot = "NeedToFillBallot";
-        public const string HaveVoted = "HaveVoted";
-        public const string CantCarryBallot = "CantCarryBallot";
-        public const string NeedBallot = "NeedBallot";
-        public const string NeedToVote = "NeedToVote";
+        public const string GetBallot = "Strings\\Characters:GetBallot";
+        public const string NeedToFillBallot = "Strings\\Characters:NeedToFillBallot";
+        public const string HaveVoted = "Strings\\Characters:HaveVoted";
+        public const string CantCarryBallot = "Strings\\Characters:CantCarryBallot";
+        public const string NeedBallot = "Strings\\Characters:NeedBallot";
+        public const string NeedToVote = "Strings\\Characters:NeedToVote";
     }
     public static class AssetPath
     {

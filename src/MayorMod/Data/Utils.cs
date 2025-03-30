@@ -4,13 +4,6 @@ using StardewValley;
 namespace MayorMod.Data;
 public static class Utils
 {
-    public static void DrawDialogueCharacterString(string location, params string[] stringFormatParam)
-    {
-        var haveVotingCardDialogue = Game1.content.LoadString($"Strings\\Characters:{location}");
-        haveVotingCardDialogue = string.Format(haveVotingCardDialogue, stringFormatParam);
-        Game1.drawObjectDialogue(haveVotingCardDialogue);
-    }
-
     public static void DrawSpriteTemporarily(GameLocation location, Vector2 position, string textureName, float timeInMiliseconds = 1000.0f)
     {
         location.temporarySprites.Add(new TemporaryAnimatedSprite(textureName, 

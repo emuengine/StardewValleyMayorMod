@@ -57,6 +57,10 @@
 			"Action": "Include",
 			"FromFile": "Data/NPCData/ImageLoad.json"
 		},
+		{
+			"Action": "Include",
+			"FromFile": "Data/NPCData/CharacterLoad.json"
+		},
 		//Tilesheets
 		{
 			"Action": "Include",
