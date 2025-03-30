@@ -1,5 +1,4 @@
 ﻿using MayorMod.Data;
-using Microsoft.Xna.Framework.Graphics;
 using Netcode;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;

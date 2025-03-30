@@ -4,6 +4,10 @@ using StardewValley;
 namespace MayorMod.Data;
 public static class Utils
 {
+    private static NPC? _officerMikeNPC;
+    public static NPC OfficerMikeNPC => _officerMikeNPC is null? Utility.fuzzyCharacterSearch("MayorMod_OfficerMike"): _officerMikeNPC;
+
+
     public static void DrawSpriteTemporarily(GameLocation location, Vector2 position, string textureName, float timeInMiliseconds = 1000.0f)
     {
         location.temporarySprites.Add(new TemporaryAnimatedSprite(textureName, 
