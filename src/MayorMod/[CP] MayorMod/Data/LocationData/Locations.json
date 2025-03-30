@@ -1,0 +1,35 @@
+﻿{
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Data/Locations",
+            "Entries": {
+                "Custom_MayorMod_VotingTent": {
+                    "CreateOnLoad": {
+                        "MapPath": "Maps/Custom_MayorMod_VotingTent"
+                    },
+                    "DisplayName": "Voting Tent",
+                    "DefaultArrivalTile": {
+                        "X": 7,
+                        "Y": 9
+                    },
+                    "ExcludeFromNpcPathfinding": false,
+                    "ArtifactSpots": [],
+                    "FishAreas": {},
+                    "Fish": [],
+                    "Forage": []
+                },
+                "Custom_MayorMod_NewMayor": {
+                    "DisplayName": "New Mayor Stage",
+                    "DefaultArrivalTile": {
+                        "X": 18,
+                        "Y": 14
+                    },
+                    "CreateOnLoad": {
+                        "MapPath": "Maps/Custom_MayorMod_NewMayor"
+                    }
+                }
+            }
+        }
+    ]
+}

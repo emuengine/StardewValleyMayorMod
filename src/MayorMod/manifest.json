@@ -1,0 +1,10 @@
+{
+    "Name": "MayorMod",
+    "Author": "HammyKal",
+    "Version": "1.0.0",
+    "Description": "Bring democracy back to Stardew valley",
+    "UniqueID": "HammyKal.MayorMod",
+    "EntryDll": "MayorMod.dll",
+    "MinimumApiVersion": "4.0.0",
+    "UpdateKeys": []
+}

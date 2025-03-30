@@ -1,0 +1,20 @@
+{
+    "Changes": [
+        // Exterior Maps
+        {
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "AddWarps": [
+                "10 68 Custom_MayorMod_VotingTent 7 9"
+            ]
+        },
+        // Interior Maps
+        {
+            "Action": "EditMap",
+            "Target": "Maps/Custom_MayorMod_VotingTent",
+            "AddWarps": [
+                "7 10 Town 10 69"
+            ]
+        }
+    ]
+}

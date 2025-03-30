@@ -1,0 +1,15 @@
+{
+    "Changes": [
+        // Load Tilesheets
+        {
+            "Action": "Load",
+            "Target": "Maps/MayorModTilesheet",
+            "FromFile": "Assets/Maps/TileSheets/MayorModTilesheet.png"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/VotingTent_Tilesheet",
+            "FromFile": "Assets/Maps/TileSheets/VotingTent_Tilesheet.png"
+        }
+    ]
+}

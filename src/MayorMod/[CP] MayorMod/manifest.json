@@ -1,0 +1,12 @@
+{
+    "Name": "MayorMod - Content Patcher",
+    "Author": "HammyKal",
+    "Version": "1.0.0",
+    "Description": "Bring democracy back to Stardew valley",
+    "UniqueID": "HammyKal.MayorModCP",
+    "MinimumApiVersion": "4.0.0",
+    "UpdateKeys": [],
+    "ContentPackFor": {
+        "UniqueID": "Pathoschild.ContentPatcher"
+    }
+}

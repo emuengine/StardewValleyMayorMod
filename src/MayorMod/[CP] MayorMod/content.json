@@ -1,0 +1,60 @@
+{
+	"Format": "2.5.3",
+	"Changes": [
+		//Dialogue
+		{
+			"Action": "Load",
+			"Target": "Data/Events/Custom_MayorMod_NewMayor",
+			"FromFile": "blank.json"
+		},
+		{
+			"Action": "Include",
+			"FromFile": "Data/Dialogue/OfficerMike.json"
+		},
+		//Festivals
+		{
+			"Action": "Include",
+			"FromFile": "Data/Festivals/VotingDay.json"
+		},
+		//Items
+		{
+			"Action": "Include",
+			"FromFile": "Data/ItemData/ElectionSign.json"
+		},
+		{
+			"Action": "Include",
+			"FromFile": "Data/ItemData/Ballot.json"
+		},
+		//Locations
+		{
+			"Action": "Include",
+			"FromFile": "Data/LocationData/Locations.json"
+		},
+		//Maps
+		{
+			"Action": "Include",
+			"FromFile": "Data/MapData/MapLoads.json"
+		},
+		{
+			"Action": "Include",
+			"FromFile": "Data/MapData/MapPatches.json"
+		},
+		{
+			"Action": "Include",
+			"FromFile": "Data/MapData/MapWarps.json"
+		},
+		//Tilesheets
+		{
+			"Action": "Include",
+			"FromFile": "Data/Tilesheets.json"
+		},
+
+
+
+		//Testing
+		{
+			"Action": "Include",
+			"FromFile": "Testing.json"
+		}
+	]
+}

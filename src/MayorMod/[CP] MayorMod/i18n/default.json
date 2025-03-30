@@ -1,0 +1,13 @@
+{
+	"MayorMod_ElectionSign.Name": "Election Sign",
+	"MayorMod_ElectionSign.Description": "Sign for elections",
+
+	"MayorMod_Ballot.Name": "Ballot",
+	"MayorMod_Ballot.Description": "Ballot slip used for voting",
+
+	"MayorMod_BallotUsed.Name": "Ballot (Voted)",
+	"MayorMod_BallotUsed.Description": "Ballot which has been marked with your vote",
+
+	"MayorMod_VotingDay.Name": "Voting Day!",
+	"MayorMod_VotingDay.Message": "Don't forget to vote!'"
+}

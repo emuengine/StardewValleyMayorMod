@@ -1,0 +1,16 @@
+{
+    "Changes": [
+        {
+            "LogName": "Load Voting Tent into Assets",
+            "Action": "Load",
+            "Target": "Maps/Custom_MayorMod_VotingTent",
+            "FromFile": "Assets/Maps/InteriorMaps/MayorMod_VotingTent.tmx"
+        },
+        {
+            "LogName": "Load New Mayor Speech into Assets",
+            "Action": "Load",
+            "Target": "Maps/Custom_MayorMod_NewMayor",
+            "FromFile": "Assets/Maps/ExteriorMaps/MayorMod_NewMayor.tmx"
+        }
+    ]
+}

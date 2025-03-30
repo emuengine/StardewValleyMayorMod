@@ -1,0 +1,44 @@
+{
+    "Changes": [
+        // Update text for Linus
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Linus",
+            "Entries": {
+                "Introduction": "Modding is a crazy rabbit hole, isn't it?"
+            }
+
+        },
+
+
+        //Send mail
+        {
+            "Action": "EditData",
+            "Target": "Data/Events/Farm",
+
+            "Entries": {
+                "57870000/x junk_mail_1 true": "null"
+            },
+            "When": {
+                "HasFlag | contains=runningForMayor": "true"
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "data/mail",
+
+            "Entries": {
+                "junk_mail_1": "@, This is fucking annoying right?"
+            }
+        },
+
+        //Events
+        {
+            "Action": "EditData",
+            "Target": "Data/Events/Custom_MayorMod_NewMayor",
+            "Entries": {
+                "MayorMod.NewMayorEvent/f Abigail 250/t 600 2600": "continue/-1000 -1000/farmer 0 0 0 Abigail 1 1 0/skippable/pause 1000/speak Abigail \"Dialogue here.\"/pause 1000/globalFade/viewport -1000 -1000/stopMusic/end"
+            }
+        }
+    ]
+}
