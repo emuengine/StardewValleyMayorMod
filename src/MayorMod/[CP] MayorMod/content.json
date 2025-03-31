@@ -39,6 +39,11 @@
 			"Action": "Include",
 			"FromFile": "Data/LocationData/Locations.json"
 		},
+		//Mail
+		{
+			"Action": "Include",
+			"FromFile": "Data/Mail/ImageLoad.json"
+		},
 		//Maps
 		{
 			"Action": "Include",

@@ -27,8 +27,8 @@
             "Target": "data/mail",
 
             "Entries": {
-                "junk_mail_1": "@, This is fucking annoying right?"
-            }
+                "junk_mail_1": "^^^Dear @,^^ The current term of the Mayor of Stardew Valley will be coming to an end soon. Registration for candidates will take place tomorrow. All citizens of Stardew Valley are eligible to register. A temporary tent will be set up near the town center where registration will take place.[letterbg LooseSprites/MayorMod_letterBG 0] [textcolor black]"
+            } //[letterbg <asset name> <index>]
         },
 
 

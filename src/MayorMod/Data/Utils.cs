@@ -11,19 +11,19 @@ public static class Utils
     public static void DrawSpriteTemporarily(GameLocation location, Vector2 position, string textureName, float timeInMiliseconds = 1000.0f)
     {
         location.temporarySprites.Add(new TemporaryAnimatedSprite(textureName, 
-                                      new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16),
-                                      timeInMiliseconds, 
-                                      100, 
-                                      10, 
-                                      position * Game1.pixelZoom, 
-                                      false, 
-                                      false, 
-                                      1.0f, 
-                                      0.0f, 
-                                      Color.White, 
-                                      Game1.pixelZoom, 
-                                      0.0f, 
-                                      0.0f, 
-                                      0.0f));
+                                      sourceRect: new Rectangle(0, 0, 16, 16),
+                                      animationInterval: timeInMiliseconds, 
+                                      animationLength: 100, 
+                                      numberOfLoops: 10,
+                                      position: position * Game1.pixelZoom, 
+                                      flicker: false, 
+                                      flipped: false, 
+                                      layerDepth: 1.0f, 
+                                      alphaFade: 0.0f, 
+                                      color: Color.White, 
+                                      scale: Game1.pixelZoom, 
+                                      scaleChange: 0.0f, 
+                                      rotation: 0.0f,
+                                      rotationChange: 0.0f));
     }
 }
