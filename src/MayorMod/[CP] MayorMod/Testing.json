@@ -8,57 +8,6 @@
                 "Introduction": "Modding is a crazy rabbit hole, isn't it?"
             }
 
-        },
-
-        //Send mail
-        {
-            "Action": "EditData",
-            "Target": "Data/Events/Farm",
-
-            "Entries": {
-                "57870000/x junk_mail_1 true": "null"
-            },
-            "When": {
-                "HasFlag | contains=runningForMayor": "true"
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "data/mail",
-
-            "Entries": {
-                "junk_mail_1": "^^^Dear @,^^ The current term of the Mayor of Stardew Valley will be coming to an end soon. Registration for candidates will take place tomorrow. All citizens of Stardew Valley are eligible to register. A temporary tent will be set up near the town center where registration will take place.[letterbg LooseSprites/MayorMod_letterBG 0] [textcolor black]"
-            } //[letterbg <asset name> <index>]
-        },
-
-
-        //Events
-        //{
-        //    "LogName": "Governor Appearance Data",
-        //    "Action": "EditData",
-        //    "Target": "Data/Characters",
-        //    "TargetField": [ "Governor", "Appearance" ],
-        //    "Entries": {
-        //        //Regular Outfits
-        //        "{{ModId}}.GovernorMayorSpeech": {
-        //            "Id": "{{ModId}}.Governor_MayorSpeech",
-        //            "Condition": null,
-        //            "Sprite": "Characters/Governor_MayorSpeech",
-        //            "Portrait": "Portraits/Governor",
-        //            "Indoors": true,
-        //            "Outdoors": true,
-        //            "Precedence": -120
-        //        }
-        //    }
-        //},
-
-
-		//{
-        //    "Action": "EditData",
-        //    "Target": "Data/Events/Custom_MayorMod_NewMayor",
-        //    "Entries": {
-        //        "MayorMod.NewMayorEvent/f Abigail 250/t 600 2600": "continue/18 14/farmer 16 13 2 Governor 18 14 2/skippable/pause 1000/speak Governor \"Thank you all for coming. I am now happy to introduce you to your new Mayor @\"/move Governor 2 0 1/move Governor 0 -1 2/move farmer 2 0 1/move farmer 0 1 2/pause 1000/globalFade/viewport -1000 -1000/stopMusic/end"
-        //    }
-        //}
+        }
     ]
 }

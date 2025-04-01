@@ -2,7 +2,7 @@
 using StardewValley;
 
 namespace MayorMod.Data;
-public static class Utils
+public static class ModHelper
 {
     private static NPC? _officerMikeNPC;
     public static NPC OfficerMikeNPC => _officerMikeNPC is null? Utility.fuzzyCharacterSearch("MayorMod_OfficerMike"): _officerMikeNPC;

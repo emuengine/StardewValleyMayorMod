@@ -39,7 +39,7 @@ public class TileActions
         }
         else
         {
-            Game1.DrawDialogue(Utils.OfficerMikeNPC, Constants.DialogueKey.HaveVoted);
+            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.HaveVoted);
         }
         return true;
     }
@@ -52,21 +52,21 @@ public class TileActions
     {
         if (farmer.Items.Any(i => i != null && i.Name == Constants.ItemKey.Ballot))
         {
-            Game1.DrawDialogue(Utils.OfficerMikeNPC, Constants.DialogueKey.NeedToFillBallot);
+            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.NeedToFillBallot);
         }
         else if (farmer.Items.Any(i => i != null && i.Name == Constants.ItemKey.BallotUsed))
         {
-            Game1.DrawDialogue(Utils.OfficerMikeNPC, Constants.DialogueKey.NeedToVote);
+            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.NeedToVote);
         }
         else if (farmer.Items.HasEmptySlots())
         {
-            Game1.DrawDialogue(Utils.OfficerMikeNPC, Constants.DialogueKey.GetBallot);
+            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.GetBallot);
             var ballot = ItemRegistry.Create(Constants.ItemKey.Ballot);
             farmer.addItemToInventory(ballot);
         }
         else
         {
-            Game1.DrawDialogue(Utils.OfficerMikeNPC, Constants.DialogueKey.CantCarryBallot);
+            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.CantCarryBallot);
         }
         //dont let leave if you have a voting card
     }
@@ -86,7 +86,7 @@ public class TileActions
             //Show filling in voting card
             var parsed = Int32.TryParse(args[2], out int boothNum);
             boothNum = parsed? boothNum: 0;
-            Utils.DrawSpriteTemporarily(location, new Vector2(120 + (30 * boothNum), 62), Constants.AssetPath.BallotTexturePath, 500.0f);
+            ModHelper.DrawSpriteTemporarily(location, new Vector2(120 + (30 * boothNum), 62), Constants.AssetPath.BallotTexturePath, 500.0f);
 
             //Remove unused voting card
             farmer.removeItemFromInventory(ballot);
@@ -97,15 +97,15 @@ public class TileActions
         }
         else if (farmer.Items.Any(i => i != null && i.Name == Constants.ItemKey.Ballot))
         {
-            Game1.DrawDialogue(Utils.OfficerMikeNPC, Constants.DialogueKey.NeedToFillBallot);
+            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.NeedToFillBallot);
         }
         else if (farmer.Items.Any(i => i != null && i.Name == Constants.ItemKey.BallotUsed))
         {
-            Game1.DrawDialogue(Utils.OfficerMikeNPC, Constants.DialogueKey.NeedToVote);
+            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.NeedToVote);
         }
         else
         {
-            Game1.DrawDialogue(Utils.OfficerMikeNPC, Constants.DialogueKey.NeedBallot);
+            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.NeedBallot);
         }
     }
 
@@ -121,15 +121,15 @@ public class TileActions
         {
             farmer.removeItemFromInventory(ballot);
             farmer.mailReceived.Add(Constants.ProgressKey.VotedForMayor);
-            Game1.DrawDialogue(Utils.OfficerMikeNPC, Constants.DialogueKey.HaveVoted);
+            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.HaveVoted);
         }
         else if (farmer.Items.Any(i => i != null && i.Name == Constants.ItemKey.Ballot))
         {
-            Game1.DrawDialogue(Utils.OfficerMikeNPC, Constants.DialogueKey.NeedToFillBallot);
+            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.NeedToFillBallot);
         }
         else
         {
-            Game1.DrawDialogue(Utils.OfficerMikeNPC, Constants.DialogueKey.NeedBallot);
+            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.NeedBallot);
         }
     }
 }

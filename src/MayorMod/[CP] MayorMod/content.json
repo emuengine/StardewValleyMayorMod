@@ -4,6 +4,10 @@
 		//Dialogue
 		{
 			"Action": "Include",
+			"FromFile": "Data/Dialogue/MayorPatches.json"
+		},
+		{
+			"Action": "Include",
 			"FromFile": "Data/Dialogue/OfficerMike.json"
 		},
 		//Events
@@ -43,6 +47,10 @@
 		{
 			"Action": "Include",
 			"FromFile": "Data/Mail/ImageLoad.json"
+		},
+		{
+			"Action": "Include",
+			"FromFile": "Data/Mail/MailData.json"
 		},
 		//Maps
 		{

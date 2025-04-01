@@ -4,7 +4,7 @@
             "Action": "EditData",
             "Target": "Strings/Characters",
             "Entries": {
-                "GetBallot": "Hello sir. May I check your ID? ..... #Thank you very much {0}. Here is your ballot. You can make your vote at the desk over there. When you're done, put your ballot in the box.",
+                "GetBallot": "Hello sir. May I check your ID? ..... #$b#Thank you very much {0}. Here is your ballot. You can make your vote at the desk over there. When you're done, put your ballot in the box.",
                 "NeedToFillBallot": "You can make your vote at the desk over there. When you're done, put your ballot in the box.",
                 "HaveVoted": "You should be proud that you have done your civic duty",
                 "CantCarryBallot": "Sorry sir. I can't give your ballot. You're carrying too much stuff.",
