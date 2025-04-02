@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Netcode;
 using StardewValley;
 
 namespace MayorMod.Data;
@@ -6,6 +7,14 @@ public static class ModHelper
 {
     private static NPC? _officerMikeNPC;
     public static NPC OfficerMikeNPC => _officerMikeNPC is null? Utility.fuzzyCharacterSearch("MayorMod_OfficerMike"): _officerMikeNPC;
+
+    public static NetStringHashSet MasterPlayerMail => Game1.MasterPlayer.mailReceived;
+
+    public static void RemoveProgressMails()
+    {
+        MasterPlayerMail.Remove(Constants.ProgressKey.RegisteringForBalot);
+        MasterPlayerMail.Remove(Constants.ProgressKey.VotingMayor);
+    }
 
 
     public static void DrawSpriteTemporarily(GameLocation location, Vector2 position, string textureName, float timeInMiliseconds = 1000.0f)

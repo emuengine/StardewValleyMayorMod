@@ -1,5 +1,4 @@
 ﻿using MayorMod.Data;
-using Netcode;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
@@ -9,7 +8,6 @@ namespace MayorMod;
 /// <summary>The mod entry point.</summary>
 internal sealed class ModEntry : Mod
 {
-    private static NetStringHashSet MasterPlayerMail => Game1.MasterPlayer.mailReceived;
 
 
     /*********
@@ -29,20 +27,15 @@ internal sealed class ModEntry : Mod
 
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
-        if (Game1.dayOfMonth % 3 == 0)
+        ModHelper.RemoveProgressMails();
+
+        if (Game1.dayOfMonth % 3 == 2)
         {
-            MasterPlayerMail.Remove(Constants.ProgressKey.RegisteringForBalot);
-            MasterPlayerMail.Remove(Constants.ProgressKey.VotingMayor);
+            ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.RegisteringForBalot);
         }
-        else if (Game1.dayOfMonth % 3 == 1)
+        else if (Game1.dayOfMonth % 3 == 0)
         {
-            MasterPlayerMail.Remove(Constants.ProgressKey.VotingMayor);
-            MasterPlayerMail.Add(Constants.ProgressKey.RegisteringForBalot);
-        }
-        else
-        {
-            MasterPlayerMail.Remove(Constants.ProgressKey.RegisteringForBalot);
-            MasterPlayerMail.Add(Constants.ProgressKey.VotingMayor);
+            ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.VotingMayor);
         }
     }
 

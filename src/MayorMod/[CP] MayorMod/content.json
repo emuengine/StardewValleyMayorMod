@@ -12,17 +12,8 @@
 		},
 		//Events
 		{
-			"Action": "Load",
-			"Target": "Data/Events/Custom_MayorMod_NewMayor",
-			"FromFile": "blank.json"
-		},
-		{
 			"Action": "Include",
-			"FromFile": "Data/Events/Custom_MayorMod_NewMayor.json"
-		},
-		{
-			"Action": "Include",
-			"FromFile": "Data/Events/Custom_MayorMod_NewMayor.json"
+			"FromFile": "Data/Events/MayorMod_NewMayorEvent.json"
 		},
 		//Festivals
 		{
@@ -32,52 +23,38 @@
 		//Items
 		{
 			"Action": "Include",
-			"FromFile": "Data/ItemData/ElectionSign.json"
+			"FromFile": "Data/Items/ElectionSign.json"
 		},
 		{
 			"Action": "Include",
-			"FromFile": "Data/ItemData/Ballot.json"
-		},
-		//Locations
-		{
-			"Action": "Include",
-			"FromFile": "Data/LocationData/Locations.json"
+			"FromFile": "Data/Items/Ballot.json"
 		},
 		//Mail
 		{
 			"Action": "Include",
-			"FromFile": "Data/Mail/ImageLoad.json"
-		},
-		{
-			"Action": "Include",
-			"FromFile": "Data/Mail/MailData.json"
+			"FromFile": "Data/Mail/MailUpdates.json"
 		},
 		//Maps
 		{
 			"Action": "Include",
-			"FromFile": "Data/MapData/MapLoads.json"
+			"FromFile": "Data/Maps/Locations.json"
 		},
 		{
 			"Action": "Include",
-			"FromFile": "Data/MapData/MapPatches.json"
+			"FromFile": "Data/Maps/MapUpdates.json"
 		},
 		{
 			"Action": "Include",
-			"FromFile": "Data/MapData/MapWarps.json"
+			"FromFile": "Data/Maps/Tilesheets.json"
 		},
 		//NPCs
 		{
 			"Action": "Include",
-			"FromFile": "Data/NPCData/ImageLoad.json"
+			"FromFile": "Data/NPCs/[NPC]Governor/ImageLoad.json"
 		},
 		{
 			"Action": "Include",
-			"FromFile": "Data/NPCData/CharacterLoad.json"
-		},
-		//Tilesheets
-		{
-			"Action": "Include",
-			"FromFile": "Data/Tilesheets.json"
+			"FromFile": "Data/NPCs/[NPC]OfficerMike/CharacterLoad.json"
 		},
 
 

@@ -1,6 +1,7 @@
 {
     "Changes": [
         {
+            "LogName": "Loading OfficerMike dialogue",
             "Action": "EditData",
             "Target": "Strings/Characters",
             "Entries": {

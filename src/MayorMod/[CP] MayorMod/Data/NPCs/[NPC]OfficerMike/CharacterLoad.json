@@ -1,0 +1,60 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading Officer Mike Portrait",
+            "Action": "Load",
+            "Target": "Portraits/MayorMod_OfficerMike",
+            "FromFile": "Assets/Portraits/OfficerMike.png"
+        },
+        {
+            "LogName": "Loading Officer Mike Sprite",
+            "Action": "Load",
+            "Target": "Characters/MayorMod_OfficerMike",
+            "FromFile": "Assets/Characters/MayorMod_OfficerMike.png"
+        },
+        {
+            "LogName": "Loading Officer Mike Portrait",
+            "Action": "EditData",
+            "Target": "Data/Characters",
+            "Entries": {
+                "MayorMod_OfficerMike": {
+                    "DisplayName": " Officer Mike",
+                    "Gender": "Male",
+                    "Age": "Adult",
+                    "Manner": "Neutral",
+                    "SocialAnxiety": "Neutral",
+                    "Optimism": "Positive",
+                    "BirthSeason": "spring",
+                    "BirthDay": "1",
+                    "HomeRegion": "Town",
+                    "CanBeRomanced": false,
+                    "CanVisitIsland": false,
+                    "SpouseAdopts": true,
+                    "IntroductionsQuest": false,
+                    "ItemDeliveryQuests": false,
+                    "WinterStarParticipant": false,
+                    "Home": [
+                        {
+                            "Id": "Default",
+                            "Location": "MayorMod_VotingOffice",
+                            "Tile": {
+                                "X": 1,
+                                "Y": 7
+                            },
+                            "Direction": "right"
+                        },
+                        {
+                            "Id": "Default2",
+                            "Location": "MayorMod_RegistrationOffice",
+                            "Tile": {
+                                "X": 7,
+                                "Y": 5
+                            },
+                            "Direction": "down"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

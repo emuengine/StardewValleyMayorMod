@@ -1,12 +1,13 @@
 ﻿{
     "Changes": [
         {
+            "LogName": "Update Locations to add new map areas",
             "Action": "EditData",
             "Target": "Data/Locations",
             "Entries": {
-                "Custom_MayorMod_VotingOffice": {
+                "MayorMod_VotingOffice": {
                     "CreateOnLoad": {
-                        "MapPath": "Maps/Custom_MayorMod_VotingOffice"
+                        "MapPath": "Maps/MayorMod_VotingOffice"
                     },
                     "DisplayName": "Voting Office",
                     "DefaultArrivalTile": {
@@ -19,9 +20,9 @@
                     "Fish": [],
                     "Forage": []
                 },
-                "Custom_MayorMod_RegistrationOffice": {
+                "MayorMod_RegistrationOffice": {
                     "CreateOnLoad": {
-                        "MapPath": "Maps/Custom_MayorMod_RegistrationOffice"
+                        "MapPath": "Maps/MayorMod_RegistrationOffice"
                     },
                     "DisplayName": "Registration Office",
                     "DefaultArrivalTile": {
@@ -34,14 +35,14 @@
                     "Fish": [],
                     "Forage": []
                 },
-                "Custom_MayorMod_NewMayor": {
+                "MayorMod_NewMayorStage": {
                     "DisplayName": "New Mayor Stage",
                     "DefaultArrivalTile": {
                         "X": 18,
                         "Y": 14
                     },
                     "CreateOnLoad": {
-                        "MapPath": "Maps/Custom_MayorMod_NewMayor"
+                        "MapPath": "Maps/MayorMod_NewMayorStage"
                     }
                 }
             }

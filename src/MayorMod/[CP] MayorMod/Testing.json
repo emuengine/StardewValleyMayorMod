@@ -9,5 +9,9 @@
             }
 
         }
+
+        //"When": {
+        //    "HasMod: |contains=FlashShifter.StardewValleyExpandedCP": false
+        //}
     ]
 }

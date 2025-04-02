@@ -1,0 +1,106 @@
+{
+    "Changes": [
+        // Voting Booth
+        {
+            "LogName": "Load Voting Office into Assets",
+            "Action": "Load",
+            "Target": "Maps/MayorMod_VotingOffice",
+            "FromFile": "Assets/Maps/InteriorMaps/MayorMod_VotingOffice.tmx"
+        },
+        {
+            "LogName": "Patching town map to add Voting Office Exterior",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "ReplaceByLayer",
+            "FromFile": "Assets/Maps/MapPatches/MayorMod_VotingDay.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 15,
+                "Height": 12
+            },
+            "ToArea": {
+                "X": 6,
+                "Y": 64,
+                "Width": 15,
+                "Height": 12
+            },
+            "When": {
+                "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
+            }
+        },
+        {
+            "LogName": "Adding warp (Town -> VotingOffice)",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "AddWarps": [
+                "10 68 MayorMod_VotingOffice 7 9"
+            ],
+            "When": {
+                "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
+            }
+        },
+        {
+            "LogName": "Adding warp (VotingOffice -> Town)",
+            "Action": "EditMap",
+            "Target": "Maps/MayorMod_VotingOffice",
+            "AddWarps": [
+                "7 10 Town 10 69"
+            ],
+            "When": {
+                "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
+            }
+        },
+        // Registration Office
+        {
+            "LogName": "Loading Registration Office into Assets",
+            "Action": "Load",
+            "Target": "Maps/MayorMod_RegistrationOffice",
+            "FromFile": "Assets/Maps/InteriorMaps/MayorMod_RegistrationOffice.tmx"
+        },
+        {
+            "LogName": "Patching town map to add Registration Office Exterior",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "ReplaceByLayer",
+            "FromFile": "Assets/Maps/MapPatches/MayorMod_RegistrationDay.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 15,
+                "Height": 12
+            },
+            "ToArea": {
+                "X": 6,
+                "Y": 64,
+                "Width": 15,
+                "Height": 12
+            },
+            "When": {
+                "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
+            }
+        },
+        {
+            "LogName": "Adding warp (Town -> RegistrationOffice)",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "AddWarps": [
+                "10 68 MayorMod_RegistrationOffice 7 9"
+            ],
+            "When": {
+                "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
+            }
+        },
+        {
+            "LogName": "Adding warp (RegistrationOffice -> Town)",
+            "Action": "EditMap",
+            "Target": "Maps/MayorMod_RegistrationOffice",
+            "AddWarps": [
+                "7 10 Town 10 69"
+            ],
+            "When": {
+                "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
+            }
+        }
+    ]
+}

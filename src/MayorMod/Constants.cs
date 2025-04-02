@@ -6,11 +6,11 @@ public static class Constants
 
     public static class ProgressKey
     {
-        public readonly static string RegisteringForBalot = $"{MayorModPrefix}_RegisteringForBalot";
-        public readonly static string VotingMayor = $"{MayorModPrefix}_VotingForMayor";
+        public readonly static string RegisteringForBalot = $"{MayorModPrefix}_EnableRegistrationOffice";
+        public readonly static string VotingMayor = $"{MayorModPrefix}_EnableVotingBooth";
         public readonly static string RunningForMayor = $"{MayorModPrefix}_RunningForMayor";
+        public readonly static string VotedForMayor = $"{MayorModPrefix}_HasVoted";
         public readonly static string ElectedAsMayor = $"{MayorModPrefix}_ElectedAsMayor";
-        public readonly static string VotedForMayor = $"{MayorModPrefix}_Voted";
     }
     public static class ActionKey
     {

@@ -1,23 +1,29 @@
 ﻿{
     "Changes": [
+        // Mail backgrounds
+        {
+            "LogName": "Load new image for Mail background",
+            "Action": "Load",
+            "Target": "LooseSprites/MayorMod_letterBG",
+            "FromFile": "Assets/Mail/MayorMod_letterBG.png"
+        },
         // Mails
         {
+            "LogName": "Loading Mails",
             "Action": "EditData",
             "Target": "data/mail",
-
             "Entries": {
                 "registerForElectionMail": "^^^Dear @,^^ The current term of the Mayor of Stardew Valley will be coming to an end soon. Registration for candidates will take place tomorrow. All citizens of Stardew Valley are eligible to register. A temporary tent will be set up near the town center where registration will take place.[letterbg LooseSprites/MayorMod_letterBG 0] [textcolor black]"
             }
         },
-
         //Send mail
         {
+            "LogName": "Loading Mailing events",
             "Action": "EditData",
             "Target": "Data/Events/Farm",
-
             "Entries": {
                 "57870000/x registerForElectionMail true": "null"
-            },
+            }
             //"When": {
             //    "HasFlag | contains=runningForMayor": "true"
             //}

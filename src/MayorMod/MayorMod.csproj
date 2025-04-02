@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="[CP] MayorMod\Data\MapData\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ContentPacks Include="[CP] MayorMod" Version="$(Version)" />
   </ItemGroup>
 
