@@ -19,7 +19,31 @@
                 "Height": 12
             },
             "When": {
-                "HasMod: |contains=FlashShifter.StardewValleyExpandedCP": false
+                "HasFlag | contains=MayorMod_VotingForMayor": "true"
+            }
+            //"When": {
+            //    "HasMod: |contains=FlashShifter.StardewValleyExpandedCP": false
+            //}
+        },
+        {
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "ReplaceByLayer",
+            "FromFile": "Assets/Maps/MapPatches/MayorMod_RegistrationDay.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 15,
+                "Height": 12
+            },
+            "ToArea": {
+                "X": 6,
+                "Y": 64,
+                "Width": 15,
+                "Height": 12
+            },
+            "When": {
+                "HasFlag | contains=MayorMod_RegisteringForBalot": "true"
             }
         }
     ]

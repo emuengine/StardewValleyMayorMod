@@ -5,16 +5,42 @@
             "Action": "EditMap",
             "Target": "Maps/Town",
             "AddWarps": [
-                "10 68 Custom_MayorMod_VotingTent 7 9"
-            ]
+                "10 68 Custom_MayorMod_VotingOffice 7 9"
+            ],
+            "When": {
+                "HasFlag | contains=MayorMod_VotingForMayor": "true"
+            }
+        },
+        {
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "AddWarps": [
+                "10 68 Custom_MayorMod_RegistrationOffice 7 9"
+            ],
+            "When": {
+                "HasFlag | contains=MayorMod_RegisteringForBalot": "true"
+            }
         },
         // Interior Maps
         {
             "Action": "EditMap",
-            "Target": "Maps/Custom_MayorMod_VotingTent",
+            "Target": "Maps/Custom_MayorMod_VotingOffice",
             "AddWarps": [
                 "7 10 Town 10 69"
-            ]
+            ],
+            "When": {
+                "HasFlag | contains=MayorMod_VotingForMayor": "true"
+            }
+        },
+        {
+            "Action": "EditMap",
+            "Target": "Maps/Custom_MayorMod_RegistrationOffice",
+            "AddWarps": [
+                "7 10 Town 10 69"
+            ],
+            "When": {
+                "HasFlag | contains=MayorMod_RegisteringForBalot": "true"
+            }
         }
     ]
 }

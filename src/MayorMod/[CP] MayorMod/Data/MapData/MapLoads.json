@@ -1,10 +1,16 @@
 {
     "Changes": [
         {
-            "LogName": "Load Voting Tent into Assets",
+            "LogName": "Load Voting Office into Assets",
             "Action": "Load",
-            "Target": "Maps/Custom_MayorMod_VotingTent",
-            "FromFile": "Assets/Maps/InteriorMaps/MayorMod_VotingTent.tmx"
+            "Target": "Maps/Custom_MayorMod_VotingOffice",
+            "FromFile": "Assets/Maps/InteriorMaps/MayorMod_VotingOffice.tmx"
+        },
+        {
+            "LogName": "Load Registration Office into Assets",
+            "Action": "Load",
+            "Target": "Maps/Custom_MayorMod_RegistrationOffice",
+            "FromFile": "Assets/Maps/InteriorMaps/MayorMod_RegistrationOffice.tmx"
         },
         {
             "LogName": "Load New Mayor Speech into Assets",

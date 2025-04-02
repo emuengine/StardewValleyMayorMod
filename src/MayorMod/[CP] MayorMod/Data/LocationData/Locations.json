@@ -4,11 +4,26 @@
             "Action": "EditData",
             "Target": "Data/Locations",
             "Entries": {
-                "Custom_MayorMod_VotingTent": {
+                "Custom_MayorMod_VotingOffice": {
                     "CreateOnLoad": {
-                        "MapPath": "Maps/Custom_MayorMod_VotingTent"
+                        "MapPath": "Maps/Custom_MayorMod_VotingOffice"
                     },
-                    "DisplayName": "Voting Tent",
+                    "DisplayName": "Voting Office",
+                    "DefaultArrivalTile": {
+                        "X": 7,
+                        "Y": 9
+                    },
+                    "ExcludeFromNpcPathfinding": false,
+                    "ArtifactSpots": [],
+                    "FishAreas": {},
+                    "Fish": [],
+                    "Forage": []
+                },
+                "Custom_MayorMod_RegistrationOffice": {
+                    "CreateOnLoad": {
+                        "MapPath": "Maps/Custom_MayorMod_RegistrationOffice"
+                    },
+                    "DisplayName": "Registration Office",
                     "DefaultArrivalTile": {
                         "X": 7,
                         "Y": 9

@@ -23,6 +23,27 @@ internal sealed class ModEntry : Mod
         //helper.Events.Content.AssetRequested += this.OnAssetRequested;
 
         TileActions.Init(this.Monitor);
+
+        helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
+    }
+
+    private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
+    {
+        if (Game1.dayOfMonth % 3 == 0)
+        {
+            MasterPlayerMail.Remove(Constants.ProgressKey.RegisteringForBalot);
+            MasterPlayerMail.Remove(Constants.ProgressKey.VotingMayor);
+        }
+        else if (Game1.dayOfMonth % 3 == 1)
+        {
+            MasterPlayerMail.Remove(Constants.ProgressKey.VotingMayor);
+            MasterPlayerMail.Add(Constants.ProgressKey.RegisteringForBalot);
+        }
+        else
+        {
+            MasterPlayerMail.Remove(Constants.ProgressKey.RegisteringForBalot);
+            MasterPlayerMail.Add(Constants.ProgressKey.VotingMayor);
+        }
     }
 
     private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
