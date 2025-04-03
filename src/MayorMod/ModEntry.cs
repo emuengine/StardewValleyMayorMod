@@ -8,12 +8,9 @@ namespace MayorMod;
 /// <summary>The mod entry point.</summary>
 internal sealed class ModEntry : Mod
 {
-
-
-    /*********
-    ** Public methods
-    *********/
-    /// <summary>The mod entry point, called after the mod is first loaded.</summary>
+    /// <summary>
+    /// The mod entry point, called after the mod is first loaded.
+    /// </summary>
     /// <param name="helper">Provides simplified APIs for writing mods.</param>
     public override void Entry(IModHelper helper)
     {
@@ -38,32 +35,6 @@ internal sealed class ModEntry : Mod
             ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.VotingMayor);
         }
     }
-
-    private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
-    {
-        CheckForMayorDialogue(e);
-
-
-    }
-
-    private void CheckForMayorDialogue(AssetRequestedEventArgs e)
-    {
-    }
-
-    //private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
-    //{
-    //    if (e.NameWithoutLocale.IsEquivalentTo("Data/Events/Custom_MayorMod_NewMayor"))
-    //    {
-    //        //Loading the "NewMayor" event so swap the sprite for the Governor
-    //        _loadNewMayorGovernorSprite = true;
-    //    }
-    //    else if (e.NameWithoutLocale.IsEquivalentTo("Characters/Governor") && _loadNewMayorGovernorSprite)
-    //    {
-    //        e.Edit(asset => { asset.ReplaceWith(Helper.GameContent.Load<Texture2D>("Characters/Governor_NewMayorEvent")); });
-    //        _loadNewMayorGovernorSprite = false;
-    //    }
-    //}
-
 
     //#region Mail
     //private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)

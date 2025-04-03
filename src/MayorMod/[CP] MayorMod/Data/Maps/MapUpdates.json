@@ -101,6 +101,13 @@
             "When": {
                 "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
             }
+        },
+        //Mayor manor house
+        {
+            "LogName": "Loading empty mayor house into assets",
+            "Action": "Load",
+            "Target": "Maps/MayorMod_ManorHouse",
+            "FromFile": "Assets/Maps/InteriorMaps/MayorMod_ManorHouse.tmx"
         }
     ]
 }

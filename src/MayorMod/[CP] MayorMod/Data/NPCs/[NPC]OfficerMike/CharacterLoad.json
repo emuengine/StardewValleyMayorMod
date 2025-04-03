@@ -27,36 +27,27 @@
                     "BirthSeason": "spring",
                     "BirthDay": "1",
                     "HomeRegion": "Town",
+                    "CanSocialize": false,
+                    "CanReceiveGifts": false,
+                    "PerfectionScore": false,
+                    "CanGreetNearbyCharacters": false,
                     "CanBeRomanced": false,
                     "CanVisitIsland": false,
-                    "SpouseAdopts": true,
+                    "SpouseAdopts": false,
                     "IntroductionsQuest": false,
                     "ItemDeliveryQuests": false,
                     "WinterStarParticipant": false,
+                    "SocialTab": "HiddenAlways",
+                    "Calendar": "HiddenAlways",
                     "Home": [
-                        //{
-                        //    "Id": "Default_VotingBooth",
-                        //    "Location": "MayorMod_VotingOffice",
-                        //    "Tile": {
-                        //        "X": 1,
-                        //        "Y": 7
-                        //    },
-                        //    "Direction": "right",
-                        //    "When": {
-                        //        "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
-                        //    }
-                        //},
                         {
                             "Id": "Default",
-                            "Location": "MayorMod_RegistrationOffice",
+                            "Location": "MayorMod_VotingOffice",
                             "Tile": {
-                                "X": 7,
-                                "Y": 5
+                                "X": 1,
+                                "Y": 7
                             },
-                            "Direction": "down",
-                            "When": {
-                                "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
-                            }
+                            "Direction": "right"
                         }
                     ]
                 }

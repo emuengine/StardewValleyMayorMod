@@ -44,6 +44,22 @@
                     "CreateOnLoad": {
                         "MapPath": "Maps/MayorMod_NewMayorStage"
                     }
+                },
+                "MayorMod_ManorHouse": {
+                    "CreateOnLoad": {
+                        "MapPath": "Maps/MayorMod_ManorHouse"
+                    },
+                    "DisplayName": "Empty Manor House",
+                    "DefaultArrivalTile": {
+                        "X": 7,
+                        "Y": 9
+                    },
+                    "ExcludeFromNpcPathfinding": false,
+                    "ArtifactSpots": [],
+                    "FishAreas": {},
+                    "Fish": [],
+                    "Forage": [],
+                    "MusicContext": "Default"
                 }
             }
         }
