@@ -10,7 +10,8 @@
                 "HaveVoted": "You should be proud that you have done your civic duty",
                 "CantCarryBallot": "Sorry sir. I can't give your ballot. You're carrying too much stuff.",
                 "NeedBallot": "Come over to the desk to pick up your ballot.",
-                "NeedToVote": "Now that you've voted you can put your ballot in the ballot box."
+                "NeedToVote": "Now that you've voted you can put your ballot in the ballot box.",
+                "RegisterForBallot": "You are now registered for the ballot. Good Luck!"
             }
         }
     ]

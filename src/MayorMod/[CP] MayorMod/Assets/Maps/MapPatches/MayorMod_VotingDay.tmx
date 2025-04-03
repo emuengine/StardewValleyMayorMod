@@ -3111,8 +3111,8 @@
    </animation>
   </tile>
  </tileset>
- <tileset firstgid="6839" name="z_MayorModTilesheet" tilewidth="16" tileheight="16" tilecount="390" columns="26">
-  <image source="MayorModTilesheet.png" width="416" height="240"/>
+ <tileset firstgid="6839" name="z_MayorMod_Misc_Tilesheet" tilewidth="16" tileheight="16" tilecount="390" columns="26">
+  <image source="MayorMod_Misc_Tilesheet.png" width="416" height="240"/>
  </tileset>
  <layer id="1" name="Back" width="15" height="12">
   <data encoding="csv">

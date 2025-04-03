@@ -31,6 +31,7 @@ public class TileActions
                 switch (arg2[1])
                 {
                     case Constants.ActionKey.DeskAction: DeskAction(farmer); break;
+                    case Constants.ActionKey.DeskRegisterAction: DeskRegisterAction(farmer); break;
                     case Constants.ActionKey.VotingBoothAction: VotingBoothAction(location, farmer, arg2); break;
                     case Constants.ActionKey.BallotBoxAction: BallotBoxAction(farmer); break;
                     default: _monitor?.Log($"Unknown tile action - {arg2[1]}", LogLevel.Error); break;
@@ -42,6 +43,11 @@ public class TileActions
             Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.HaveVoted);
         }
         return true;
+    }
+
+    private static void DeskRegisterAction(Farmer farmer)
+    {
+        Game1.DrawDialogue(ModHelper.OfficerMikeNPC, Constants.DialogueKey.RegisterForBallot);
     }
 
     /// <summary>

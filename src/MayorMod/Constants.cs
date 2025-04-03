@@ -16,6 +16,7 @@ public static class Constants
     {
         public const string Action = "MayorModAction";
         public const string DeskAction = "Desk";
+        public const string DeskRegisterAction = "DeskRegister";
         public const string VotingBoothAction = "VotingBooth";
         public const string BallotBoxAction = "BallotBox";
     }
@@ -27,6 +28,7 @@ public static class Constants
     }
     public static class DialogueKey
     {
+        public const string RegisterForBallot = "Strings\\Characters:RegisterForBallot";
         public const string GetBallot = "Strings\\Characters:GetBallot";
         public const string NeedToFillBallot = "Strings\\Characters:NeedToFillBallot";
         public const string HaveVoted = "Strings\\Characters:HaveVoted";

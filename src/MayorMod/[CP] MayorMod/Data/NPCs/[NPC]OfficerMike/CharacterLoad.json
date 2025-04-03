@@ -34,23 +34,29 @@
                     "ItemDeliveryQuests": false,
                     "WinterStarParticipant": false,
                     "Home": [
+                        //{
+                        //    "Id": "Default_VotingBooth",
+                        //    "Location": "MayorMod_VotingOffice",
+                        //    "Tile": {
+                        //        "X": 1,
+                        //        "Y": 7
+                        //    },
+                        //    "Direction": "right",
+                        //    "When": {
+                        //        "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
+                        //    }
+                        //},
                         {
                             "Id": "Default",
-                            "Location": "MayorMod_VotingOffice",
-                            "Tile": {
-                                "X": 1,
-                                "Y": 7
-                            },
-                            "Direction": "right"
-                        },
-                        {
-                            "Id": "Default2",
                             "Location": "MayorMod_RegistrationOffice",
                             "Tile": {
                                 "X": 7,
                                 "Y": 5
                             },
-                            "Direction": "down"
+                            "Direction": "down",
+                            "When": {
+                                "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
+                            }
                         }
                     ]
                 }
