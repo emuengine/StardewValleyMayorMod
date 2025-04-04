@@ -20,6 +20,12 @@ internal sealed class ModEntry : Mod
         TileActions.Init(this.Monitor);
 
         helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
+        helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
+    }
+
+    private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
+    {
+        ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.RegisteringForBalot);
     }
 
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
