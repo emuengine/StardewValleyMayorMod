@@ -16,14 +16,14 @@
             "FromArea": {
                 "X": 0,
                 "Y": 0,
-                "Width": 15,
-                "Height": 12
+                "Width": 9,
+                "Height": 9
             },
             "ToArea": {
-                "X": 6,
-                "Y": 64,
-                "Width": 15,
-                "Height": 12
+                "X": 36,
+                "Y": 23,
+                "Width": 9,
+                "Height": 9
             },
             "When": {
                 "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
@@ -34,7 +34,7 @@
             "Action": "EditMap",
             "Target": "Maps/Town",
             "AddWarps": [
-                "10 68 MayorMod_VotingOffice 7 9"
+                "40 27 MayorMod_VotingOffice 7 9"
             ],
             "When": {
                 "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
@@ -45,7 +45,7 @@
             "Action": "EditMap",
             "Target": "Maps/MayorMod_VotingOffice",
             "AddWarps": [
-                "7 10 Town 10 69"
+                "7 10 Town 40 28"
             ],
             "When": {
                 "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
@@ -67,14 +67,14 @@
             "FromArea": {
                 "X": 0,
                 "Y": 0,
-                "Width": 15,
-                "Height": 12
+                "Width": 9,
+                "Height": 9
             },
             "ToArea": {
-                "X": 6,
-                "Y": 64,
-                "Width": 15,
-                "Height": 12
+                "X": 36,
+                "Y": 23,
+                "Width": 9,
+                "Height": 9
             },
             "When": {
                 "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
@@ -85,7 +85,7 @@
             "Action": "EditMap",
             "Target": "Maps/Town",
             "AddWarps": [
-                "10 68 MayorMod_RegistrationOffice 7 9"
+                "40 27 MayorMod_RegistrationOffice 7 9"
             ],
             "When": {
                 "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
@@ -96,7 +96,7 @@
             "Action": "EditMap",
             "Target": "Maps/MayorMod_RegistrationOffice",
             "AddWarps": [
-                "7 10 Town 10 69"
+                "7 10 Town 40 28"
             ],
             "When": {
                 "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
