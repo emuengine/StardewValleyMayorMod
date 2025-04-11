@@ -12,6 +12,12 @@
             "Action": "Load",
             "Target": "Characters/Gil",
             "FromFile": "Assets/Characters/MayorMod_Gil.png"
+        },
+        {
+            "LogName": "Loading Gil Sprite Update",
+            "Action": "Load",
+            "Target": "Characters/Gil_RockingChair",
+            "FromFile": "Assets/Characters/MayorMod_RockingChair.png"
         }
     ]
 }
