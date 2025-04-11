@@ -16,26 +16,15 @@
             "FromArea": {
                 "X": 0,
                 "Y": 0,
-                "Width": 9,
-                "Height": 9
+                "Width": 10,
+                "Height": 8
             },
             "ToArea": {
-                "X": 36,
-                "Y": 23,
-                "Width": 9,
-                "Height": 9
+                "X": 31,
+                "Y": 31,
+                "Width": 10,
+                "Height": 8
             },
-            "When": {
-                "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
-            }
-        },
-        {
-            "LogName": "Adding warp (Town -> VotingOffice)",
-            "Action": "EditMap",
-            "Target": "Maps/Town",
-            "AddWarps": [
-                "40 27 MayorMod_VotingOffice 7 9"
-            ],
             "When": {
                 "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
             }
@@ -45,7 +34,7 @@
             "Action": "EditMap",
             "Target": "Maps/MayorMod_VotingOffice",
             "AddWarps": [
-                "7 10 Town 40 28"
+                "7 10 Town 35 36"
             ],
             "When": {
                 "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
@@ -62,31 +51,20 @@
             "LogName": "Patching town map to add Registration Office Exterior",
             "Action": "EditMap",
             "Target": "Maps/Town",
-            "PatchMode": "ReplaceByLayer",
+            "PatchMode": "Overlay",
             "FromFile": "Assets/Maps/MapPatches/MayorMod_RegistrationDay.tmx",
             "FromArea": {
                 "X": 0,
                 "Y": 0,
-                "Width": 9,
-                "Height": 9
+                "Width": 10,
+                "Height": 8
             },
             "ToArea": {
-                "X": 36,
-                "Y": 23,
-                "Width": 9,
-                "Height": 9
+                "X": 31,
+                "Y": 31,
+                "Width": 10,
+                "Height": 8
             },
-            "When": {
-                "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
-            }
-        },
-        {
-            "LogName": "Adding warp (Town -> RegistrationOffice)",
-            "Action": "EditMap",
-            "Target": "Maps/Town",
-            "AddWarps": [
-                "40 27 MayorMod_RegistrationOffice 7 9"
-            ],
             "When": {
                 "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
             }
@@ -96,7 +74,7 @@
             "Action": "EditMap",
             "Target": "Maps/MayorMod_RegistrationOffice",
             "AddWarps": [
-                "7 10 Town 40 28"
+                "7 10 Town 35 36"
             ],
             "When": {
                 "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
@@ -108,6 +86,13 @@
             "Action": "Load",
             "Target": "Maps/MayorMod_ManorHouse",
             "FromFile": "Assets/Maps/InteriorMaps/MayorMod_ManorHouse.tmx"
+        },
+        //Adventure Guild Update
+        {
+            "LogName": "Loading event adventure guild into assets",
+            "Action": "Load",
+            "Target": "Maps/MayorMod_AdventureGuild",
+            "FromFile": "Assets/Maps/MapPatches/MayorMod_AdventureGuild.tmx"
         }
     ]
 }

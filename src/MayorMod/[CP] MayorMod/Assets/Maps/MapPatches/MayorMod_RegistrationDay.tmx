@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="9" height="9" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="45">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="10" height="8" tilewidth="16" tileheight="16" infinite="0" nextlayerid="20" nextobjectid="49">
  <properties>
   <property name="BrookSounds" value="94 5 5"/>
   <property name="DayTiles" value="AlwaysFront 52 98 907 AlwaysFront 56 98 907 AlwaysFront 24 50 907 AlwaysFront 33 53 907 AlwaysFront 24 58 907 AlwaysFront 27 72 907 AlwaysFront 30 72 907 AlwaysFront 38 65 907 AlwaysFront 27 86 907 AlwaysFront 17 86 907 AlwaysFront 21 64 907 Buildings 92 79 186 Buildings 41 69 560 Buildings 71 67 720"/>
@@ -3126,30 +3126,47 @@
  <tileset firstgid="6839" name="z_MayorMod_Misc_Tilesheet" tilewidth="16" tileheight="16" tilecount="390" columns="26">
   <image source="MayorMod_Misc_Tilesheet.png" width="416" height="240"/>
  </tileset>
- <layer id="4" name="Buildings" width="9" height="9">
+ <layer id="19" name="Back2" width="10" height="8">
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,
-7142,7143,7144,7145,7146,7147,7148,7149,7150,
-7168,7169,7170,7171,7172,7173,7174,7175,7176,
-7194,7195,7196,7197,7198,7199,7200,7201,7202,
-0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,
-0,7114,7115,0,0,0,0,0,0,
-0,7140,7141,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,202,202,202,0,0,
+0,0,251,252,252,252,252,252,252,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="8" name="AlwaysFront" width="9" height="9">
+ <layer id="4" name="Buildings" width="10" height="8">
   <data encoding="csv">
-7090,7091,7092,7093,7094,7095,7096,7097,7098,
-7116,7117,7118,7119,7120,7121,7122,7123,7124,
-0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+7142,7143,7144,7145,7146,7147,7148,7149,7150,0,
+7168,7169,7170,7171,7172,7173,7174,7175,7176,0,
+7194,7195,7196,7197,7198,7199,7200,7201,7202,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,7140,7141
 </data>
  </layer>
+ <layer id="8" name="Front" width="10" height="8">
+  <data encoding="csv">
+7090,7091,7092,7093,7094,7095,7096,7097,7098,0,
+7116,7117,7118,7119,7120,7121,7122,7123,7124,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,7114,7115,
+0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="17" name="Buildings">
+  <object id="46" name="TileData" x="64" y="64" width="16" height="16">
+   <properties>
+    <property name="Action" value="LockedDoorWarp 7 9 MayorMod_RegistrationOffice 600 1800"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

@@ -1,10 +1,11 @@
 {
     "Changes": [
+        //Officer Mike
         {
             "LogName": "Loading Officer Mike Portrait",
             "Action": "Load",
             "Target": "Portraits/MayorMod_OfficerMike",
-            "FromFile": "Assets/Portraits/OfficerMike.png"
+            "FromFile": "Assets/Portraits/MayorMod_OfficerMike_Portrait.png"
         },
         {
             "LogName": "Loading Officer Mike Sprite",

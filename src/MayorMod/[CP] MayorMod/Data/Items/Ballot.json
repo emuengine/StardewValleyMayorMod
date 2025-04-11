@@ -15,10 +15,10 @@
             "Action": "EditData",
             "Target": "Data/Objects",
             "Entries": {
-                "MayorMod_Ballot": {
-                    "Name": "MayorMod_Ballot",
-                    "DisplayName": "{{i18n:MayorMod_Ballot.Name}}",
-                    "Description": "{{i18n:MayorMod_Ballot.Description}}",
+                "{{ModId}}_Ballot": {
+                    "Name": "{{ModId}}_Ballot",
+                    "DisplayName": "{{i18n:{{ModId}}_Ballot.Name}}",
+                    "Description": "{{i18n:{{ModId}}_Ballot.Description}}",
                     "Type": "Basic",
                     "Category": 0,
                     "Price": 0,
@@ -32,10 +32,10 @@
                     "ContextTags": [],
                     "Buffs": []
                 },
-                "MayorMod_BallotUsed": {
-                    "Name": "MayorMod_BallotUsed",
-                    "DisplayName": "{{i18n:MayorMod_BallotUsed.Name}}",
-                    "Description": "{{i18n:MayorMod_BallotUsed.Description}}",
+                "{{ModId}}_BallotUsed": {
+                    "Name": "{{ModId}}_BallotUsed",
+                    "DisplayName": "{{i18n:{{ModId}}_BallotUsed.Name}}",
+                    "Description": "{{i18n:{{ModId}}_BallotUsed.Description}}",
                     "Type": "Basic",
                     "Category": 0,
                     "Price": 0,

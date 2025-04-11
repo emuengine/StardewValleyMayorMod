@@ -1,13 +1,16 @@
 {
-	"MayorMod_ElectionSign.Name": "Election Sign",
-	"MayorMod_ElectionSign.Description": "Sign for elections",
+	"EmuEngine.MayorModCP_ElectionSign.Name": "Election Sign",
+	"EmuEngine.MayorModCP_ElectionSign.Description": "Sign for elections",
 
-	"MayorMod_Ballot.Name": "Ballot",
-	"MayorMod_Ballot.Description": "Ballot slip used for voting",
+	"EmuEngine.MayorModCP_Ballot.Name": "Ballot",
+	"EmuEngine.MayorModCP_Ballot.Description": "Ballot slip used for voting",
 
-	"MayorMod_BallotUsed.Name": "Ballot (Voted)",
-	"MayorMod_BallotUsed.Description": "Ballot which has been marked with your vote",
+	"EmuEngine.MayorModCP_BallotUsed.Name": "Ballot (Voted)",
+	"EmuEngine.MayorModCP_BallotUsed.Description": "Ballot which has been marked with your vote",
 
-	"MayorMod_VotingDay.Name": "Voting Day!",
-	"MayorMod_VotingDay.Message": "Don't forget to vote!'"
+	"EmuEngine.MayorModCP_VotingDay.Name": "Voting Day!",
+	"EmuEngine.MayorModCP_VotingDay.Message": "Don't forget to vote!'",
+
+	"EmuEngine.MayorModCP_RockingChair.Name": "RockingChair!",
+	"EmuEngine.MayorModCP_RockingChair.Message": "A chair that rocks'"
 }

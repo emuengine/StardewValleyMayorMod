@@ -10,10 +10,10 @@
             "Action": "EditData",
             "Target": "Data/BigCraftables",
             "Entries": {
-                "MayorMod_ElectionSign": {
-                    "Name": "MayorMod_ElectionSign",
-                    "DisplayName": "{{i18n:MayorMod_ElectionSign.Name}}",
-                    "Description": "{{i18n:MayorMod_ElectionSign.Description}}",
+                "{{ModId}}_ElectionSign": {
+                    "Name": "{{ModId}}_ElectionSign",
+                    "DisplayName": "{{i18n:{{ModId}}_ElectionSign.Name}}",
+                    "Description": "{{i18n:{{ModId}}_ElectionSign.Description}}",
                     "Price": 0,
                     "Fragility": 0,
                     "CanBePlacedOutdoors": true,

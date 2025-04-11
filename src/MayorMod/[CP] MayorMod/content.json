@@ -54,6 +54,10 @@
 		//NPCs
 		{
 			"Action": "Include",
+			"FromFile": "Data/NPCs/[NPC]Gil/CharacterLoad.json"
+		},
+		{
+			"Action": "Include",
 			"FromFile": "Data/NPCs/[NPC]Governor/ImageLoad.json"
 		},
 		{

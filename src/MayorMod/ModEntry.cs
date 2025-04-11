@@ -25,21 +25,22 @@ internal sealed class ModEntry : Mod
 
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
-        ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.RegisteringForBalot);
+        ModHelper.RemoveProgressMails();
+        ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.VotingMayor);
     }
 
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
-        ModHelper.RemoveProgressMails();
+        //ModHelper.RemoveProgressMails();
 
-        if (Game1.dayOfMonth % 3 == 2)
-        {
-            ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.RegisteringForBalot);
-        }
-        else if (Game1.dayOfMonth % 3 == 0)
-        {
-            ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.VotingMayor);
-        }
+        //if (Game1.dayOfMonth % 3 == 2)
+        //{
+        //    ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.RegisteringForBalot);
+        //}
+        //else if (Game1.dayOfMonth % 3 == 0)
+        //{
+        //    ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.VotingMayor);
+        //}
     }
 
     //#region Mail
