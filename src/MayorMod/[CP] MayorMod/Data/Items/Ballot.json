@@ -7,11 +7,6 @@
             "FromFile": "Assets/Items/{{TargetWithoutPath}}.png"
         },
         {
-            "Action": "Load",
-            "Target": "LooseSprites/Ballot",
-            "FromFile": "Assets/Items/Ballot.png"
-        },
-        {
             "Action": "EditData",
             "Target": "Data/Objects",
             "Entries": {

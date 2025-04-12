@@ -4,7 +4,7 @@
             "LogName": "Loading updated Governor sprite for NewMayorSpeech event",
             "Action": "Load",
             "Target": "Characters/Governor_NewMayorEvent",
-            "FromFile": "Assets/Characters/Governor_NewMayorEvent.png"
+            "FromFile": "Assets/NPCs/Governor/SpriteSheet.png"
         }
     ]
 }

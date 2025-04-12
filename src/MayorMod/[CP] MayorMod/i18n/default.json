@@ -1,4 +1,5 @@
 {
+	//Items
 	"EmuEngine.MayorModCP_ElectionSign.Name": "Election Sign",
 	"EmuEngine.MayorModCP_ElectionSign.Description": "Sign for elections",
 
@@ -12,5 +13,16 @@
 	"EmuEngine.MayorModCP_VotingDay.Message": "Don't forget to vote!'",
 
 	"EmuEngine.MayorModCP_RockingChair.Name": "RockingChair!",
-	"EmuEngine.MayorModCP_RockingChair.Message": "A chair that rocks'"
+	"EmuEngine.MayorModCP_RockingChair.Message": "A chair that rocks'",
+
+	//Dialogue
+
+	//OfficerMike
+	"OfficerMike.Dialogue.GetBallot": "Hello sir. May I check your ID? ..... #$b#Thank you very much {0}. Here is your ballot. You can make your vote at the desk over there. When you're done, put your ballot in the box.",
+	"OfficerMike.Dialogue.NeedToFillBallot": "You can make your vote at the desk over there. When you're done, put your ballot in the box.",
+	"OfficerMike.Dialogue.HaveVoted": "You should be proud that you have done your civic duty",
+	"OfficerMike.Dialogue.CantCarryBallot": "Sorry sir. I can't give your ballot. You're carrying too much stuff.",
+	"OfficerMike.Dialogue.NeedBallot": "Come over to the desk to pick up your ballot.",
+	"OfficerMike.Dialogue.NeedToVote": "Now that you've voted you can put your ballot in the ballot box.",
+	"OfficerMike.Dialogue.RegisterForBallot": "You are now registered for the ballot. Good Luck!"
 }

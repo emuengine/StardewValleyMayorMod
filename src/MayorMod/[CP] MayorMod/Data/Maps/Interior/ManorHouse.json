@@ -1,0 +1,33 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading MayorMod_ManorHouse into assets",
+            "Action": "Load",
+            "Target": "Maps/MayorMod_ManorHouse",
+            "FromFile": "Assets/Maps/Interior/ManorHouse.tmx"
+        },
+        {
+            "LogName": "Updating Data/Locations to add MayorMod_ManorHouse",
+            "Action": "EditData",
+            "Target": "Data/Locations",
+            "Entries": {
+                "MayorMod_ManorHouse": {
+                    "CreateOnLoad": {
+                        "MapPath": "Maps/MayorMod_ManorHouse"
+                    },
+                    "DisplayName": "Empty Manor House",
+                    "DefaultArrivalTile": {
+                        "X": 7,
+                        "Y": 9
+                    },
+                    "ExcludeFromNpcPathfinding": false,
+                    "ArtifactSpots": [],
+                    "FishAreas": {},
+                    "Fish": [],
+                    "Forage": [],
+                    "MusicContext": "Default"
+                }
+            }
+        }
+    ]
+}

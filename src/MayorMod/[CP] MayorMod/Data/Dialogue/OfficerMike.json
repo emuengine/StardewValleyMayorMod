@@ -5,13 +5,13 @@
             "Action": "EditData",
             "Target": "Strings/Characters",
             "Entries": {
-                "GetBallot": "Hello sir. May I check your ID? ..... #$b#Thank you very much {0}. Here is your ballot. You can make your vote at the desk over there. When you're done, put your ballot in the box.",
-                "NeedToFillBallot": "You can make your vote at the desk over there. When you're done, put your ballot in the box.",
-                "HaveVoted": "You should be proud that you have done your civic duty",
-                "CantCarryBallot": "Sorry sir. I can't give your ballot. You're carrying too much stuff.",
-                "NeedBallot": "Come over to the desk to pick up your ballot.",
-                "NeedToVote": "Now that you've voted you can put your ballot in the ballot box.",
-                "RegisterForBallot": "You are now registered for the ballot. Good Luck!"
+                "GetBallot": "{{i18n:OfficerMike.Dialogue.GetBallot}}",
+                "NeedToFillBallot": "{{i18n:OfficerMike.Dialogue.NeedToFillBallot}}",
+                "HaveVoted": "{{i18n:OfficerMike.Dialogue.HaveVoted}}",
+                "CantCarryBallot": "{{i18n:OfficerMike.Dialogue.CantCarryBallot}}",
+                "NeedBallot": "{{i18n:OfficerMike.Dialogue.NeedBallot}}",
+                "NeedToVote": "{{i18n:OfficerMike.Dialogue.NeedToVote}}",
+                "RegisterForBallot": "{{i18n:OfficerMike.Dialogue.RegisterForBallot}}"
             }
         }
     ]

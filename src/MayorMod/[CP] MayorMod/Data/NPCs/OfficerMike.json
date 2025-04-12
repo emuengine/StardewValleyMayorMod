@@ -1,17 +1,16 @@
 {
     "Changes": [
-        //Officer Mike
         {
             "LogName": "Loading Officer Mike Portrait",
             "Action": "Load",
             "Target": "Portraits/MayorMod_OfficerMike",
-            "FromFile": "Assets/Portraits/MayorMod_OfficerMike_Portrait.png"
+            "FromFile": "Assets/NPCs/OfficerMike/Portrait.png"
         },
         {
             "LogName": "Loading Officer Mike Sprite",
             "Action": "Load",
             "Target": "Characters/MayorMod_OfficerMike",
-            "FromFile": "Assets/Characters/MayorMod_OfficerMike.png"
+            "FromFile": "Assets/NPCs/OfficerMike/SpriteSheet.png"
         },
         {
             "LogName": "Loading Officer Mike Portrait",

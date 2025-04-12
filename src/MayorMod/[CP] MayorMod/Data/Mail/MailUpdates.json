@@ -5,7 +5,7 @@
             "LogName": "Load new image for Mail background",
             "Action": "Load",
             "Target": "LooseSprites/MayorMod_letterBG",
-            "FromFile": "Assets/Mail/MayorMod_letterBG.png"
+            "FromFile": "Assets/Mail/LetterBackground.png"
         },
         // Mails
         {

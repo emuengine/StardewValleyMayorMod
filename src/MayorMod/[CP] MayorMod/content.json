@@ -13,11 +13,7 @@
 		//Events
 		{
 			"Action": "Include",
-			"FromFile": "Data/Events/MayorMod_NewMayorEvent.json"
-		},
-		{
-			"Action": "Include",
-			"FromFile": "Data/Events/MayorMod_NeedMayorEvent.json"
+			"FromFile": "Data/Events/MayorSpeechEvent.json, Data/Events/NeedMayorEvent.json"
 		},
 		//Festivals
 		{
@@ -27,11 +23,7 @@
 		//Items
 		{
 			"Action": "Include",
-			"FromFile": "Data/Items/ElectionSign.json"
-		},
-		{
-			"Action": "Include",
-			"FromFile": "Data/Items/Ballot.json"
+			"FromFile": "Data/Items/ElectionSign.json, Data/Items/Ballot.json, Data/Items/Leaflet.json"
 		},
 		//Mail
 		{
@@ -41,31 +33,13 @@
 		//Maps
 		{
 			"Action": "Include",
-			"FromFile": "Data/Maps/Locations.json"
-		},
-		{
-			"Action": "Include",
-			"FromFile": "Data/Maps/MapUpdates.json"
-		},
-		{
-			"Action": "Include",
-			"FromFile": "Data/Maps/Tilesheets.json"
+			"FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/NewMayorStage.json, Data/Maps/Exterior/RegistrationOffice.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Interior/AdventureGuild.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/RegistrationOffice.json, Data/Maps/Interior/VotingOffice.json"
 		},
 		//NPCs
 		{
 			"Action": "Include",
-			"FromFile": "Data/NPCs/[NPC]Gil/CharacterLoad.json"
+			"FromFile": "Data/NPCs/Gil.json, Data/NPCs/Governor.json, Data/NPCs/OfficerMike.json"
 		},
-		{
-			"Action": "Include",
-			"FromFile": "Data/NPCs/[NPC]Governor/ImageLoad.json"
-		},
-		{
-			"Action": "Include",
-			"FromFile": "Data/NPCs/[NPC]OfficerMike/CharacterLoad.json"
-		},
-
-
 
 		//Testing
 		{

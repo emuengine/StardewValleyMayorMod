@@ -1,23 +1,22 @@
 {
     "Changes": [
-        //Officer Mike
         {
             "LogName": "Loading Gil Portrait Update",
             "Action": "Load",
             "Target": "Portraits/Gil",
-            "FromFile": "Assets/Portraits/MayorMod_Gil_Portrait.png"
+            "FromFile": "Assets/NPCs/Gil/Portrait.png"
         },
         {
             "LogName": "Loading Gil Sprite Update",
             "Action": "Load",
             "Target": "Characters/Gil",
-            "FromFile": "Assets/Characters/MayorMod_Gil.png"
+            "FromFile": "Assets/NPCs/Gil/SpriteSheet.png"
         },
         {
-            "LogName": "Loading Gil Sprite Update",
+            "LogName": "Loading Gil SpriteSheet_RockingChair Update",
             "Action": "Load",
             "Target": "Characters/Gil_RockingChair",
-            "FromFile": "Assets/Characters/MayorMod_RockingChair.png"
+            "FromFile": "Assets/NPCs/Gil/SpriteSheet_RockingChair.png"
         }
     ]
 }

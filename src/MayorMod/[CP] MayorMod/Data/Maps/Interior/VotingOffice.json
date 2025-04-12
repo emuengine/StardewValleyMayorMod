@@ -1,0 +1,32 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading MayorMod_VotingOffice into Assets",
+            "Action": "Load",
+            "Target": "Maps/MayorMod_VotingOffice",
+            "FromFile": "Assets/Maps/Interior/VotingOffice.tmx"
+        },
+        {
+            "LogName": "Updating Data/Locations to add MayorMod_VotingOffice",
+            "Action": "EditData",
+            "Target": "Data/Locations",
+            "Entries": {
+                "MayorMod_VotingOffice": {
+                    "CreateOnLoad": {
+                        "MapPath": "Maps/MayorMod_VotingOffice"
+                    },
+                    "DisplayName": "Voting Office",
+                    "DefaultArrivalTile": {
+                        "X": 7,
+                        "Y": 9
+                    },
+                    "ExcludeFromNpcPathfinding": false,
+                    "ArtifactSpots": [],
+                    "FishAreas": {},
+                    "Fish": [],
+                    "Forage": []
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading MayorMod_AdventureGuild into assets",
+            "Action": "Load",
+            "Target": "Maps/MayorMod_AdventureGuild",
+            "FromFile": "Assets/Maps/MapPatches/AdventureGuild.tmx"
+        },
+        {
+            "LogName": "Updating Data/Locations to add MayorMod_AdventureGuild",
+            "Action": "EditData",
+            "Target": "Data/Locations",
+            "Entries": {
+                "MayorMod_AdventureGuild": {
+                    "CreateOnLoad": {
+                        "MapPath": "Maps/MayorMod_AdventureGuild"
+                    },
+                    "DisplayName": "Event Adventure Guild",
+                    "DefaultArrivalTile": {
+                        "X": 6,
+                        "Y": 19
+                    },
+                    "ExcludeFromNpcPathfinding": false,
+                    "ArtifactSpots": [],
+                    "FishAreas": {},
+                    "Fish": [],
+                    "Forage": [],
+                    "MusicContext": "Default"
+                }
+            }
+        }
+    ]
+}

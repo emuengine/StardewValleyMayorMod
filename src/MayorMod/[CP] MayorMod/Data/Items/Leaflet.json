@@ -1,0 +1,32 @@
+{
+    "Changes": [
+        {
+            "Action": "Load",
+            "Target": "Mods/{{ModId}}/Leaflet",
+            "FromFile": "Assets/Items/{{TargetWithoutPath}}.png"
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_Leaflet": {
+                    "Name": "{{ModId}}_Leaflet",
+                    "DisplayName": "{{i18n:{{ModId}}_Leaflet.Name}}",
+                    "Description": "{{i18n:{{ModId}}_Leaflet.Description}}",
+                    "Type": "Basic",
+                    "Category": 0,
+                    "Price": 0,
+                    "Texture": "Mods/{{ModId}}/Leaflet",
+                    "SpriteIndex": 0,
+                    "Edibility": -300,
+                    "IsDrink": false,
+                    "ExcludeFromFishingCollection": true,
+                    "ExcludeFromShippingCollection": true,
+                    "ExcludeFromRandomSale": true,
+                    "ContextTags": [],
+                    "Buffs": []
+                }
+            }
+        }
+    ]
+} 
