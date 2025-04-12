@@ -6,10 +6,6 @@
 			"Action": "Include",
 			"FromFile": "Data/Dialogue/MayorPatches.json"
 		},
-		{
-			"Action": "Include",
-			"FromFile": "Data/Dialogue/OfficerMike.json"
-		},
 		//Events
 		{
 			"Action": "Include",

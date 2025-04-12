@@ -1,5 +1,6 @@
 {
     "Changes": [
+        //Load images
         {
             "LogName": "Loading Officer Mike Portrait",
             "Action": "Load",
@@ -12,6 +13,7 @@
             "Target": "Characters/MayorMod_OfficerMike",
             "FromFile": "Assets/NPCs/OfficerMike/SpriteSheet.png"
         },
+        //Create OfficerMike character
         {
             "LogName": "Loading Officer Mike Portrait",
             "Action": "EditData",
@@ -51,6 +53,26 @@
                         }
                     ]
                 }
+            }
+        },
+        //Dialogue
+        {
+            "LogName": "Load Characters/Dialogue MayorMod_OfficerMike Blank",
+            "Action": "Load",
+            "Target": "Characters/Dialogue/MayorMod_OfficerMike",
+            "FromFile": "blank.json"
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/MayorMod_OfficerMike",
+            "Entries": {
+                "GetBallot": "{{i18n:OfficerMike.Dialogue.GetBallot}}",
+                "NeedToFillBallot": "{{i18n:OfficerMike.Dialogue.NeedToFillBallot}}",
+                "HaveVoted": "{{i18n:OfficerMike.Dialogue.HaveVoted}}",
+                "CantCarryBallot": "{{i18n:OfficerMike.Dialogue.CantCarryBallot}}",
+                "NeedBallot": "{{i18n:OfficerMike.Dialogue.NeedBallot}}",
+                "NeedToVote": "{{i18n:OfficerMike.Dialogue.NeedToVote}}",
+                "RegisterForBallot": "{{i18n:OfficerMike.Dialogue.RegisterForBallot}}"
             }
         }
     ]
