@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using MayorMod.Constants;
+using Microsoft.Xna.Framework;
 using Netcode;
 using StardewValley;
 
@@ -12,8 +13,8 @@ public static class ModHelper
 
     public static void RemoveProgressMails()
     {
-        MasterPlayerMail.Remove(Constants.ProgressKey.RegisteringForBalot);
-        MasterPlayerMail.Remove(Constants.ProgressKey.VotingMayor);
+        MasterPlayerMail.Remove(ModProgressKeys.RegisteringForBalot);
+        MasterPlayerMail.Remove(ModProgressKeys.VotingMayor);
     }
 
 

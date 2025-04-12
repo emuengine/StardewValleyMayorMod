@@ -1,4 +1,5 @@
-﻿using MayorMod.Data;
+﻿using MayorMod.Constants;
+using MayorMod.Data;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
@@ -26,7 +27,7 @@ internal sealed class ModEntry : Mod
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
         ModHelper.RemoveProgressMails();
-        ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.VotingMayor);
+        ModHelper.MasterPlayerMail.Add(ModProgressKeys.VotingMayor);
     }
 
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
