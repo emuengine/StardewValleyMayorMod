@@ -12,8 +12,8 @@
             "Entries": {
                 "{{ModId}}_ElectionSign": {
                     "Name": "{{ModId}}_ElectionSign",
-                    "DisplayName": "{{i18n:{{ModId}}_ElectionSign.Name}}",
-                    "Description": "{{i18n:{{ModId}}_ElectionSign.Description}}",
+                    "DisplayName": "{{i18n:{{ModId}}_Item.ElectionSign.Name}}",
+                    "Description": "{{i18n:{{ModId}}_Item.ElectionSign.Description}}",
                     "Price": 0,
                     "Fragility": 0,
                     "CanBePlacedOutdoors": true,

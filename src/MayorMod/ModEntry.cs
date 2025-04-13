@@ -3,6 +3,7 @@ using MayorMod.Data;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using StardewValley.Menus;
 
 namespace MayorMod;
 
@@ -15,19 +16,70 @@ internal sealed class ModEntry : Mod
     /// <param name="helper">Provides simplified APIs for writing mods.</param>
     public override void Entry(IModHelper helper)
     {
-        //helper.Events.Input.ButtonPressed += this.OnButtonPressed;
-        //helper.Events.Content.AssetRequested += this.OnAssetRequested;
+        helper.Events.Input.ButtonPressed += this.OnButtonPressed;
+        helper.Events.Content.AssetRequested += this.OnAssetRequested;
+        helper.Events.Display.MenuChanged += Display_MenuChanged;
+
 
         TileActions.Init(this.Monitor);
 
         helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
         helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
+        Helper = helper;
+    }
+
+    private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
+    {
+        if (!e.NameWithoutLocale.StartsWith("Characters/Dialogue"))
+        {
+            return;
+        }
+        else
+        {
+            e.Edit((asset =>
+            {
+                var additions = ModHelper.GetAdditionalDialogueForLeaflets(e.NameWithoutLocale);
+                if (additions is not null)
+                {
+                    var data = asset.AsDictionary<string, string>().Data;
+                    data[additions.Value.Item1] = additions.Value.Item2;
+                }
+            }));
+           
+        }
+    }
+
+    private void Display_MenuChanged(object? sender, MenuChangedEventArgs e)
+    {
+        //if (e.NewMenu is DialogueBox db && 
+        //    db.characterDialogue.TranslationKey != null && 
+        //    db.characterDialogue.TranslationKey.Contains("Introduction"))
+        //{
+        //    var g = e;
+        //}
+    }
+
+    IModHelper Helper;
+
+    private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
+    {
+        if (e.Button.IsActionButton())
+        {
+            if (Game1.player.ActiveItem is not null && Game1.player.ActiveItem.ItemId == ModItemKeys.ElectionSign)
+            {
+                //item placed add percentage for vote
+            }
+
+            var n = ModHelper.GetNPCForPlayerInteraction();
+        }
     }
 
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
         ModHelper.RemoveProgressMails();
         ModHelper.MasterPlayerMail.Add(ModProgressKeys.VotingMayor);
+
+       // Game1.MasterPlayer.addQuest("EmuEngine.MayorModCP_CampaignWithLeafletsQuest");
     }
 
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)

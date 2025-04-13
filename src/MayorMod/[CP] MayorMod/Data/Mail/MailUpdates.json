@@ -13,7 +13,9 @@
             "Action": "EditData",
             "Target": "data/mail",
             "Entries": {
-                "registerForElectionMail": "^^^Dear @,^^ The current term of the Mayor of Stardew Valley will be coming to an end soon. Registration for candidates will take place tomorrow. All citizens of Stardew Valley are eligible to register. A temporary tent will be set up near the town center where registration will take place.[letterbg LooseSprites/MayorMod_letterBG 0] [textcolor black]"
+                "RegisterForElectionMail": "{{i18n:{{ModId}}_Mail.RegistrationMail.Body}}[#]{{i18n:{{ModId}}_Mail.RegistrationMail.Title}}",
+                "CampaignWithLeafletsMail": "{{i18n:{{ModId}}_Mail.CampaignWithLeafletsMail.Body}}%item quest {{ModId}}_CampaignWithLeafletsQuest %%[#]{{i18n:{{ModId}}_Mail.CampaignWithLeafletsMail.Title}}",
+                "GilCampaignMail": "{{i18n:{{ModId}}_Mail.GilCampaignMail.Body}}[#]{{i18n:{{ModId}}_Mail.GilCampaignMail.Title}}"
             }
         },
         //Send mail
@@ -22,7 +24,7 @@
             "Action": "EditData",
             "Target": "Data/Events/Farm",
             "Entries": {
-                "57870000/x registerForElectionMail true": "null"
+                "57870000/x GilCampaignMail true": "null"
             }
             //"When": {
             //    "HasFlag | contains=runningForMayor": "true"

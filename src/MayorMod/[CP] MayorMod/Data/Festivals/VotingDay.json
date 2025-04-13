@@ -8,15 +8,15 @@
                 "HasFlag | contains=runningForMayor": "true"
             },
             "Entries": {
-                "FlashShifter.StardewValleyExpandedCP_CommunityDay": {
-                    "DisplayName": "{{i18n:MayorMod_VotingDay.Name}}",
+                "{{ModId}}_VotingDay": {
+                    "DisplayName": "{{i18n:{{ModId}}_Festival.VotingDay.Name}}",
                     "Condition": "",
                     "ShowOnCalendar": true,
                     "Season": "Spring",
                     "StartDay": 8,
                     "EndDay": 8,
                     "StartTime": 1100,
-                    "StartMessage": "{{i18n:MayorMod_VotingDay.Message}}",
+                    "StartMessage": "{{i18n:{{ModId}}_Festival.VotingDay.Message}}",
                     "OnlyShowMessageOnFirstDay": true,
                     "MapReplacements": {},
                     "DailySetupMethod": null,

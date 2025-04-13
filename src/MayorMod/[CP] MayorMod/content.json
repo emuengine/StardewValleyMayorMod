@@ -36,6 +36,11 @@
 			"Action": "Include",
 			"FromFile": "Data/NPCs/Gil.json, Data/NPCs/Governor.json, Data/NPCs/OfficerMike.json"
 		},
+		//Quests
+		{
+			"Action": "Include",
+			"FromFile": "Data/Quests/Quests.json"
+		},
 
 		//Testing
 		{

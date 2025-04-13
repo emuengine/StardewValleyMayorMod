@@ -12,8 +12,8 @@
             "Entries": {
                 "{{ModId}}_Ballot": {
                     "Name": "{{ModId}}_Ballot",
-                    "DisplayName": "{{i18n:{{ModId}}_Ballot.Name}}",
-                    "Description": "{{i18n:{{ModId}}_Ballot.Description}}",
+                    "DisplayName": "{{i18n:{{ModId}}_Item.Ballot.Name}}",
+                    "Description": "{{i18n:{{ModId}}_Item.Ballot.Description}}",
                     "Type": "Basic",
                     "Category": 0,
                     "Price": 0,
@@ -29,8 +29,8 @@
                 },
                 "{{ModId}}_BallotUsed": {
                     "Name": "{{ModId}}_BallotUsed",
-                    "DisplayName": "{{i18n:{{ModId}}_BallotUsed.Name}}",
-                    "Description": "{{i18n:{{ModId}}_BallotUsed.Description}}",
+                    "DisplayName": "{{i18n:{{ModId}}_Item.BallotUsed.Name}}",
+                    "Description": "{{i18n:{{ModId}}_Item.BallotUsed.Description}}",
                     "Type": "Basic",
                     "Category": 0,
                     "Price": 0,

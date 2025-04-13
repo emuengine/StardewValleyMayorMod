@@ -8,7 +8,15 @@
                 "Introduction": "Modding is a crazy rabbit hole, isn't it?"
             }
 
-        }
+        },
+        //{
+        //    "Action": "EditData",
+        //    "Target": "Characters/Dialogue/wizard",
+        //    "Entries": {
+        //        "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Dialogue.OfficerMike.GetBallot}}"
+        //    }
+
+        //}
 
         //"When": {
         //    "HasMod: |contains=FlashShifter.StardewValleyExpandedCP": false

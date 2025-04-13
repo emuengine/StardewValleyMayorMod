@@ -1,0 +1,12 @@
+{
+    "Changes": [
+        {
+            "LogName": "Add Quests",
+            "Action": "EditData",
+            "Target": "Data/Quests",
+            "Entries": {
+                "{{ModId}}_CampaignWithLeafletsQuest": "ItemDelivery/{{i18n:{{ModId}}_Quest.CampaignWithLeafletsQuest.Title}}/{{i18n:{{ModId}}_Quest.CampaignWithLeafletsQuest.Description}}/{{i18n:{{ModId}}_Quest.CampaignWithLeafletsQuest.Task}}/Wizard {{ModId}}_Leaflet 1/{{ModId}}_CampaignWithLeafletsQuest2/0/-1/false/ Ill take a look"
+            }
+        }
+    ]
+}

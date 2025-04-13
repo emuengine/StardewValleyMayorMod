@@ -21,4 +21,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="[CP] MayorMod\Data\Quests\" />
+  </ItemGroup>
+
 </Project>

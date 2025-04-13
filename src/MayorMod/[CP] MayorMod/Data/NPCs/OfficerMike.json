@@ -66,13 +66,13 @@
             "Action": "EditData",
             "Target": "Characters/Dialogue/MayorMod_OfficerMike",
             "Entries": {
-                "GetBallot": "{{i18n:OfficerMike.Dialogue.GetBallot}}",
-                "NeedToFillBallot": "{{i18n:OfficerMike.Dialogue.NeedToFillBallot}}",
-                "HaveVoted": "{{i18n:OfficerMike.Dialogue.HaveVoted}}",
-                "CantCarryBallot": "{{i18n:OfficerMike.Dialogue.CantCarryBallot}}",
-                "NeedBallot": "{{i18n:OfficerMike.Dialogue.NeedBallot}}",
-                "NeedToVote": "{{i18n:OfficerMike.Dialogue.NeedToVote}}",
-                "RegisterForBallot": "{{i18n:OfficerMike.Dialogue.RegisterForBallot}}"
+                "GetBallot": "{{i18n:{{ModId}}_Dialogue.OfficerMike.GetBallot}}",
+                "NeedToFillBallot": "{{i18n:{{ModId}}_Dialogue.OfficerMike.NeedToFillBallot}}",
+                "HaveVoted": "{{i18n:{{ModId}}_Dialogue.OfficerMike.HaveVoted}}",
+                "CantCarryBallot": "{{i18n:{{ModId}}_Dialogue.OfficerMike.CantCarryBallot}}",
+                "NeedBallot": "{{i18n:{{ModId}}_Dialogue.OfficerMike.NeedBallot}}",
+                "NeedToVote": "{{i18n:{{ModId}}_Dialogue.OfficerMike.NeedToVote}}",
+                "RegisterForBallot": "{{i18n:{{ModId}}_Dialogue.OfficerMike.RegisterForBallot}}"
             }
         }
     ]

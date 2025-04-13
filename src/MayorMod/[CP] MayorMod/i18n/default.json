@@ -1,28 +1,58 @@
 {
+	//////////////////
 	//Items
-	"EmuEngine.MayorModCP_ElectionSign.Name": "Election Sign",
-	"EmuEngine.MayorModCP_ElectionSign.Description": "Sign for elections",
+	//////////////////
+	"EmuEngine.MayorModCP_Item.ElectionSign.Name": "Election Sign",
+	"EmuEngine.MayorModCP_Item.ElectionSign.Description": "Sign for elections",
 
-	"EmuEngine.MayorModCP_Ballot.Name": "Ballot",
-	"EmuEngine.MayorModCP_Ballot.Description": "Ballot slip used for voting",
+	"EmuEngine.MayorModCP_Item.Ballot.Name": "Ballot",
+	"EmuEngine.MayorModCP_Item.Ballot.Description": "Ballot slip used for voting",
 
-	"EmuEngine.MayorModCP_BallotUsed.Name": "Ballot (Voted)",
-	"EmuEngine.MayorModCP_BallotUsed.Description": "Ballot which has been marked with your vote",
+	"EmuEngine.MayorModCP_Item.BallotUsed.Name": "Ballot (Voted)",
+	"EmuEngine.MayorModCP_Item.BallotUsed.Description": "Ballot which has been marked with your vote",
 
-	"EmuEngine.MayorModCP_VotingDay.Name": "Voting Day!",
-	"EmuEngine.MayorModCP_VotingDay.Message": "Don't forget to vote!'",
+	"EmuEngine.MayorModCP_Item.RockingChair.Name": "RockingChair!",
+	"EmuEngine.MayorModCP_Item.RockingChair.Message": "A chair that rocks'",
 
-	"EmuEngine.MayorModCP_RockingChair.Name": "RockingChair!",
-	"EmuEngine.MayorModCP_RockingChair.Message": "A chair that rocks'",
+	"EmuEngine.MayorModCP_Item.Leaflet.Name": "Election Leaflets",
+	"EmuEngine.MayorModCP_Item.Leaflet.Message": "Describes your policies as mayor'",
 
+	//////////////////
 	//Dialogue
+	//////////////////
 
 	//OfficerMike
-	"OfficerMike.Dialogue.GetBallot": "Hello sir. May I check your ID? ..... #$b#Thank you very much {0}. Here is your ballot. You can make your vote at the desk over there. When you're done, put your ballot in the box.",
-	"OfficerMike.Dialogue.NeedToFillBallot": "You can make your vote at the desk over there. When you're done, put your ballot in the box.",
-	"OfficerMike.Dialogue.HaveVoted": "You should be proud that you have done your civic duty",
-	"OfficerMike.Dialogue.CantCarryBallot": "Sorry sir. I can't give your ballot. You're carrying too much stuff.",
-	"OfficerMike.Dialogue.NeedBallot": "Come over to the desk to pick up your ballot.",
-	"OfficerMike.Dialogue.NeedToVote": "Now that you've voted you can put your ballot in the ballot box.",
-	"OfficerMike.Dialogue.RegisterForBallot": "You are now registered for the ballot. Good Luck!"
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.GetBallot": "Hello sir. May I check your ID? ..... #$b#Thank you very much {0}. Here is your ballot. You can make your vote at the desk over there. When you're done, put your ballot in the box.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedToFillBallot": "You can make your vote at the desk over there. When you're done, put your ballot in the box.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.HaveVoted": "You should be proud that you have done your civic duty",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.CantCarryBallot": "Sorry sir. I can't give your ballot. You're carrying too much stuff.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedBallot": "Come over to the desk to pick up your ballot.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedToVote": "Now that you've voted you can put your ballot in the ballot box.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.RegisterForBallot": "You are now registered for the ballot. Good Luck!",
+
+	//////////////////
+	//Mail
+	//////////////////
+	"EmuEngine.MayorModCP_Mail.CampaignWithLeafletsMail.Title": "Title test",
+	"EmuEngine.MayorModCP_Mail.CampaignWithLeafletsMail.Body": "Body test",
+
+	"EmuEngine.MayorModCP_Mail.GilCampaignMail.Title": "Good News",
+	"EmuEngine.MayorModCP_Mail.GilCampaignMail.Body": "Hey @, Good news! I have been talking with Morris and I think I've convinced him to vote for you.  -Gil %item bigobject EmuEngine.MayorModCP_ElectionSign %%",
+
+	"EmuEngine.MayorModCP_Mail.RegistrationMail.Title": "Good News",
+	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body": "^^^Dear @,^^ The current term of the Mayor of Stardew Valley will be coming to an end soon. Registration for candidates will take place tomorrow. All citizens of Stardew Valley are eligible to register. A temporary tent will be set up near the town center where registration will take place.[letterbg LooseSprites/MayorMod_letterBG 0] [textcolor black]",
+	
+	//////////////////
+	//Quests
+	//////////////////
+	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Title": "Quest Title",
+	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Description": "Quest Description",
+	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Task": "Give out leaflets",
+
+
+	//////////////////
+	//Events
+	//////////////////
+	"EmuEngine.MayorModCP_Festival.VotingDay.Name": "Voting Day!",
+	"EmuEngine.MayorModCP_Festival.VotingDay.Message": "Don't forget to vote!'"
 }
