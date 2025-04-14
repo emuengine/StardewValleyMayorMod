@@ -1,0 +1,19 @@
+{
+    "Changes": [
+        //Setup event
+        {
+            "LogName": "Custom Locations Events Blank",
+            "Action": "Load",
+            "Target": "Data/Events/MayorMod_ManorHouse",
+            "FromFile": "blank.json"
+        },
+        {
+            "LogName": "Loading Council meeting event",
+            "Action": "EditData",
+            "Target": "Data/Events/MayorMod_ManorHouse",
+            "Entries": {
+                "MayorMod.CouncilMeetingEvent/f Abigail 250/t 600 2600": "continue/21 6/farmer 21 4 2 Marlon 19 5 1 Wizard 19 7 1 Gunther 23 5 3 Penny 23 7 3/pause 1000/speak Marlon \" Welcome to the first council meeting of the new term.\"/skippable/pause 2000/globalFade/viewport -1000 -1000/changeLocation FarmHouse/end warpOut"
+            }
+        }
+    ]
+}

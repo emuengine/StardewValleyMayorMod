@@ -9,7 +9,7 @@
 		//Events
 		{
 			"Action": "Include",
-			"FromFile": "Data/Events/MayorSpeechEvent.json, Data/Events/NeedMayorEvent.json"
+			"FromFile": "Data/Events/MayorSpeechEvent.json, Data/Events/NeedMayorEvent.json, Data/Events/CouncilMeetingEvent.json"
 		},
 		//Festivals
 		{
