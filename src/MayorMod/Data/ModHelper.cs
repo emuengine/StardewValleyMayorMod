@@ -49,8 +49,6 @@ public static class ModHelper
         return null;
     }
 
-
-
     public static bool AssetNameStartsWith(IAssetName assetName, string startsWith)
     {
         var assetNameClean = Regex.Replace(assetName.BaseName, "[^a-zA-Z0-9]", "");

@@ -12,7 +12,7 @@
             "Action": "EditData",
             "Target": "Data/Events/MayorMod_ManorHouse",
             "Entries": {
-                "MayorMod.CouncilMeetingEvent/f Abigail 250/t 600 2600": "continue/9 6/farmer 6 6 1 Marlon 8 4 2 Wizard 10 4 2 Gunther -8 7 0 Penny -10 -7 0/showFrame farmer 117/addTemporaryActor penny 16 16 10 6 0 false Character pennyHead/animate pennyHead false true 5000 16/addTemporaryActor Gunther 16 16 8 6 0 false Character GuntherHead/animate GuntherHead false true 5000 16/pause 1000/speak Marlon \" Welcome to the first council meeting of the new term.\"/skippable/pause 2000/globalFade/viewport -1000 -1000/changeLocation FarmHouse/end warpOut"
+"MayorMod.CouncilMeetingEvent/f Abigail 250/t 600 2600": "continue/9 6/farmer 6 6 1 Marlon 8 4 2 Wizard 10 4 2 Gunther -1008 7 0 Penny -10010 7 0/showFrame farmer 117/addTemporaryActor Penny 16 16 10 6 0 false Character PennyHead/showFrame PennyHead 16/positionOffset PennyHead 0 32/addTemporaryActor Gunther 16 16 8 6 0 false Character GuntherHead/showFrame GuntherHead 16/positionOffset GuntherHead 0 32/pause 1000/speak Marlon \" Welcome to the first council meeting of the new term.\"/skippable/pause 2000/globalFade/viewport -1000 -1000/changeLocation FarmHouse/end warpOut"
             }
         }
     ]
