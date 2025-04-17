@@ -41,6 +41,11 @@
 			"Action": "Include",
 			"FromFile": "Data/Quests/Quests.json"
 		},
+		//Schedules
+		{
+			"Action": "Include",
+			"FromFile": "Data/NPCs/Lewis.json"
+		},
 
 		//Testing
 		{

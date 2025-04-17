@@ -1,0 +1,48 @@
+{
+    "Changes": [
+        {
+            "LogName": "Update lewis schedule for when farmer becomes mayor",
+            "Action": "EditData",
+            "Target": "Characters/Schedules/Lewis",
+            "Entries": {
+                "rain": "800 AnimalShop 24 15 0/1000 AnimalShop 31 17 3 square_5_1_0/1400 Saloon 12 20 0/1950 AnimalShop 31 17 3 square_5_1_0/2200 AnimalShop 13 5 1 lewis_sleep",
+                "GreenRain": "0 Saloon 12 20 2",
+                "DesertFestival_1": "610 AnimalShop 24 15 0/800 Desert 22 32 2 \"Strings\\1_6_Strings:DesertFestival_Lewis\"/2500 bed",
+                "DesertFestival_2": "610 AnimalShop 24 15 0/800 Desert 19 40 3 \"Strings\\1_6_Strings:DesertFestival_Lewis2\"/2400 bed",
+                "DesertFestival_3": "610 AnimalShop 24 15 0/800 Desert 27 23 2 \"Strings\\1_6_Strings:DesertFestival_Lewis3\"/2500 bed",
+                "fall_9": "800 AnimalShop 24 15 0/1030 Hospital 12 14 0/1330 Hospital 4 6 1 \"Strings\\schedules\\Lewis:fall_9.000\"/1700 Saloon 9 22 3 lewis_drink/2100 AnimalShop 13 5 3",
+                "winter_16": "800 AnimalShop 24 15 0/1000 Town 62 88 0/1040 Town 65 86 3 lewis_garden/1140 Town 30 56 2/1400 Town 41 57 0/1620 Beach 40 34 2 \"Strings\\schedules\\Lewis:winter_16.000\"/2300 AnimalShop 13 5 1 lewis_sleep",
+                "Tue": "800 AnimalShop 24 15 0/1000 Town 62 88 0/1040 Town 65 86 3 lewis_garden/1140 SeedShop 6 19 0 \"Strings\\schedules\\Lewis:Tue.000\"/1600 AnimalShop 31 17 3 square_5_1_0/2100 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
+                "6": "800 AnimalShop 24 15 0/1000 Blacksmith 4 15 0 \"Strings\\schedules\\Lewis:6.000\"/1300 ArchaeologyHouse 2 10 0 \"Strings\\schedules\\Lewis:6.001\"/1600 AnimalShop 31 17 3 square_5_1_0/2100 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
+                "20": "GOTO 6",
+                "3": "800 AnimalShop 24 15 0/1000 AnimalShop 11 16 0 \"Strings\\schedules\\Lewis:3.000\"/1600 AnimalShop 31 17 3 square_5_1_0/2100 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
+                "24": "GOTO 3",
+                "1": "800 AnimalShop 24 15 0/1000 FishShop 4 6 3 \"Strings\\schedules\\Lewis:1.000\"/1600 AnimalShop 31 17 3 square_5_1_0/2100 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
+                "15": "800 AnimalShop 24 15 0/1000 ScienceHouse 7 20 0 \"Strings\\schedules\\Lewis:15.000\"/1600 AnimalShop 31 17 3 square_5_1_0/2100 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
+                "Fri": "800 AnimalShop 24 15 0/1000 Town 62 88 0/1040 Town 65 86 3 lewis_garden/1140 Town 30 56 2/1400 Town 29 27 3/1700 Saloon 9 22 3 lewis_drink/2300 AnimalShop 13 5 1 lewis_sleep",
+                "winter_Sun": "800 AnimalShop 24 15 0/900 AnimalShop 31 17 3 square_5_1_0/1100 ArchaeologyHouse 22 9 3/1600 AnimalShop 31 17 3 square_5_1_0/2000 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
+                "fall_Sun": "800 AnimalShop 24 15 0/930 Town 62 88 0/1020 Town 65 86 3 lewis_garden/1110 Forest 84 40 2/1600 AnimalShop 31 17 3 square_5_1_0/2000 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
+                "summer_Sun": "800 AnimalShop 24 15 0/1000 Town 62 88 0/1040 Town 65 86 3 lewis_garden/1140 Beach 19 24 2/1600 AnimalShop 31 17 3 square_5_1_0/2000 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
+                "spring": "800 AnimalShop 24 15 0/900 Town 62 88 0/940 Town 65 86 3 lewis_garden/1040 CommunityCenter 55 6 0/1400 CommunityCenter 47 5 0/1440 CommunityCenter 51 4 2/1600 CommunityCenter 47 13 0/1700 CommunityCenter 33 9 0/1830 AnimalShop 17 16 3/2300 AnimalShop 13 5 1 lewis_sleep",
+                "default": "800 AnimalShop 24 15 0/1000 Town 62 88 0/1040 Town 65 86 3 lewis_garden/1140 Town 30 56 2/1400 Town 41 57 0/1600 AnimalShop 31 17 3 square_5_1_0/2000 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep"
+            }
+        },
+        {
+            "LogName": "Loading Lewis default location update",
+            "Action": "EditData",
+            "Target": "Data/Characters",
+            "TargetField": [ "Lewis", "Home" ],
+            "Entries": {
+                "Default": {
+                    "Id": "Default",
+                    "Location": "AnimalShop",
+                    "Tile": {
+                        "X": 16,
+                        "Y": 5
+                    },
+                    "Direction": "down"
+                }
+            }
+        }
+    ]
+}
