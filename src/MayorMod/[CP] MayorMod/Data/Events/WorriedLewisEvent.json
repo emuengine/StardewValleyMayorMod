@@ -1,0 +1,12 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading Council meeting event",
+            "Action": "EditData",
+            "Target": "Data/Events/ManorHouse",
+            "Entries": {
+                "MayorMod.WorriedLewisEvent/n {{ModId}}_TalkingToVotersMail": "continue/5 6/farmer -1000 -1000 0 lewis 7 6 3 marnie 6 6 1/skippable/pause 1000/speak lewis \"I don't know what I'm gonna do. @ is very popular lately.\"/speak marnie \"Don't worry people like you too. It might even be a good thing if you don't have all of this responsibility all of the time.\"/speak lewis \"Yeah but if @ wins I'll lose my house. Where would I go? I have to do something about ...\"/warp farmer 5 11/speak marnie \"I have to go back to the shop. I'll talk to you later.\"/move marnie -2 0 3/move marnie 0 6 3/warp marnie -1000 -1000/speak lewis \"O hi @\"/pause 2000/globalFade/viewport -1000 -1000/end warpOut"
+            }
+        }
+    ]
+}

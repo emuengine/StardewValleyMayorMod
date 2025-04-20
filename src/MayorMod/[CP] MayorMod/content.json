@@ -4,12 +4,12 @@
 		//Dialogue
 		{
 			"Action": "Include",
-			"FromFile": "Data/Dialogue/MayorPatches.json"
+			"FromFile": "Data/Dialogue/ConversationTopics.json, Data/Dialogue/MayorPatches.json"
 		},
 		//Events
 		{
 			"Action": "Include",
-			"FromFile": "Data/Events/MayorSpeechEvent.json, Data/Events/NeedMayorEvent.json, Data/Events/CouncilMeetingEvent.json"
+			"FromFile": "Data/Events/MayorSpeechEvent.json, Data/Events/NeedMayorEvent.json, Data/Events/CouncilMeetingEvent.json, Data/Events/WorriedLewisEvent.json"
 		},
 		//Festivals
 		{

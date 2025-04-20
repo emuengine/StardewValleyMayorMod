@@ -44,9 +44,10 @@
                     "Id": "{{ModId}}_SendTalkingToVoterMail",
                     "Trigger": "DayEnding",
                     "HostOnly": "true",
-                    "Condition": "PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic_memory_oneday,",
+                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RegisteredForElectionMail Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic,",
                     "Actions": [
-                        "AddMail Current {{ModId}}_TalkingToVotersMail"
+                        "AddMail Current {{ModId}}_TalkingToVotersMail",
+                        "AddConversationTopic {{ModId}}_TalkingToVotersTopic 3"
                     ]
                 }
             }
