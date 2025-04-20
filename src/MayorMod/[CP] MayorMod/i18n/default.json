@@ -33,22 +33,25 @@
 	//////////////////
 	//Mail
 	//////////////////
+	"EmuEngine.MayorModCP_Mail.RegistrationMail.Title": "Registration for Mayoral Election",
+	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body": "^^Dear Tom,^^Re: Registration for Mayoral Election^^ We are pleased to acknowledge your registration as a candidate in the upcoming mayoral election. Your commitment to serving our community is commendable as is the interest you have shown in running for this esteemed position. The election will take place in two weeks so get campaigning. ^^If you have any questions or^concerns regarding the election^process, please do not hesitate to contact us. We are more than happy to assist you throughout this campaign.^^Sincerely,^Angela,^Chair of Stardew Valley Election Committee[letterbg LooseSprites/MayorMod_letterBG 0] [textcolor black]",
+
+	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Title": "Talk with voters",
+	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^^Now that you're all registered for the ballot sheet we need to start telling people about your policies. As your campaign manager I suggest you should make some time to talk to voters ^^Marlon",
+
+
 	"EmuEngine.MayorModCP_Mail.CampaignWithLeafletsMail.Title": "Title test",
 	"EmuEngine.MayorModCP_Mail.CampaignWithLeafletsMail.Body": "Body test",
 
 	"EmuEngine.MayorModCP_Mail.GilCampaignMail.Title": "Good News",
 	"EmuEngine.MayorModCP_Mail.GilCampaignMail.Body": "Hey @, Good news! I have been talking with Morris and I think I've convinced him to vote for you.  -Gil %item bigobject EmuEngine.MayorModCP_ElectionSign %%",
 
-	"EmuEngine.MayorModCP_Mail.RegistrationMail.Title": "Good News",
-	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body": "^^^Dear @,^^ The current term of the Mayor of Stardew Valley will be coming to an end soon. Registration for candidates will take place tomorrow. All citizens of Stardew Valley are eligible to register. A temporary tent will be set up near the town center where registration will take place.[letterbg LooseSprites/MayorMod_letterBG 0] [textcolor black]",
-	
 	//////////////////
 	//Quests
 	//////////////////
 	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Title": "Quest Title",
 	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Description": "Quest Description",
 	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Task": "Give out leaflets",
-
 
 	//////////////////
 	//Events

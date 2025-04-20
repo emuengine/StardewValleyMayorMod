@@ -1,0 +1,12 @@
+{
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Lewis",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "You wot mate?! Ill fuck you up!"
+            }
+
+        }
+    ]
+}

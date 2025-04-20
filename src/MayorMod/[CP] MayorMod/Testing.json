@@ -3,9 +3,9 @@
         // Update text for Linus
         {
             "Action": "EditData",
-            "Target": "Characters/Dialogue/Linus",
+            "Target": "Characters/Dialogue/wizard",
             "Entries": {
-                "Introduction": "Modding is a crazy rabbit hole, isn't it?"
+                "{{ModId}}_RegisteredForBallotTopic": "You wot mate?! Ill fuck you up!"
             }
 
         },

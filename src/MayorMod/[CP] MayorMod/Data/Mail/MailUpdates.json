@@ -13,22 +13,43 @@
             "Action": "EditData",
             "Target": "data/mail",
             "Entries": {
-                "RegisterForElectionMail": "{{i18n:{{ModId}}_Mail.RegistrationMail.Body}}[#]{{i18n:{{ModId}}_Mail.RegistrationMail.Title}}",
+                "{{ModId}}_RegisteredForElectionMail": "{{i18n:{{ModId}}_Mail.RegistrationMail.Body}}[#]{{i18n:{{ModId}}_Mail.RegistrationMail.Title}}",
+                "{{ModId}}_TalkingToVotersMail": "{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Body}}[#]{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Title}}",
                 "CampaignWithLeafletsMail": "{{i18n:{{ModId}}_Mail.CampaignWithLeafletsMail.Body}}%item quest {{ModId}}_CampaignWithLeafletsQuest %%[#]{{i18n:{{ModId}}_Mail.CampaignWithLeafletsMail.Title}}",
                 "GilCampaignMail": "{{i18n:{{ModId}}_Mail.GilCampaignMail.Body}}[#]{{i18n:{{ModId}}_Mail.GilCampaignMail.Title}}"
             }
         },
         //Send mail
         {
-            "LogName": "Loading Mailing events",
             "Action": "EditData",
-            "Target": "Data/Events/Farm",
+            "Target": "Data/TriggerActions",
             "Entries": {
-                "57870000/x GilCampaignMail true": "null"
+                "{{ModId}}_RegisteredForElectionTrigger": {
+                    "Id": "{{ModId}}_SendRegisteredForElectionMail",
+                    "Trigger": "DayEnding",
+                    "HostOnly": "true",
+                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RegisteredForBallot Received",
+                    "Actions": [
+                        "AddMail Current {{ModId}}_RegisteredForElectionMail",
+                        "AddConversationTopic {{ModId}}_RegisteredForBallotTopic 2"
+                    ]
+                }
             }
-            //"When": {
-            //    "HasFlag | contains=runningForMayor": "true"
-            //}
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/TriggerActions",
+            "Entries": {
+                "{{ModId}}_TalkingToVoterTrigger": {
+                    "Id": "{{ModId}}_SendTalkingToVoterMail",
+                    "Trigger": "DayEnding",
+                    "HostOnly": "true",
+                    "Condition": "PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic_memory_oneday,",
+                    "Actions": [
+                        "AddMail Current {{ModId}}_TalkingToVotersMail"
+                    ]
+                }
+            }
         }
     ]
 }

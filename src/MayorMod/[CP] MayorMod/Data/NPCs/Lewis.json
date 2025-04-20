@@ -1,5 +1,6 @@
 {
     "Changes": [
+        //Schedule
         {
             "LogName": "Update lewis schedule for when farmer becomes mayor",
             "Action": "EditData",
@@ -25,8 +26,12 @@
                 "summer_Sun": "800 AnimalShop 24 15 0/1000 Town 62 88 0/1040 Town 65 86 3 lewis_garden/1140 Beach 19 24 2/1600 AnimalShop 31 17 3 square_5_1_0/2000 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
                 "spring": "800 AnimalShop 24 15 0/900 Town 62 88 0/940 Town 65 86 3 lewis_garden/1040 CommunityCenter 55 6 0/1400 CommunityCenter 47 5 0/1440 CommunityCenter 51 4 2/1600 CommunityCenter 47 13 0/1700 CommunityCenter 33 9 0/1830 AnimalShop 17 16 3/2300 AnimalShop 13 5 1 lewis_sleep",
                 "default": "800 AnimalShop 24 15 0/1000 Town 62 88 0/1040 Town 65 86 3 lewis_garden/1140 Town 30 56 2/1400 Town 41 57 0/1600 AnimalShop 31 17 3 square_5_1_0/2000 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep"
+            },
+            "When": {
+                "HasFlag | contains={{ModId}}_FarmerIsMayor": "true"
             }
         },
+        //Update home location when not mayor
         {
             "LogName": "Loading Lewis default location update",
             "Action": "EditData",
@@ -42,6 +47,9 @@
                     },
                     "Direction": "down"
                 }
+            },
+            "When": {
+                "HasFlag | contains={{ModId}}_FarmerIsMayor": "true"
             }
         }
     ]

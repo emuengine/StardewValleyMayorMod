@@ -76,8 +76,8 @@ internal sealed class ModEntry : Mod
 
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
-        ModHelper.RemoveProgressMails();
-        ModHelper.MasterPlayerMail.Add(ModProgressKeys.VotingMayor);
+        //ModHelper.RemoveProgressMails();
+        //ModHelper.MasterPlayerMail.Add(ModProgressKeys.VotingMayor);
 
        // Game1.MasterPlayer.addQuest("EmuEngine.MayorModCP_CampaignWithLeafletsQuest");
     }
