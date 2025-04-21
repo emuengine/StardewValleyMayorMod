@@ -10,6 +10,8 @@ namespace MayorMod;
 /// <summary>The mod entry point.</summary>
 internal sealed class ModEntry : Mod
 {
+    private IModHelper _helper;
+
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
     /// </summary>
@@ -25,7 +27,7 @@ internal sealed class ModEntry : Mod
 
         helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
         helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
-        Helper = helper;
+        _helper = helper;
     }
 
     private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
@@ -38,14 +40,13 @@ internal sealed class ModEntry : Mod
         {
             e.Edit((asset =>
             {
-                var additions = ModHelper.GetAdditionalDialogueForLeaflets(e.NameWithoutLocale);
-                if (additions is not null)
+                if (!asset.AsDictionary<string, string>().Data.ContainsKey($"AcceptGift_(O){ModKeys.MayorModCPId}_Leaflet") &&
+                    !asset.AsDictionary<string, string>().Data.ContainsKey($"RejectItem_(O){ModKeys.MayorModCPId}_Leaflet"))
                 {
                     var data = asset.AsDictionary<string, string>().Data;
-                    data[additions.Value.Item1] = additions.Value.Item2;
+                    data[$"RejectItem_(O){ModKeys.MayorModCPId}_Leaflet"] = HelperMethods.GetTranslationForKey(_helper, $"{ModKeys.MayorModCPId}_Gifting.Default.Leaflet");
                 }
             }));
-           
         }
     }
 
@@ -59,8 +60,6 @@ internal sealed class ModEntry : Mod
         //}
     }
 
-    IModHelper Helper;
-
     private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
     {
         if (e.Button.IsActionButton())
@@ -70,7 +69,7 @@ internal sealed class ModEntry : Mod
                 //item placed add percentage for vote
             }
 
-            var n = ModHelper.GetNPCForPlayerInteraction();
+            var n = HelperMethods.GetNPCForPlayerInteraction();
         }
     }
 

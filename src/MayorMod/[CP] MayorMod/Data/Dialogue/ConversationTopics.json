@@ -6,7 +6,8 @@
             "Target": "Characters/Dialogue/Alex",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Alex.Leaflet}}"
             }
         },
         {
@@ -14,7 +15,8 @@
             "Target": "Characters/Dialogue/Elliott",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Elliott.Leaflet}}"
             }
         },
         {
@@ -22,7 +24,8 @@
             "Target": "Characters/Dialogue/Harvey",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Harvey.Leaflet}}"
             }
         },
         {
@@ -30,7 +33,8 @@
             "Target": "Characters/Dialogue/Sam",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sam.Leaflet}}"
             }
         },
         {
@@ -38,7 +42,8 @@
             "Target": "Characters/Dialogue/Sebastian",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sebastian.Leaflet}}"
             }
         },
         {
@@ -46,7 +51,8 @@
             "Target": "Characters/Dialogue/Shane",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Shane.Leaflet}}"
             }
         },
         //Bachelorettes
@@ -55,7 +61,8 @@
             "Target": "Characters/Dialogue/Abigail",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Abigail.Leaflet}}"
             }
         },
         {
@@ -63,7 +70,8 @@
             "Target": "Characters/Dialogue/Emily",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Emily.Leaflet}}"
             }
         },
         {
@@ -71,7 +79,8 @@
             "Target": "Characters/Dialogue/Haley",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Haley.Leaflet}}"
             }
         },
         {
@@ -79,7 +88,8 @@
             "Target": "Characters/Dialogue/Leah",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Leah.Leaflet}}"
             }
         },
         {
@@ -87,7 +97,8 @@
             "Target": "Characters/Dialogue/Maru",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Maru.Leaflet}}"
             }
         },
         {
@@ -95,7 +106,8 @@
             "Target": "Characters/Dialogue/Penny",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Penny.Leaflet}}"
             }
         },
         //Non-marriage candidates
@@ -104,7 +116,8 @@
             "Target": "Characters/Dialogue/Caroline",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Caroline.Leaflet}}"
             }
         },
         {
@@ -112,7 +125,8 @@
             "Target": "Characters/Dialogue/Clint",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Clint.Leaflet}}"
             }
         },
         {
@@ -120,7 +134,8 @@
             "Target": "Characters/Dialogue/Demetrius",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Demetrius.Leaflet}}"
             }
         },
         {
@@ -128,7 +143,8 @@
             "Target": "Characters/Dialogue/Evelyn",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Evelyn.Leaflet}}"
             }
         },
         {
@@ -136,7 +152,8 @@
             "Target": "Characters/Dialogue/George",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.George.Leaflet}}"
             }
         },
         {
@@ -144,7 +161,8 @@
             "Target": "Characters/Dialogue/Gus",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gus.Leaflet}}"
             }
         },
         {
@@ -152,7 +170,8 @@
             "Target": "Characters/Dialogue/Jodi",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Jodi.Leaflet}}"
             }
         },
         {
@@ -160,7 +179,8 @@
             "Target": "Characters/Dialogue/Kent",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Kent.Leaflet}}"
             }
         },
         {
@@ -168,7 +188,8 @@
             "Target": "Characters/Dialogue/Lewis",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.TalkingToVoters}}",
+                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Lewis.Leaflet}}"
             }
         },
         {
@@ -176,7 +197,8 @@
             "Target": "Characters/Dialogue/Linus",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Linus.Leaflet}}"
             }
         },
         {
@@ -184,7 +206,8 @@
             "Target": "Characters/Dialogue/Marnie",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Marnie.Leaflet}}"
             }
         },
         {
@@ -192,7 +215,8 @@
             "Target": "Characters/Dialogue/Pam",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Pam.Leaflet}}"
             }
         },
         {
@@ -200,7 +224,8 @@
             "Target": "Characters/Dialogue/Pierre",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Pierre.Leaflet}}"
             }
         },
         {
@@ -208,7 +233,8 @@
             "Target": "Characters/Dialogue/Robin",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Robin.Leaflet}}"
             }
         },
         {
@@ -216,7 +242,8 @@
             "Target": "Characters/Dialogue/Sandy",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sandy.Leaflet}}"
             }
         },
         {
@@ -224,7 +251,8 @@
             "Target": "Characters/Dialogue/Willy",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Willy.Leaflet}}"
             }
         },
         {
@@ -232,7 +260,8 @@
             "Target": "Characters/Dialogue/Wizard",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Wizard.Leaflet}}"
             }
         },
         //Non-giftable NPCs
@@ -241,7 +270,8 @@
             "Target": "Characters/Dialogue/Gil",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gil.Leaflet}}"
             }
         },
         {
@@ -249,7 +279,8 @@
             "Target": "Characters/Dialogue/Gunther",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gunther.Leaflet}}"
             }
         },
         {
@@ -257,7 +288,8 @@
             "Target": "Characters/Dialogue/Marlon",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Marlon.Leaflet}}"
             }
         },
         {
@@ -265,7 +297,8 @@
             "Target": "Characters/Dialogue/Morris",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.TalkingToVoters}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Morris.Leaflet}}"
             }
         },
         //Kids
@@ -274,7 +307,8 @@
             "Target": "Characters/Dialogue/Jas",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.TalkingToVoters}}",
+                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Jas.Leaflet}}"
             }
         },
         {
@@ -282,7 +316,8 @@
             "Target": "Characters/Dialogue/Leo",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.TalkingToVoters}}",
+                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Leo.Leaflet}}"
             }
         },
         {
@@ -290,7 +325,8 @@
             "Target": "Characters/Dialogue/Vincent",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.TalkingToVoters}}",
+                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Vincent.Leaflet}}"
             }
         },
         //Non voters
@@ -299,7 +335,8 @@
             "Target": "Characters/Dialogue/Dwarf",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.TalkingToVoters}}",
+                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Dwarf.Leaflet}}"
             }
         },
         {
@@ -307,7 +344,8 @@
             "Target": "Characters/Dialogue/Krobus",
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.TalkingToVoters}}"
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.TalkingToVoters}}",
+                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Krobus.Leaflet}}"
             }
         }
     ]

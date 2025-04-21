@@ -33,7 +33,6 @@
 	//////////////////
 	//Converstaion Topics
 	//////////////////
-
 	"EmuEngine.MayorModCP_ConverstaionTopic.Alex.RegisteredForBallot": "I hear you're running for mayor. Good luck. Lewis has been mayor as long as I can remember.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Elliott.RegisteredForBallot": "REPLACE_ME",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Harvey.RegisteredForBallot": "REPLACE_ME",
@@ -113,13 +112,56 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Krobus.TalkingToVoters": "REPLACE_ME_TOO",
 
 	//////////////////
+	//Gifting
+	//////////////////
+	"EmuEngine.MayorModCP_Gifting.Default.Leaflet": "No thank you.",
+	"EmuEngine.MayorModCP_Gifting.Alex.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Elliott.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Harvey.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Sam.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Sebastian.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Shane.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Abigail.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Emily.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Haley.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Leah.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Maru.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Penny.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Caroline.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Clint.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Demetrius.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Evelyn.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.George.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Gus.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Jodi.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Kent.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Lewis.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Linus.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Marnie.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Pam.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Pierre.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Robin.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Sandy.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Willy.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Wizard.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Gil.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Gunther.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Marlon.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Morris.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Jas.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Leo.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Vincent.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Dwarf.Leaflet": "REPLACE_GIFT_TEST",
+	"EmuEngine.MayorModCP_Gifting.Krobus.Leaflet": "REPLACE_GIFT_TEST",
+
+	//////////////////
 	//Mail
 	//////////////////
 	"EmuEngine.MayorModCP_Mail.RegistrationMail.Title": "Registration for Mayoral Election",
 	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body": "^^Dear Tom,^^Re: Registration for Mayoral Election^^ We are pleased to acknowledge your registration as a candidate in the upcoming mayoral election. Your commitment to serving our community is commendable as is the interest you have shown in running for this esteemed position. The election will take place in two weeks so get campaigning. ^^If you have any questions or^concerns regarding the election^process, please do not hesitate to contact us. We are more than happy to assist you throughout this campaign.^^Sincerely,^Angela,^Chair of Stardew Valley Election Committee[letterbg LooseSprites/MayorMod_letterBG 0] [textcolor black]",
 
 	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Title": "Talk with voters",
-	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^^Now that you're all registered for the ballot sheet we need to start telling people about your policies. As your campaign manager I suggest you should make some time to talk to voters ^^Marlon",
+	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^^Now that you're all registered for the ballot sheet we need to start telling people about your policies. As your campaign manager I've printed up some leaflets that you can hand out. I suggest you make some time to talk to voters.' ^^Marlon %item object EmuEngine.MayorModCP_Leaflet 20%%",
 
 
 	"EmuEngine.MayorModCP_Mail.CampaignWithLeafletsMail.Title": "Title test",

@@ -41,14 +41,14 @@ public class TileActions
         }
         else
         {
-            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
         }
         return true;
     }
 
     private static void DeskRegisterAction(Farmer farmer)
     {
-        Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.RegisterForBallot);
+        Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.RegisterForBallot);
     }
 
     /// <summary>
@@ -59,21 +59,21 @@ public class TileActions
     {
         if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.Ballot))
         {
-            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToFillBallot);
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToFillBallot);
         }
         else if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.BallotUsed))
         {
-            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToVote);
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToVote);
         }
         else if (farmer.Items.HasEmptySlots())
         {
-            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.GetBallot);
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.GetBallot);
             var ballot = ItemRegistry.Create(ModItemKeys.Ballot);
             farmer.addItemToInventory(ballot);
         }
         else
         {
-            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.CantCarryBallot);
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.CantCarryBallot);
         }
         //dont let leave if you have a voting card
     }
@@ -93,7 +93,7 @@ public class TileActions
             //Show filling in voting card
             var parsed = Int32.TryParse(args[2], out int boothNum);
             boothNum = parsed? boothNum: 0;
-            ModHelper.DrawSpriteTemporarily(location, new Vector2(120 + (30 * boothNum), 62), ModAssetPaths.BallotTexturePath, 500.0f);
+            HelperMethods.DrawSpriteTemporarily(location, new Vector2(120 + (30 * boothNum), 62), ModAssetPaths.BallotTexturePath, 500.0f);
 
             //Remove unused voting card
             farmer.removeItemFromInventory(ballot);
@@ -104,15 +104,15 @@ public class TileActions
         }
         else if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.Ballot))
         {
-            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToFillBallot);
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToFillBallot);
         }
         else if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.BallotUsed))
         {
-            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToVote);
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToVote);
         }
         else
         {
-            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedBallot);
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedBallot);
         }
     }
 
@@ -128,15 +128,15 @@ public class TileActions
         {
             farmer.removeItemFromInventory(ballot);
             farmer.mailReceived.Add(ModProgressKeys.VotedForMayor);
-            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
         }
         else if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.Ballot))
         {
-            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToFillBallot);
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToFillBallot);
         }
         else
         {
-            Game1.DrawDialogue(ModHelper.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedBallot);
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedBallot);
         }
     }
 }
