@@ -1,16 +1,20 @@
 ﻿using MayorMod.Constants;
 using MayorMod.Data;
+using MayorMod.Data.Models;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
+using StardewModdingAPI.Utilities;
 using StardewValley;
-using StardewValley.Menus;
+using StardewValley.GameData;
+using System.Xml.Linq;
 
 namespace MayorMod;
 
 /// <summary>The mod entry point.</summary>
 internal sealed class ModEntry : Mod
 {
-    private IModHelper _helper;
+    private MayorModData _saveData;
+    public string saveKey = $"{ModKeys.MayorModCPId}_data";
 
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
@@ -18,36 +22,119 @@ internal sealed class ModEntry : Mod
     /// <param name="helper">Provides simplified APIs for writing mods.</param>
     public override void Entry(IModHelper helper)
     {
-        helper.Events.Input.ButtonPressed += this.OnButtonPressed;
-        helper.Events.Content.AssetRequested += this.OnAssetRequested;
-        helper.Events.Display.MenuChanged += Display_MenuChanged;
+        TileActions.Init(Monitor);
 
+        Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
+        Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
+        Helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
+        Helper.Events.Content.AssetRequested += OnAssetRequested;
+        Helper.Events.Input.ButtonPressed += OnButtonPressed;
+        Helper.Events.Display.MenuChanged += Display_MenuChanged;
+    }
 
-        TileActions.Init(this.Monitor);
+    private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
+    {
+        _saveData = base.Helper.Data.ReadSaveData<MayorModData>(saveKey);
+        _saveData ??= new MayorModData();
+    }
 
-        helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
-        helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
-        _helper = helper;
+    private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
+    {
+        if (Game1.player.mailReceived.Contains($"{ModKeys.MayorModCPId}_RegisteredForBallot"))
+        {
+            Game1.player.mailReceived.Remove($"{ModKeys.MayorModCPId}_RegisteredForBallot");
+
+            _saveData.RunningForMayor = true;
+            _saveData.VotingDate = SDate.Now().AddDays(10);
+            Helper.Data.WriteSaveData(saveKey, _saveData);
+        }
+
+        if (_saveData.RunningForMayor)
+        {
+            //PassiveFestivals are loaded before the damn save data so we need to
+            //reload them to make the variable date passive festivals show.
+            Helper.GameContent.InvalidateCache("Data/PassiveFestivals");
+            Game1.PerformPassiveFestivalSetup();
+        }
+    }
+
+    private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
+    {
     }
 
     private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
     {
-        if (!e.NameWithoutLocale.StartsWith("Characters/Dialogue"))
+        if (e.NameWithoutLocale.IsEquivalentTo("Data/Mail"))
+        {
+            e.Edit(AssetUpdatesForMail);
+        }
+        else if (e.NameWithoutLocale.IsEquivalentTo("Data/PassiveFestivals"))
+        {
+            e.Edit(AssetUpdatesForPassiveFestivals);
+        }
+        else if (e.NameWithoutLocale.StartsWith("Characters/Dialogue"))
+        {
+            e.Edit(AssetUpdatesForDialogue);
+        }
+    }
+
+    private void AssetUpdatesForMail(IAssetData mails)
+    {
+        if (_saveData is null)
         {
             return;
         }
-        else
+
+        var data = mails.AsDictionary<string, string>().Data;
+        var title = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Mail.RegistrationMail.Title");
+        var body = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Mail.RegistrationMail.Body");
+        body = string.Format(body, $"{_saveData.VotingDate.Season} {_saveData.VotingDate.Day}");
+        data[$"{ModKeys.MayorModCPId}_RegisteredForElectionMail"] = $"{body}[#]{title}";
+    }
+
+    private void AssetUpdatesForPassiveFestivals(IAssetData festivals)
+    {
+        if (_saveData is null || !_saveData.RunningForMayor)
         {
-            e.Edit((asset =>
-            {
-                if (!asset.AsDictionary<string, string>().Data.ContainsKey($"AcceptGift_(O){ModKeys.MayorModCPId}_Leaflet") &&
-                    !asset.AsDictionary<string, string>().Data.ContainsKey($"RejectItem_(O){ModKeys.MayorModCPId}_Leaflet"))
-                {
-                    var data = asset.AsDictionary<string, string>().Data;
-                    data[$"RejectItem_(O){ModKeys.MayorModCPId}_Leaflet"] = HelperMethods.GetTranslationForKey(_helper, $"{ModKeys.MayorModCPId}_Gifting.Default.Leaflet");
-                }
-            }));
+            return;
         }
+
+        var data = festivals.AsDictionary<string, PassiveFestivalData>().Data;
+        var votingDay = new PassiveFestivalData()
+        {
+            DisplayName = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Festival.VotingDay.Name"),
+            StartMessage = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Festival.VotingDay.Message"),
+            Season = _saveData.VotingDate.Season,
+            StartDay = _saveData.VotingDate.Day,
+            EndDay = _saveData.VotingDate.Day,
+            StartTime = 600,
+            ShowOnCalendar = true,
+            OnlyShowMessageOnFirstDay = true,
+        };
+        data[$"{ModKeys.MayorModCPId}_VotingDay"] = votingDay;
+    }
+
+    private void AssetUpdatesForDialogue(IAssetData dialogues)
+    {
+        if (!dialogues.AsDictionary<string, string>().Data.ContainsKey($"AcceptGift_(O){ModKeys.MayorModCPId}_Leaflet") &&
+            !dialogues.AsDictionary<string, string>().Data.ContainsKey($"RejectItem_(O){ModKeys.MayorModCPId}_Leaflet"))
+        {
+            var data = dialogues.AsDictionary<string, string>().Data;
+            data[$"RejectItem_(O){ModKeys.MayorModCPId}_Leaflet"] = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Gifting.Default.Leaflet");
+        }
+    }
+
+    private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
+    {
+        //if (e.Button.IsActionButton())
+        //{
+        //    if (Game1.player.ActiveItem is not null && Game1.player.ActiveItem.ItemId == ModItemKeys.ElectionSign)
+        //    {
+        //        //item placed add percentage for vote
+        //    }
+
+        //    var n = HelperMethods.GetNPCForPlayerInteraction();
+        //}
     }
 
     private void Display_MenuChanged(object? sender, MenuChangedEventArgs e)
@@ -60,86 +147,28 @@ internal sealed class ModEntry : Mod
         //}
     }
 
-    private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
-    {
-        if (e.Button.IsActionButton())
-        {
-            if (Game1.player.ActiveItem is not null && Game1.player.ActiveItem.ItemId == ModItemKeys.ElectionSign)
-            {
-                //item placed add percentage for vote
-            }
-
-            var n = HelperMethods.GetNPCForPlayerInteraction();
-        }
-    }
-
-    private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
-    {
-        //ModHelper.RemoveProgressMails();
-        //ModHelper.MasterPlayerMail.Add(ModProgressKeys.VotingMayor);
-
-       // Game1.MasterPlayer.addQuest("EmuEngine.MayorModCP_CampaignWithLeafletsQuest");
-    }
-
-    private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
-    {
-        //ModHelper.RemoveProgressMails();
-
-        //if (Game1.dayOfMonth % 3 == 2)
-        //{
-        //    ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.RegisteringForBalot);
-        //}
-        //else if (Game1.dayOfMonth % 3 == 0)
-        //{
-        //    ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.VotingMayor);
-        //}
-    }
-
-    //#region Mail
-    //private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
+    //private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     //{
-    //    if (e.NameWithoutLocale.IsEquivalentTo("Data/mail"))
-    //    {
-    //        e.Edit(this.EditImpl);
-    //    }
-    //    if(e.NameWithoutLocale.IsEquivalentTo("Characters/Dialogue/Lewis"))
-    //    {
-    //        e.Edit(this.LewisDialogueEdits);
-    //    }
-    //    //if (e.NameWithoutLocale.IsEquivalentTo("Data/Festivals/FestivalDates"))
+    //    //ModHelper.RemoveProgressMails();
+    //    //ModHelper.MasterPlayerMail.Add(ModProgressKeys.VotingMayor);
+
+    //   // Game1.MasterPlayer.addQuest("EmuEngine.MayorModCP_CampaignWithLeafletsQuest");
+    //}
+
+    //private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
+    //{
+    //    //ModHelper.RemoveProgressMails();
+
+    //    //if (Game1.dayOfMonth % 3 == 2)
     //    //{
-    //    //    e.Edit(this.FestivalDateEdits);
+    //    //    ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.RegisteringForBalot);
+    //    //}
+    //    //else if (Game1.dayOfMonth % 3 == 0)
+    //    //{
+    //    //    ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.VotingMayor);
     //    //}
     //}
 
-    //public void FestivalDateEdits(IAssetData asset)
-    //{
-    //    var data = asset.AsDictionary<string, string>().Data;
-    //    data["spring9"] = "Voting Day!";
-    //}
-
-    //public void LewisDialogueEdits(IAssetData asset)
-    //{
-    //    var data = asset.AsDictionary<string, string>().Data;
-    //    data["Introduction"] = "Im about to be fired!";
-    //}
-
-    //public void EditImpl(IAssetData asset)
-    //{
-    //    var data = asset.AsDictionary<string, string>().Data;
-
-    //    // "MyModMail1" is referred to as the mail Id.  It is how you will uniquely identify and reference your mail.
-    //    // The @ will be replaced with the player's name.  Other items do not seem to work (''i.e.,'' %pet or %farm)
-    //    // %item object 388 50 %%   - this adds 50 pieces of wood when added to the end of a letter.
-    //    // %item tools Axe Hoe %%   - this adds tools; may list any of Axe, Hoe, Can, Scythe, and Pickaxe
-    //    // %item money 250 601  %%  - this sends a random amount of gold from 250 to 601 inclusive.
-    //    // For more details, see: https://stardewvalleywiki.com/Modding:Mail_data 
-    //    data["MyModMail1"] = "Hello @... ^A single carat is a new line ^^Two carats will double space.";
-    //    data["MyModMail2"] = "This is how you send an existing item via email! %item object 388 50 %%";
-    //    data["MyModMail3"] = "Coin $   Star =   Heart <   Dude +  Right Arrow >   Up Arrow `";
-    //    data["MyWizardMail"] = "Include Wizard in the mail Id to use the special background on a letter";
-    //}
-    //#endregion
 
     ///*********
     //** Private methods

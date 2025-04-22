@@ -11,9 +11,9 @@
         {
             "LogName": "Loading Mails",
             "Action": "EditData",
-            "Target": "data/mail",
+            "Target": "Data/Mail",
             "Entries": {
-                "{{ModId}}_RegisteredForElectionMail": "{{i18n:{{ModId}}_Mail.RegistrationMail.Body}}[#]{{i18n:{{ModId}}_Mail.RegistrationMail.Title}}",
+                //"{{ModId}}_RegisteredForElectionMail": "{{i18n:{{ModId}}_Mail.RegistrationMail.Body}}[#]{{i18n:{{ModId}}_Mail.RegistrationMail.Title}}",
                 "{{ModId}}_TalkingToVotersMail": "{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Body}}[#]{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Title}}",
                 "CampaignWithLeafletsMail": "{{i18n:{{ModId}}_Mail.CampaignWithLeafletsMail.Body}}%item quest {{ModId}}_CampaignWithLeafletsQuest %%[#]{{i18n:{{ModId}}_Mail.CampaignWithLeafletsMail.Title}}",
                 "GilCampaignMail": "{{i18n:{{ModId}}_Mail.GilCampaignMail.Body}}[#]{{i18n:{{ModId}}_Mail.GilCampaignMail.Title}}"

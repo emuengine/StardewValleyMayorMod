@@ -1,4 +1,7 @@
 ﻿
+using StardewModdingAPI.Utilities;
+using StardewValley;
+
 namespace MayorMod.Data.Models;
 
 /// <summary>
@@ -8,4 +11,5 @@ public sealed class MayorModData
 {
     public bool ElectedMayor { get; set; }
     public bool RunningForMayor { get; set; }
+    public SDate VotingDate { get; set; }
 }
