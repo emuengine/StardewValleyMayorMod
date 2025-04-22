@@ -11,11 +11,6 @@
 			"Action": "Include",
 			"FromFile": "Data/Events/MayorSpeechEvent.json, Data/Events/NeedMayorEvent.json, Data/Events/CouncilMeetingEvent.json, Data/Events/WorriedLewisEvent.json"
 		},
-		//Festivals
-		{
-			"Action": "Include",
-			"FromFile": "Data/Festivals/VotingDay.json"
-		},
 		//Items
 		{
 			"Action": "Include",
@@ -29,7 +24,7 @@
 		//Maps
 		{
 			"Action": "Include",
-			"FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/NewMayorStage.json, Data/Maps/Exterior/RegistrationOffice.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Interior/AdventureGuild.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/RegistrationOffice.json, Data/Maps/Interior/VotingOffice.json"
+			"FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/NewMayorStage.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Interior/AdventureGuild.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/VotingOffice.json"
 		},
 		//NPCs
 		{

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="15" height="11" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="16">
  <properties>
-  <property name="LocationContext" value="Island"/>
-  <property name="SeasonOverride" value="summer"/>
-  <property name="Warp" value="4 11 IslandNorth 46 46"/>
+  <property name="Warp" value="7 10 Town 34 36"/>
  </properties>
  <tileset firstgid="1" name="p" tilewidth="16" tileheight="16" tilecount="64" columns="4">
   <image source="paths" width="64" height="256"/>

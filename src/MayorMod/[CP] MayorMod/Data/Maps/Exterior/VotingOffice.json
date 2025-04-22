@@ -4,33 +4,22 @@
             "LogName": "Patching Maps/Town to add MayorMod_VotingOfficeExterior",
             "Action": "EditMap",
             "Target": "Maps/Town",
-            "PatchMode": "ReplaceByLayer",
+            "PatchMode": "Overlay",
             "FromFile": "Assets/Maps/MapPatches/VotingDay.tmx",
             "FromArea": {
                 "X": 0,
                 "Y": 0,
-                "Width": 10,
-                "Height": 8
+                "Width": 13,
+                "Height": 6
             },
             "ToArea": {
-                "X": 31,
+                "X": 30,
                 "Y": 31,
-                "Width": 10,
-                "Height": 8
+                "Width": 13,
+                "Height": 6
             },
             "When": {
-                "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
-            }
-        },
-        {
-            "LogName": "Adding warp (VotingOffice -> Town)",
-            "Action": "EditMap",
-            "Target": "Maps/MayorMod_VotingOffice",
-            "AddWarps": [
-                "7 10 Town 35 36"
-            ],
-            "When": {
-                "HasFlag | contains=MayorMod_EnableVotingBooth": "true"
+                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true
             }
         }
     ]

@@ -1,37 +1,37 @@
-{
-    "Changes": [
-        {
-            "LogName": "Patching Maps/Town to add MayorMod_RegistrationOfficeExterior",
-            "Action": "EditMap",
-            "Target": "Maps/Town",
-            "PatchMode": "Overlay",
-            "FromFile": "Assets/Maps/MapPatches/RegistrationDay.tmx",
-            "FromArea": {
-                "X": 0,
-                "Y": 0,
-                "Width": 10,
-                "Height": 8
-            },
-            "ToArea": {
-                "X": 31,
-                "Y": 31,
-                "Width": 10,
-                "Height": 8
-            },
-            "When": {
-                "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
-            }
-        },
-        {
-            "LogName": "Adding warp (RegistrationOffice -> Town)",
-            "Action": "EditMap",
-            "Target": "Maps/MayorMod_RegistrationOffice",
-            "AddWarps": [
-                "7 10 Town 35 36"
-            ],
-            "When": {
-                "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
-            }
-        }
-    ]
-}
+//{
+//    "Changes": [
+//        {
+//            "LogName": "Patching Maps/Town to add MayorMod_RegistrationOfficeExterior",
+//            "Action": "EditMap",
+//            "Target": "Maps/Town",
+//            "PatchMode": "Overlay",
+//            "FromFile": "Assets/Maps/MapPatches/RegistrationDay.tmx",
+//            "FromArea": {
+//                "X": 0,
+//                "Y": 0,
+//                "Width": 10,
+//                "Height": 8
+//            },
+//            "ToArea": {
+//                "X": 31,
+//                "Y": 31,
+//                "Width": 10,
+//                "Height": 8
+//            },
+//            "When": {
+//                "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
+//            }
+//        },
+//        {
+//            "LogName": "Adding warp (RegistrationOffice -> Town)",
+//            "Action": "EditMap",
+//            "Target": "Maps/MayorMod_RegistrationOffice",
+//            "AddWarps": [
+//                "7 10 Town 35 36"
+//            ],
+//            "When": {
+//                "HasFlag | contains=MayorMod_EnableRegistrationOffice": "true"
+//            }
+//        }
+//    ]
+//}

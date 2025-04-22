@@ -6,7 +6,6 @@ using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.GameData;
-using System.Xml.Linq;
 
 namespace MayorMod;
 
@@ -49,21 +48,39 @@ internal sealed class ModEntry : Mod
             Helper.Data.WriteSaveData(saveKey, _saveData);
         }
 
-        if (_saveData.RunningForMayor)
+        if (_saveData is not null && _saveData.RunningForMayor)
         {
+            if (_saveData.VotingDate == SDate.Now())
+            {
+                Game1.MasterPlayer.mailReceived.Add($"{ModKeys.MayorModCPId}_VotingDay");
+            }
+
             //PassiveFestivals are loaded before the damn save data so we need to
             //reload them to make the variable date passive festivals show.
             Helper.GameContent.InvalidateCache("Data/PassiveFestivals");
-            Game1.PerformPassiveFestivalSetup();
+            Game1.UpdatePassiveFestivalStates();
         }
     }
 
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
+        if (_saveData is not null && _saveData.RunningForMayor && _saveData.VotingDate == SDate.Now())
+        {
+            Game1.MasterPlayer.mailReceived.Remove($"{ModKeys.MayorModCPId}_VotingDay");
+            _saveData.RunningForMayor = false;
+            //TODO Make it so you can lose election but for now just assume you win
+            _saveData.ElectedMayor = true;
+            Helper.Data.WriteSaveData(saveKey, _saveData);
+        }
     }
 
     private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
     {
+        if (_saveData is null || !_saveData.RunningForMayor)
+        {
+            return;
+        }
+
         if (e.NameWithoutLocale.IsEquivalentTo("Data/Mail"))
         {
             e.Edit(AssetUpdatesForMail);
@@ -80,11 +97,6 @@ internal sealed class ModEntry : Mod
 
     private void AssetUpdatesForMail(IAssetData mails)
     {
-        if (_saveData is null)
-        {
-            return;
-        }
-
         var data = mails.AsDictionary<string, string>().Data;
         var title = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Mail.RegistrationMail.Title");
         var body = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Mail.RegistrationMail.Body");
@@ -94,11 +106,6 @@ internal sealed class ModEntry : Mod
 
     private void AssetUpdatesForPassiveFestivals(IAssetData festivals)
     {
-        if (_saveData is null || !_saveData.RunningForMayor)
-        {
-            return;
-        }
-
         var data = festivals.AsDictionary<string, PassiveFestivalData>().Data;
         var votingDay = new PassiveFestivalData()
         {
