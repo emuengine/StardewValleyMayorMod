@@ -73,7 +73,7 @@ internal sealed class ModEntry : Mod
         if (Game1.player.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
         {
             _saveData.RunningForMayor = true;
-            _saveData.VotingDate = SDate.Now().AddDays(10);
+            _saveData.VotingDate = HelperMethods.GetDateWithoutFestival(10);
             Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
         }
     }
