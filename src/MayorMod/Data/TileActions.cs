@@ -9,10 +9,16 @@ public class TileActions
 {
     private static IMonitor? _monitor;
 
+    public const string MayorModActionType = "MayorModAction";
+    public const string DeskActionType = "Desk";
+    public const string DeskRegisterActionType = "DeskRegister";
+    public const string VotingBoothActionType = "VotingBooth";
+    public const string BallotBoxActionType = "BallotBox";
+
     public static void Init(IMonitor monitor)
     {
         _monitor = monitor;
-        GameLocation.RegisterTileAction(ModActionTypes.Action, GetVoteCard);
+        GameLocation.RegisterTileAction(MayorModActionType, GetVoteCard);
     }
 
     /// <summary>
@@ -31,10 +37,10 @@ public class TileActions
             {
                 switch (arg2[1])
                 {
-                    case ModActionTypes.DeskAction: DeskAction(farmer); break;
-                    case ModActionTypes.DeskRegisterAction: DeskRegisterAction(farmer); break;
-                    case ModActionTypes.VotingBoothAction: VotingBoothAction(location, farmer, arg2); break;
-                    case ModActionTypes.BallotBoxAction: BallotBoxAction(farmer); break;
+                    case DeskActionType: DeskAction(farmer); break;
+                    case DeskRegisterActionType: DeskRegisterAction(farmer); break;
+                    case VotingBoothActionType: VotingBoothAction(location, farmer, arg2); break;
+                    case BallotBoxActionType: BallotBoxAction(farmer); break;
                     default: _monitor?.Log($"Unknown tile action - {arg2[1]}", LogLevel.Error); break;
                 }
             }

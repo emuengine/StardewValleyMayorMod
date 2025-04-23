@@ -1,0 +1,33 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading {{ModId}}_ManorHouseBasement into assets",
+            "Action": "Load",
+            "Target": "Maps/{{ModId}}_ManorHouseBasement",
+            "FromFile": "Assets/Maps/Interior/ManorHouseBasement.tmx"
+        },
+        {
+            "LogName": "Updating Data/Locations to add {{ModId}}_ManorHouseBasement",
+            "Action": "EditData",
+            "Target": "Data/Locations",
+            "Entries": {
+                "{{ModId}}_ManorHouseBasement": {
+                    "CreateOnLoad": {
+                        "MapPath": "Maps/{{ModId}}_ManorHouseBasement"
+                    },
+                    "DisplayName": "Empty Manor House Basement",
+                    "DefaultArrivalTile": {
+                        "X": 4,
+                        "Y": 4
+                    },
+                    "ExcludeFromNpcPathfinding": false,
+                    "ArtifactSpots": [],
+                    "FishAreas": {},
+                    "Fish": [],
+                    "Forage": [],
+                    "MusicContext": "Default"
+                }
+            }
+        }
+    ]
+}

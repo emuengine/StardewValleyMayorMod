@@ -24,7 +24,7 @@
 		//Maps
 		{
 			"Action": "Include",
-			"FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/NewMayorStage.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Interior/AdventureGuild.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/VotingOffice.json"
+			"FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/NewMayorStage.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Interior/AdventureGuild.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/ManorHouseBasement.json, Data/Maps/Interior/VotingOffice.json"
 		},
 		//NPCs
 		{
@@ -40,12 +40,6 @@
 		{
 			"Action": "Include",
 			"FromFile": "Data/NPCs/Lewis.json"
-		},
-
-		//Testing
-		//{
-		//	"Action": "Include",
-		//	"FromFile": "Testing.json"
-		//}
+		}
 	]
 }
