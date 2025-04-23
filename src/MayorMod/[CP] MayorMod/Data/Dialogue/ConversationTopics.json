@@ -7,6 +7,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Alex.Leaflet}}"
             }
         },
@@ -16,6 +17,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Elliott.Leaflet}}"
             }
         },
@@ -25,6 +27,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Harvey.Leaflet}}"
             }
         },
@@ -34,6 +37,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sam.Leaflet}}"
             }
         },
@@ -43,6 +47,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sebastian.Leaflet}}"
             }
         },
@@ -52,6 +57,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Shane.Leaflet}}"
             }
         },
@@ -62,6 +68,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Abigail.Leaflet}}"
             }
         },
@@ -71,6 +78,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Emily.Leaflet}}"
             }
         },
@@ -80,6 +88,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Haley.Leaflet}}"
             }
         },
@@ -89,6 +98,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Leah.Leaflet}}"
             }
         },
@@ -98,6 +108,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Maru.Leaflet}}"
             }
         },
@@ -107,6 +118,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Penny.Leaflet}}"
             }
         },
@@ -117,6 +129,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Caroline.Leaflet}}"
             }
         },
@@ -126,6 +139,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Clint.Leaflet}}"
             }
         },
@@ -135,6 +149,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Demetrius.Leaflet}}"
             }
         },
@@ -144,6 +159,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Evelyn.Leaflet}}"
             }
         },
@@ -153,6 +169,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.George.Leaflet}}"
             }
         },
@@ -162,6 +179,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gus.Leaflet}}"
             }
         },
@@ -171,6 +189,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Jodi.Leaflet}}"
             }
         },
@@ -180,6 +199,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Kent.Leaflet}}"
             }
         },
@@ -189,6 +209,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.ElectedMayor}}",
                 "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Lewis.Leaflet}}"
             }
         },
@@ -198,6 +219,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Linus.Leaflet}}"
             }
         },
@@ -207,6 +229,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Marnie.Leaflet}}"
             }
         },
@@ -216,6 +239,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Pam.Leaflet}}"
             }
         },
@@ -225,6 +249,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Pierre.Leaflet}}"
             }
         },
@@ -234,6 +259,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Robin.Leaflet}}"
             }
         },
@@ -243,6 +269,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sandy.Leaflet}}"
             }
         },
@@ -252,6 +279,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Willy.Leaflet}}"
             }
         },
@@ -261,6 +289,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Wizard.Leaflet}}"
             }
         },
@@ -271,6 +300,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gil.Leaflet}}"
             }
         },
@@ -280,6 +310,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gunther.Leaflet}}"
             }
         },
@@ -289,6 +320,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Marlon.Leaflet}}"
             }
         },
@@ -298,6 +330,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.ElectedMayor}}",
                 "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Morris.Leaflet}}"
             }
         },
@@ -308,6 +341,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.ElectedMayor}}",
                 "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Jas.Leaflet}}"
             }
         },
@@ -317,6 +351,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.ElectedMayor}}",
                 "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Leo.Leaflet}}"
             }
         },
@@ -326,6 +361,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.ElectedMayor}}",
                 "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Vincent.Leaflet}}"
             }
         },
@@ -336,6 +372,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.ElectedMayor}}",
                 "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Dwarf.Leaflet}}"
             }
         },
@@ -345,6 +382,7 @@
             "Entries": {
                 "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.RegisteredForBallot}}",
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.ElectedMayor}}",
                 "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Krobus.Leaflet}}"
             }
         }
