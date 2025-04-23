@@ -1,0 +1,26 @@
+{
+    "Changes": [
+        {
+            "LogName": "Patching Maps/Town to update ManorHouse door location when mayor",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "Overlay",
+            "FromFile": "Assets/Maps/MapPatches/ManorHouseDoor.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 2,
+                "Height": 1
+            },
+            "ToArea": {
+                "X": 58,
+                "Y": 85,
+                "Width": 2,
+                "Height": 1
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            }
+        }
+    ]
+}

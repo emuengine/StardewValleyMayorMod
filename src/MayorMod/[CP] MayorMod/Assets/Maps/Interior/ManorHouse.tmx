@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="21" nextobjectid="22">
  <properties>
-  <property name="Doors" value="16 9 1 120"/>
   <property name="Warp" value="4 12 Town 58 86 5 12 Town 59 86 21 11 EmuEngine.MayorModCP_ManorHouseBasement 4 3"/>
  </properties>
  <tileset firstgid="1" name="1" tilewidth="16" tileheight="16" tilecount="2176" columns="32">

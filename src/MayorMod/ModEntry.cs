@@ -61,19 +61,22 @@ internal sealed class ModEntry : Mod
 
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
+        //Set voting date
+        if (Game1.player.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
+        {
+            _saveData.RunningForMayor = true;
+            _saveData.VotingDate = HelperMethods.GetDateWithoutFestival(10);
+            Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
+        }
+
+        //End of voting day
         if (_saveData is not null && _saveData.RunningForMayor && _saveData.VotingDate == SDate.Now())
         {
             Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.IsVotingDay);
             _saveData.RunningForMayor = false;
             //TODO Make it so you can lose election but for now just assume you win
+            Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.ElectedAsMayor);
             _saveData.ElectedMayor = true;
-            Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
-        }
-
-        if (Game1.player.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
-        {
-            _saveData.RunningForMayor = true;
-            _saveData.VotingDate = HelperMethods.GetDateWithoutFestival(10);
             Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
         }
     }
