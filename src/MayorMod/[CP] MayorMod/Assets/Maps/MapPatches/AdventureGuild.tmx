@@ -75,7 +75,7 @@
   <image source="townInterior_2" width="512" height="656"/>
  </tileset>
  <tileset firstgid="3489" name="z_MayorMod_Misc_Tilesheet" tilewidth="16" tileheight="16" tilecount="390" columns="26">
-  <image source="MayorMod_Misc_Tilesheet.png" width="416" height="240"/>
+  <image source="EmuEngine.MayorModCP_Misc_Tilesheet.png" width="416" height="240"/>
   <tile id="0">
    <animation>
     <frame tileid="0" duration="100"/>

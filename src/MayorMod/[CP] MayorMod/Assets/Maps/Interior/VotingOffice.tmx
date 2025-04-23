@@ -10,10 +10,10 @@
   <image source="Island_FieldOffice_Tilesheet" width="160" height="192"/>
  </tileset>
  <tileset firstgid="185" name="z_MayorMod_Misc_Tilesheet" tilewidth="16" tileheight="16" tilecount="390" columns="26">
-  <image source="MayorMod_Misc_Tilesheet.png" width="416" height="240"/>
+  <image source="EmuEngine.MayorModCP_Misc_Tilesheet.png" width="416" height="240"/>
  </tileset>
  <tileset firstgid="575" name="z_MayorMod_OfficeInterior_Tilesheet" tilewidth="16" tileheight="16" tilecount="120" columns="10">
-  <image source="MayorMod_OfficeInterior_Tilesheet.png" width="160" height="192"/>
+  <image source="EmuEngine.MayorModCP_OfficeInterior_Tilesheet.png" width="160" height="192"/>
  </tileset>
  <layer id="1" name="Back" width="15" height="11">
   <data encoding="csv">

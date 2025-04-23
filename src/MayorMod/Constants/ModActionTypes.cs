@@ -1,6 +1,6 @@
 ﻿namespace MayorMod.Constants;
 
-public static class ModActionTpyes
+public static class ModActionTypes
 {
     public const string Action = "MayorModAction";
     public const string DeskAction = "Desk";

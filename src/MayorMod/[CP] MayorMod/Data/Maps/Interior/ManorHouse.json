@@ -1,19 +1,19 @@
 {
     "Changes": [
         {
-            "LogName": "Loading MayorMod_ManorHouse into assets",
+            "LogName": "Loading {{ModId}}_ManorHouse into assets",
             "Action": "Load",
-            "Target": "Maps/MayorMod_ManorHouse",
+            "Target": "Maps/{{ModId}}_ManorHouse",
             "FromFile": "Assets/Maps/Interior/ManorHouse.tmx"
         },
         {
-            "LogName": "Updating Data/Locations to add MayorMod_ManorHouse",
+            "LogName": "Updating Data/Locations to add {{ModId}}_ManorHouse",
             "Action": "EditData",
             "Target": "Data/Locations",
             "Entries": {
-                "MayorMod_ManorHouse": {
+                "{{ModId}}_ManorHouse": {
                     "CreateOnLoad": {
-                        "MapPath": "Maps/MayorMod_ManorHouse"
+                        "MapPath": "Maps/{{ModId}}_ManorHouse"
                     },
                     "DisplayName": "Empty Manor House",
                     "DefaultArrivalTile": {

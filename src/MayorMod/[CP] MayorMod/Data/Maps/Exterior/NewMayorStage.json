@@ -1,24 +1,24 @@
 {
     "Changes": [
         {
-            "LogName": "Loading MayorMod_MayorSpeechStage into Assets",
+            "LogName": "Loading {{ModId}}_MayorSpeechStage into Assets",
             "Action": "Load",
-            "Target": "Maps/MayorMod_MayorSpeechStage",
+            "Target": "Maps/{{ModId}}_MayorSpeechStage",
             "FromFile": "Assets/Maps/Exterior/MayorSpeechStage.tmx"
         },
         {
-            "LogName": "Updating Data/Locations to add MayorMod_MayorSpeechStage",
+            "LogName": "Updating Data/Locations to add {{ModId}}_MayorSpeechStage",
             "Action": "EditData",
             "Target": "Data/Locations",
             "Entries": {
-                "MayorMod_MayorSpeechStage": {
+                "{{ModId}}_MayorSpeechStage": {
                     "DisplayName": "Mayor Speech Stage",
                     "DefaultArrivalTile": {
                         "X": 18,
                         "Y": 14
                     },
                     "CreateOnLoad": {
-                        "MapPath": "Maps/MayorMod_MayorSpeechStage"
+                        "MapPath": "Maps/{{ModId}}_MayorSpeechStage"
                     }
                 }
             }

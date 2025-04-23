@@ -13,7 +13,6 @@ namespace MayorMod;
 internal sealed class ModEntry : Mod
 {
     private MayorModData _saveData;
-    public string saveKey = $"{ModKeys.MayorModCPId}_data";
 
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
@@ -33,31 +32,29 @@ internal sealed class ModEntry : Mod
 
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
     {
-        _saveData = base.Helper.Data.ReadSaveData<MayorModData>(saveKey);
+        _saveData = base.Helper.Data.ReadSaveData<MayorModData>(ModKeys.MayorModSaveKey);
         _saveData ??= new MayorModData();
     }
 
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
-        if (Game1.player.mailReceived.Contains($"{ModKeys.MayorModCPId}_RegisteredForBallot"))
+        if (Game1.player.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
         {
-            Game1.player.mailReceived.Remove($"{ModKeys.MayorModCPId}_RegisteredForBallot");
-
-            _saveData.RunningForMayor = true;
-            _saveData.VotingDate = SDate.Now().AddDays(10);
-            Helper.Data.WriteSaveData(saveKey, _saveData);
+            Game1.player.mailReceived.Remove(ModProgressKeys.RegisteringForBalot);
         }
 
         if (_saveData is not null && _saveData.RunningForMayor)
         {
             if (_saveData.VotingDate == SDate.Now())
             {
-                Game1.MasterPlayer.mailReceived.Add($"{ModKeys.MayorModCPId}_VotingDay");
+                Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.IsVotingDay);
             }
 
             //PassiveFestivals are loaded before the damn save data so we need to
             //reload them to make the variable date passive festivals show.
+            Helper.GameContent.InvalidateCache("Data/Mail"); 
             Helper.GameContent.InvalidateCache("Data/PassiveFestivals");
+            Game1.PerformPassiveFestivalSetup();
             Game1.UpdatePassiveFestivalStates();
         }
     }
@@ -66,11 +63,18 @@ internal sealed class ModEntry : Mod
     {
         if (_saveData is not null && _saveData.RunningForMayor && _saveData.VotingDate == SDate.Now())
         {
-            Game1.MasterPlayer.mailReceived.Remove($"{ModKeys.MayorModCPId}_VotingDay");
+            Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.IsVotingDay);
             _saveData.RunningForMayor = false;
             //TODO Make it so you can lose election but for now just assume you win
             _saveData.ElectedMayor = true;
-            Helper.Data.WriteSaveData(saveKey, _saveData);
+            Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
+        }
+
+        if (Game1.player.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
+        {
+            _saveData.RunningForMayor = true;
+            _saveData.VotingDate = SDate.Now().AddDays(10);
+            Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
         }
     }
 
@@ -118,16 +122,16 @@ internal sealed class ModEntry : Mod
             ShowOnCalendar = true,
             OnlyShowMessageOnFirstDay = true,
         };
-        data[$"{ModKeys.MayorModCPId}_VotingDay"] = votingDay;
+        data[$"{ModKeys.MayorModCPId}_VotingDayPassiveFestival"] = votingDay;
     }
 
     private void AssetUpdatesForDialogue(IAssetData dialogues)
     {
-        if (!dialogues.AsDictionary<string, string>().Data.ContainsKey($"AcceptGift_(O){ModKeys.MayorModCPId}_Leaflet") &&
-            !dialogues.AsDictionary<string, string>().Data.ContainsKey($"RejectItem_(O){ModKeys.MayorModCPId}_Leaflet"))
+        if (!dialogues.AsDictionary<string, string>().Data.ContainsKey($"AcceptGift_(O){ModItemKeys.LeafletSign}") &&
+            !dialogues.AsDictionary<string, string>().Data.ContainsKey($"RejectItem_(O){ModItemKeys.LeafletSign}"))
         {
             var data = dialogues.AsDictionary<string, string>().Data;
-            data[$"RejectItem_(O){ModKeys.MayorModCPId}_Leaflet"] = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Gifting.Default.Leaflet");
+            data[$"RejectItem_(O){ModItemKeys.LeafletSign}"] = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Gifting.Default.Leaflet");
         }
     }
 

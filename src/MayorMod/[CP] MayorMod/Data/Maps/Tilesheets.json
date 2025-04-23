@@ -3,13 +3,13 @@
         // Load Tilesheets
         {
             "Action": "Load",
-            "Target": "Maps/MayorMod_Misc_Tilesheet",
-            "FromFile": "Assets/Maps/TileSheets/MayorMod_Misc_Tilesheet.png"
+            "Target": "Maps/{{ModId}}_Misc_Tilesheet",
+            "FromFile": "Assets/Maps/TileSheets/{{ModId}}_Misc_Tilesheet.png"
         },
         {
             "Action": "Load",
-            "Target": "Maps/MayorMod_OfficeInterior_Tilesheet",
-            "FromFile": "Assets/Maps/TileSheets/MayorMod_OfficeInterior_Tilesheet.png"
+            "Target": "Maps/{{ModId}}_OfficeInterior_Tilesheet",
+            "FromFile": "Assets/Maps/TileSheets/{{ModId}}_OfficeInterior_Tilesheet.png"
         }
     ]
 }

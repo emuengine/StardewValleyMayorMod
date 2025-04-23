@@ -1,19 +1,19 @@
 {
     "Changes": [
         {
-            "LogName": "Loading MayorMod_VotingOffice into Assets",
+            "LogName": "Loading {{ModId}}_VotingOffice into Assets",
             "Action": "Load",
-            "Target": "Maps/MayorMod_VotingOffice",
+            "Target": "Maps/{{ModId}}_VotingOffice",
             "FromFile": "Assets/Maps/Interior/VotingOffice.tmx"
         },
         {
-            "LogName": "Updating Data/Locations to add MayorMod_VotingOffice",
+            "LogName": "Updating Data/Locations to add {{ModId}}_VotingOffice",
             "Action": "EditData",
             "Target": "Data/Locations",
             "Entries": {
-                "MayorMod_VotingOffice": {
+                "{{ModId}}_VotingOffice": {
                     "CreateOnLoad": {
-                        "MapPath": "Maps/MayorMod_VotingOffice"
+                        "MapPath": "Maps/{{ModId}}_VotingOffice"
                     },
                     "DisplayName": "Voting Office",
                     "DefaultArrivalTile": {

@@ -4,13 +4,13 @@
         {
             "LogName": "Loading Officer Mike Portrait",
             "Action": "Load",
-            "Target": "Portraits/MayorMod_OfficerMike",
+            "Target": "Portraits/{{ModId}}_OfficerMike",
             "FromFile": "Assets/NPCs/OfficerMike/Portrait.png"
         },
         {
             "LogName": "Loading Officer Mike Sprite",
             "Action": "Load",
-            "Target": "Characters/MayorMod_OfficerMike",
+            "Target": "Characters/{{ModId}}_OfficerMike",
             "FromFile": "Assets/NPCs/OfficerMike/SpriteSheet.png"
         },
         //Create OfficerMike character
@@ -19,7 +19,7 @@
             "Action": "EditData",
             "Target": "Data/Characters",
             "Entries": {
-                "MayorMod_OfficerMike": {
+                "{{ModId}}_OfficerMike": {
                     "DisplayName": " Officer Mike",
                     "Gender": "Male",
                     "Age": "Adult",
@@ -44,7 +44,7 @@
                     "Home": [
                         {
                             "Id": "Default",
-                            "Location": "MayorMod_VotingOffice",
+                            "Location": "{{ModId}}_VotingOffice",
                             "Tile": {
                                 "X": 1,
                                 "Y": 7
@@ -57,14 +57,14 @@
         },
         //Dialogue
         {
-            "LogName": "Load Characters/Dialogue MayorMod_OfficerMike Blank",
+            "LogName": "Load Characters/Dialogue {{ModId}}_OfficerMike Blank",
             "Action": "Load",
-            "Target": "Characters/Dialogue/MayorMod_OfficerMike",
+            "Target": "Characters/Dialogue/{{ModId}}_OfficerMike",
             "FromFile": "blank.json"
         },
         {
             "Action": "EditData",
-            "Target": "Characters/Dialogue/MayorMod_OfficerMike",
+            "Target": "Characters/Dialogue/{{ModId}}_OfficerMike",
             "Entries": {
                 "GetBallot": "{{i18n:{{ModId}}_Dialogue.OfficerMike.GetBallot}}",
                 "NeedToFillBallot": "{{i18n:{{ModId}}_Dialogue.OfficerMike.NeedToFillBallot}}",

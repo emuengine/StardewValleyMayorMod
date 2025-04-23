@@ -1,19 +1,19 @@
 {
     "Changes": [
         {
-            "LogName": "Loading MayorMod_AdventureGuild into assets",
+            "LogName": "Loading {{ModId}}_AdventureGuild into assets",
             "Action": "Load",
-            "Target": "Maps/MayorMod_AdventureGuild",
+            "Target": "Maps/{{ModId}}_AdventureGuild",
             "FromFile": "Assets/Maps/MapPatches/AdventureGuild.tmx"
         },
         {
-            "LogName": "Updating Data/Locations to add MayorMod_AdventureGuild",
+            "LogName": "Updating Data/Locations to add {{ModId}}_AdventureGuild",
             "Action": "EditData",
             "Target": "Data/Locations",
             "Entries": {
-                "MayorMod_AdventureGuild": {
+                "{{ModId}}_AdventureGuild": {
                     "CreateOnLoad": {
-                        "MapPath": "Maps/MayorMod_AdventureGuild"
+                        "MapPath": "Maps/{{ModId}}_AdventureGuild"
                     },
                     "DisplayName": "Event Adventure Guild",
                     "DefaultArrivalTile": {

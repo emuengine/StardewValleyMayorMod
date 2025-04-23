@@ -1,7 +1,7 @@
 {
     "Changes": [
         {
-            "LogName": "Patching Maps/Town to add MayorMod_VotingOfficeExterior",
+            "LogName": "Patching Maps/Town to add {{ModId}}_VotingOfficeExterior",
             "Action": "EditMap",
             "Target": "Maps/Town",
             "PatchMode": "Overlay",

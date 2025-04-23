@@ -12,7 +12,7 @@ public class TileActions
     public static void Init(IMonitor monitor)
     {
         _monitor = monitor;
-        GameLocation.RegisterTileAction(ModActionTpyes.Action, GetVoteCard);
+        GameLocation.RegisterTileAction(ModActionTypes.Action, GetVoteCard);
     }
 
     /// <summary>
@@ -31,10 +31,10 @@ public class TileActions
             {
                 switch (arg2[1])
                 {
-                    case ModActionTpyes.DeskAction: DeskAction(farmer); break;
-                    case ModActionTpyes.DeskRegisterAction: DeskRegisterAction(farmer); break;
-                    case ModActionTpyes.VotingBoothAction: VotingBoothAction(location, farmer, arg2); break;
-                    case ModActionTpyes.BallotBoxAction: BallotBoxAction(farmer); break;
+                    case ModActionTypes.DeskAction: DeskAction(farmer); break;
+                    case ModActionTypes.DeskRegisterAction: DeskRegisterAction(farmer); break;
+                    case ModActionTypes.VotingBoothAction: VotingBoothAction(location, farmer, arg2); break;
+                    case ModActionTypes.BallotBoxAction: BallotBoxAction(farmer); break;
                     default: _monitor?.Log($"Unknown tile action - {arg2[1]}", LogLevel.Error); break;
                 }
             }
@@ -93,7 +93,7 @@ public class TileActions
             //Show filling in voting card
             var parsed = Int32.TryParse(args[2], out int boothNum);
             boothNum = parsed? boothNum: 0;
-            HelperMethods.DrawSpriteTemporarily(location, new Vector2(120 + (30 * boothNum), 62), ModAssetPaths.BallotTexturePath, 500.0f);
+            HelperMethods.DrawSpriteTemporarily(location, new Vector2(120 + (30 * boothNum), 62), ModItemKeys.BallotTexturePath, 500.0f);
 
             //Remove unused voting card
             farmer.removeItemFromInventory(ballot);
