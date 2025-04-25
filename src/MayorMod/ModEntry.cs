@@ -9,7 +9,9 @@ using StardewValley.GameData;
 
 namespace MayorMod;
 
-/// <summary>The mod entry point.</summary>
+/// <summary>
+/// The mod entry point.
+/// </summary>
 internal sealed class ModEntry : Mod
 {
     private MayorModData _saveData;
