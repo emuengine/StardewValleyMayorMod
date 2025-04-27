@@ -15,7 +15,7 @@
                     "CreateOnLoad": {
                         "MapPath": "Maps/{{ModId}}_ManorHouse"
                     },
-                    "DisplayName": "Empty Manor House",
+                    "DisplayName": "Manor House",
                     "DefaultArrivalTile": {
                         "X": 7,
                         "Y": 9

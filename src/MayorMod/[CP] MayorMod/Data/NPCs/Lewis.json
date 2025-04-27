@@ -28,7 +28,7 @@
                 "default": "800 AnimalShop 24 15 0/1000 Town 62 88 0/1040 Town 65 86 3 lewis_garden/1140 Town 30 56 2/1400 Town 41 57 0/1600 AnimalShop 31 17 3 square_5_1_0/2000 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep"
             },
             "When": {
-                "HasFlag | contains={{ModId}}_ElectedAsMayor": "true"
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
             }
         },
         //Update home location when not mayor
@@ -49,7 +49,7 @@
                 }
             },
             "When": {
-                "HasFlag | contains={{ModId}}_ElectedAsMayor": "true"
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
             }
         }
     ]

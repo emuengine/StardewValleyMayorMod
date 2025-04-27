@@ -64,7 +64,7 @@ internal sealed class ModEntry : Mod
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
         //Set voting date
-        if (Game1.player.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
+        if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
         {
             _saveData.RunningForMayor = true;
             _saveData.VotingDate = HelperMethods.GetDateWithoutFestival(10);
@@ -72,7 +72,7 @@ internal sealed class ModEntry : Mod
         }
 
         //End of first day as mayor
-        if (Game1.player.mailReceived.Contains(ModProgressKeys.ManorHouseUnderConstruction))
+        if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.ManorHouseUnderConstruction))
         {
             Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.ManorHouseUnderConstruction);
             Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.ElectedAsMayor);

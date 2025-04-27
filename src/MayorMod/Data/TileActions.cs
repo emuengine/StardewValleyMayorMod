@@ -129,7 +129,7 @@ public class TileActions
     private static void AddItemToMasterInventory(string itemId)
     {
         var item = ItemRegistry.Create(itemId);
-        Game1.MasterPlayer.addItemToInventory(item);
+        Game1.player.addItemToInventory(item);
     }
 
     /// <summary>
