@@ -40,9 +40,9 @@ internal sealed class ModEntry : Mod
 
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
-        if (Game1.player.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
+        if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
         {
-            Game1.player.mailReceived.Remove(ModProgressKeys.RegisteringForBalot);
+            Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.RegisteringForBalot);
         }
 
         if (_saveData is not null && _saveData.RunningForMayor)
@@ -71,13 +71,20 @@ internal sealed class ModEntry : Mod
             Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
         }
 
+        //End of first day as mayor
+        if (Game1.player.mailReceived.Contains(ModProgressKeys.ManorHouseUnderConstruction))
+        {
+            Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.ManorHouseUnderConstruction);
+            Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.ElectedAsMayor);
+        }
+
         //End of voting day
         if (_saveData is not null && _saveData.RunningForMayor && _saveData.VotingDate == SDate.Now())
         {
             Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.IsVotingDay);
             _saveData.RunningForMayor = false;
             //TODO Make it so you can lose election but for now just assume you win
-            Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.ElectedAsMayor);
+            Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.ManorHouseUnderConstruction);
             _saveData.ElectedMayor = true;
             Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
         }
