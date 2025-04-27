@@ -22,6 +22,51 @@
                 "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
                 "IsCommunityCenterComplete": false
             }
+        },
+        {
+            "LogName": "Patching Maps/Town to add voting sign",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "Overlay",
+            "FromFile": "Assets/Maps/MapPatches/VotingSign.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 2,
+                "Height": 2
+            },
+            "ToArea": {
+                "X": 51,
+                "Y": 51,
+                "Width": 2,
+                "Height": 2
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true
+            }
+        },
+        {
+            "LogName": "Patching Maps/Town to add CC voting sign",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "Overlay",
+            "FromFile": "Assets/Maps/MapPatches/VotingSignCC.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 5,
+                "Height": 4
+            },
+            "ToArea": {
+                "X": 47,
+                "Y": 18,
+                "Width": 5,
+                "Height": 4
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
+                "IsCommunityCenterComplete": true
+            }
         }
     ]
 }

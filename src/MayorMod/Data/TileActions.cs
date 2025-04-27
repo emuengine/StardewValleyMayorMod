@@ -101,13 +101,13 @@ public class TileActions
             var boothLocation = new Vector2(120, 62);
             if (boothNum > 2)
             {
-                boothLocation = new Vector2(212, 64);
+                boothLocation = new Vector2(332, 126);
             }
             //Remove unused voting card
             farmer.removeItemFromInventory(ballot);
 
             float drawingTime = 500.0f;
-            HelperMethods.DrawSpriteTemporarily(location, boothLocation + new Vector2(120 + (30 * boothNum), 62), ModItemKeys.BallotTexturePath, drawingTime);
+            HelperMethods.DrawSpriteTemporarily(location, boothLocation + new Vector2((30 * boothNum), 0), ModItemKeys.BallotTexturePath, drawingTime);
 
             //Add used voting card
             DelayedAction.functionAfterDelay(() => { AddItemToMasterInventory(ModItemKeys.BallotUsed); }, (int)drawingTime);
