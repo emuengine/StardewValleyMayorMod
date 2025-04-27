@@ -118,6 +118,8 @@ internal sealed class ModEntry : Mod
         var body = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Mail.RegistrationMail.Body");
         body = string.Format(body, $"{_saveData.VotingDate.Season} {_saveData.VotingDate.Day}");
         data[$"{ModKeys.MayorModCPId}_RegisteredForElectionMail"] = $"{body}[#]{title}";
+
+        //TODO Add mail the day before voting day
     }
 
     private void AssetUpdatesForPassiveFestivals(IAssetData festivals)
@@ -132,18 +134,18 @@ internal sealed class ModEntry : Mod
             EndDay = _saveData.VotingDate.Day,
             StartTime = 600,
             ShowOnCalendar = true,
-            OnlyShowMessageOnFirstDay = true,
+            
         };
         data[$"{ModKeys.MayorModCPId}_VotingDayPassiveFestival"] = votingDay;
     }
 
     private void AssetUpdatesForDialogue(IAssetData dialogues)
     {
-        if (!dialogues.AsDictionary<string, string>().Data.ContainsKey($"AcceptGift_(O){ModItemKeys.LeafletSign}") &&
-            !dialogues.AsDictionary<string, string>().Data.ContainsKey($"RejectItem_(O){ModItemKeys.LeafletSign}"))
+        if (!dialogues.AsDictionary<string, string>().Data.ContainsKey($"AcceptGift_(O){ModItemKeys.Leaflet}") &&
+            !dialogues.AsDictionary<string, string>().Data.ContainsKey($"RejectItem_(O){ModItemKeys.Leaflet}"))
         {
             var data = dialogues.AsDictionary<string, string>().Data;
-            data[$"RejectItem_(O){ModItemKeys.LeafletSign}"] = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Gifting.Default.Leaflet");
+            data[$"RejectItem_(O){ModItemKeys.Leaflet}"] = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Gifting.Default.Leaflet");
         }
     }
 

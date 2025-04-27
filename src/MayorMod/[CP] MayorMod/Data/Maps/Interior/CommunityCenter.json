@@ -1,0 +1,27 @@
+{
+    "Changes": [
+        {
+            "LogName": "Patching CommunityCenter to add voting booths",
+            "Action": "EditMap",
+            "Target": "Maps/CommunityCenter_Refurbished",
+            "PatchMode": "ReplaceByLayer",
+            "FromFile": "Assets/Maps/MapPatches/CommunityCenterVotingDay.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 12,
+                "Height": 8
+            },
+            "ToArea": {
+                "X": 21,
+                "Y": 4,
+                "Width": 12,
+                "Height": 8
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
+                "IsCommunityCenterComplete": true
+            }
+        }
+    ]
+}

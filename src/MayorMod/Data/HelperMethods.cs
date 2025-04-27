@@ -68,6 +68,8 @@ public static class HelperMethods
     /// <returns>A date that is not a festival day, calculated based on the current date and the provided offset.</returns>
     public static SDate GetDateWithoutFestival(int dayOffset)
     {
+        //TODO check for community day
+        //TODO just pick a damn day if its more than a month
         var returnDate = SDate.Now().AddDays(dayOffset);
         while (Utility.isFestivalDay(returnDate.Day, returnDate.Season))
         {

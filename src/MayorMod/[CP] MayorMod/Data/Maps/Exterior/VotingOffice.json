@@ -19,7 +19,8 @@
                 "Height": 6
             },
             "When": {
-                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true
+                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
+                "IsCommunityCenterComplete": false
             }
         }
     ]

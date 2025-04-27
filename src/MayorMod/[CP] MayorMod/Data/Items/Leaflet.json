@@ -24,10 +24,24 @@
                     "ExcludeFromShippingCollection": true,
                     "ExcludeFromRandomSale": true,
                     "CanBeGivenAsGift": true,
+                    "CanBeTrashed": true,
                     "ContextTags": [],
                     "Buffs": []
                 }
             }
+        },
+        {
+            "LogName": "{{ModId}}_Leaflet as Universal Neutral (to prevent being used for Friendship)",
+            "Action": "EditData",
+            "Target": "Data/NPCGiftTastes",
+            "TextOperations": [
+                {
+                    "Operation": "Append",
+                    "Target": [ "Entries", "Universal_Neutral" ],
+                    "Value": "{{ModId}}_Leaflet",
+                    "Delimiter": " "
+                }
+            ]
         }
     ]
 } 

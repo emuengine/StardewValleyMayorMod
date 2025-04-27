@@ -74,8 +74,7 @@ public class TileActions
         else if (farmer.Items.HasEmptySlots())
         {
             Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.GetBallot);
-            var ballot = ItemRegistry.Create(ModItemKeys.Ballot);
-            farmer.addItemToInventory(ballot);
+            DelayedAction.functionAfterDelay(() => { AddItemToMasterInventory(ModItemKeys.Ballot); }, 1000);
         }
         else
         {
@@ -99,14 +98,19 @@ public class TileActions
             //Show filling in voting card
             var parsed = Int32.TryParse(args[2], out int boothNum);
             boothNum = parsed? boothNum: 0;
-            HelperMethods.DrawSpriteTemporarily(location, new Vector2(120 + (30 * boothNum), 62), ModItemKeys.BallotTexturePath, 500.0f);
-
+            var boothLocation = new Vector2(120, 62);
+            if (boothNum > 2)
+            {
+                boothLocation = new Vector2(212, 64);
+            }
             //Remove unused voting card
             farmer.removeItemFromInventory(ballot);
 
+            float drawingTime = 500.0f;
+            HelperMethods.DrawSpriteTemporarily(location, boothLocation + new Vector2(120 + (30 * boothNum), 62), ModItemKeys.BallotTexturePath, drawingTime);
+
             //Add used voting card
-            var ballotUsed = ItemRegistry.Create(ModItemKeys.BallotUsed);
-            farmer.addItemToInventory(ballotUsed);
+            DelayedAction.functionAfterDelay(() => { AddItemToMasterInventory(ModItemKeys.BallotUsed); }, (int)drawingTime);
         }
         else if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.Ballot))
         {
@@ -120,6 +124,12 @@ public class TileActions
         {
             Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedBallot);
         }
+    }
+
+    private static void AddItemToMasterInventory(string itemId)
+    {
+        var item = ItemRegistry.Create(itemId);
+        Game1.MasterPlayer.addItemToInventory(item);
     }
 
     /// <summary>
