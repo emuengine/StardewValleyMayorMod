@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="21" nextobjectid="22">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="21" nextobjectid="24">
  <properties>
   <property name="Warp" value="4 12 Town 58 86 5 12 Town 59 86 21 11 EmuEngine.MayorModCP_ManorHouseBasement 4 3"/>
  </properties>
@@ -224,6 +224,16 @@
   <object id="6" name="TileData" x="64" y="81" width="16" height="16">
    <properties>
     <property name="Action" value="LostAndFound"/>
+   </properties>
+  </object>
+  <object id="22" name="TileData" x="304" y="80" width="16" height="16">
+   <properties>
+    <property name="Action" value="MessageSpeech &quot;This is a desk&quot;"/>
+   </properties>
+  </object>
+  <object id="23" name="TileData" x="320" y="80" width="16" height="16">
+   <properties>
+    <property name="Action" value="MessageSpeech &quot;This is a desk&quot;"/>
    </properties>
   </object>
  </objectgroup>
