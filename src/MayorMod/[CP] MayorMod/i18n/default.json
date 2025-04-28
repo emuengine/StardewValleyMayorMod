@@ -299,9 +299,53 @@
 	//////////////////
 	//Events
 	//////////////////
-	"EmuEngine.MayorModCP_Events.WorriedLewis_1": "I don't know what I'm gonna do. @ is very popular lately.",
-	"EmuEngine.MayorModCP_Events.WorriedLewis_2": "Don't worry people like you too. It might even be a good thing if you don't have all of this responsibility all of the time.",
-	"EmuEngine.MayorModCP_Events.WorriedLewis_3": "Yeah but if @ wins I'll lose my house. Where would I go? I have to do something about ...",
-	"EmuEngine.MayorModCP_Events.WorriedLewis_4": "It's going to be ok. Im sorry but I have to get back to the shop. We can talk about this later.",
-	"EmuEngine.MayorModCP_Events.WorriedLewis_5": "O hi @"
+	"EmuEngine.MayorModCP_Events.NeedMayor_0": "You really need to take this more seriously. @ has been keeping populations down but these monsters could become a real danger if not monitored properly. We need funding so we can actually pay people to make sure these attacks don't become a real danger to the town.",
+	"EmuEngine.MayorModCP_Events.NeedMayor_1": "I don't want to talk about this any more. I've done all I can. I'm leaving now. I have more important things to deal with. Goodbye Marlon.",
+	"EmuEngine.MayorModCP_Events.NeedMayor_2": "Hi @, it's nice to see you. I'm sorry I can't talk right now. I am very busy today.",
+	"EmuEngine.MayorModCP_Events.NeedMayor_3": "There was a monster attack last night. We need more security at night for the town",
+	"EmuEngine.MayorModCP_Events.NeedMayor_4": "The mayor disagrees it seems. We really need someone better to do the job. lewis doesn't actually seem to do anything.",
+	"EmuEngine.MayorModCP_Events.NeedMayor_5": "He has become far too comfortable in that job. It's coming up to election time again but sadly he ran uncontested last election. Sigh, he beat me so thoroughly when I ran that I don't think I can go through that again",
+	"EmuEngine.MayorModCP_Events.NeedMayor_6": "Hmm. I'm too old for it but ... what about @",
+	"EmuEngine.MayorModCP_Events.NeedMayor_7": "You have done so much for this town and people seem to really like you.",
+	"EmuEngine.MayorModCP_Events.NeedMayor_8Q": "Have you ever thought about running for office?",
+	"EmuEngine.MayorModCP_Events.NeedMayor_8A0": "I have and I think I could do a better job.",
+	"EmuEngine.MayorModCP_Events.NeedMayor_8A1": "No I haven't and I'm not interested.",
+	"EmuEngine.MayorModCP_Events.NeedMayor_9": "That's the spirit!",
+	"EmuEngine.MayorModCP_Events.NeedMayor_10": "That's a great idea! I may not have the confidence to run myself any more but I can definitely help you with your campaign. I have the forms around here somewhere for registration. I'll fill them out and post them to the election commission for you.",
+	"EmuEngine.MayorModCP_Events.NotMayor_0": "That's a pity. Looks like Lewis will run uncontested again.",
+
+	"EmuEngine.MayorModCP_Events.WorriedLewis_0": "I don't know what I'm gonna do. @ is very popular lately.",
+	"EmuEngine.MayorModCP_Events.WorriedLewis_1": "Don't worry people like you too. It might even be a good thing if you don't have all of this responsibility all of the time.",
+	"EmuEngine.MayorModCP_Events.WorriedLewis_2": "Yeah but if @ wins I'll lose my house. Where would I go? I have to do something about ...",
+	"EmuEngine.MayorModCP_Events.WorriedLewis_3": "It's going to be ok. Im sorry but I have to get back to the shop. We can talk about this later.",
+	"EmuEngine.MayorModCP_Events.WorriedLewis_4": "O hi @",
+
+	"EmuEngine.MayorModCP_Events.MayorSpeech_0": "Thank you all for coming. I am now happy to introduce you to your new Mayor @",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_1Q": "What's in your acceptance speech?",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_1A0": "Talk about your great plans for the future",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_1A1": "I believe and Stardew Valley and the flag",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_1A2": "You're all pretty fucked now!",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_2Q": "Next you'll talk about?",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_2A0": "Talk about your great plans for the future",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_2A1": "I believe and Stardew Valley and the flag",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_2A2": "You're all pretty fucked now!",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_3Q": "What will you concluded on?",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_3A0": "Talk about your great plans for the future",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_3A1": "I believe and Stardew Valley and the flag",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_3A2": "You're all pretty fucked now!",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_4": "I guess this is it. I've been Mayor so long and I just didn't expect this to happen.",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_5": "Sigh the people have spoken and the better candidate won I guess. I'm moving out my stuff since the manor is yours now.",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_6": "It's going to be ok. Now you get to finally move in with me and we can spend more time together. It will be much better for your stress levels in the long run.",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_7": "Come on we ran out of boxes. We had better go buy some more if we are going to get this finished today.",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_8": "Ok thanks Marnie. Lets get this over with.",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_9": "Hello Mayor @. Congratulations by the way! While those two are packing up lewis' stuff I have decorators in here fixing up the place for your new term of office. I also have a surprise planned for you so come back tomorrow when it's all fixed up.",
+
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_0": "So what do you think of your new place?",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_1": "It's be completely redecorated. This is the new council room. The old members of the council are the Wizard, Gunther, Penny and myself.",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_2": "I've been talking to them and they are very excited to start the council meeting again.",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_3": "And if you follow me ...",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_4": "And this is your new office Mayor @!",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_5": "At the desk you can decide when the next council meetings will take place.",
+
+	"EmuEngine.MayorModCP_Events.CouncilMeeting_0": "Welcome to the first council meeting of the new term."
 }

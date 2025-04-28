@@ -1,0 +1,10 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading updated Marlon sprite for ManorHouseIntroEvent",
+            "Action": "Load",
+            "Target": "Characters/Marlon_ManorHouseIntroEvent",
+            "FromFile": "Assets/NPCs/Marlon/SpriteSheet.png"
+        }
+    ]
+}

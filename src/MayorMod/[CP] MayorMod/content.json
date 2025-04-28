@@ -29,7 +29,7 @@
 		//NPCs
 		{
 			"Action": "Include",
-			"FromFile": "Data/NPCs/Gil.json, Data/NPCs/Governor.json, Data/NPCs/OfficerMike.json"
+			"FromFile": "Data/NPCs/Gil.json, Data/NPCs/Governor.json, Data/NPCs/Marlon.json, Data/NPCs/OfficerMike.json"
 		},
 		//Quests
 		{
