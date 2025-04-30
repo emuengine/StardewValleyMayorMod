@@ -29,17 +29,12 @@
 		//NPCs
 		{
 			"Action": "Include",
-			"FromFile": "Data/NPCs/Gil.json, Data/NPCs/Governor.json, Data/NPCs/Marlon.json, Data/NPCs/OfficerMike.json"
+			"FromFile": "Data/NPCs/Gil.json, Data/NPCs/Governor.json, Data/NPCs/Marlon.json, Data/NPCs/OfficerMike.json, Data/NPCs/Lewis.json"
 		},
-		//Quests
+		//Powers
 		{
 			"Action": "Include",
-			"FromFile": "Data/Quests/Quests.json"
-		},
-		//Schedules
-		{
-			"Action": "Include",
-			"FromFile": "Data/NPCs/Lewis.json"
+			"FromFile": "Data/Powers/Powers.json"
 		}
 	]
 }

@@ -18,11 +18,18 @@
 	"EmuEngine.MayorModCP_Item.Leaflet.Message": "Describes your policies as mayor'",
 
 	//////////////////
+	//Powers
+	//////////////////
+	"EmuEngine.MayorModCP_Powers.ElectedMayor.DisplayName": "Elected Mayor",
+	"EmuEngine.MayorModCP_Powers.ElectedMayor.Description": "You have been elected the mayor of Stardew Valley!",
+
+	//////////////////
 	//Dialogue
 	//////////////////
 
 	//OfficerMike
-	"EmuEngine.MayorModCP_Dialogue.OfficerMike.GetBallot": "Hello sir. May I check your ID? ..... #$b#Thank you very much {0}. Here is your ballot. You can make your vote at the desk over there. After you have filled in you're vote you can put your ballot in the box.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.CheckId": "Hello sir. May I check your ID? .....",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.GetBallot": "Thank you very much {0}. Here is your ballot. You can make your vote at the desk over there. After you have filled in you're vote you can put your ballot in the box.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedToFillBallot": "You can make your vote at the desk over there. When you're done, put your ballot in the box.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.HaveVoted": "You should be proud that you have done your civic duty",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.CantCarryBallot": "Sorry sir. I can't give your ballot. You're carrying too much stuff.",

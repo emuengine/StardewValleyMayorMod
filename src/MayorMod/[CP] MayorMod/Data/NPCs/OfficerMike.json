@@ -66,6 +66,7 @@
             "Action": "EditData",
             "Target": "Characters/Dialogue/{{ModId}}_OfficerMike",
             "Entries": {
+                "CheckId": "{{i18n:{{ModId}}_Dialogue.OfficerMike.CheckId}}",
                 "GetBallot": "{{i18n:{{ModId}}_Dialogue.OfficerMike.GetBallot}}",
                 "NeedToFillBallot": "{{i18n:{{ModId}}_Dialogue.OfficerMike.NeedToFillBallot}}",
                 "HaveVoted": "{{i18n:{{ModId}}_Dialogue.OfficerMike.HaveVoted}}",

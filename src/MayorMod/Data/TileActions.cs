@@ -73,6 +73,7 @@ public class TileActions
         }
         else if (farmer.Items.HasEmptySlots())
         {
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.CheckId);
             Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.GetBallot);
             DelayedAction.functionAfterDelay(() => { AddItemToMasterInventory(ModItemKeys.Ballot); }, 1000);
         }

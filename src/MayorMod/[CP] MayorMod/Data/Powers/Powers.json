@@ -1,0 +1,22 @@
+{
+    "Changes": [
+        {
+            "LogName": "Updated Data/Powers with ElectedMayorPower",
+            "Action": "EditData",
+            "Target": "Data/Powers",
+            "Entries": {
+                "{{ModId}}_ElectedMayorPower": {
+                    "DisplayName": "{{i18n:{{ModId}}_Powers.ElectedMayor.DisplayName}}",
+                    "Description": "{{i18n:{{ModId}}_Powers.ElectedMayor.Description}}",
+                    "TexturePath": "LooseSprites\\Cursors_1_6",
+                    "TexturePosition": {
+                        "X": 0,
+                        "Y": 340
+                    },
+                    "UnlockedCondition": "PLAYER_HAS_MAIL Current {{ModId}}_ElectedAsMayor",
+                    "CustomFields": null
+                }
+            }
+        }
+    ]
+}

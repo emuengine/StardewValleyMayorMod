@@ -7,6 +7,7 @@ public static class DialogueKeys
     public static class OfficerMike
     {
         public static readonly string RegisterForBallot = $"{DialogueLocation}{ModKeys.MayorModCPId}_OfficerMike:RegisterForBallot";
+        public static readonly string CheckId = $"{DialogueLocation}{ModKeys.MayorModCPId}_OfficerMike:CheckId";
         public static readonly string GetBallot = $"{DialogueLocation}{ModKeys.MayorModCPId}_OfficerMike:GetBallot";
         public static readonly string NeedToFillBallot = $"{DialogueLocation}{ModKeys.MayorModCPId}_OfficerMike:NeedToFillBallot";
         public static readonly string HaveVoted = $"{DialogueLocation}{ModKeys.MayorModCPId}_OfficerMike:HaveVoted";
