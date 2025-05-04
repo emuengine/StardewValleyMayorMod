@@ -29,7 +29,6 @@ internal sealed class ModEntry : Mod
         Helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
         Helper.Events.Content.AssetRequested += OnAssetRequested;
         Helper.Events.Input.ButtonPressed += OnButtonPressed;
-        Helper.Events.Display.MenuChanged += Display_MenuChanged;
     }
 
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
@@ -132,9 +131,8 @@ internal sealed class ModEntry : Mod
             Season = _saveData.VotingDate.Season,
             StartDay = _saveData.VotingDate.Day,
             EndDay = _saveData.VotingDate.Day,
-            StartTime = 600,
+            StartTime = 610,
             ShowOnCalendar = true,
-            
         };
         data[$"{ModKeys.MayorModCPId}_VotingDayPassiveFestival"] = votingDay;
     }
@@ -161,102 +159,4 @@ internal sealed class ModEntry : Mod
         //    var n = HelperMethods.GetNPCForPlayerInteraction();
         //}
     }
-
-    private void Display_MenuChanged(object? sender, MenuChangedEventArgs e)
-    {
-        //if (e.NewMenu is DialogueBox db && 
-        //    db.characterDialogue.TranslationKey != null && 
-        //    db.characterDialogue.TranslationKey.Contains("Introduction"))
-        //{
-        //    var g = e;
-        //}
-    }
-
-    //private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
-    //{
-    //    //ModHelper.RemoveProgressMails();
-    //    //ModHelper.MasterPlayerMail.Add(ModProgressKeys.VotingMayor);
-
-    //   // Game1.MasterPlayer.addQuest("EmuEngine.MayorModCP_CampaignWithLeafletsQuest");
-    //}
-
-    //private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
-    //{
-    //    //ModHelper.RemoveProgressMails();
-
-    //    //if (Game1.dayOfMonth % 3 == 2)
-    //    //{
-    //    //    ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.RegisteringForBalot);
-    //    //}
-    //    //else if (Game1.dayOfMonth % 3 == 0)
-    //    //{
-    //    //    ModHelper.MasterPlayerMail.Add(Constants.ProgressKey.VotingMayor);
-    //    //}
-    //}
-
-
-    ///*********
-    //** Private methods
-    //*********/
-    ///// <summary>Raised after the player presses a button on the keyboard, controller, or mouse.</summary>
-    ///// <param name="sender">The event sender.</param>
-    ///// <param name="e">The event data.</param>
-    //private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
-    //{
-    //    // ignore if player hasn't loaded a save yet
-    //    if (!Context.IsWorldReady)
-    //        return;
-
-    //    // print button presses to the console window
-    //    this.Monitor.Log($"{Game1.player.Name} pressed {e.Button}.", LogLevel.Debug);
-
-    //    if (e.Button == SButton.X)
-    //    {
-    //        //ICursorPosition cursorPos = this.Helper.Input.GetCursorPosition();
-    //        //Game1.spriteBatch.DrawString(Game1.smallFont, "some text", cursorPos.ScreenPixels, Color.Black);
-    //        if (MasterPlayerMail.Contains("runningForMayor"))
-    //        {
-    //            MasterPlayerMail.Remove("runningForMayor");
-    //        }
-    //        else
-    //        {
-    //            MasterPlayerMail.Add("runningForMayor");
-    //        }
-
-    //        //Game save 
-    //        //// read data
-    //        //var model = this.Helper.Data.ReadSaveData<MayorModData>(Constants.MayorModSaveKey);
-    //        //// save data (if needed)
-    //        //this.Helper.Data.WriteSaveData("example-key", model);
-
-
-    //        //var f = Game1.player.mailbox;
-    //        //Game1.player.obsolete_canUnderstandDwarves
-
-    //        //Add mail 
-    //        //Game1.player.mailbox.Add("MyModMail1");
-    //        //Game1.player.mailbox.Add("MyModMail2");
-    //        //Game1.player.mailbox.Add("MyModMail3");
-    //        //Game1.player.mailbox.Add("MyWizardMail");
-
-    //        //Teleport to location
-    //        //GameLocation Location = Utility.fuzzyLocationSearch("FarmHouse");
-    //        //Action TeleportFunction = delegate {
-    //        //    //Insert here the coordinates you want to teleport to
-    //        //    int X = 1;
-    //        //    int Y = 1;
-
-    //        //    //The direction you want the Farmer to face after the teleport
-    //        //    // 0 = up, 1 = right, 2 = down, 3 = left
-    //        //    int Direction = 1;
-
-    //        //    //The teleport command itself
-    //        //    Game1.warpFarmer(new LocationRequest(Location.NameOrUniqueName, Location.uniqueName.Value != null, Location), X, Y, Direction);
-    //        //};
-    //        //DelayedAction.functionAfterDelay(TeleportFunction, 100);
-
-    //        //Noise
-    //        //Location.playSound("axe");
-    //    }
-    //}
 }

@@ -62,17 +62,18 @@ public static class HelperMethods
     }
 
     /// <summary>
-    /// Returns a date without any festival days after the specified offset.
+    /// Returns a date without any festival days after the specified offset. 
+    /// It will just pick a damn day if its more than 30 days
     /// </summary>
     /// <param name="dayOffset">The number of days to look ahead in the future.</param>
     /// <returns>A date that is not a festival day, calculated based on the current date and the provided offset.</returns>
     public static SDate GetDateWithoutFestival(int dayOffset)
     {
-        //TODO check for community day
-        //TODO just pick a damn day if its more than a month
         var returnDate = SDate.Now().AddDays(dayOffset);
-        while (Utility.isFestivalDay(returnDate.Day, returnDate.Season))
+        int count = 0;
+        while (count < 30 && (Utility.isFestivalDay(returnDate.Day, returnDate.Season) || IsBooksellerToday(returnDate)))
         {
+            count++;
             returnDate.AddDays(1);
         }
         return returnDate;
@@ -102,5 +103,31 @@ public static class HelperMethods
             return Game1.currentLocation.isCharacterAtTile(Game1.player.GetGrabTile());
         }
         return null;
+    }
+
+    public static bool IsBooksellerToday(SDate date)
+    {
+        Random r = Utility.CreateRandom(date.Year * 11, Game1.uniqueIDForThisGame, date.SeasonIndex);
+        int[] possible_days = null;
+        List<int> days = new List<int>();
+        switch (Game1.season)
+        {
+            case Season.Spring:
+                possible_days = new int[5] { 11, 12, 21, 22, 25 };
+                break;
+            case Season.Summer:
+                possible_days = new int[5] { 9, 12, 18, 25, 27 };
+                break;
+            case Season.Fall:
+                possible_days = new int[8] { 4, 7, 8, 9, 12, 19, 22, 25 };
+                break;
+            case Season.Winter:
+                possible_days = new int[6] { 5, 11, 12, 19, 22, 24 };
+                break;
+        }
+        int index1 = r.Next(possible_days.Length);
+        days.Add(possible_days[index1]);
+        days.Add(possible_days[(index1 + possible_days.Length / 2) % possible_days.Length]);
+        return days.Contains(date.Day);
     }
 }
