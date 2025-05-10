@@ -108,26 +108,36 @@ public static class HelperMethods
     public static bool IsBooksellerToday(SDate date)
     {
         Random r = Utility.CreateRandom(date.Year * 11, Game1.uniqueIDForThisGame, date.SeasonIndex);
-        int[] possible_days = null;
-        List<int> days = new List<int>();
+        int[] possible_days;
         switch (Game1.season)
         {
             case Season.Spring:
-                possible_days = new int[5] { 11, 12, 21, 22, 25 };
+                possible_days = [11, 12, 21, 22, 25];
                 break;
             case Season.Summer:
-                possible_days = new int[5] { 9, 12, 18, 25, 27 };
+                possible_days = [9, 12, 18, 25, 27];
                 break;
             case Season.Fall:
-                possible_days = new int[8] { 4, 7, 8, 9, 12, 19, 22, 25 };
+                possible_days = [4, 7, 8, 9, 12, 19, 22, 25];
                 break;
             case Season.Winter:
-                possible_days = new int[6] { 5, 11, 12, 19, 22, 24 };
+                possible_days = [5, 11, 12, 19, 22, 24];
+                break;
+            default: 
+                possible_days = [];
                 break;
         }
         int index1 = r.Next(possible_days.Length);
+        List<int> days = [];
         days.Add(possible_days[index1]);
         days.Add(possible_days[(index1 + possible_days.Length / 2) % possible_days.Length]);
         return days.Contains(date.Day);
+    }
+
+    public static void DrawDialogueCharacterString(string location, params string[] stringFormatParam)
+    {
+        var haveVotingCardDialogue = Game1.content.LoadString($"Strings\\Characters:{location}");
+        haveVotingCardDialogue = string.Format(haveVotingCardDialogue, stringFormatParam);
+        Game1.drawObjectDialogue(haveVotingCardDialogue);
     }
 }

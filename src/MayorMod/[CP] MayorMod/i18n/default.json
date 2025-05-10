@@ -54,6 +54,15 @@
 	//////////////////
 	"EmuEngine.MayorModCP_MapStrings.ManorHouseClosed": "Renovation is ongoing. Come back tomorrow.",
 
+	"EmuEngine.MayorModCP_MapStrings.HoldCouncilMeeting": "Hold a council meeting and discuss:",
+	"EmuEngine.MayorModCP_MapStrings.AlreadyPlanned": "You have already planned a council meeting.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingOption0": "1. Discuss public transport.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingOption1": "2. Discuss public safety.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingOption2": "3. Discuss boosting tourism and community spirit",
+	"EmuEngine.MayorModCP_MapStrings.MeetingOption3": "4. Discuss taxes.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingOption4": "5. Discuss access to educational resources.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingOption5": "6. Discuss world take over.",
+
 	//////////////////
 	//Dialogue
 	//////////////////
@@ -93,17 +102,17 @@
 	"EmuEngine.MayorModCP_Events.WorriedLewis_4": "O hi @",
 
 	"EmuEngine.MayorModCP_Events.MayorSpeech_0": "Thank you all for coming. I am now happy to introduce you to your new Mayor @",
-	"EmuEngine.MayorModCP_Events.MayorSpeech_1Q": "What's in your acceptance speech?",
-	"EmuEngine.MayorModCP_Events.MayorSpeech_1A0": "Talk about your great plans for the future",
-	"EmuEngine.MayorModCP_Events.MayorSpeech_1A1": "I believe and Stardew Valley and the flag",
-	"EmuEngine.MayorModCP_Events.MayorSpeech_1A2": "You're all pretty fucked now!",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_1Q": "What's will you start your speech with?",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_1A0": "Talk about improving public transportation.",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_1A1": "Promote environmentally friendly farming methods.",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_1A2": "Discuss initiatives to provide access to educational resources.",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_2Q": "Next you'll talk about?",
-	"EmuEngine.MayorModCP_Events.MayorSpeech_2A0": "Talk about your great plans for the future",
-	"EmuEngine.MayorModCP_Events.MayorSpeech_2A1": "I believe and Stardew Valley and the flag",
-	"EmuEngine.MayorModCP_Events.MayorSpeech_2A2": "You're all pretty fucked now!",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_2A0": "Emphasize the importance of preserving and protecting the environment.",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_2A1": "Boosting tourism and community spirit by organizing events like markets, festivals.",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_2A2": "Enhancing public safety and emergency services.",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_3Q": "What will you concluded on?",
-	"EmuEngine.MayorModCP_Events.MayorSpeech_3A0": "Talk about your great plans for the future",
-	"EmuEngine.MayorModCP_Events.MayorSpeech_3A1": "I believe and Stardew Valley and the flag",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_3A0": "Talk about your great plans for the future.",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_3A1": "I believe and Stardew Valley and the flag!",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_3A2": "You're all pretty fucked now!",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_4": "I guess this is it. I've been Mayor so long and I just didn't expect this to happen.",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_5": "Sigh the people have spoken and the better candidate won I guess. I'm moving out my stuff since the manor is yours now.",

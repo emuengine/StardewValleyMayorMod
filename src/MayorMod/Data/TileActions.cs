@@ -1,12 +1,9 @@
 ﻿using MayorMod.Constants;
+using MayorMod.Data.Menu;
+using MayorMod.Data.Menu.Data;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewValley;
-using StardewValley.BellsAndWhistles;
-using StardewValley.Locations;
-using StardewValley.Menus;
-using xTile.Dimensions;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace MayorMod.Data;
@@ -38,7 +35,7 @@ public class TileActions
     /// <returns></returns>
     private static bool GetVoteCard(GameLocation location, string[] arg2, Farmer farmer, Point point)
     {
-        //if (!farmer.mailReceived.Contains(ModProgressKeys.VotedForMayor))
+        if (!farmer.mailReceived.Contains(ModProgressKeys.VotedForMayor))
         {
             if (arg2.Length >= 2)
             {
@@ -53,29 +50,50 @@ public class TileActions
                 }
             }
         }
-        //else
-        //{
-        //    Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
-        //}
+        else
+        {
+            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
+        }
         return true;
     }
 
     private static void MayorDeskAction(Farmer farmer)
     {
-        //Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.RegisterForBallot);
-        //Game1.activeClickableMenu = new LanguageSelectionMenu();
-        //Game1.activeClickableMenu = new ChooseFromListMenu(Utility.GetJukeboxTracks(Game1.player, Game1.player.currentLocation), ChooseFromListMenu.playSongAction, isJukebox: true);
-        //Game1.activeClickableMenu = new QuestLog();
-        Game1.activeClickableMenu = new TestMenu();
-        //Game1.activeClickableMenu = new ChooseFromListMenu([ "jukeboxTracks", "dfjbhsdjfhgs"], OnSongChosen);// isJukebox: false, location.miniJukeboxTrack.Value);
+        if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.CouncilMeetingPlanned))
+        {
+            Game1.drawObjectDialogue(Game1.content.LoadString(DialogueKeys.CouncilMeeting.AlreadyPlanned));
+            return;
+        }
 
-        //Game1.activeClickableMenu = new ItemListMenu(Game1.content.LoadString("Strings\\UI:ItemList_ItemsLost"), new List<Item>()
-        //{
-        //    new TestItem()
-        //Game1.activeClickableMenu = new Billboard(true);
+        var seat = MapSeat.FromData("2/1/down/custom 0.5 0.1 0/-1/-1/false", 19, 5);
+        farmer.BeginSitting(seat);
+
+        IList<string> buttonNames = [Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingOption0),
+                                     Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingOption1),
+                                     Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingOption2),
+                                     Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingOption3),
+                                     Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingOption4),
+                                     Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingOption5)];
+        var menu = new MayorModMenu
+        {
+            MarginWidthPercent = 0.8f,
+            MarginHeightPercent = 0.8f,
+        };
+        menu.MenuItems = [
+                         new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.HoldCouncilMeeting), new Vector2(15, 20)),
+                         new BigButtonMenuItem(menu, new Margin(30, 90, 60, 110), buttonNames, OnButtonClicked),
+                         new ButtonMenuItem(menu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
+                         {
+                             ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
+                         },
+                         ];
+        Game1.activeClickableMenu = menu;
     }
 
-
+    private static void OnButtonClicked(int obj)
+    {
+        Game1.exitActiveMenu();
+    }
 
     private static void DeskRegisterAction(Farmer farmer)
     {
@@ -179,45 +197,6 @@ public class TileActions
         else
         {
             Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedBallot);
-        }
-    }
-}
-
-public class TestMenu : IClickableMenu
-{
-    public TestMenu()
-    {
-    }
-
-    public override void draw(SpriteBatch b)
-    {
-        base.draw(b);
-
-        if (!Game1.options.showClearBackgrounds)
-        {
-            b.Draw(Game1.fadeToBlackRect, Game1.graphics.GraphicsDevice.Viewport.Bounds, Color.Black * 0.75f);
-        }
-        SpriteText.drawStringWithScrollCenteredAt(b, Game1.content.LoadString("Strings\\StringsFromCSFiles:QuestLog.cs.11373"), xPositionOnScreen + width / 2, yPositionOnScreen - 64, "", 1f, null);
-        //if (questPage == -1)
-        {
-            IClickableMenu.drawTextureBox(b, Game1.mouseCursors, new Microsoft.Xna.Framework.Rectangle(384, 373, 18, 18), xPositionOnScreen, yPositionOnScreen, width, height, Color.White, 4f);
-            //for (int i = 0; i < questLogButtons.Count; i++)
-            //{
-            //    //if (pages.Count > 0 && pages[currentPage].Count > i)
-            //    {
-            //        IClickableMenu.drawTextureBox(b, Game1.mouseCursors, new Rectangle(384, 396, 15, 15), questLogButtons[i].bounds.X, questLogButtons[i].bounds.Y, questLogButtons[i].bounds.Width, questLogButtons[i].bounds.Height, questLogButtons[i].containsPoint(Game1.getOldMouseX(), Game1.getOldMouseY()) ? Color.Wheat : Color.White, 4f, drawShadow: false);
-            //        if (pages[currentPage][i].ShouldDisplayAsNew() || pages[currentPage][i].ShouldDisplayAsComplete())
-            //        {
-            //            Utility.drawWithShadow(b, Game1.mouseCursors, new Vector2(questLogButtons[i].bounds.X + 64 + 4, questLogButtons[i].bounds.Y + 44), new Rectangle(pages[currentPage][i].ShouldDisplayAsComplete() ? 341 : 317, 410, 23, 9), Color.White, 0f, new Vector2(11f, 4f), 4f + Game1.dialogueButtonScale * 10f / 250f, flipped: false, 0.99f);
-            //        }
-            //        else
-            //        {
-            //            Utility.drawWithShadow(b, Game1.mouseCursors, new Vector2(questLogButtons[i].bounds.X + 32, questLogButtons[i].bounds.Y + 28), pages[currentPage][i].IsTimedQuest() ? new Rectangle(410, 501, 9, 9) : new Rectangle(395 + (pages[currentPage][i].IsTimedQuest() ? 3 : 0), 497, 3, 8), Color.White, 0f, Vector2.Zero, 4f, flipped: false, 0.99f);
-            //        }
-            //        pages[currentPage][i].IsTimedQuest();
-            //        SpriteText.drawString(b, pages[currentPage][i].GetName(), questLogButtons[i].bounds.X + 128 + 4, questLogButtons[i].bounds.Y + 20, 999999, -1, 999999, 1f, 0.88f, junimoText: false, -1, "", null);
-            //    }
-            //}
         }
     }
 }

@@ -36,6 +36,21 @@
             "Entries": {
                 "{{ModId}}_Misc_Tilesheet/18/1": "1/1/down/couch/-1/-1/false"
             }
+        },
+        {
+            "LogName": "Loading strings for CouncilMeeting",
+            "Action": "EditData",
+            "Target": "Strings/StringsFromMaps",
+            "Entries": {
+                "{{ModId}}_HoldCouncilMeeting": "{{i18n:{{ModId}}_MapStrings.HoldCouncilMeeting}}",
+                "{{ModId}}_AlreadyPlanned": "{{i18n:{{ModId}}_MapStrings.AlreadyPlanned}}",
+                "{{ModId}}_MeetingOption0": "{{i18n:{{ModId}}_MapStrings.MeetingOption0}}",
+                "{{ModId}}_MeetingOption1": "{{i18n:{{ModId}}_MapStrings.MeetingOption1}}",
+                "{{ModId}}_MeetingOption2": "{{i18n:{{ModId}}_MapStrings.MeetingOption2}}",
+                "{{ModId}}_MeetingOption3": "{{i18n:{{ModId}}_MapStrings.MeetingOption3}}",
+                "{{ModId}}_MeetingOption4": "{{i18n:{{ModId}}_MapStrings.MeetingOption4}}",
+                "{{ModId}}_MeetingOption5": "{{i18n:{{ModId}}_MapStrings.MeetingOption5}}"
+            }
         }
     ]
 }
