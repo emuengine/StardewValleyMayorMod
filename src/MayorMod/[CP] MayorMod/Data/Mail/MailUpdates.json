@@ -13,10 +13,8 @@
             "Action": "EditData",
             "Target": "Data/Mail",
             "Entries": {
-                //"{{ModId}}_RegisteredForElectionMail": "{{i18n:{{ModId}}_Mail.RegistrationMail.Body}}[#]{{i18n:{{ModId}}_Mail.RegistrationMail.Title}}",
-                "{{ModId}}_TalkingToVotersMail": "{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Body}}[#]{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Title}}",
-                "CampaignWithLeafletsMail": "{{i18n:{{ModId}}_Mail.CampaignWithLeafletsMail.Body}}%item quest {{ModId}}_CampaignWithLeafletsQuest %%[#]{{i18n:{{ModId}}_Mail.CampaignWithLeafletsMail.Title}}",
-                "GilCampaignMail": "{{i18n:{{ModId}}_Mail.GilCampaignMail.Body}}[#]{{i18n:{{ModId}}_Mail.GilCampaignMail.Title}}"
+                "{{ModId}}_TalkingToVotersMail": "{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Body}} %item object EmuEngine.MayorModCP_Leaflet 15%%[#]{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Title}}",
+                "{{ModId}}_CampaignMail": "{{i18n:{{ModId}}_Mail.CampaignMail.Body}} %item bigobject EmuEngine.MayorModCP_ElectionSign%%[#]{{i18n:{{ModId}}_Mail.CampaignMail.Title}}"
             }
         },
         //Send mail
@@ -33,13 +31,7 @@
                         "AddMail Current {{ModId}}_RegisteredForElectionMail",
                         "AddConversationTopic {{ModId}}_RegisteredForBallotTopic 2"
                     ]
-                }
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Data/TriggerActions",
-            "Entries": {
+                },
                 "{{ModId}}_TalkingToVoterTrigger": {
                     "Id": "{{ModId}}_SendTalkingToVoterMail",
                     "Trigger": "DayEnding",
@@ -47,7 +39,16 @@
                     "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RegisteredForElectionMail Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic,",
                     "Actions": [
                         "AddMail Current {{ModId}}_TalkingToVotersMail",
-                        "AddConversationTopic {{ModId}}_TalkingToVotersTopic 3"
+                        "AddConversationTopic {{ModId}}_TalkingToVotersTopic 5"
+                    ]
+                },
+                "{{ModId}}_PutUpPostersTrigger": {
+                    "Id": "{{ModId}}_PutUpPostersTrigger",
+                    "Trigger": "DayEnding",
+                    "HostOnly": "true",
+                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RegisteredForElectionMail Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_TalkingToVotersTopic,",
+                    "Actions": [
+                        "AddMail Current {{ModId}}_CampaignMail"
                     ]
                 }
             }
