@@ -29,14 +29,14 @@
                 }
             }
         },
-        {
-            "LogName": "Updated Data/ChairTiles with Mayor Chair",
-            "Action": "EditData",
-            "Target": "Data/ChairTiles",
-            "Entries": {
-                "{{ModId}}_Misc_Tilesheet/18/1": "1/1/down/couch/-1/-1/false"
-            }
-        },
+        //{
+        //    "LogName": "Updated Data/ChairTiles with Mayor Chair",
+        //    "Action": "EditData",
+        //    "Target": "Data/ChairTiles",
+        //    "Entries": {
+        //        "{{ModId}}_Misc_Tilesheet/18/1": "1/1/down/couch/-1/-1/false"
+        //    }
+        //},
         {
             "LogName": "Loading strings for CouncilMeeting",
             "Action": "EditData",

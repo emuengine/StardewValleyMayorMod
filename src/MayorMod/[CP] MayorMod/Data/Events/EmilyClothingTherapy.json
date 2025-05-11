@@ -1,0 +1,17 @@
+{
+    "Changes": [
+        //Setup event
+        {
+            "LogName": "Updating EmilyClothingTherapy event",
+            "Action": "EditData",
+            "Target": "Data/Events/ManorHouse",
+            "Entries": {
+                "2123243/e 2111194": null,
+                "prizeTicketIntro/n completedFirstBillboardQuest": null
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            }
+        }
+    ]
+}

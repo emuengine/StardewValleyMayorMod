@@ -37,8 +37,10 @@ public class MayorModMenu : IClickableMenu
     public IList<IMenuItem> MenuItems { get; set; } = [];
     public Rectangle MenuRect { get; set; }
 
-    public MayorModMenu()
+    public MayorModMenu(float marginWidthPercent, float marginHeightPercent)
     {
+        MarginHeightPercent = marginHeightPercent;
+        MarginWidthPercent = marginWidthPercent;
         allClickableComponents = [];
         CalculateMenuRect();
     }

@@ -10,7 +10,7 @@ namespace MayorMod.Data;
 
 public class TileActions
 {
-    private static IMonitor? _monitor;
+    private readonly IMonitor _monitor;
 
     public const string MayorModActionType = "MayorModAction";
     public const string MayorDeskActionType = "MayorDesk";
@@ -19,7 +19,7 @@ public class TileActions
     public const string VotingBoothActionType = "VotingBooth";
     public const string BallotBoxActionType = "BallotBox";
 
-    public static void Init(IMonitor monitor)
+    public TileActions(IMonitor monitor)
     {
         _monitor = monitor;
         GameLocation.RegisterTileAction(MayorModActionType, GetVoteCard);
@@ -33,20 +33,31 @@ public class TileActions
     /// <param name="farmer"></param>
     /// <param name="point"></param>
     /// <returns></returns>
-    private static bool GetVoteCard(GameLocation location, string[] arg2, Farmer farmer, Point point)
+    private bool GetVoteCard(GameLocation location, string[] arg2, Farmer farmer, Point point)
     {
-        if (!farmer.mailReceived.Contains(ModProgressKeys.VotedForMayor))
+        if (arg2.Length < 2)
         {
-            if (arg2.Length >= 2)
+            _monitor.Log("MayorModAction is missing parameters", LogLevel.Error);
+            return false;
+        }
+        
+        if (arg2[1] == MayorDeskActionType)
+        {
+            MayorDeskAction(farmer);
+        }
+        else if (!farmer.mailReceived.Contains(ModProgressKeys.VotedForMayor))
+        {
+            switch (arg2[1])
             {
-                switch (arg2[1])
+                case MayorDeskActionType: MayorDeskAction(farmer); break;
+                case DeskActionType: DeskAction(farmer); break;
+                case DeskRegisterActionType: DeskRegisterAction(farmer); break;
+                case VotingBoothActionType: VotingBoothAction(location, farmer, arg2); break;
+                case BallotBoxActionType: BallotBoxAction(farmer); break;
+                default:
                 {
-                    case MayorDeskActionType: MayorDeskAction(farmer); break;
-                    case DeskActionType: DeskAction(farmer); break;
-                    case DeskRegisterActionType: DeskRegisterAction(farmer); break;
-                    case VotingBoothActionType: VotingBoothAction(location, farmer, arg2); break;
-                    case BallotBoxActionType: BallotBoxAction(farmer); break;
-                    default: _monitor?.Log($"Unknown tile action - {arg2[1]}", LogLevel.Error); break;
+                    _monitor?.Log($"Unknown tile action - {arg2[1]}", LogLevel.Error);
+                    return false;
                 }
             }
         }
@@ -57,7 +68,7 @@ public class TileActions
         return true;
     }
 
-    private static void MayorDeskAction(Farmer farmer)
+    private void MayorDeskAction(Farmer farmer)
     {
         if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.CouncilMeetingPlanned))
         {
@@ -74,14 +85,11 @@ public class TileActions
                                      Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingOption3),
                                      Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingOption4),
                                      Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingOption5)];
-        var menu = new MayorModMenu
-        {
-            MarginWidthPercent = 0.8f,
-            MarginHeightPercent = 0.8f,
-        };
+
+        var menu = new MayorModMenu(0.8f, 0.8f);
         menu.MenuItems = [
                          new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.HoldCouncilMeeting), new Vector2(15, 20)),
-                         new BigButtonMenuItem(menu, new Margin(30, 90, 60, 110), buttonNames, OnButtonClicked),
+                         new BigButtonMenuItem(menu, new Margin(30, 90, 60, 110), buttonNames, OnCoucilMeetingSelected),
                          new ButtonMenuItem(menu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
                          {
                              ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
@@ -90,12 +98,25 @@ public class TileActions
         Game1.activeClickableMenu = menu;
     }
 
-    private static void OnButtonClicked(int obj)
+    private void OnCoucilMeetingSelected(int obj)
     {
+        _monitor.Log("Not implemented yet.", LogLevel.Error);
+        return;
+
+        switch (obj)
+        {
+            case 0: SetupCouncilMeeting_PublicSafety(); break;
+            default: _monitor.Log("Cannot find council meeting to setup", LogLevel.Error); break;
+        }
         Game1.exitActiveMenu();
     }
 
-    private static void DeskRegisterAction(Farmer farmer)
+    private void SetupCouncilMeeting_PublicSafety()
+    {
+        _monitor.Log("I do things", LogLevel.Info);
+    }
+
+    private void DeskRegisterAction(Farmer farmer)
     {
         Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.RegisterForBallot);
     }
@@ -104,7 +125,7 @@ public class TileActions
     /// 
     /// </summary>
     /// <param name="farmer"></param>
-    public static void DeskAction(Farmer farmer)
+    public void DeskAction(Farmer farmer)
     {
         if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.Ballot))
         {
@@ -133,7 +154,7 @@ public class TileActions
     /// <param name="location"></param>
     /// <param name="farmer"></param>
     /// <param name="args"></param>
-    public static void VotingBoothAction(GameLocation location, Farmer farmer, string[] args)
+    public void VotingBoothAction(GameLocation location, Farmer farmer, string[] args)
     {
         var ballot = farmer.Items.FirstOrDefault(i => i != null && i.Name == ModItemKeys.Ballot);
 
@@ -170,7 +191,7 @@ public class TileActions
         }
     }
 
-    private static void AddItemToMasterInventory(string itemId)
+    private void AddItemToMasterInventory(string itemId)
     {
         var item = ItemRegistry.Create(itemId);
         Game1.player.addItemToInventory(item);
@@ -180,7 +201,7 @@ public class TileActions
     /// 
     /// </summary>
     /// <param name="farmer"></param>
-    public static void BallotBoxAction(Farmer farmer)
+    public void BallotBoxAction(Farmer farmer)
     {
         var ballot = farmer.Items.FirstOrDefault(i => i != null && i.Name == ModItemKeys.BallotUsed);
 

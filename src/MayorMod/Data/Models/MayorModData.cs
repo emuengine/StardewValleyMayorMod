@@ -11,5 +11,5 @@ public sealed class MayorModData
 {
     public bool ElectedMayor { get; set; }
     public bool RunningForMayor { get; set; }
-    public SDate VotingDate { get; set; }
+    public SDate VotingDate { get; set; } = new SDate(1, Season.Spring);
 }

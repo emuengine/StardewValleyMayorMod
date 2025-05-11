@@ -15,6 +15,7 @@ namespace MayorMod;
 internal sealed class ModEntry : Mod
 {
     private MayorModData _saveData;
+    private TileActions _tileActions;
 
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
@@ -22,7 +23,7 @@ internal sealed class ModEntry : Mod
     /// <param name="helper">Provides simplified APIs for writing mods.</param>
     public override void Entry(IModHelper helper)
     {
-        TileActions.Init(Monitor);
+        _tileActions = new TileActions(Monitor);
 
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
