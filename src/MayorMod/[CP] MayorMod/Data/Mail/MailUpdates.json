@@ -39,7 +39,7 @@
                     "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RegisteredForElectionMail Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic,",
                     "Actions": [
                         "AddMail Current {{ModId}}_TalkingToVotersMail",
-                        "AddConversationTopic {{ModId}}_TalkingToVotersTopic 5"
+                        "AddConversationTopic {{ModId}}_TalkingToVotersTopic 4"
                     ]
                 },
                 "{{ModId}}_PutUpPostersTrigger": {

@@ -43,7 +43,9 @@
             "Target": "Strings/StringsFromMaps",
             "Entries": {
                 "{{ModId}}_HoldCouncilMeeting": "{{i18n:{{ModId}}_MapStrings.HoldCouncilMeeting}}",
+                "{{ModId}}_MeetingPlanned": "{{i18n:{{ModId}}_MapStrings.MeetingPlanned}}",
                 "{{ModId}}_AlreadyPlanned": "{{i18n:{{ModId}}_MapStrings.AlreadyPlanned}}",
+                "{{ModId}}_NoNewMeetings": "{{i18n:{{ModId}}_MapStrings.NoNewMeetings}}",
                 "{{ModId}}_MeetingOption0": "{{i18n:{{ModId}}_MapStrings.MeetingOption0}}",
                 "{{ModId}}_MeetingOption1": "{{i18n:{{ModId}}_MapStrings.MeetingOption1}}",
                 "{{ModId}}_MeetingOption2": "{{i18n:{{ModId}}_MapStrings.MeetingOption2}}",

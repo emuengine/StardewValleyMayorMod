@@ -1,4 +1,4 @@
-﻿using MayorMod.Data.Menu.Data;
+﻿using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
@@ -7,6 +7,9 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace MayorMod.Data.Menu;
 
+/// <summary>
+/// A component for a menu which displays a scrollable menu of items you can select
+/// </summary>
 public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
 {
     private readonly MayorModMenu _parent;
@@ -14,9 +17,9 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
     private readonly float _fontHeight = 20;
     private Margin _margin;
     private Rectangle _boundingBox;
-    private int _buttonIndexOffset = 0;
-    private int _scrollBarStart = 0;
-    private int _scrollBarEnd = 0;
+    private int _buttonIndexOffset;
+    private int _scrollBarStart;
+    private int _scrollBarEnd;
     private int _numberOfButtons = 4;
     private IList<string> _buttonText;
     private IList<ButtonData> _buttonData = [];
@@ -51,6 +54,7 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
     public int TextPadding { get; set; } = 30;
     public Action<int> ButtonAction { get; set; }
 
+#pragma warning disable CS8618 
     public BigButtonMenuItem(MayorModMenu parent, Margin margin, IList<string> buttonText, Action<int> action)
     {
         _parent = parent;
@@ -61,7 +65,11 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
         ButtonAction = action;
         UpdateButtonData();
     }
+#pragma warning restore CS8618 
 
+    /// <summary>
+    /// Initialises the current bounding box, the buttons in the menu and the scroll bar
+    /// </summary>
     private void UpdateButtonData()
     {
         _boundingBox = new Rectangle(_parent.MenuRect.X + _margin.Left,
@@ -114,6 +122,9 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
                                                    4f);
     }
 
+    /// <summary>
+    /// Performs the drawing for the menu buttons
+    /// </summary>
     public void Draw(SpriteBatch spriteBatch)
     {
         foreach (var button in _buttonData)
@@ -139,6 +150,10 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
         DrawScrollBar(spriteBatch);
     }
 
+    /// <summary>
+    /// Does the drawing for the scroll bar
+    /// </summary>
+    /// <param name="spriteBatch"></param>
     private void DrawScrollBar(SpriteBatch spriteBatch)
     {
         IClickableMenu.drawTextureBox(spriteBatch,
@@ -156,6 +171,11 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
         _scrollBar.draw(spriteBatch);
     }
 
+    /// <summary>
+    /// Handles the left click action for the control
+    /// </summary>
+    /// <param name="x">X pos of click</param>
+    /// <param name="y">Y pos of click</param>
     public void OnLeftClick(int x, int y)
     {
         foreach (var button in _buttonData)
@@ -175,6 +195,11 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
         }
     }
 
+    /// <summary>
+    /// Handles the hover action for the control
+    /// </summary>
+    /// <param name="x">X pos of mouse</param>
+    /// <param name="y">Y pos of mouse</param>
     public void OnHover(int x, int y)
     {
         foreach (var button in _buttonData)
@@ -186,6 +211,10 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
         _downArrow.tryHover(x, y);
     }
 
+    /// <summary>
+    /// Handles the scroll action for the control
+    /// </summary>
+    /// <param name="direction">Direction of the scroll</param>
     public void OnScroll(int direction)
     {
         if (direction > 0 && _buttonIndexOffset - 1 >= 0)
@@ -199,6 +228,10 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
         _scrollBar.bounds.Y = CalculateScrollBarPostion();
     }
 
+    /// <summary>
+    /// Calculate the current location of the scroll bar
+    /// </summary>
+    /// <returns></returns>
     private int CalculateScrollBarPostion()
     {
         var currentIncrement = (float)_buttonIndexOffset / (_buttonText.Count - _numberOfButtons);
@@ -208,6 +241,11 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
         return (int)scrollBarY;
     }
 
+    /// <summary>
+    /// Handles the ressizing of the window
+    /// </summary>
+    /// <param name="oldBounds">Old bounds of the window</param>
+    /// <param name="newBounds">New bounds of the window</param>
     public void OnWindowResize(Rectangle oldBounds, Rectangle newBounds)
     {
         UpdateButtonData();

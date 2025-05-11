@@ -49,16 +49,17 @@
 	//Maps
 	//////////////////
 	"EmuEngine.MayorModCP_MapStrings.ManorHouseClosed": "Renovation is ongoing. Come back tomorrow.",
-
-	"EmuEngine.MayorModCP_MapStrings.HoldCouncilMeeting": "Hold a council meeting and discuss:",
+	"EmuEngine.MayorModCP_MapStrings.MeetingPlanned": "Council meeting has been planned.",
+	"EmuEngine.MayorModCP_MapStrings.HoldCouncilMeeting": "Hold a council meeting:",
 	"EmuEngine.MayorModCP_MapStrings.AlreadyPlanned": "You have already planned a council meeting.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingOption0": "1. Discuss public safety.",
+	"EmuEngine.MayorModCP_MapStrings.NoNewMeetings": "There are no new issues for the city council.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingOption0": "Introductory Council Meeting.",
 	"EmuEngine.MayorModCP_MapStrings.MeetingOption1": "2. Discuss public transport.",
 	"EmuEngine.MayorModCP_MapStrings.MeetingOption2": "3. Discuss boosting tourism and community spirit",
 	"EmuEngine.MayorModCP_MapStrings.MeetingOption3": "4. Discuss taxes.",
 	"EmuEngine.MayorModCP_MapStrings.MeetingOption4": "5. Discuss access to educational resources.",
 	"EmuEngine.MayorModCP_MapStrings.MeetingOption5": "6. Discuss alcohol licencing.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingOption6": "7. Discuss world take over.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingOption6": "1. Discuss public safety.",
 
 	//////////////////
 	//Dialogue

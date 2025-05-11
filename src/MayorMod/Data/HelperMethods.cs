@@ -13,7 +13,14 @@ public static class HelperMethods
     /// <summary>
     /// The NPC instance for Officer Mike, or a fuzzy search result if the instance hasn't been initialized.
     /// </summary>
-    public static NPC OfficerMikeNPC => _officerMikeNPC is null ? Utility.fuzzyCharacterSearch(ModNPCKeys.OfficerMike) : _officerMikeNPC;
+    public static NPC OfficerMikeNPC
+    {
+        get
+        {
+            _officerMikeNPC ??= Utility.fuzzyCharacterSearch(ModNPCKeys.OfficerMike);
+            return _officerMikeNPC;
+        }
+    }
 
     /// <summary>
     /// Draws a sprite temporarily at the specified location and position.
@@ -51,9 +58,11 @@ public static class HelperMethods
     {
         try
         {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             var modInfo = helper.ModRegistry.Get(ModKeys.MayorModCPId);
             var cpPack = modInfo.GetType().GetProperty("ContentPack")?.GetValue(modInfo) as IContentPack;
             return cpPack.Translation.Get(translationKey).ToString();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
         catch
         {
@@ -96,7 +105,7 @@ public static class HelperMethods
     /// Retrieves the NPC that is currently interacting with the player.
     /// </summary>
     /// <returns>The interacting NPC, or null if no interaction is occurring.</returns>
-    public static NPC GetNPCForPlayerInteraction()
+    public static NPC? GetNPCForPlayerInteraction()
     {
         if (Utility.checkForCharacterInteractionAtTile(Game1.player.GetGrabTile(), Game1.GetPlayer(Game1.player.UniqueMultiplayerID)))
         {
@@ -112,30 +121,21 @@ public static class HelperMethods
     /// <returns>True if bookseller is visiting on date</returns>
     public static bool IsBooksellerVisiting(SDate date)
     {
-        Random r = Utility.CreateRandom(date.Year * 11, Game1.uniqueIDForThisGame, date.SeasonIndex);
-        int[] possible_days;
-        switch (Game1.season)
+        var rngSeeded = Utility.CreateRandom(date.Year * 11, Game1.uniqueIDForThisGame, date.SeasonIndex);
+        int[] possible_days = Game1.season switch
         {
-            case Season.Spring:
-                possible_days = [11, 12, 21, 22, 25];
-                break;
-            case Season.Summer:
-                possible_days = [9, 12, 18, 25, 27];
-                break;
-            case Season.Fall:
-                possible_days = [4, 7, 8, 9, 12, 19, 22, 25];
-                break;
-            case Season.Winter:
-                possible_days = [5, 11, 12, 19, 22, 24];
-                break;
-            default: 
-                possible_days = [];
-                break;
-        }
-        int index1 = r.Next(possible_days.Length);
-        List<int> days = [];
-        days.Add(possible_days[index1]);
-        days.Add(possible_days[(index1 + possible_days.Length / 2) % possible_days.Length]);
+            Season.Spring => [11, 12, 21, 22, 25],
+            Season.Summer => [9, 12, 18, 25, 27],
+            Season.Fall => [4, 7, 8, 9, 12, 19, 22, 25],
+            Season.Winter => [5, 11, 12, 19, 22, 24],
+            _ => [],
+        };
+        var randomDate = rngSeeded.Next(possible_days.Length);
+        IList<int> days = 
+        [
+            possible_days[randomDate],
+            possible_days[(randomDate + possible_days.Length / 2) % possible_days.Length]
+        ];
         return days.Contains(date.Day);
     }
 

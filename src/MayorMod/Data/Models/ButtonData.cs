@@ -1,6 +1,6 @@
 ﻿using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
-namespace MayorMod.Data.Menu.Data;
+namespace MayorMod.Data.Models;
 
 public class ButtonData
 {

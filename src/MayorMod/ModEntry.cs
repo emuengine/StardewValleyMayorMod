@@ -15,8 +15,10 @@ namespace MayorMod;
 /// </summary>
 internal sealed class ModEntry : Mod
 {
+#pragma warning disable CS8618
     private MayorModData _saveData;
     private TileActionManager _tileActions;
+#pragma warning restore CS8618
 
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
@@ -35,8 +37,13 @@ internal sealed class ModEntry : Mod
 
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
     {
-        _saveData = base.Helper.Data.ReadSaveData<MayorModData>(ModKeys.MayorModSaveKey);
+#pragma warning disable CS8601
+        if (Helper is not null && Helper.Data is not null)
+        {
+            _saveData = Helper.Data.ReadSaveData<MayorModData>(ModKeys.MayorModSaveKey);
+        }
         _saveData ??= new MayorModData();
+#pragma warning restore CS8601
     }
 
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
@@ -64,31 +71,67 @@ internal sealed class ModEntry : Mod
 
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
-        //Set voting date
+        SetVotingDate();
+        CompleteVotingDay();
+        CompleteMayorDay();
+    }
+
+    private void SetVotingDate()
+    {
         if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
         {
             _saveData.RunningForMayor = true;
             _saveData.VotingDate = HelperMethods.GetDateWithoutFestival(10);
             Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
         }
+    }
 
-        //End of first day as mayor
+    private void CompleteVotingDay()
+    {
+        if (_saveData is not null && _saveData.RunningForMayor && _saveData.VotingDate == SDate.Now())
+        {
+            Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.IsVotingDay);
+            _saveData.RunningForMayor = false;
+            //TODO: Make it so you can lose election but for now just assume you win
+            Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.ManorHouseUnderConstruction);
+            _saveData.ElectedMayor = true;
+            Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
+        }
+    }
+
+    private static void CompleteMayorDay()
+    {
+        // Complete mayor normal day
+        if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.ElectedAsMayor))
+        {
+            var plannedMeetings = Game1.MasterPlayer.mailReceived.Where(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix));
+            var heldMeetings = Game1.MasterPlayer.mailReceived.Where(p => p.StartsWith(CouncilMeetingKeys.HeldPrefix));
+            foreach (var planned in plannedMeetings)
+            {
+                var meetingId = planned[CouncilMeetingKeys.PlannedPrefix.Length..];
+                var completedMeeting = heldMeetings.Any(m => m.EndsWith(meetingId));
+                if (completedMeeting)
+                {
+                    Game1.MasterPlayer.mailReceived.Remove(planned);
+                }
+            }
+
+            //TODO look into why I have to do this
+            var meetingTomorrow = Game1.MasterPlayer.mailForTomorrow.FirstOrDefault(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix));
+            if (meetingTomorrow is not null)
+            {
+                Game1.MasterPlayer.mailForTomorrow.Remove(meetingTomorrow);
+                Game1.MasterPlayer.mailReceived.Add(meetingTomorrow);
+            }
+        }
+
+        //Complete mayor first day
         if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.ManorHouseUnderConstruction))
         {
             Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.ManorHouseUnderConstruction);
             Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.ElectedAsMayor);
             //TODO: Remove leaflets and voting sign from the game
-        }
-
-        //End of voting day
-        if (_saveData is not null && _saveData.RunningForMayor && _saveData.VotingDate == SDate.Now())
-        {
-            Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.IsVotingDay);
-            _saveData.RunningForMayor = false;
-            //TODO Make it so you can lose election but for now just assume you win
-            Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.ManorHouseUnderConstruction);
-            _saveData.ElectedMayor = true;
-            Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
+            //TODO: Clean up all recieved mails
         }
     }
 
