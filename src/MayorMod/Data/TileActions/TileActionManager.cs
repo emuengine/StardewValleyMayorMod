@@ -51,7 +51,7 @@ public class TileActionManager
             {
                 case MayorDeskActionType: ManorHouseTileActions.MayorDeskAction(farmer); break;
                 case DeskActionType: VotingTileActions.DeskAction(farmer); break;
-                case VotingBoothActionType: VotingTileActions.VotingBoothAction(location, farmer, arg2); break;
+                case VotingBoothActionType: VotingTileActions.VotingBoothAction(farmer, arg2); break;
                 case BallotBoxActionType: VotingTileActions.BallotBoxAction(farmer); break;
                 default:
                 {
