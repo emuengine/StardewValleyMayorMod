@@ -1,6 +1,7 @@
 ﻿using MayorMod.Constants;
 using MayorMod.Data;
 using MayorMod.Data.Models;
+using MayorMod.Data.TileActions;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
@@ -15,7 +16,7 @@ namespace MayorMod;
 internal sealed class ModEntry : Mod
 {
     private MayorModData _saveData;
-    private TileActions _tileActions;
+    private TileActionManager _tileActions;
 
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
@@ -23,7 +24,7 @@ internal sealed class ModEntry : Mod
     /// <param name="helper">Provides simplified APIs for writing mods.</param>
     public override void Entry(IModHelper helper)
     {
-        _tileActions = new TileActions(Monitor);
+        _tileActions = new TileActionManager(Monitor);
 
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
@@ -76,6 +77,7 @@ internal sealed class ModEntry : Mod
         {
             Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.ManorHouseUnderConstruction);
             Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.ElectedAsMayor);
+            //TODO: Remove leaflets and voting sign from the game
         }
 
         //End of voting day

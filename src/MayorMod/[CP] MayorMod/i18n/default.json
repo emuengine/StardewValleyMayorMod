@@ -30,7 +30,7 @@
 	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^^Now that you're all registered for the ballot sheet we need to start telling people about your policies. As your campaign manager I've printed up some leaflets that you can hand out. I also suggest that you make some time to actually talk to voters.^^-Marlon",
 
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Title": "Good News",
-	"EmuEngine.MayorModCP_Mail.CampaignMail.Body": "Hey @,^^Good news! I have been talking with Morris and I think I've convinced him to vote for you. I've also printed up a poster you can put up in the town. ^^-Marlon",
+	"EmuEngine.MayorModCP_Mail.CampaignMail.Body": "Hey @,^^Good news! I have been talking with Morris and I think I've convinced him to vote for you. I've also printed up a poster that you can put up in the town. ^^-Marlon",
 
 	//////////////////
 	//Quests
@@ -72,7 +72,6 @@
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.CantCarryBallot": "Sorry sir. I can't give your ballot. You're carrying too much stuff.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedBallot": "Come over to the desk to pick up your ballot.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedToVote": "Now that you've voted you can put your ballot in the ballot box.",
-	"EmuEngine.MayorModCP_Dialogue.OfficerMike.RegisterForBallot": "You are now registered for the ballot. Good Luck!",
 
 	//////////////////
 	//Events

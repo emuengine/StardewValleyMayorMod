@@ -71,7 +71,7 @@ public static class HelperMethods
     {
         var returnDate = SDate.Now().AddDays(dayOffset);
         int count = 0;
-        while (count < 30 && (Utility.isFestivalDay(returnDate.Day, returnDate.Season) || IsBooksellerToday(returnDate)))
+        while (count < 30 && (Utility.isFestivalDay(returnDate.Day, returnDate.Season) || IsBooksellerVisiting(returnDate)))
         {
             count++;
             returnDate.AddDays(1);
@@ -105,7 +105,12 @@ public static class HelperMethods
         return null;
     }
 
-    public static bool IsBooksellerToday(SDate date)
+    /// <summary>
+    /// Check if the bookseller is visiting for a date.
+    /// </summary>
+    /// <param name="date">Date to chec</param>
+    /// <returns>True if bookseller is visiting on date</returns>
+    public static bool IsBooksellerVisiting(SDate date)
     {
         Random r = Utility.CreateRandom(date.Year * 11, Game1.uniqueIDForThisGame, date.SeasonIndex);
         int[] possible_days;
@@ -132,6 +137,16 @@ public static class HelperMethods
         days.Add(possible_days[index1]);
         days.Add(possible_days[(index1 + possible_days.Length / 2) % possible_days.Length]);
         return days.Contains(date.Day);
+    }
+
+    /// <summary>
+    /// Adds an item to the current players inventory
+    /// </summary>
+    /// <param name="itemId">Item to add</param>
+    public static void AddItemToInventory(string itemId)
+    {
+        var item = ItemRegistry.Create(itemId);
+        Game1.player.addItemToInventory(item);
     }
 
     public static void DrawDialogueCharacterString(string location, params string[] stringFormatParam)

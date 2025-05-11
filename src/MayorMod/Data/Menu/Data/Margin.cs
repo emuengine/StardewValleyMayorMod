@@ -1,5 +1,4 @@
-﻿
-namespace MayorMod.Data.Menu.Data;
+﻿namespace MayorMod.Data.Menu.Data;
 
 public class Margin
 {
