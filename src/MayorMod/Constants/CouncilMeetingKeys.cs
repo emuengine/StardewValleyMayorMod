@@ -7,5 +7,6 @@ public class CouncilMeetingKeys
 
     //Meetings
     public static readonly string MeetingIntro = "Intro";
+    public static readonly string MeetingTavernHours = "TavernHours";
     public static readonly string MeetingTownSecurity = "TownSecurity";
 }

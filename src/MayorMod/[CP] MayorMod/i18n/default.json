@@ -53,13 +53,16 @@
 	"EmuEngine.MayorModCP_MapStrings.HoldCouncilMeeting": "Hold a council meeting:",
 	"EmuEngine.MayorModCP_MapStrings.AlreadyPlanned": "You have already planned a council meeting.",
 	"EmuEngine.MayorModCP_MapStrings.NoNewMeetings": "There are no new issues for the city council.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingOption0": "Introductory Council Meeting.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingOption1": "2. Discuss public transport.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingOption2": "3. Discuss boosting tourism and community spirit",
-	"EmuEngine.MayorModCP_MapStrings.MeetingOption3": "4. Discuss taxes.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingOption4": "5. Discuss access to educational resources.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingOption5": "6. Discuss alcohol licencing.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingOption6": "1. Discuss public safety.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingIntro": "Introductory Council Meeting.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingTavernHours": "Discuss alcohol licencing.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingTownSecurity": "Discuss town security.",
+
+	//"EmuEngine.MayorModCP_MapStrings.MeetingTownSecurity": "3. Discuss boosting tourism and community spirit",
+	//"EmuEngine.MayorModCP_MapStrings.MeetingOption3": "4. Discuss taxes.",
+	//"EmuEngine.MayorModCP_MapStrings.MeetingOption4": "5. Discuss access to educational resources.",
+	//"EmuEngine.MayorModCP_MapStrings.MeetingOption5": "6. Discuss alcohol licencing.",
+	//"EmuEngine.MayorModCP_MapStrings.MeetingOption6": "1. Discuss public safety.",
+	//"2. Discuss public transport.",
 
 	//////////////////
 	//Dialogue

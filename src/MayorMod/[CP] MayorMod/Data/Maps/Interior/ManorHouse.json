@@ -46,12 +46,9 @@
                 "{{ModId}}_MeetingPlanned": "{{i18n:{{ModId}}_MapStrings.MeetingPlanned}}",
                 "{{ModId}}_AlreadyPlanned": "{{i18n:{{ModId}}_MapStrings.AlreadyPlanned}}",
                 "{{ModId}}_NoNewMeetings": "{{i18n:{{ModId}}_MapStrings.NoNewMeetings}}",
-                "{{ModId}}_MeetingOption0": "{{i18n:{{ModId}}_MapStrings.MeetingOption0}}",
-                "{{ModId}}_MeetingOption1": "{{i18n:{{ModId}}_MapStrings.MeetingOption1}}",
-                "{{ModId}}_MeetingOption2": "{{i18n:{{ModId}}_MapStrings.MeetingOption2}}",
-                "{{ModId}}_MeetingOption3": "{{i18n:{{ModId}}_MapStrings.MeetingOption3}}",
-                "{{ModId}}_MeetingOption4": "{{i18n:{{ModId}}_MapStrings.MeetingOption4}}",
-                "{{ModId}}_MeetingOption5": "{{i18n:{{ModId}}_MapStrings.MeetingOption5}}"
+                "{{ModId}}_MeetingIntro": "{{i18n:{{ModId}}_MapStrings.MeetingIntro}}",
+                "{{ModId}}_MeetingTavernHours": "{{i18n:{{ModId}}_MapStrings.MeetingTavernHours}}",
+                "{{ModId}}_MeetingTownSecurity": "{{i18n:{{ModId}}_MapStrings.MeetingTownSecurity}}"
             }
         }
     ]

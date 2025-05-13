@@ -18,6 +18,7 @@ internal sealed class ModEntry : Mod
 #pragma warning disable CS8618
     private MayorModData _saveData = new();
     private TileActionManager _tileActions;
+    private bool _modDataCacheInvalidationNeeded;
 #pragma warning restore CS8618
 
     /// <summary>
@@ -37,6 +38,8 @@ internal sealed class ModEntry : Mod
 
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
     {
+        _modDataCacheInvalidationNeeded = true;
+
         if (Helper is not null && Helper.Data is not null)
         {
             var saveData = Helper.Data.ReadSaveData<MayorModData>(ModKeys.MayorModSaveKey);
@@ -55,60 +58,60 @@ internal sealed class ModEntry : Mod
             {
                 ModProgressManager.AddProgressFlag(ModProgressManager.IsVotingDay);
             }
-
-            //PassiveFestivals are loaded before the damn save data so we need to
-            //reload them to make the variable date passive festivals show.
-            Helper.GameContent.InvalidateCache("Data/Mail"); 
-            Helper.GameContent.InvalidateCache("Data/PassiveFestivals");
-            Game1.PerformPassiveFestivalSetup();
-            Game1.UpdatePassiveFestivalStates();
         }
+
+        if (_modDataCacheInvalidationNeeded)
+        {
+            InvalidateModData();
+        }
+    }
+
+    /// <summary>
+    /// This invalidates the cache so that the dates for voting are correct in mail and passive festivals
+    /// PassiveFestivals are loaded before the damn save data so we need to reload them to make the
+    /// variable date passive festivals show. They also don't seem to reload between loading saves
+    /// so you can have the voting day appear in other saves even though you're not running for mayor.
+    /// </summary>
+    public void InvalidateModData()
+    {
+        Helper.GameContent.InvalidateCache("Data/Mail");
+        Helper.GameContent.InvalidateCache("Data/PassiveFestivals");
+        Game1.PerformPassiveFestivalSetup();
+        Game1.UpdatePassiveFestivalStates();
+        _modDataCacheInvalidationNeeded = false;
     }
 
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
-        SetVotingDate();
-        CompleteVotingDay();
-        CompleteMayorDay();
-    }
-
-    private void SetVotingDate()
-    {
-        if(ModProgressManager.HasProgressFlag(ModProgressManager.RegisterVotingDate))
+        //Set voting date
+        if (ModProgressManager.HasProgressFlag(ModProgressManager.RegisterVotingDate))
         {
-            _saveData.VotingDate = ModUtils.GetDateWithoutFestival(10);
+            _saveData = new MayorModData()
+            {
+                VotingDate = ModUtils.GetDateWithoutFestival(10)
+            };
             Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
             ModProgressManager.RemoveProgressFlag(ModProgressManager.RegisterVotingDate);
+            _modDataCacheInvalidationNeeded = true;
         }
-    }
 
-    private void CompleteVotingDay()
-    {
-        //TODO: Make it so you can lose election but for now just assume you win
+        //Complete voting day
         if (_saveData is not null && _saveData.VotingDate == SDate.Now() && ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
         {
+            //TODO: Make it so you can lose election but for now just assume you win
             ModProgressManager.RemoveAllModFlags();
             ModProgressManager.AddProgressFlag(ModProgressManager.WonMayorElection);
         }
-    }
 
-    private static void CompleteMayorDay()
-    {
         // Complete day as mayor
-        if(ModProgressManager.HasProgressFlag(ModProgressManager.ElectedAsMayor))
+        if (ModProgressManager.HasProgressFlag(ModProgressManager.ElectedAsMayor))
         {
             if (ModProgressManager.HasProgressFlag(ModProgressManager.WonMayorElection))
             {
                 ModProgressManager.RemoveProgressFlag(ModProgressManager.WonMayorElection);
             }
 
-            //TODO: look into why I have to do this
-            var meetingTomorrow = Game1.MasterPlayer.mailForTomorrow.FirstOrDefault(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix));
-            if (meetingTomorrow is not null)
-            {
-                Game1.MasterPlayer.mailForTomorrow.Remove(meetingTomorrow);
-                Game1.MasterPlayer.mailReceived.Add(meetingTomorrow);
-            }
+            ModUtils.ForceCouncilMailDelivery();
         }
     }
 

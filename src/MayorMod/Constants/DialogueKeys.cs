@@ -10,12 +10,9 @@ public static class DialogueKeys
         public static readonly string HoldCouncilMeeting = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_HoldCouncilMeeting";
         public static readonly string AlreadyPlanned = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_AlreadyPlanned";
         public static readonly string NoNewMeetings = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_NoNewMeetings";
-        public static readonly string MeetingOption0 = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingOption0";
-        public static readonly string MeetingOption1 = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingOption1";
-        public static readonly string MeetingOption2 = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingOption2";
-        public static readonly string MeetingOption3 = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingOption3";
-        public static readonly string MeetingOption4 = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingOption4";
-        public static readonly string MeetingOption5 = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingOption5";
+        public static readonly string MeetingIntro = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingIntro";
+        public static readonly string MeetingTavernHours = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingTavernHours";
+        public static readonly string MeetingTownSecurity = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingTownSecurity";
     }
 
     public static class OfficerMike
