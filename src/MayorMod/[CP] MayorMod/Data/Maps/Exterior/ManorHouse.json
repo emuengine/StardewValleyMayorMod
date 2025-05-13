@@ -27,7 +27,7 @@
                 "Height": 1
             },
             "When": {
-                "HasFlag: hostPlayer | contains={{ModId}}_ManorHouseUnderConstruction": true
+                "HasFlag: hostPlayer | contains={{ModId}}_WonMayorElection": true
             }
         },
         {
@@ -49,7 +49,8 @@
                 "Height": 1
             },
             "When": {
-                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true,
+                "HasFlag: hostPlayer | contains={{ModId}}_WonMayorElection": false
             }
         }
     ]

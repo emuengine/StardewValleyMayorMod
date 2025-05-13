@@ -16,7 +16,7 @@ namespace MayorMod;
 internal sealed class ModEntry : Mod
 {
 #pragma warning disable CS8618
-    private MayorModData _saveData;
+    private MayorModData _saveData = new();
     private TileActionManager _tileActions;
 #pragma warning restore CS8618
 
@@ -37,27 +37,23 @@ internal sealed class ModEntry : Mod
 
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
     {
-#pragma warning disable CS8601
         if (Helper is not null && Helper.Data is not null)
         {
-            _saveData = Helper.Data.ReadSaveData<MayorModData>(ModKeys.MayorModSaveKey);
+            var saveData = Helper.Data.ReadSaveData<MayorModData>(ModKeys.MayorModSaveKey);
+            if (saveData is not null)
+            {
+                _saveData = saveData;
+            }
         }
-        _saveData ??= new MayorModData();
-#pragma warning restore CS8601
     }
 
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
-        if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
-        {
-            Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.RegisteringForBalot);
-        }
-
-        if (_saveData is not null && _saveData.RunningForMayor)
+        if (_saveData is not null && ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
         {
             if (_saveData.VotingDate == SDate.Now())
             {
-                Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.IsVotingDay);
+                ModProgressManager.AddProgressFlag(ModProgressManager.IsVotingDay);
             }
 
             //PassiveFestivals are loaded before the damn save data so we need to
@@ -78,45 +74,35 @@ internal sealed class ModEntry : Mod
 
     private void SetVotingDate()
     {
-        if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.RegisteringForBalot))
+        if(ModProgressManager.HasProgressFlag(ModProgressManager.RegisterVotingDate))
         {
-            _saveData.RunningForMayor = true;
-            _saveData.VotingDate = HelperMethods.GetDateWithoutFestival(10);
+            _saveData.VotingDate = ModUtils.GetDateWithoutFestival(10);
             Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
+            ModProgressManager.RemoveProgressFlag(ModProgressManager.RegisterVotingDate);
         }
     }
 
     private void CompleteVotingDay()
     {
-        if (_saveData is not null && _saveData.RunningForMayor && _saveData.VotingDate == SDate.Now())
+        //TODO: Make it so you can lose election but for now just assume you win
+        if (_saveData is not null && _saveData.VotingDate == SDate.Now() && ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
         {
-            Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.IsVotingDay);
-            _saveData.RunningForMayor = false;
-            //TODO: Make it so you can lose election but for now just assume you win
-            Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.ManorHouseUnderConstruction);
-            _saveData.ElectedMayor = true;
-            Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
+            ModProgressManager.RemoveAllModFlags();
+            ModProgressManager.AddProgressFlag(ModProgressManager.WonMayorElection);
         }
     }
 
     private static void CompleteMayorDay()
     {
-        // Complete mayor normal day
-        if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.ElectedAsMayor))
+        // Complete day as mayor
+        if(ModProgressManager.HasProgressFlag(ModProgressManager.ElectedAsMayor))
         {
-            var plannedMeetings = Game1.MasterPlayer.mailReceived.Where(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix));
-            var heldMeetings = Game1.MasterPlayer.mailReceived.Where(p => p.StartsWith(CouncilMeetingKeys.HeldPrefix));
-            foreach (var planned in plannedMeetings)
+            if (ModProgressManager.HasProgressFlag(ModProgressManager.WonMayorElection))
             {
-                var meetingId = planned[CouncilMeetingKeys.PlannedPrefix.Length..];
-                var completedMeeting = heldMeetings.Any(m => m.EndsWith(meetingId));
-                if (completedMeeting)
-                {
-                    Game1.MasterPlayer.mailReceived.Remove(planned);
-                }
+                ModProgressManager.RemoveProgressFlag(ModProgressManager.WonMayorElection);
             }
 
-            //TODO look into why I have to do this
+            //TODO: look into why I have to do this
             var meetingTomorrow = Game1.MasterPlayer.mailForTomorrow.FirstOrDefault(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix));
             if (meetingTomorrow is not null)
             {
@@ -124,20 +110,11 @@ internal sealed class ModEntry : Mod
                 Game1.MasterPlayer.mailReceived.Add(meetingTomorrow);
             }
         }
-
-        //Complete mayor first day
-        if (Game1.MasterPlayer.mailReceived.Contains(ModProgressKeys.ManorHouseUnderConstruction))
-        {
-            Game1.MasterPlayer.mailReceived.Remove(ModProgressKeys.ManorHouseUnderConstruction);
-            Game1.MasterPlayer.mailReceived.Add(ModProgressKeys.ElectedAsMayor);
-            //TODO: Remove leaflets and voting sign from the game
-            //TODO: Clean up all recieved mails
-        }
     }
 
     private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
     {
-        if (_saveData is null || !_saveData.RunningForMayor)
+        if (_saveData is null || !ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
         {
             return;
         }
@@ -159,8 +136,8 @@ internal sealed class ModEntry : Mod
     private void AssetUpdatesForMail(IAssetData mails)
     {
         var data = mails.AsDictionary<string, string>().Data;
-        var title = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Mail.RegistrationMail.Title");
-        var body = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Mail.RegistrationMail.Body");
+        var title = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Mail.RegistrationMail.Title");
+        var body = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Mail.RegistrationMail.Body");
         body = string.Format(body, $"{_saveData.VotingDate.Season} {_saveData.VotingDate.Day}");
         data[$"{ModKeys.MayorModCPId}_RegisteredForElectionMail"] = $"{body}[#]{title}";
 
@@ -172,8 +149,8 @@ internal sealed class ModEntry : Mod
         var data = festivals.AsDictionary<string, PassiveFestivalData>().Data;
         var votingDay = new PassiveFestivalData()
         {
-            DisplayName = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Festival.VotingDay.Name"),
-            StartMessage = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Festival.VotingDay.Message"),
+            DisplayName = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Festival.VotingDay.Name"),
+            StartMessage = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Festival.VotingDay.Message"),
             Season = _saveData.VotingDate.Season,
             StartDay = _saveData.VotingDate.Day,
             EndDay = _saveData.VotingDate.Day,
@@ -189,7 +166,7 @@ internal sealed class ModEntry : Mod
             !dialogues.AsDictionary<string, string>().Data.ContainsKey($"RejectItem_(O){ModItemKeys.Leaflet}"))
         {
             var data = dialogues.AsDictionary<string, string>().Data;
-            data[$"RejectItem_(O){ModItemKeys.Leaflet}"] = HelperMethods.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Gifting.Default.Leaflet");
+            data[$"RejectItem_(O){ModItemKeys.Leaflet}"] = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Gifting.Default.Leaflet");
         }
     }
 

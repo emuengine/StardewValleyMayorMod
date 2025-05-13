@@ -22,31 +22,31 @@
             "Action": "EditData",
             "Target": "Data/TriggerActions",
             "Entries": {
-                "{{ModId}}_RegisteredForElectionTrigger": {
-                    "Id": "{{ModId}}_SendRegisteredForElectionMail",
-                    "Trigger": "DayEnding",
+                //"{{ModId}}_RegisteredForElectionTrigger": {
+                //    "Id": "{{ModId}}_SendRegisteredForElectionMail",
+                //    "Trigger": "DayEnding",
+                //    "HostOnly": "true",
+                //    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RegisteredForBallot Received",
+                //    "Actions": [
+                //        "AddMail Current {{ModId}}_RegisteredForElectionMail",
+                //        "AddConversationTopic {{ModId}}_RegisteredForBallotTopic 2"
+                //    ]
+                //},
+                "{{ModId}}_TalkingToVotersTrigger": {
+                    "Id": "{{ModId}}_TalkingToVotersTrigger",
+                    "Trigger": "DayStarted",
                     "HostOnly": "true",
-                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RegisteredForBallot Received",
-                    "Actions": [
-                        "AddMail Current {{ModId}}_RegisteredForElectionMail",
-                        "AddConversationTopic {{ModId}}_RegisteredForBallotTopic 2"
-                    ]
-                },
-                "{{ModId}}_TalkingToVoterTrigger": {
-                    "Id": "{{ModId}}_SendTalkingToVoterMail",
-                    "Trigger": "DayEnding",
-                    "HostOnly": "true",
-                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RegisteredForElectionMail Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic,",
+                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic",
                     "Actions": [
                         "AddMail Current {{ModId}}_TalkingToVotersMail",
-                        "AddConversationTopic {{ModId}}_TalkingToVotersTopic 4"
+                        "AddConversationTopic {{ModId}}_TalkingToVotersTopic 8"
                     ]
                 },
                 "{{ModId}}_PutUpPostersTrigger": {
                     "Id": "{{ModId}}_PutUpPostersTrigger",
-                    "Trigger": "DayEnding",
+                    "Trigger": "DayStarted",
                     "HostOnly": "true",
-                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RegisteredForElectionMail Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_TalkingToVotersTopic,",
+                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received, PLAYER_HAS_CONVERSATION_TOPIC Current eventSeen_{{ModId}}_NeedMayorEvent_memory_oneweek",
                     "Actions": [
                         "AddMail Current {{ModId}}_CampaignMail"
                     ]

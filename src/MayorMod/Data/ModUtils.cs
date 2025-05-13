@@ -4,10 +4,11 @@ using StardewModdingAPI;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.Extensions;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace MayorMod.Data;
-public static class HelperMethods
+public static class ModUtils
 {
     private static NPC? _officerMikeNPC;
     /// <summary>
@@ -83,7 +84,7 @@ public static class HelperMethods
         while (count < 30 && (Utility.isFestivalDay(returnDate.Day, returnDate.Season) || IsBooksellerVisiting(returnDate)))
         {
             count++;
-            returnDate.AddDays(1);
+            returnDate = returnDate.AddDays(1);
         }
         return returnDate;
     }

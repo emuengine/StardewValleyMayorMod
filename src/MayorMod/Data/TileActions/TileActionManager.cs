@@ -45,7 +45,7 @@ public class TileActionManager
         {
             ManorHouseTileActions.MayorDeskAction(farmer);
         }
-        else if (!farmer.mailReceived.Contains(ModProgressKeys.VotedForMayor))
+        else if (!farmer.mailReceived.Contains(ModProgressManager.VotedForMayor))
         {
             switch (arg2[1])
             {
@@ -62,7 +62,7 @@ public class TileActionManager
         }
         else
         {
-            Game1.DrawDialogue(HelperMethods.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
+            Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
         }
         return true;
     }
