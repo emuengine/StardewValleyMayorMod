@@ -1,7 +1,7 @@
 {
-	//////////////////
+	//////////////////////
 	//Items
-	//////////////////
+	//////////////////////
 	"EmuEngine.MayorModCP_Item.ElectionSign.Name": "Election Sign",
 	"EmuEngine.MayorModCP_Item.ElectionSign.Description": "Sign for elections",
 
@@ -14,15 +14,15 @@
 	"EmuEngine.MayorModCP_Item.Leaflet.Name": "Election Leaflets",
 	"EmuEngine.MayorModCP_Item.Leaflet.Description": "Describes your policies as mayor",
 
-	//////////////////
+	//////////////////////
 	//Powers
-	//////////////////
+	//////////////////////
 	"EmuEngine.MayorModCP_Powers.ElectedMayor.DisplayName": "Elected Mayor",
 	"EmuEngine.MayorModCP_Powers.ElectedMayor.Description": "You have been elected the mayor of Pelican Town!",
 
-	//////////////////
+	//////////////////////
 	//Mail
-	//////////////////
+	//////////////////////
 	"EmuEngine.MayorModCP_Mail.RegistrationMail.Title": "Registration for Mayoral Election",
 	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body": "^^Dear @,^^Re: Registration for Mayoral Election^^ We are pleased to acknowledge your registration as a candidate in the upcoming mayoral election. Your interest in serving our community in this esteemed position is commendable. The election will take place on {0} so get campaigning. ^^If you have any questions or^concerns regarding the election^process, please do not hesitate^to contact us. We are more than^happy to assist you throughout this campaign.^^Sincerely,^Angela,^Chair of S.V. Election Committee[letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black]",
 
@@ -35,22 +35,22 @@
 	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Title": "Council member vote",
 	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Body": "Hey @,^^I  don't know if you know this but we used to have a town council. I was a member of the council representing security affairs along with the Wizard (magical affairs), Gunther (cultural affairs), and Penny (education affairs). I've been talking to the old gang and the seem open to voting for you if we start running the council meetings again. ^^-Marlon",
 
-	//////////////////
+	//////////////////////
 	//Quests
-	//////////////////
+	//////////////////////
 	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Title": "Quest Title",
 	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Description": "Quest Description",
 	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Task": "Give out leaflets",
 
-	//////////////////
+	//////////////////////
 	//Festival
-	//////////////////
+	//////////////////////
 	"EmuEngine.MayorModCP_Festival.VotingDay.Name": "Voting Day!",
 	"EmuEngine.MayorModCP_Festival.VotingDay.Message": "Don't forget to vote today!",
 
-	//////////////////
+	//////////////////////
 	//Maps
-	//////////////////
+	//////////////////////
 	"EmuEngine.MayorModCP_MapStrings.ManorHouseClosed": "Renovation is ongoing. Come back tomorrow.",
 	"EmuEngine.MayorModCP_MapStrings.MeetingPlanned": "Council meeting has been planned.",
 	"EmuEngine.MayorModCP_MapStrings.HoldCouncilMeeting": "Council Meeting",
@@ -64,9 +64,9 @@
 	"EmuEngine.MayorModCP_MapStrings.MeetingEducation": "Access to educational resources.",
 	"EmuEngine.MayorModCP_MapStrings.MeetingBusPunctuality": "Public transport punctuality",
 
-	//////////////////
+	//////////////////////
 	//Dialogue
-	//////////////////
+	//////////////////////
 
 	//OfficerMike
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.CheckId": "Hello sir. May I check your ID? .....",
@@ -77,9 +77,9 @@
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedBallot": "Come over to the desk to pick up your ballot.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedToVote": "Now that you've voted you can put your ballot in the ballot box.",
 
-	//////////////////
+	//////////////////////
 	//Events
-	//////////////////
+	//////////////////////
 	"EmuEngine.MayorModCP_Events.NeedMayor_0": "You really need to take this more seriously. @ has been keeping populations down but these monsters could become a real danger if not monitored properly. We need funding so we can actually pay people to make sure these attacks don't become a real danger to the town.",
 	"EmuEngine.MayorModCP_Events.NeedMayor_1": "I don't want to talk about this any more. I've done all I can. I'm leaving now. I have more important things to deal with. Goodbye Marlon.",
 	"EmuEngine.MayorModCP_Events.NeedMayor_2": "Hi @, it's nice to see you. I'm sorry I can't talk right now. I am very busy today.",
@@ -139,9 +139,9 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeeting_5A1": "We have a lot of work to do. I am going to start planning more council meetings ASAP",
 	"EmuEngine.MayorModCP_Events.CouncilMeeting_6": "Excellent! We will finish here for now. Mayor @, when you're ready to start making decisions for the town go to your desk to set the agenda for the next meeting.",
 
-	//////////////////
+	//////////////////////
 	//Gifting
-	//////////////////
+	//////////////////////
 	"EmuEngine.MayorModCP_Gifting.Default.Leaflet": "No thank you.",
 	"EmuEngine.MayorModCP_Gifting.Alex.Leaflet": "Well, well, looks like you've got all the right ideas for our town!",
 	"EmuEngine.MayorModCP_Gifting.Elliott.Leaflet": "We will see if your promises hold up.",
@@ -185,9 +185,9 @@
 	//"EmuEngine.MayorModCP_Gifting.Marlon.Leaflet": "",
 	//"EmuEngine.MayorModCP_Gifting.Morris.Leaflet": "",
 
-	//////////////////
+	//////////////////////
 	//Converstaion Topics
-	//////////////////
+	//////////////////////
 	"EmuEngine.MayorModCP_ConverstaionTopic.Alex.RegisteredForBallot": "I hear you're running for mayor. Good luck. Lewis has been mayor as long as I can remember.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Elliott.RegisteredForBallot": "Well, well, well. The farmer has decided to throw their hat into the ring of politics? Lewis better watch out.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Harvey.RegisteredForBallot": "Oh, wow! I never thought about you running for mayor... That's great, good luck!",
