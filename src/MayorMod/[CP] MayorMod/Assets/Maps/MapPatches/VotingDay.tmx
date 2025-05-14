@@ -3125,6 +3125,231 @@
  </tileset>
  <tileset firstgid="6839" name="z_MayorMod_Misc_Tilesheet" tilewidth="16" tileheight="16" tilecount="390" columns="26">
   <image source="EmuEngine.MayorModCP_Misc_Tilesheet.png" width="416" height="240"/>
+  <tile id="251">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="252">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="253">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="254">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="255">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="256">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="257">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="258">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="259">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="277">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="278">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="279">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="280">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="281">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="282">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="283">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="284">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="285">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="303">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="304">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="305">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="306">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="307">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="308">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="309">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="310">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="311">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="329">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="330">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="331">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="332">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="333">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="334">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="335">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="336">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="337">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="355">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="356">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="357">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="358">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="359">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="360">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="361">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="362">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
+  <tile id="363">
+   <properties>
+    <property name="NoSpawn" value="All"/>
+   </properties>
+  </tile>
  </tileset>
  <layer id="20" name="Back" width="13" height="6">
   <data encoding="csv">
