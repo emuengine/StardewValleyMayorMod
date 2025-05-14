@@ -32,6 +32,9 @@
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Title": "Good News",
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Body": "Hey @,^^Good news! I have been talking with Morris and I think I've convinced him to vote for you. I've also printed up a poster that you can put up in the town. ^^-Marlon",
 
+	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Title": "Council member vote",
+	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Body": "Hey @,^^I  don't know if you know this but we used to have a town council. I was a member of the council representing security affairs along with the Wizard (magical affairs), Gunther (cultural affairs), and Penny (education affairs). I've been talking to the old gang and the seem open to voting for you if we start running the council meetings again. ^^-Marlon",
+
 	//////////////////
 	//Quests
 	//////////////////
@@ -50,19 +53,16 @@
 	//////////////////
 	"EmuEngine.MayorModCP_MapStrings.ManorHouseClosed": "Renovation is ongoing. Come back tomorrow.",
 	"EmuEngine.MayorModCP_MapStrings.MeetingPlanned": "Council meeting has been planned.",
-	"EmuEngine.MayorModCP_MapStrings.HoldCouncilMeeting": "Hold a council meeting:",
+	"EmuEngine.MayorModCP_MapStrings.HoldCouncilMeeting": "Council Meeting",
+	"EmuEngine.MayorModCP_MapStrings.AgendaQuestion": "Choose the agenda:",
 	"EmuEngine.MayorModCP_MapStrings.AlreadyPlanned": "You have already planned a council meeting.",
 	"EmuEngine.MayorModCP_MapStrings.NoNewMeetings": "There are no new issues for the city council.",
 	"EmuEngine.MayorModCP_MapStrings.MeetingIntro": "Introductory Council Meeting.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingTavernHours": "Discuss alcohol licencing.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingTownSecurity": "Discuss town security.",
-
-	//"EmuEngine.MayorModCP_MapStrings.MeetingTownSecurity": "3. Discuss boosting tourism and community spirit",
-	//"EmuEngine.MayorModCP_MapStrings.MeetingOption3": "4. Discuss taxes.",
-	//"EmuEngine.MayorModCP_MapStrings.MeetingOption4": "5. Discuss access to educational resources.",
-	//"EmuEngine.MayorModCP_MapStrings.MeetingOption5": "6. Discuss alcohol licencing.",
-	//"EmuEngine.MayorModCP_MapStrings.MeetingOption6": "1. Discuss public safety.",
-	//"2. Discuss public transport.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingTavernHours": "Alcohol licencing.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingTownSecurity": "Public safety and security issues.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingTourism": "Boosting tourism and community spirit.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingEducation": "Access to educational resources.",
+	"EmuEngine.MayorModCP_MapStrings.MeetingBusPunctuality": "Public transport punctuality",
 
 	//////////////////
 	//Dialogue
@@ -121,14 +121,23 @@
 	"EmuEngine.MayorModCP_Events.MayorSpeech_8": "Ok thanks Marnie. Lets get this over with.",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_9": "Hello Mayor @. Congratulations by the way! While those two are packing up lewis' stuff I have decorators in here fixing up the place for your new term of office. I also have a surprise planned for you so come back tomorrow when it's all fixed up.",
 
-	"EmuEngine.MayorModCP_Events.ManorHouseIntro_0": "So what do you think of your new place?",
-	"EmuEngine.MayorModCP_Events.ManorHouseIntro_1": "It's be completely redecorated. This is the new council room. The old members of the council are the Wizard, Gunther, Penny and myself.",
-	"EmuEngine.MayorModCP_Events.ManorHouseIntro_2": "I've been talking to them and they are very excited to start the council meeting again.",
-	"EmuEngine.MayorModCP_Events.ManorHouseIntro_3": "And if you follow me ...",
-	"EmuEngine.MayorModCP_Events.ManorHouseIntro_4": "And this is your new office Mayor @!",
-	"EmuEngine.MayorModCP_Events.ManorHouseIntro_5": "At the desk you can decide when the next council meetings will take place.",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_0": "So what do you think? We've been working tirelessly to try and bring the town hall up to date. As you can see it's been completely redecorated.",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_1": "Since we now have a competent mayor, we can have council meetings again and this is going to be the new town council meeting room.",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_2": "I've been talking with the Wizard, Gunther, and Penny and they are very excited to start the council meetings again.",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_3": "Of course as mayor you are the one who gets to choose when that happens. If you'll follow me ...",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_4": "Welcome to your new office Mayor @!",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_5": "At the desk you can decide when the next council meetings will take place. It will take a day or so to set them up once you pick the meeting agenda.",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_6": "Ok I'll leave you to get settled in. Once again congratulations! I'm looking forward to working with you.",
 
-	"EmuEngine.MayorModCP_Events.CouncilMeeting_0": "Welcome to the first council meeting of the new term.",
+	"EmuEngine.MayorModCP_Events.CouncilMeeting_0": "Welcome everyone to the first council meeting of the new term. Maybe we can go around the table and talk about our roles.",
+	"EmuEngine.MayorModCP_Events.CouncilMeeting_1": "My role is primarily to focus on town safety. I already have some ideas that I was trying to get Lewis to look at. Hopefully you'll consider them for the next meeting.",
+	"EmuEngine.MayorModCP_Events.CouncilMeeting_2": "I will be looking after cultural affairs. Im looking forward to haviing discussions about future events and festivals in the town.",
+	"EmuEngine.MayorModCP_Events.CouncilMeeting_3": "I'll be overseeing educational matters and am excited to contribute to providing exceptional learning opportunities for the town's young population.",
+	"EmuEngine.MayorModCP_Events.CouncilMeeting_4": "This land is a special place where the boundaries between the physical and spiritual realms blur which is why I will act as the conduit between the us and the magical community.",
+	"EmuEngine.MayorModCP_Events.CouncilMeeting_5Q": "What would you like to say?",
+	"EmuEngine.MayorModCP_Events.CouncilMeeting_5A0": "I look forward to working with you all.",
+	"EmuEngine.MayorModCP_Events.CouncilMeeting_5A1": "We have a lot of work to do. I am going to start planning more council meetings ASAP",
+	"EmuEngine.MayorModCP_Events.CouncilMeeting_6": "Excellent! We will finish here for now. Mayor @, when you're ready to start making decisions for the town go to your desk to set the agenda for the next meeting.",
 
 	//////////////////
 	//Gifting
@@ -232,7 +241,7 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Haley.TalkingToVoters": "If you're serious about running for mayor, then you should focus on bringing more tourism to our town.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Leah.TalkingToVoters": "I'd love to see some new public art projects around if you become mayor!",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Maru.TalkingToVoters": "I can't wait to vote for Mayor @! What kind of tech advancements do you have in mind?",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Penny.TalkingToVoters": "I can't wait to vote for you! What kind of community events do you have planned?",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Penny.TalkingToVoters": "I can't wait to vote for you! I hear you are looking to bring back the town council. Very Exciting!",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Caroline.TalkingToVoters": "So what are you planning to change if you become mayor?",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Clint.TalkingToVoters": "Well, at least you've got some decent ideas. Don't go watering them down.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Demetrius.TalkingToVoters": "I'll be interested in hearing your stance on agricultural reform.",
@@ -248,7 +257,7 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Pierre.TalkingToVoters": "If you become mayor I hope you'll be kind to the shopkeepers during your time in office...",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Robin.TalkingToVoters": "A new mayor, huh? I'm all ears to hear about your plans for Pelican Town's future.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Willy.TalkingToVoters": "If you wanna win my vote, then you'd better have a plan to improve fishing regulations around here.",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Wizard.TalkingToVoters": "What kind of magical initiatives do you have planned for our town?",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Wizard.TalkingToVoters": "What kind of magical initiatives do you have planned for our town? I look forward to discussing these matters in council again.",
 	//Kids
 	"EmuEngine.MayorModCP_ConverstaionTopic.Jas.TalkingToVoters": "I'm not old enough to vote for you but I hope other people do.",
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Leo.TalkingToVoters": "",
@@ -308,6 +317,7 @@
 }
 
 
+//What kind of community events do you have planned?
 //"Now that's a campaign leaflet with some serious clout behind it! It seems like you've really thought this through.",
 //"I hear you're running for mayor. Good luck. Lewis has been mayor as long as I can remember.",
 //"Marlon told me you're running for mayor. That's so cool.",

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using MayorMod.Data.Models;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
 
@@ -8,29 +9,64 @@ public class TextMenuItem : IMenuItem
 {
     private readonly MayorModMenu _parent;
     public string Text { get; set; }
-    public Vector2 Location { get; set; }
+    public Margin TextMargin { get; set; }
     public SpriteFont Font { get; set; } = Game1.dialogueFont;
-    public TextMenuItem(MayorModMenu parent, string text, Vector2 location)
+    public bool IsBold { get; set; }
+    public MenuItemAlign Align { get; set; } = MenuItemAlign.Left;
+
+    public enum MenuItemAlign
+    {
+        Left,
+        Right,
+        Center
+    }
+
+    //public TextMenuItem(MayorModMenu parent, string text, Vector2 location)
+    //{
+    //    _parent = parent;
+    //    Text = text;
+    //    Location = location;
+    //}
+
+    public TextMenuItem(MayorModMenu parent, string text, Margin margin)
     {
         _parent = parent;
         Text = text;
-        Location = location;
-    }
-
-    public TextMenuItem(MayorModMenu parent, string text, Vector2 location, SpriteFont font) : this(parent, text, location)
-    {
-        Font = font;
+        TextMargin = margin;
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        var position = new Vector2((int)(Location.X > 0 ?
-                                    Location.X + _parent.MenuRect.X :
-                                    Location.X + _parent.MenuRect.Width),
-                           (int)(Location.Y > 0 ?
-                                    Location.Y + _parent.MenuRect.Y :
-                                    Location.Y + _parent.MenuRect.Height));
-        Utility.drawTextWithShadow(spriteBatch, Text, Font, position, Game1.textColor);
+        int xVal = 0;
+        if (Align == MenuItemAlign.Left)
+        {
+            xVal = TextMargin.Left + _parent.MenuRect.X;
+        }
+        else if (Align == MenuItemAlign.Right)
+        {
+            xVal = (_parent.MenuRect.X + _parent.MenuRect.Width) - TextMargin.Right;
+        }
+        else
+        {
+            var textHalf = (int)(Font.MeasureString(Text).X / 2.0);
+            var windowHalf = (int)(_parent.MenuRect.Width / 2.0);
+            xVal = _parent.MenuRect.X + (windowHalf - textHalf);
+        }
+        var position = new Vector2(xVal, TextMargin.Top + _parent.MenuRect.Y);
+        //var position = new Vector2((int)(Location.X > 0 ?
+        //                        Location.X + _parent.MenuRect.X :
+        //                        Location.X + _parent.MenuRect.Width),
+        //                (int)(Location.Y > 0 ?
+        //                        Location.Y + _parent.MenuRect.Y :
+        //                        Location.Y + _parent.MenuRect.Height));
+        if (IsBold)
+        {
+            Utility.drawBoldText(spriteBatch, Text, Font, position, Game1.textColor);
+        }
+        else
+        {
+            Utility.drawTextWithShadow(spriteBatch, Text, Font, position, Game1.textColor);
+        }
     }
 
     public void OnWindowResize(Rectangle oldBounds, Rectangle newBounds)

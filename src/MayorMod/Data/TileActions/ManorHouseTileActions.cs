@@ -37,10 +37,11 @@ public static partial class ManorHouseTileActions
 
         //Show council meeting menu
         var menu = new MayorModMenu(0.8f, 0.8f);
-        menu.MenuItems = 
+        menu.MenuItems =
         [
-            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.HoldCouncilMeeting), new Vector2(15, 20)),
-            new BigButtonMenuItem(menu, new Margin(30, 90, 60, 110), [.. meetings.Select((cm, index) => $"{index + 1}. " + cm.Name)], (i)  => OnCoucilMeetingSelected(meetings[i])),
+            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.HoldCouncilMeeting), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
+            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.AgendaQuestion), new Margin(20, 60, 0, 0)),
+            new BigButtonMenuItem(menu, new Margin(30, 110, 60, 130), [.. meetings.Select((cm, index) => $"{index + 1}. " + cm.Name)], (i)  => OnCoucilMeetingSelected(meetings[i])),
             new ButtonMenuItem(menu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
             {
                 ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel

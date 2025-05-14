@@ -8,6 +8,7 @@ public static class DialogueKeys
     {
         public static readonly string MeetingPlanned = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingPlanned";
         public static readonly string HoldCouncilMeeting = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_HoldCouncilMeeting";
+        public static readonly string AgendaQuestion = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_AgendaQuestion";
         public static readonly string AlreadyPlanned = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_AlreadyPlanned";
         public static readonly string NoNewMeetings = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_NoNewMeetings";
         public static readonly string MeetingIntro = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingIntro";
