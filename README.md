@@ -13,5 +13,6 @@ A mod for Stardew Valley which lets you become the mayor.<br/>
 ## Planned features
 - Run council meetings
 - Decide on festivals
+- Have election debates
 - Choose to improve Stardew Valley (or be just as corrupt as Lewis)
 
