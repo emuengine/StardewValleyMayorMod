@@ -1,0 +1,32 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading {{ModId}}_MayorModWarpRoom into Assets",
+            "Action": "Load",
+            "Target": "Maps/{{ModId}}_MayorModWarpRoom",
+            "FromFile": "Assets/Maps/Interior/MayorModWarpRoom.tmx"
+        },
+        {
+            "LogName": "Updating Data/Locations to add {{ModId}}_MayorModWarpRoom",
+            "Action": "EditData",
+            "Target": "Data/Locations",
+            "Entries": {
+                "{{ModId}}_MayorModWarpRoom": {
+                    "CreateOnLoad": {
+                        "MapPath": "Maps/{{ModId}}_MayorModWarpRoom"
+                    },
+                    "DisplayName": "MayorMod Warp Room",
+                    "DefaultArrivalTile": {
+                        "X": 4,
+                        "Y": 10
+                    },
+                    "ExcludeFromNpcPathfinding": false,
+                    "ArtifactSpots": [],
+                    "FishAreas": {},
+                    "Fish": [],
+                    "Forage": []
+                }
+            }
+        }
+    ]
+}

@@ -15,12 +15,12 @@
         },
         //Create OfficerMike character
         {
-            "LogName": "Loading Officer Mike Portrait",
+            "LogName": "Loading Officer Mike Character",
             "Action": "EditData",
             "Target": "Data/Characters",
             "Entries": {
                 "{{ModId}}_OfficerMike": {
-                    "DisplayName": " Officer Mike",
+                    "DisplayName": "Officer Mike",
                     "Gender": "Male",
                     "Age": "Adult",
                     "Manner": "Neutral",
@@ -41,15 +41,16 @@
                     "WinterStarParticipant": false,
                     "SocialTab": "HiddenAlways",
                     "Calendar": "HiddenAlways",
+                    "SpawnIfMissing": true,
                     "Home": [
                         {
                             "Id": "Default",
-                            "Location": "{{ModId}}_VotingOffice",
+                            "Location": "{{ModId}}_MayorModWarpRoom",
                             "Tile": {
-                                "X": 1,
+                                "X": 5,
                                 "Y": 7
                             },
-                            "Direction": "right"
+                            "Direction": "down"
                         }
                     ]
                 }

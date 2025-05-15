@@ -15,6 +15,17 @@
  <tileset firstgid="575" name="z_MayorMod_OfficeInterior_Tilesheet" tilewidth="16" tileheight="16" tilecount="120" columns="10">
   <image source="EmuEngine.MayorModCP_OfficeInterior_Tilesheet.png" width="160" height="192"/>
  </tileset>
+ <tileset firstgid="695" name="townInterior" tilewidth="16" tileheight="16" tilecount="2176" columns="32">
+  <image source="townInterior.png" width="512" height="1088"/>
+  <tile id="581">
+   <animation>
+    <frame tileid="550" duration="300"/>
+    <frame tileid="581" duration="300"/>
+    <frame tileid="582" duration="300"/>
+    <frame tileid="581" duration="300"/>
+   </animation>
+  </tile>
+ </tileset>
  <layer id="1" name="Back" width="15" height="11">
   <data encoding="csv">
 575,576,577,578,579,580,581,582,578,579,580,581,582,583,584,
@@ -53,8 +64,8 @@
 0,0,449,450,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,473,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,499,373,0,0,0,0,0,0,0,0,0,0,0,0,
+0,340,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,366,373,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
