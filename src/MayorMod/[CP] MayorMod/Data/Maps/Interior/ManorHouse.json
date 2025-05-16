@@ -48,7 +48,7 @@
                 "{{ModId}}_AlreadyPlanned": "{{i18n:{{ModId}}_MapStrings.AlreadyPlanned}}",
                 "{{ModId}}_NoNewMeetings": "{{i18n:{{ModId}}_MapStrings.NoNewMeetings}}",
                 "{{ModId}}_MeetingIntro": "{{i18n:{{ModId}}_MapStrings.MeetingIntro}}",
-                "{{ModId}}_MeetingTavernHours": "{{i18n:{{ModId}}_MapStrings.MeetingTavernHours}}",
+                "{{ModId}}_MeetingSaloonHours": "{{i18n:{{ModId}}_MapStrings.MeetingSaloonHours}}",
                 "{{ModId}}_MeetingTownSecurity": "{{i18n:{{ModId}}_MapStrings.MeetingTownSecurity}}"
             }
         }

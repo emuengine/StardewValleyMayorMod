@@ -12,7 +12,7 @@ public static class DialogueKeys
         public static readonly string AlreadyPlanned = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_AlreadyPlanned";
         public static readonly string NoNewMeetings = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_NoNewMeetings";
         public static readonly string MeetingIntro = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingIntro";
-        public static readonly string MeetingTavernHours = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingTavernHours";
+        public static readonly string MeetingSaloonHours = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingSaloonHours";
         public static readonly string MeetingTownSecurity = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingTownSecurity";
     }
 

@@ -89,8 +89,8 @@
             "Action": "EditData",
             "Target": "Characters/Schedules/{{ModId}}_OfficerMike",
             "Entries": {
-                "spring": "1800 Mountain 57 6 2/2000 Mine 20 4 2/2100 Mountain 57 6 2/2200 Mine 20 4 2/2330 Mine 12 7 1/100 Mountain 57 6 2",
-                "default": "1800 Mountain 57 6 2/2000 Mine 20 4 2/2100 Mountain 57 6 2/2200 Mine 20 4 2/2330 Mine 12 7 1/100 Mountain 57 6 2"
+                "spring": "1800 Mountain 57 6 2/2000 Mine 20 4 2/2100 Mountain 57 6 2/2200 Mine 20 4 2/2330 Mine 12 7 1/2500 Mountain 57 6 2",
+                "default": "1800 Mountain 57 6 2/2000 Mine 20 4 2/2100 Mountain 57 6 2/2200 Mine 20 4 2/2330 Mine 12 7 1/2500 Mountain 57 6 2"
             },
             "When": {
                 "HasFlag: hostPlayer | contains={{ModId}}_SecurityOnGuard": true

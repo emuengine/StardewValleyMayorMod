@@ -13,7 +13,7 @@
 		},
 		{
 			"Action": "Include",
-			"FromFile": "Data/Events/Council/CouncilMeetingIntroEvent.json, Data/Events/Council/CouncilMeetingTavernHours.json, Data/Events/Council/CouncilMeetingTownSecurity.json"
+			"FromFile": "Data/Events/Council/CouncilMeetingIntroEvent.json, Data/Events/Council/CouncilMeetingSaloonHours.json, Data/Events/Council/CouncilMeetingTownSecurity.json"
 		},
 		//Items
 		{
@@ -28,12 +28,12 @@
 		//Maps
 		{
 			"Action": "Include",
-			"FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/ManorHouse.json, Data/Maps/Exterior/NewMayorStage.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Interior/CommunityCenter.json, Data/Maps/Interior/AdventureGuild.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/ManorHouseBasement.json, Data/Maps/Interior/VotingOffice.json, Data/Maps/Interior/MayorModWarpRoom.json"
+			"FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/ManorHouse.json, Data/Maps/Exterior/Saloon.json, Data/Maps/Exterior/NewMayorStage.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Interior/CommunityCenter.json, Data/Maps/Interior/AdventureGuild.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/ManorHouseBasement.json, Data/Maps/Interior/VotingOffice.json, Data/Maps/Interior/MayorModWarpRoom.json"
 		},
 		//NPCs
 		{
 			"Action": "Include",
-			"FromFile": "Data/NPCs/Gil.json, Data/NPCs/Governor.json, Data/NPCs/Marlon.json, Data/NPCs/OfficerMike.json, Data/NPCs/Lewis.json"
+			"FromFile": "Data/NPCs/Gil.json, Data/NPCs/Governor.json, Data/NPCs/Marlon.json, Data/NPCs/OfficerMike.json, Data/NPCs/Lewis.json, Data/NPCs/Gus.json"
 		},
 		//Powers
 		{

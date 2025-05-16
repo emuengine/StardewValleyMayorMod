@@ -63,7 +63,7 @@ public static partial class ManorHouseTileActions
         {
             meetings = [
                 new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownSecurity), CouncilMeetingKeys.MeetingTownSecurity),
-                new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTavernHours), CouncilMeetingKeys.MeetingTavernHours),
+                new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingSaloonHours), CouncilMeetingKeys.MeetingSaloonHours),
              ];
         }
 

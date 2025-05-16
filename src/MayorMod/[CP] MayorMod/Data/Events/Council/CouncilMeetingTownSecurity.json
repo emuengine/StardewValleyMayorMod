@@ -1,7 +1,7 @@
 {
     "Changes": [
         {
-            "LogName": "Loading council meeting event for TavernHours",
+            "LogName": "Loading council meeting event for TownSecurity",
             "Action": "EditData",
             "Target": "Data/Events/{{ModId}}_ManorHouse",
             "Entries": {
@@ -9,7 +9,7 @@
             }
         },
 		{
-            "LogName": "Loading negative answer for TavernHours event",
+            "LogName": "Loading negative answer for TownSecurity event",
             "Action": "EditData",
             "Target": "Data/Events/Temp",
             "Entries": {

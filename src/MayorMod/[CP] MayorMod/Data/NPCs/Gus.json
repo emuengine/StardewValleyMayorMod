@@ -1,0 +1,18 @@
+{
+    "Changes": [
+        {
+            "LogName": "Update Gus schedule for Saloon extended opening hours",
+            "Action": "EditData",
+            "Target": "Characters/Schedules/Gus",
+            "Entries": {
+                "Mon": "800 SeedShop 13 23 0 \"Strings\\schedules\\Gus:Mon.000\"/930 Saloon 10 18 2/1830 Saloon 12 18 0/1850 Saloon 10 18 2/1940 Saloon 12 18 0/1950 Saloon 10 18 2/2030 Saloon 12 18 0/2040 Saloon 10 18 2/2530 Saloon 23 4 1 gus_sleep",
+                "Tue": "800 Saloon 16 4 2 gus_sit_down/930 Saloon 10 18 2/1830 Saloon 12 18 0/1850 Saloon 10 18 2/1940 Saloon 12 18 0/1950 Saloon 10 18 2/2030 Saloon 12 18 0/2040 Saloon 10 18 2/2530 Saloon 23 4 1 gus_sleep",
+                "spring": "700 Saloon 16 4 2 gus_sit_down/930 Saloon 14 18 2 gus_clean/1830 Saloon 12 18 0/1850 Saloon 10 18 2/1940 Saloon 12 18 0/1950 Saloon 10 18 2/2030 Saloon 12 18 0/2040 Saloon 10 18 2/2530 Saloon 23 4 1 gus_sleep",
+                "Sun": "MAIL saloonSportsRoom/GOTO spring/700 Saloon 16 4 2 gus_sit_down/930 Saloon 34 8 0 \"Strings\\schedules\\Gus:Sun.000\"/1500 Saloon 12 18 0/1850 Saloon 10 18 2/1940 Saloon 12 18 0/1950 Saloon 10 18 2/2030 Saloon 12 18 0/2040 Saloon 10 18 2/2530 Saloon 23 4 1 gus_sleep"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_SaloonHoursEarlyLate": true
+            }
+        }
+    ]
+}

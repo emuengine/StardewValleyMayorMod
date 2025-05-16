@@ -1,0 +1,26 @@
+{
+    "Changes": [
+        {
+            "LogName": "Patching Maps/Town to update Saloon door opening hours",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "Overlay",
+            "FromFile": "Assets/Maps/MapPatches/SaloonDoorEarlyLate.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 1,
+                "Height": 3
+            },
+            "ToArea": {
+                "X": 45,
+                "Y": 69,
+                "Width": 1,
+                "Height": 3
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_SaloonHoursEarlyLate": true
+            }
+        }
+    ]
+}
