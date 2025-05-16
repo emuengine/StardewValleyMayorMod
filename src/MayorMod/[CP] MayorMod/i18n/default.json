@@ -157,6 +157,8 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_6Q": "What do you think?",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_6A0": "I think more security for the town would be good. We should hire some security.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_6A1": "I don't think this is a big issue. Let's do nothing for now and see.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_7": "Excellent! I'll look after ASAP. We will have a guard posted by the minee every night.'",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingNoSecurity_0": "This is very disappointing. I suppose the Adventure Guild can keep an eye out for the moment.'",
 
 	//////////////////////
 	//Gifting

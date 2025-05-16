@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="10" height="11" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="1">
  <properties>
-  <property name="NPCWarp" value="4 11 Town 9 0 5 11 Town 10 0 "/>
+  <property name="NPCWarp" value="4 11 Mountain 15 40 5 11 Mountain 16 40 "/>
+  <property name="Warp" value="1 4   Mountain 15 40"/>
  </properties>
  <tileset firstgid="1" name="townInterior" tilewidth="16" tileheight="16" tilecount="2176" columns="32">
   <image source="townInterior.png" width="512" height="1088"/>

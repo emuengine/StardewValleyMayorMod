@@ -5,7 +5,15 @@
             "Action": "EditData",
             "Target": "Data/Events/{{ModId}}_ManorHouse",
             "Entries": {
-                "{{ModId}}_CouncilMeetingTownSecurityEvent/H/Hn {{ModId}}_CouncilMeetingPlannedTownSecurity": "continue/9 6/farmer 12 6 1 Marlon 8 4 2 Maru 10 4 2 Gus -1008 7 0 Penny -10010 7 0/mailReceived  {{ModId}}_CouncilMeetingPlannedTownSecurity false/mailReceived  {{ModId}}_CouncilMeetingHeldTownSecurity true/showFrame farmer 117 true/addTemporaryActor Penny 16 16 10 6 0 false Character PennyHead/showFrame PennyHead 16/positionOffset PennyHead 0 32/addTemporaryActor Gus 16 16 8 6 0 false Character GusHead/showFrame GusHead 16/positionOffset GusHead 0 32/pause 1000/speak Marlon \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_0}}\"/speak Marlon \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_1}}\"/speak Maru \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_2}}\"/speak Penny \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_3}}\"/speak Gus \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_4}}\"/speak Marlon \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_5}}\"/question null \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_6Q}}\"#\"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_6A0}}\"#\"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_6A1}}\"/globalFade/viewport -1000 -1000/end"
+                "{{ModId}}_CouncilMeetingTownSecurityEvent/H/Hn {{ModId}}_CouncilMeetingPlannedTownSecurity": "continue/9 6/farmer 12 6 1 Marlon 8 4 2 Maru 10 4 2 Gus -1008 7 0 Penny -10010 7 0/mailReceived  {{ModId}}_CouncilMeetingPlannedTownSecurity false/mailReceived  {{ModId}}_CouncilMeetingHeldTownSecurity true/showFrame farmer 117 true/addTemporaryActor Penny 16 16 10 6 0 false Character PennyHead/showFrame PennyHead 16/positionOffset PennyHead 0 32/addTemporaryActor Gus 16 16 8 6 0 false Character GusHead/showFrame GusHead 16/positionOffset GusHead 0 32/pause 1000/speak Marlon \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_0}}\"/speak Marlon \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_1}}\"/speak Maru \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_2}}\"/speak Penny \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_3}}\"/speak Gus \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_4}}\"/speak Marlon \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_5}}\"/question fork1 \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_6Q}}\"#\"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_6A0}}\"#\"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_6A1}}\"/fork {{ModId}}_NoSecurity/mailReceived {{ModId}}_SecurityOnGuard true/speak Marlon \"{{i18n:{{ModId}}_Events.CouncilMeetingTownSecurity_7}}\"/globalFade/viewport -1000 -1000/end"
+            }
+        },
+		{
+            "LogName": "Loading negative answer for TavernHours event",
+            "Action": "EditData",
+            "Target": "Data/Events/Temp",
+            "Entries": {
+                "{{ModId}}_NoSecurity": "speak Marlon \"{{i18n:{{ModId}}_Events.CouncilMeetingNoSecurity_0}}\"/globalFade/viewport -1000 -1000/changeLocation AdventureGuild/end"
             }
         }
     ]
