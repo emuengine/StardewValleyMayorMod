@@ -1,0 +1,14 @@
+{
+    "Changes": [
+        {
+            "Action": "Load",
+            "Target": "Mods/{{ModId}}/DebateModeratorTable",
+            "FromFile": "Assets/Items/{{TargetWithoutPath}}.png"
+        },
+        {
+            "Action": "Load",
+            "Target": "Mods/{{ModId}}/DebateModeratorChair",
+            "FromFile": "Assets/Items/{{TargetWithoutPath}}.png"
+        },
+	]
+}

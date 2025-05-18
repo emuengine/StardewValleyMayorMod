@@ -9,7 +9,7 @@
 		//Events
 		{
 			"Action": "Include",
-			"FromFile": "Data/Events/MayorWinSpeechEvent.json, Data/Events/EmilyClothingTherapy.json, Data/Events/NeedMayorEvent.json, Data/Events/ManorHouseIntroEvent.json, Data/Events/WorriedLewisEvent.json"
+			"FromFile":  "Data/Events/MayorDebateEvent.json, Data/Events/MayorWinSpeechEvent.json, Data/Events/EmilyClothingTherapy.json, Data/Events/NeedMayorEvent.json, Data/Events/ManorHouseIntroEvent.json, Data/Events/WorriedLewisEvent.json"
 		},
 		{
 			"Action": "Include",
@@ -18,7 +18,7 @@
 		//Items
 		{
 			"Action": "Include",
-			"FromFile": "Data/Items/ElectionSign.json, Data/Items/Ballot.json, Data/Items/Leaflet.json"
+			"FromFile": "Data/Items/ElectionSign.json, Data/Items/Ballot.json, Data/Items/Leaflet.json, Data/Items/Lecturn.json, Data/Items/DebateModeratorFurniture.json"
 		},
 		//Mail
 		{
@@ -28,7 +28,7 @@
 		//Maps
 		{
 			"Action": "Include",
-			"FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/ManorHouse.json, Data/Maps/Exterior/Saloon.json, Data/Maps/Exterior/NewMayorStage.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Interior/CommunityCenter.json, Data/Maps/Interior/AdventureGuild.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/ManorHouseBasement.json, Data/Maps/Interior/VotingOffice.json, Data/Maps/Interior/MayorModWarpRoom.json"
+			"FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/ManorHouse.json, Data/Maps/Exterior/Saloon.json, Data/Maps/Exterior/NewMayorStage.json, Data/Maps/Exterior/ForestStageArea.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Interior/CommunityCenter.json, Data/Maps/Interior/AdventureGuild.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/ManorHouseBasement.json, Data/Maps/Interior/VotingOffice.json, Data/Maps/Interior/MayorModWarpRoom.json"
 		},
 		//NPCs
 		{

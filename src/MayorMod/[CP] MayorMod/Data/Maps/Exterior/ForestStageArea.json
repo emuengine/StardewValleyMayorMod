@@ -1,0 +1,27 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading {{ModId}}_ForestStageArea into Assets",
+            "Action": "Load",
+            "Target": "Maps/{{ModId}}_ForestStageArea",
+            "FromFile": "Assets/Maps/Exterior/ForestStageArea.tmx"
+        },
+        {
+            "LogName": "Updating Data/Locations to add {{ModId}}_ForestStageArea",
+            "Action": "EditData",
+            "Target": "Data/Locations",
+            "Entries": {
+                "{{ModId}}_ForestStageArea": {
+                    "DisplayName": "Forest Stage Area",
+                    "DefaultArrivalTile": {
+                        "X": 27,
+                        "Y": 38
+                    },
+                    "CreateOnLoad": {
+                        "MapPath": "Maps/{{ModId}}_ForestStageArea"
+                    }
+                }
+            }
+        }
+    ]
+}

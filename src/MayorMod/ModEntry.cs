@@ -36,6 +36,11 @@ internal sealed class ModEntry : Mod
         Helper.Events.Input.ButtonPressed += OnButtonPressed;
     }
 
+    /// <summary>
+    /// Loads the save game data
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e">event args</param>
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
     {
         _modDataCacheInvalidationNeeded = true;
@@ -50,6 +55,11 @@ internal sealed class ModEntry : Mod
         }
     }
 
+    /// <summary>
+    /// Sets the flag for VotingDay and invalidates the cache if needed
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e">event args</param>
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
         if (_saveData is not null && ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
@@ -67,20 +77,10 @@ internal sealed class ModEntry : Mod
     }
 
     /// <summary>
-    /// This invalidates the cache so that the dates for voting are correct in mail and passive festivals
-    /// PassiveFestivals are loaded before the damn save data so we need to reload them to make the
-    /// variable date passive festivals show. They also don't seem to reload between loading saves
-    /// so you can have the voting day appear in other saves even though you're not running for mayor.
+    /// Updates flags for mayor at end of day
     /// </summary>
-    public void InvalidateModData()
-    {
-        Helper.GameContent.InvalidateCache("Data/Mail");
-        Helper.GameContent.InvalidateCache("Data/PassiveFestivals");
-        Game1.PerformPassiveFestivalSetup();
-        Game1.UpdatePassiveFestivalStates();
-        _modDataCacheInvalidationNeeded = false;
-    }
-
+    /// <param name="sender"></param>
+    /// <param name="e">event args</param>
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
         //Set voting date
@@ -115,6 +115,11 @@ internal sealed class ModEntry : Mod
         }
     }
 
+    /// <summary>
+    /// Updates assets for dynamic assets that change depending on mod data
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e">event args</param>
     private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
     {
         if (_saveData is null || !ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
@@ -136,6 +141,10 @@ internal sealed class ModEntry : Mod
         }
     }
 
+    /// <summary>
+    /// Updates mail assets that depend on voting day
+    /// </summary>
+    /// <param name="mails"></param>
     private void AssetUpdatesForMail(IAssetData mails)
     {
         var data = mails.AsDictionary<string, string>().Data;
@@ -147,6 +156,10 @@ internal sealed class ModEntry : Mod
         //TODO Add mail the day before voting day
     }
 
+    /// <summary>
+    /// Updates Passive Festivals assets that depend on voting day
+    /// </summary>
+    /// <param name="festivals"></param>
     private void AssetUpdatesForPassiveFestivals(IAssetData festivals)
     {
         var data = festivals.AsDictionary<string, PassiveFestivalData>().Data;
@@ -163,6 +176,10 @@ internal sealed class ModEntry : Mod
         data[$"{ModKeys.MayorModCPId}_VotingDayPassiveFestival"] = votingDay;
     }
 
+    /// <summary>
+    /// Updates dialogue so that all characters not specifically designated will reject election leaflets
+    /// </summary>
+    /// <param name="dialogues"></param>
     private void AssetUpdatesForDialogue(IAssetData dialogues)
     {
         if (!dialogues.AsDictionary<string, string>().Data.ContainsKey($"AcceptGift_(O){ModItemKeys.Leaflet}") &&
@@ -171,6 +188,22 @@ internal sealed class ModEntry : Mod
             var data = dialogues.AsDictionary<string, string>().Data;
             data[$"RejectItem_(O){ModItemKeys.Leaflet}"] = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Gifting.Default.Leaflet");
         }
+    }
+
+
+    /// <summary>
+    /// This invalidates the cache so that the dates for voting are correct in mail and passive festivals
+    /// PassiveFestivals are loaded before the damn save data so we need to reload them to make the
+    /// variable date passive festivals show. They also don't seem to reload between loading saves
+    /// so you can have the voting day appear in other saves even though you're not running for mayor.
+    /// </summary>
+    public void InvalidateModData()
+    {
+        Helper.GameContent.InvalidateCache("Data/Mail");
+        Helper.GameContent.InvalidateCache("Data/PassiveFestivals");
+        Game1.PerformPassiveFestivalSetup();
+        Game1.UpdatePassiveFestivalStates();
+        _modDataCacheInvalidationNeeded = false;
     }
 
     private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)

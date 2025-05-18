@@ -30,7 +30,7 @@
                     "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic",
                     "Actions": [
                         "AddMail Current {{ModId}}_TalkingToVotersMail",
-                        "AddConversationTopic {{ModId}}_TalkingToVotersTopic 8",
+                        "AddConversationTopic {{ModId}}_TalkingToVotersTopic 8"
                     ]
                 },
                 "{{ModId}}_TownCouncilMailTrigger": {

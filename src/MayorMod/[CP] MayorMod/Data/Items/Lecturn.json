@@ -1,0 +1,34 @@
+{
+    "Changes": [
+        {
+            "Action": "Load",
+            "Target": "Mods/{{ModId}}/Lecturn",
+            "FromFile": "Assets/Items/{{TargetWithoutPath}}.png"
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_Lecturn": {
+                    "Name": "{{ModId}}_Lecturn",
+                    "DisplayName": "{{i18n:{{ModId}}_Item.Lecturn.Name}}",
+                    "Description": "{{i18n:{{ModId}}_Item.Lecturn.Description}}",
+                    "Type": "Basic",
+                    "Category": 0,
+                    "Price": 0,
+                    "Texture": "Mods/{{ModId}}/Lecturn",
+                    "SpriteIndex": 0,
+                    "Edibility": -300,
+                    "IsDrink": false,
+                    "ExcludeFromFishingCollection": true,
+                    "ExcludeFromShippingCollection": true,
+                    "ExcludeFromRandomSale": true,
+                    "CanBeGivenAsGift": true,
+                    "CanBeTrashed": true,
+                    "ContextTags": [],
+                    "Buffs": []
+                }
+            }
+        }
+	]
+}
