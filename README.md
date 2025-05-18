@@ -9,6 +9,7 @@ Any feedback is greatly appreciated.
 - Campaign for mayor
 - Vote in election
 - Give speeches
+- Become mayor
 - Run council meetings
   
 <img src="https://github.com/user-attachments/assets/8bde4923-9b62-45ad-9a69-40599955cfa7" width="200" height="200"><img src="https://github.com/user-attachments/assets/5e105cae-dca6-4e87-8b74-369c12e37ea3" width="200"  height="200"><img src="https://github.com/user-attachments/assets/1f8ff7a8-bfa5-4ec9-9e87-9e51e0902659" width="200"  height="200">
