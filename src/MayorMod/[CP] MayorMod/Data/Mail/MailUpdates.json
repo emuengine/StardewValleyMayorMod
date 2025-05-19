@@ -42,11 +42,20 @@
                         "AddMail Current {{ModId}}_TownCouncilMail"
                     ]
                 },
+                "{{ModId}}_MayorDebateTrigger": {
+                    "Id": "{{ModId}}_MayorDebateTrigger",
+                    "Trigger": "DayStarted",
+                    "HostOnly": "true",
+                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received, !PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_MayorDebateTopic",
+                    "Actions": [
+                        "AddMail Current {{ModId}}_MayorDebateMail received"
+                    ]
+                },
                 "{{ModId}}_PutUpPostersMailTrigger": {
                     "Id": "{{ModId}}_PutUpPostersMailTrigger",
                     "Trigger": "DayStarted",
                     "HostOnly": "true",
-                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received, PLAYER_HAS_CONVERSATION_TOPIC Current eventSeen_{{ModId}}_NeedMayorEvent_memory_oneweek",
+                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received, !PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_PutUpPostersTopic",
                     "Actions": [
                         "AddMail Current {{ModId}}_CampaignMail"
                     ]

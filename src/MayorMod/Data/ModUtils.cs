@@ -1,10 +1,10 @@
 ﻿using MayorMod.Constants;
-using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.Extensions;
+using StardewValley.GameData;
 using System.Text.RegularExpressions;
 
 namespace MayorMod.Data;
@@ -81,12 +81,37 @@ public static class ModUtils
     {
         var returnDate = SDate.Now().AddDays(dayOffset);
         int count = 0;
-        while (count < 30 && (Utility.isFestivalDay(returnDate.Day, returnDate.Season) || IsBooksellerVisiting(returnDate)))
+        while (count < 30 && (Utility.isFestivalDay(returnDate.Day, returnDate.Season) || IsBooksellerVisiting(returnDate) || IsPassiveFestivalDay(returnDate)))
         {
             count++;
             returnDate = returnDate.AddDays(1);
         }
         return returnDate;
+    }
+
+    /// <summary>
+    /// Check if date is on a passive festival day
+    /// </summary>
+    /// <param name="date">date to check</param>
+    /// <param name="isActive">Check the conditions for passive festival or just dates</param>
+    public static bool IsPassiveFestivalDay(SDate date, bool isActive = false)
+    {
+        if (isActive)
+        {
+            return Utility.TryGetPassiveFestivalDataForDay(date.Day, date.Season, null, out _,out _);
+        }
+        else
+        {
+            foreach (var id in DataLoader.PassiveFestivals(Game1.content).Keys)
+            {
+                Utility.TryGetPassiveFestivalData(id, out PassiveFestivalData data);
+                if (data is not null && date.Day >= data.StartDay && date.Day <= data.EndDay && date.Season == data.Season)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     /// <summary>

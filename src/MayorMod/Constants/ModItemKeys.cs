@@ -9,4 +9,3 @@ public static class ModItemKeys
     public static readonly string ElectionSign = $"{ModKeys.MayorModCPId}_ElectionSign";
     public static readonly string Leaflet = $"{ModKeys.MayorModCPId}_Leaflet";
 }
-

@@ -88,7 +88,7 @@ internal sealed class ModEntry : Mod
         {
             _saveData = new MayorModData()
             {
-                VotingDate = ModUtils.GetDateWithoutFestival(10)
+                VotingDate = ModUtils.GetDateWithoutFestival(ModKeys.NumberOfCampaignDays)
             };
             Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
             ModProgressManager.RemoveProgressFlag(ModProgressManager.RegisterVotingDate);
