@@ -59,11 +59,10 @@ public static class ModUtils
     {
         try
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             var modInfo = helper.ModRegistry.Get(ModKeys.MayorModCPId);
-            var cpPack = modInfo.GetType().GetProperty("ContentPack")?.GetValue(modInfo) as IContentPack;
-            return cpPack.Translation.Get(translationKey).ToString();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            var cpPack = modInfo?.GetType().GetProperty("ContentPack")?.GetValue(modInfo) as IContentPack;
+            var key = cpPack?.Translation.Get(translationKey).ToString();
+            return key ?? string.Empty;
         }
         catch
         {

@@ -27,6 +27,14 @@
                     "Forage": []
                 }
             }
+        },
+        {
+            "LogName": "Loading strings for Voting",
+            "Action": "EditData",
+            "Target": "Strings/StringsFromMaps",
+            "Entries": {
+                "{{ModId}}_VotingBallotTitle": "{{i18n:{{ModId}}_MapStrings.VotingBallotTitle}}"
+            }
         }
     ]
 }

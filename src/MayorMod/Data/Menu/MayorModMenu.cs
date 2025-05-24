@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Menus;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
@@ -8,26 +9,22 @@ namespace MayorMod.Data.Menu;
 
 public class MayorModMenu : IClickableMenu
 {
-    private float _marginWidthPercent = 1.0f;
+    public IModHelper Helper{get; private set;}
+
+    private float _marginWidthPercent;
     public float MarginWidthPercent
     {
-        get 
-        { 
-            return _marginWidthPercent;
-        }
+        get => _marginWidthPercent;
         set 
         { 
             _marginWidthPercent = value;
             CalculateMenuRect();
         }
     }
-    private float _marginHeightPercent = 1.0f;
+    private float _marginHeightPercent;
     public float MarginHeightPercent
     {
-        get
-        {
-            return _marginHeightPercent;
-        }
+        get => _marginHeightPercent;
         set
         {
             _marginHeightPercent = value;
@@ -36,13 +33,14 @@ public class MayorModMenu : IClickableMenu
     }
     public IList<IMenuItem> MenuItems { get; set; } = [];
     public Rectangle MenuRect { get; set; }
+    public Color BackgoundColour { get; set; } = Color.Transparent;
 
-    public MayorModMenu(float marginWidthPercent, float marginHeightPercent)
+    public MayorModMenu(IModHelper helper, float marginWidthPercent = 1.0f, float marginHeightPercent = 1.0f)
     {
+        Helper = helper;
         MarginHeightPercent = marginHeightPercent;
         MarginWidthPercent = marginWidthPercent;
         allClickableComponents = [];
-        CalculateMenuRect();
     }
 
     private void CalculateMenuRect()
@@ -57,7 +55,14 @@ public class MayorModMenu : IClickableMenu
     {
         base.draw(spriteBatch);
 
-        drawTextureBox(spriteBatch, MenuRect.X, MenuRect.Y, MenuRect.Width, MenuRect.Height, Color.White);
+        if (BackgoundColour == Color.Transparent)
+        {
+            drawTextureBox(spriteBatch, MenuRect.X, MenuRect.Y, MenuRect.Width, MenuRect.Height, Color.White);
+        }
+        else
+        {
+            Utility.DrawSquare(spriteBatch, MenuRect, 0, Color.White, Color.White);
+        }
 
         foreach (var component in MenuItems)
         {

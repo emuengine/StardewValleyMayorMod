@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
 using StardewValley.Menus;
+using System.Diagnostics.CodeAnalysis;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace MayorMod.Data.Menu;
@@ -10,7 +11,7 @@ namespace MayorMod.Data.Menu;
 /// <summary>
 /// A component for a menu which displays a scrollable menu of items you can select
 /// </summary>
-public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
+public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenuItem
 {
     private readonly MayorModMenu _parent;
     private readonly Rectangle _buttonBackgroundSourceRect;
@@ -54,8 +55,7 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
     public int TextPadding { get; set; } = 30;
     public Action<int> ButtonAction { get; set; }
 
-#pragma warning disable CS8618 
-    public BigButtonMenuItem(MayorModMenu parent, Margin margin, IList<string> buttonText, Action<int> action)
+    public BigButtonListMenuItem(MayorModMenu parent, Margin margin, IList<string> buttonText, Action<int> action)
     {
         _parent = parent;
         _margin = margin;
@@ -65,11 +65,15 @@ public partial class BigButtonMenuItem : IClickableMenuItem, IScrollableMenuItem
         ButtonAction = action;
         UpdateButtonData();
     }
-#pragma warning restore CS8618 
 
     /// <summary>
     /// Initialises the current bounding box, the buttons in the menu and the scroll bar
     /// </summary>
+    [MemberNotNull(nameof(_upArrow))]
+    [MemberNotNull(nameof(_downArrow))]
+    [MemberNotNull(nameof(_scrollBar))]
+    [MemberNotNull(nameof(_scrollBarStart))]
+    [MemberNotNull(nameof(_scrollBarEnd))]
     private void UpdateButtonData()
     {
         _boundingBox = new Rectangle(_parent.MenuRect.X + _margin.Left,

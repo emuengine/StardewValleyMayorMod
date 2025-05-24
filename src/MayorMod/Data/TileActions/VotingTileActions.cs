@@ -1,6 +1,11 @@
 ﻿using MayorMod.Constants;
+using MayorMod.Data.Menu;
+using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using StardewModdingAPI;
 using StardewValley;
+using static StardewValley.Minigames.Intro;
 
 namespace MayorMod.Data.TileActions;
 
@@ -37,28 +42,14 @@ public static class VotingTileActions
     /// </summary>
     /// <param name="farmer">Current player</param>
     /// <param name="votingBoothId">Voting booth id</param>
-    public static void VotingBoothAction(Farmer farmer, string[] votingBoothId)
+    public static void VotingBoothAction(IModHelper helper, Farmer farmer, string[] votingBoothId)
     {
+
         var ballot = farmer.Items.FirstOrDefault(i => i != null && i.Name == ModItemKeys.Ballot);
-        
+
         if (ballot is not null && votingBoothId.Length == 3)
         {
-            //Show filling in voting card
-            var parsed = int.TryParse(votingBoothId[2], out int boothNum);
-            boothNum = parsed ? boothNum : 0;
-            var boothLocation = new Vector2(120, 62);
-            if (boothNum > 2)
-            {
-                boothLocation = new Vector2(332, 126);
-            }
-            //Remove unused voting card
-            farmer.removeItemFromInventory(ballot);
-
-            float drawingTime = 500.0f;
-            ModUtils.DrawSpriteTemporarily(farmer.currentLocation, boothLocation + new Vector2(30 * boothNum, 0), ModItemKeys.BallotTexturePath, drawingTime);
-
-            //Add used voting card
-            DelayedAction.functionAfterDelay(() => { ModUtils.AddItemToInventory(ModItemKeys.BallotUsed); }, (int)drawingTime);
+            Game1.activeClickableMenu = GetVotingMenu(helper, (i) => { SelectVote(ballot, votingBoothId, i); });
         }
         else if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.Ballot))
         {
@@ -72,6 +63,48 @@ public static class VotingTileActions
         {
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedBallot);
         }
+    }
+
+    private static MayorModMenu GetVotingMenu(IModHelper helper, Action<int> votingAction)
+    {
+        //Show voting ballot menu
+        var _texture = helper.ModContent.Load<Texture2D>("assets/ballotBackground.png");
+        var menu = new MayorModMenu(helper, 0.4f, 0.7f);
+        menu.BackgoundColour = Color.White;
+        menu.MenuItems =
+        [
+            new MenuBorder(menu),
+            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.VotingBooth.VotingBallotTitle), new Margin(0, 25, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
+            new VotingListMenuItem(menu, new Margin(30, 120, 30, 50), votingAction),
+            new ButtonMenuItem(menu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
+            {
+                ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
+            },
+        ];
+        return menu;
+    }
+
+    private static void SelectVote(Item ballot,string[] votingBoothId, int candidateIndex)
+    {
+        Game1.exitActiveMenu();
+        var v = candidateIndex;
+
+        //Show filling in voting card
+        var parsed = int.TryParse(votingBoothId[2], out int boothNum);
+        boothNum = parsed ? boothNum : 0;
+        var boothLocation = new Vector2(120, 62);
+        if (boothNum > 2)
+        {
+            boothLocation = new Vector2(332, 126);
+        }
+        //Remove unused voting card
+        Game1.player.removeItemFromInventory(ballot);
+
+        float drawingTime = 500.0f;
+        ModUtils.DrawSpriteTemporarily(Game1.player.currentLocation, boothLocation + new Vector2(30 * boothNum, 0), ModItemKeys.BallotTexturePath, drawingTime);
+
+        //Add used voting card
+        DelayedAction.functionAfterDelay(() => { ModUtils.AddItemToInventory(ModItemKeys.BallotUsed); }, (int)drawingTime);
     }
 
     /// <summary>

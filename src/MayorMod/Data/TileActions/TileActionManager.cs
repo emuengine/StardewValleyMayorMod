@@ -2,15 +2,17 @@
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewValley;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MayorMod.Data.TileActions;
 
 /// <summary>
 /// Handles various map Tile Actions 
 /// </summary>
-public class TileActionManager
+internal static class TileActionManager
 {
-    private readonly IMonitor _monitor;
+    private static IModHelper _helper = null!;
+    private static IMonitor _monitor = null!;
 
     public const string MayorModActionType = "MayorModAction";
     public const string MayorDeskActionType = "MayorDesk";
@@ -19,8 +21,10 @@ public class TileActionManager
     public const string VotingBoothActionType = "VotingBooth";
     public const string BallotBoxActionType = "BallotBox";
 
-    public TileActionManager(IMonitor monitor)
+
+    public static void Init(IModHelper helper, IMonitor monitor)
     {
+        _helper = helper;
         _monitor = monitor;
         GameLocation.RegisterTileAction(MayorModActionType, HandleMayorModTileAction);
     }
@@ -33,7 +37,7 @@ public class TileActionManager
     /// <param name="farmer"></param>
     /// <param name="point"></param>
     /// <returns></returns>
-    private bool HandleMayorModTileAction(GameLocation location, string[] arg2, Farmer farmer, Point point)
+    private static bool HandleMayorModTileAction(GameLocation location, string[] arg2, Farmer farmer, Point point)
     {
         if (arg2.Length < 2)
         {
@@ -43,15 +47,15 @@ public class TileActionManager
         
         if (arg2[1] == MayorDeskActionType)
         {
-            ManorHouseTileActions.MayorDeskAction(farmer);
+            ManorHouseTileActions.MayorDeskAction(_helper, farmer);
         }
         else if (!farmer.mailReceived.Contains(ModProgressManager.VotedForMayor))
         {
             switch (arg2[1])
             {
-                case MayorDeskActionType: ManorHouseTileActions.MayorDeskAction(farmer); break;
+                //case MayorDeskActionType: ManorHouseTileActions.MayorDeskAction(_helper, farmer); break;
                 case DeskActionType: VotingTileActions.DeskAction(farmer); break;
-                case VotingBoothActionType: VotingTileActions.VotingBoothAction(farmer, arg2); break;
+                case VotingBoothActionType: VotingTileActions.VotingBoothAction(_helper, farmer, arg2); break;
                 case BallotBoxActionType: VotingTileActions.BallotBoxAction(farmer); break;
                 default:
                 {

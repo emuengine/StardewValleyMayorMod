@@ -7,6 +7,7 @@ using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.GameData;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MayorMod;
 
@@ -15,11 +16,8 @@ namespace MayorMod;
 /// </summary>
 internal sealed class ModEntry : Mod
 {
-#pragma warning disable CS8618
     private MayorModData _saveData = new();
-    private TileActionManager _tileActions;
     private bool _modDataCacheInvalidationNeeded;
-#pragma warning restore CS8618
 
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
@@ -27,7 +25,7 @@ internal sealed class ModEntry : Mod
     /// <param name="helper">Provides simplified APIs for writing mods.</param>
     public override void Entry(IModHelper helper)
     {
-        _tileActions = new TileActionManager(Monitor);
+        TileActionManager.Init(Helper, Monitor);
 
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;

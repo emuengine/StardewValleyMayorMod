@@ -3,6 +3,7 @@ using MayorMod.Data.Menu;
 using StardewValley;
 using Microsoft.Xna.Framework;
 using MayorMod.Data.Models;
+using StardewModdingAPI;
 
 namespace MayorMod.Data.TileActions;
 
@@ -12,16 +13,13 @@ public static partial class ManorHouseTileActions
     /// Handles actions for the the mayor desk
     /// </summary>
     /// <param name="farmer"></param>
-    public static void MayorDeskAction(Farmer farmer)
+    public static void MayorDeskAction(IModHelper helper, Farmer farmer)
     {
         //Sit at the desk
         var seat = MapSeat.FromData("2/1/down/custom 0.5 0.1 0/-1/-1/false", 19, 5);
         farmer.BeginSitting(seat);
 
-        //Check if meeting already planned
-        var isMeetingPlanned = Game1.MasterPlayer.mailReceived.Any(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix)) ||
-                               Game1.MasterPlayer.mailForTomorrow.Any(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix));
-        if (isMeetingPlanned)
+        if (IsCouncilMeetingPlannded())
         {
             Game1.drawObjectDialogue(Game1.content.LoadString(DialogueKeys.CouncilMeeting.AlreadyPlanned));
             return;
@@ -36,16 +34,16 @@ public static partial class ManorHouseTileActions
         }
 
         //Show council meeting menu
-        var menu = new MayorModMenu(0.8f, 0.8f);
+        var menu = new MayorModMenu(helper, 0.8f, 0.8f);
         menu.MenuItems =
         [
             new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.HoldCouncilMeeting), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
             new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.AgendaQuestion), new Margin(20, 60, 0, 0)),
-            new BigButtonMenuItem(menu, new Margin(30, 110, 60, 130), [.. meetings.Select((cm, index) => $"{index + 1}. " + cm.Name)], (i)  => OnCoucilMeetingSelected(meetings[i])),
+            new BigButtonListMenuItem(menu, new Margin(30, 110, 60, 130), [.. meetings.Select((cm, index) => $"{index + 1}. " + cm.Name)], (i)  => OnCoucilMeetingSelected(meetings[i])),
             new ButtonMenuItem(menu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
             {
                 ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
-            },
+            }
         ];
         Game1.activeClickableMenu = menu;
     }
@@ -54,7 +52,7 @@ public static partial class ManorHouseTileActions
     /// Get the list of council meeting the player can pick from
     /// </summary>
     /// <returns>list of council meetings</returns>
-    public static IList<CouncilMeetingData> GetAvailableCouncilMeetings()
+    private static IList<CouncilMeetingData> GetAvailableCouncilMeetings()
     {
         IList<CouncilMeetingData> meetings = [
             new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingIntro), CouncilMeetingKeys.MeetingIntro),
@@ -80,5 +78,11 @@ public static partial class ManorHouseTileActions
         Game1.MasterPlayer.mailForTomorrow.Add(meetingMailId);
         Game1.exitActiveMenu();
         Game1.drawObjectDialogue(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingPlanned));
+    }
+
+    private static bool IsCouncilMeetingPlannded()
+    {
+        return Game1.MasterPlayer.mailReceived.Any(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix)) ||
+               Game1.MasterPlayer.mailForTomorrow.Any(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix));
     }
 }

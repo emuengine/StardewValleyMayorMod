@@ -4,6 +4,12 @@ public static class DialogueKeys
 {
     public static readonly string DialogueLocation = "Characters/Dialogue/";
     public static readonly string StringsFromMaps = "Strings/StringsFromMaps";
+
+    public static class VotingBooth
+    {
+        public static readonly string VotingBallotTitle = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_VotingBallotTitle";
+    }
+
     public static class CouncilMeeting
     {
         public static readonly string MeetingPlanned = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_MeetingPlanned";
