@@ -30,7 +30,7 @@ public class TextMenuItem : IMenuItem
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        int xVal = 0;
+        int xVal;
         if (Align == MenuItemAlign.Left)
         {
             xVal = TextMargin.Left + _parent.MenuRect.X;

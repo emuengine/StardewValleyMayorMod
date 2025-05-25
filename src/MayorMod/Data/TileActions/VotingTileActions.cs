@@ -2,7 +2,6 @@
 using MayorMod.Data.Menu;
 using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewValley;
 
@@ -16,11 +15,11 @@ public static class VotingTileActions
     /// <param name="farmer">Current player</param>
     public static void DeskAction(Farmer farmer)
     {
-        if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.Ballot))
+        if (farmer.HasItemInInventory(ModItemKeys.Ballot))
         {
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToFillBallot);
         }
-        else if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.BallotUsed))
+        else if (farmer.HasItemInInventory(ModItemKeys.BallotUsed))
         {
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToVote);
         }
@@ -43,17 +42,17 @@ public static class VotingTileActions
     /// <param name="votingBoothId">Voting booth id</param>
     public static void VotingBoothAction(IModHelper helper, Farmer farmer, string[] votingBoothId)
     {
-        var ballot = farmer.Items.FirstOrDefault(i => i != null && i.Name == ModItemKeys.Ballot);
+        var ballot = farmer.ItemFromInventory(ModItemKeys.Ballot);
 
         if (ballot is not null && votingBoothId.Length == 3)
         {
             Game1.activeClickableMenu = GetVotingMenu(helper, (i) => { SelectVote(ballot, votingBoothId, i); });
         }
-        else if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.Ballot))
+        else if (farmer.HasItemInInventory(ModItemKeys.Ballot))
         {
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToFillBallot);
         }
-        else if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.BallotUsed))
+        else if (farmer.HasItemInInventory(ModItemKeys.BallotUsed))
         {
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToVote);
         }
@@ -66,7 +65,6 @@ public static class VotingTileActions
     private static MayorModMenu GetVotingMenu(IModHelper helper, Action<int> votingAction)
     {
         //Show voting ballot menu
-        var _texture = helper.ModContent.Load<Texture2D>("assets/ballotBackground.png");
         var menu = new MayorModMenu(helper, 0.4f, 0.9f);
         menu.BackgoundColour = Color.White;
         menu.MenuItems =
@@ -112,7 +110,7 @@ public static class VotingTileActions
     /// <param name="farmer">Current player</param>
     public static void BallotBoxAction(Farmer farmer)
     {
-        var ballot = farmer.Items.FirstOrDefault(i => i != null && i.Name == ModItemKeys.BallotUsed);
+        var ballot = farmer.ItemFromInventory(ModItemKeys.BallotUsed);
 
         if (ballot is not null)
         {
@@ -120,7 +118,7 @@ public static class VotingTileActions
             ModProgressManager.AddProgressFlag(ModProgressManager.VotedForMayor);
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
         }
-        else if (farmer.Items.Any(i => i != null && i.Name == ModItemKeys.Ballot))
+        else if (farmer.HasItemInInventory(ModItemKeys.Ballot))
         {
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToFillBallot);
         }

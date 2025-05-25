@@ -7,7 +7,6 @@ using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.GameData;
-using System.Diagnostics.CodeAnalysis;
 
 namespace MayorMod;
 

@@ -85,8 +85,7 @@ public class MayorModMenu : IClickableMenu
     public override void receiveLeftClick(int x, int y, bool playSound = true)
     {
         base.receiveLeftClick(x, y, playSound);
-
-        foreach (IClickableMenuItem button in MenuItems.Where(mi => mi is IClickableMenuItem))
+        foreach (var button in MenuItems.Where(mi => mi is IClickableMenuItem).Cast<IClickableMenuItem>())
         {
             button.OnLeftClick(x, y);
         }
@@ -95,7 +94,7 @@ public class MayorModMenu : IClickableMenu
     public override void performHoverAction(int x, int y)
     {
         base.performHoverAction(x, y);
-        foreach (IClickableMenuItem button in MenuItems.Where(mi => mi is IClickableMenuItem))
+        foreach (var button in MenuItems.Where(mi => mi is IClickableMenuItem).Cast<IClickableMenuItem>())
         {
             button.OnHover(x, y);
         }
@@ -104,7 +103,7 @@ public class MayorModMenu : IClickableMenu
     public override void receiveScrollWheelAction(int direction)
     {
         base.receiveScrollWheelAction(direction);
-        foreach (IScrollableMenuItem button in MenuItems.Where(mi => mi is IScrollableMenuItem))
+        foreach (var button in MenuItems.Where(mi => mi is IScrollableMenuItem).Cast<IScrollableMenuItem>())
         {
             button.OnScroll(direction);
         }

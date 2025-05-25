@@ -13,13 +13,20 @@ public class ButtonMenuItem : IClickableMenuItem
     private Vector2 _location;
     public Vector2 Location 
     { 
-        get
-        {
-            return _location;
-        }
+        get => _location;
         set
         {
             _location = value;
+            UpdateButtonComponent();
+        }
+    }
+    private ButtonType _buttonTypeSelected = ButtonType.Ok;
+    public ButtonType ButtonTypeSelected
+    {
+        get => _buttonTypeSelected;
+        set
+        {
+            _buttonTypeSelected = value;
             UpdateButtonComponent();
         }
     }
@@ -40,18 +47,6 @@ public class ButtonMenuItem : IClickableMenuItem
         Ok = 46,
         Cancel = 47
     }
-
-    private ButtonType _buttonTypeSelected = ButtonType.Ok;
-    public ButtonType ButtonTypeSelected { get
-        {
-            return _buttonTypeSelected;
-        }
-        set
-        {
-            _buttonTypeSelected = value;
-            UpdateButtonComponent();
-        }
-    } 
 
     public ButtonMenuItem(MayorModMenu parent, Vector2 location, Action action)
     {

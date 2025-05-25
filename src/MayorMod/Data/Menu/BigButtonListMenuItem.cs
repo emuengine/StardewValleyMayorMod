@@ -15,24 +15,21 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
 {
     private readonly MayorModMenu _parent;
     private readonly Rectangle _buttonBackgroundSourceRect;
-    private readonly float _fontHeight = 20;
-    private Margin _margin;
-    private Rectangle _boundingBox;
+    private readonly Margin _margin;
+    private readonly float _fontHeight;
     private int _buttonIndexOffset;
     private int _scrollBarStart;
     private int _scrollBarEnd;
-    private int _numberOfButtons = 4;
+    private Rectangle _boundingBox;
     private IList<string> _buttonText;
     private IList<ButtonData> _buttonData = [];
     private ClickableTextureComponent _upArrow;
     private ClickableTextureComponent _downArrow;
     private ClickableTextureComponent _scrollBar;
+    private int _numberOfButtons = 4;
     public int NumberOfButtons
     {
-        get
-        {
-            return _numberOfButtons;
-        }
+        get => _numberOfButtons;
         set
         {
             _numberOfButtons = value;
@@ -42,10 +39,7 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
     private int _buttonPadding = 5;
     public int ButtonPadding
     {
-        get
-        {
-            return _buttonPadding;
-        }
+        get => _buttonPadding;
         set
         {
             _buttonPadding = value;
@@ -135,7 +129,6 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
         {
             var texture = button.IsHighlighted ? Game1.menuTexture : Game1.uncoloredMenuTexture;
             var colour = button.IsHighlighted ? Color.White : new Color(245, 183, 93);
-
             IClickableMenu.drawTextureBox(spriteBatch,
                                           texture,
                                           _buttonBackgroundSourceRect,
