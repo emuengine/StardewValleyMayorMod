@@ -8,6 +8,7 @@ public static class DialogueKeys
     public static class VotingBooth
     {
         public static readonly string VotingBallotTitle = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_VotingBallotTitle";
+        public static readonly string VotingBallotDescription = $"{StringsFromMaps}:{ModKeys.MayorModCPId}_VotingBallotDescription";
     }
 
     public static class CouncilMeeting

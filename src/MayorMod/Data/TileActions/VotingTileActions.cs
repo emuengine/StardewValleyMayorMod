@@ -44,7 +44,6 @@ public static class VotingTileActions
     /// <param name="votingBoothId">Voting booth id</param>
     public static void VotingBoothAction(IModHelper helper, Farmer farmer, string[] votingBoothId)
     {
-
         var ballot = farmer.Items.FirstOrDefault(i => i != null && i.Name == ModItemKeys.Ballot);
 
         if (ballot is not null && votingBoothId.Length == 3)
@@ -69,13 +68,14 @@ public static class VotingTileActions
     {
         //Show voting ballot menu
         var _texture = helper.ModContent.Load<Texture2D>("assets/ballotBackground.png");
-        var menu = new MayorModMenu(helper, 0.4f, 0.7f);
+        var menu = new MayorModMenu(helper, 0.4f, 0.9f);
         menu.BackgoundColour = Color.White;
         menu.MenuItems =
         [
             new MenuBorder(menu),
-            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.VotingBooth.VotingBallotTitle), new Margin(0, 25, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
-            new VotingListMenuItem(menu, new Margin(30, 120, 30, 50), votingAction),
+            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.VotingBooth.VotingBallotTitle), new Margin(0, 30, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
+            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.VotingBooth.VotingBallotDescription), new Margin(15, 90, 0, 0)){ Align = TextMenuItem.MenuItemAlign.Left },
+            new VotingListMenuItem(menu, new Margin(30, 150, 30, 40), votingAction),
             new ButtonMenuItem(menu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
             {
                 ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel

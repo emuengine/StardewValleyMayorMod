@@ -33,7 +33,8 @@
             "Action": "EditData",
             "Target": "Strings/StringsFromMaps",
             "Entries": {
-                "{{ModId}}_VotingBallotTitle": "{{i18n:{{ModId}}_MapStrings.VotingBallotTitle}}"
+                "{{ModId}}_VotingBallotTitle": "{{i18n:{{ModId}}_MapStrings.VotingBallotTitle}}",
+                "{{ModId}}_VotingBallotDescription": "{{i18n:{{ModId}}_MapStrings.VotingBallotDescription}}"
             }
         }
     ]

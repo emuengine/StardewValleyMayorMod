@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
+using StardewValley.Extensions;
 
 namespace MayorMod.Data.Menu
 {
@@ -13,7 +14,7 @@ namespace MayorMod.Data.Menu
         private float _fontHeight;
         private Rectangle _boundingBox;
         private Texture2D? _texture;
-        public int Padding { get; set; } = 5;
+        //public int Padding { get; set; } = 5;
         private IList<VotingButton> _buttons = [];
         public Action<int> ButtonAction { get; set; }
         //TODO: Fix this
@@ -24,6 +25,7 @@ namespace MayorMod.Data.Menu
             public string Name { get; set; } = string.Empty;
             public Rectangle ButtonRect { get; set; }
             public int TextureIndex { get; set; }
+            public Color Colour { get; set; }
         }
 
         internal VotingListMenuItem(MayorModMenu parent, Margin margin, Action<int> action)
@@ -51,10 +53,11 @@ namespace MayorMod.Data.Menu
                 _buttons.Add(new VotingButton
                 {
                     Name = Candidates[i],
-                    ButtonRect = new Rectangle(_boundingBox.X + 25,
-                                               _boundingBox.Y + Padding + (height * i) + (height / 2) - 32,
-                                               64,
-                                               64),
+                    Colour =  i % 2 == 0? Color.Blue : Color.Green,
+                    ButtonRect = new Rectangle(_boundingBox.X,
+                                               _boundingBox.Y + (height * i),
+                                               _boundingBox.Width,
+                                               height)
                 });
             }
         }
@@ -62,29 +65,37 @@ namespace MayorMod.Data.Menu
         public void Draw(SpriteBatch spriteBatch)
         {
             var height = (_boundingBox.Height / _buttons.Count);
+
             for (int i = 0; i < _buttons.Count; i++)
             {
-                Utility.DrawSquare(spriteBatch,
-                   new Rectangle(_boundingBox.X + Padding + 2,
-                                 _boundingBox.Y + Padding + (height * i),
-                                 _boundingBox.Width - Padding,
-                                 (int)((_boundingBox.Height - Padding) / (_buttons.Count+.2)) - 4),
-                   5,
-                   Color.Black);
+                var squareBounds = _buttons[i].ButtonRect;
+                squareBounds.Height = (int)(squareBounds.Height * .6);
+                squareBounds.Y += (int)(squareBounds.Height * .2);
 
-                int textPadding = Padding;
+                var colourBounds = squareBounds;
+                colourBounds.Width /= 10;
+                colourBounds.X += colourBounds.Width * 9;
+
+                Utility.DrawSquare(spriteBatch, colourBounds, 5, Color.Transparent, _buttons[i].Colour);
+                Utility.DrawSquare(spriteBatch, squareBounds, 5, Color.Black);
+
+
                 if (_texture is not null)
                 {
-                    var textreSrcRect = new Rectangle(_buttons[i].TextureIndex*64, 0, 64, 64);
-                    spriteBatch.Draw(_texture, _buttons[i].ButtonRect, textreSrcRect, Color.White);
-                    textPadding = _texture.Width + 25 + Padding;
+                    var buttonBounds = squareBounds;
+                    buttonBounds.X += 15;
+                    buttonBounds.Y += ((buttonBounds.Height / 2) - 32);
+                    buttonBounds.Width = buttonBounds.Height = 64;
+
+                    var textreSrcRect = new Rectangle(_buttons[i].TextureIndex * 64, 0, 64, 64);
+                    spriteBatch.Draw(_texture, buttonBounds, textreSrcRect, Color.White);
                 }
 
                 Utility.drawBoldText(spriteBatch,
                                      _buttons[i].Name,
                                      Game1.dialogueFont,
-                                     new Vector2(_boundingBox.X + textPadding,
-                                                 _boundingBox.Y + (height*i) + (height / 2) - _fontHeight),
+                                     new Vector2(squareBounds.X + 100,
+                                                 squareBounds.Y + (squareBounds.Height/2) - _fontHeight),
                                      Game1.textColor);
             }
         }

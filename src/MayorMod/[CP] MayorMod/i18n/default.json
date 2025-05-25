@@ -65,6 +65,7 @@
 	"EmuEngine.MayorModCP_MapStrings.MeetingBusPunctuality": "Public transport punctuality",
 
 	"EmuEngine.MayorModCP_MapStrings.VotingBallotTitle": "Ballot Paper",
+	"EmuEngine.MayorModCP_MapStrings.VotingBallotDescription": "Vote for only one candidate",
 
 	//////////////////////
 	//Dialogue

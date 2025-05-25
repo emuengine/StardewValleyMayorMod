@@ -53,7 +53,7 @@ public class TextMenuItem : IMenuItem
         }
         else
         {
-            Utility.drawTextWithShadow(spriteBatch, Text, Font, position, Game1.textColor);
+            Utility.drawTextWithColoredShadow(spriteBatch, Text, Font, position, Game1.textColor, Color.Transparent);
         }
     }
 
