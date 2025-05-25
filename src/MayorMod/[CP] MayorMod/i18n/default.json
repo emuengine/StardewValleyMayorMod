@@ -79,6 +79,23 @@
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.CantCarryBallot": "Sorry sir. I can't give your ballot. You're carrying too much stuff.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedBallot": "Come over to the desk to pick up your ballot.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedToVote": "Now that you've voted you can put your ballot in the ballot box.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.0": "O hello @, how are you doing today?",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.1": "It's been quiet lately.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.2": "Just making sure everything is secure around here - can never be too careful when it comes to monsters!",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.3": "I had a run-in with a squirrel who was trying to steal my sandwich. They are always getting into trouble!",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.4": "Be careful around here at night, okay? The darkness makes it easy for monsters to sneak up on you.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.5": "Everything seems very quiet around here today.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.6": "I hope you're keeping out of trouble.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.7": "I didn't have time to iron my shirt this morning. It's not too creased is it?",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.8": "I keep hearing very stranges noises at night. Whenever I check there is nothing there though.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.9": "I caught a couple of slimes sneaking out of the mines last night. That could have been a real problem.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.10": "Make sure to report to me if you see anything strange.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Rainy_Night_0": "This rain is making it quite difficult to see anything. I hope I don't miss any monsters sneaking around.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Rainy_Night_1": "The rain is really coming down. I hope it wont make the ground too slippery.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Rainy_Night_2": "Rain or shine I am always on guard. No monsters are going to sneak up on me.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Rainy_Night_3": "The sounds of rain is so beautiful. It actually makes it quite nice to patrol.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Rainy_Night_4": "I have my waterproof gear on and I've had my coffee. I'm ready for anything.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Rainy_Night_5": "One can never be too careful on a night like this.",
 
 	//////////////////////
 	//Events
