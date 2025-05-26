@@ -95,7 +95,7 @@ internal sealed class ModEntry : Mod
         //Complete voting day
         if (_saveData is not null && _saveData.VotingDate == SDate.Now() && ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
         {
-            var pd = new PollingData(Game1.MasterPlayer);
+            var pd = new VotingManager(Game1.MasterPlayer);
             ModProgressManager.RemoveAllModFlags();
             if (pd.HasWonElection())
             {

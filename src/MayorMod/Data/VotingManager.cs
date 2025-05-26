@@ -1,9 +1,9 @@
 ﻿using MayorMod.Constants;
 using StardewValley;
 
-namespace MayorMod.Data.Models;
+namespace MayorMod.Data;
 
-public class PollingData
+public class VotingManager
 {
     public const int PointsPerHeart = 250;
     public static readonly string TalkingToVotersTopic = $"{ModKeys.MayorModCPId}_TalkingToVotersTopic";
@@ -17,7 +17,7 @@ public class PollingData
 
     internal int HeartThreshold { get; set; } = 5;
 
-    public PollingData(Farmer farmer)
+    public VotingManager(Farmer farmer)
     {
         _farmer = farmer;
     }
@@ -52,6 +52,17 @@ public class PollingData
         return _farmer.eventsSeen.Any(e => e.Equals(MayorDebateEvent));
     }
 
+    public int CalculatePlayerVotes()
+    {
+        var votes = 0;
+        if (Game1.IsMultiplayer)
+        {
+            //TODO: Count votes for multiplayer
+        }
+        votes = ModProgressManager.HasProgressFlag(ModProgressManager.HasVotedForHostFarmer) ? 1 : -1;
+        return votes;
+    }
+
     public bool VotingForFarmer(string name)
     {
         var hearts = GetNPCHearts(name);
@@ -64,7 +75,9 @@ public class PollingData
 
     public int CalculateTotalVotes()
     {
-        return Voters.Sum(v => VotingForFarmer(v) ? 1 : 0);
+        var votes =  Voters.Sum(v => VotingForFarmer(v) ? 1 : 0);
+        votes += CalculatePlayerVotes();
+        return votes;
     }
 
     public bool HasWonElection()

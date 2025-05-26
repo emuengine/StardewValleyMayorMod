@@ -10,6 +10,7 @@ public static class ModProgressManager
     public static readonly string RegisterVotingDate = $"{ModKeys.MayorModCPId}_RegisterVotingDate";
     public static readonly string IsVotingDay = $"{ModKeys.MayorModCPId}_VotingDay";
     public static readonly string VotedForMayor = $"{ModKeys.MayorModCPId}_HasVoted";
+    public static readonly string HasVotedForHostFarmer = $"{ModKeys.MayorModCPId}_HasVotedForHostFarmer";
     public static readonly string WonMayorElection = $"{ModKeys.MayorModCPId}_WonMayorElection";
     public static readonly string LostMayorElection = $"{ModKeys.MayorModCPId}_LostMayorElection";
     public static readonly string ElectedAsMayor = $"{ModKeys.MayorModCPId}_ElectedAsMayor";

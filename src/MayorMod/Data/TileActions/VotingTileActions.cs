@@ -9,6 +9,8 @@ namespace MayorMod.Data.TileActions;
 
 public static class VotingTileActions
 {
+    public static IList<string> Candidates { get; set; } = ["Lewis", Game1.MasterPlayer.Name];
+
     /// <summary>
     /// Tile action for the security desk in the voting area. Officer mike should give the farmer a voting ballot.
     /// </summary>
@@ -66,13 +68,14 @@ public static class VotingTileActions
     {
         //Show voting ballot menu
         var menu = new MayorModMenu(helper, 0.4f, 0.9f);
+
         menu.BackgoundColour = Color.White;
         menu.MenuItems =
         [
             new MenuBorder(menu),
             new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.VotingBooth.VotingBallotTitle), new Margin(0, 30, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
             new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.VotingBooth.VotingBallotDescription), new Margin(15, 100, 0, 0)){ Align = TextMenuItem.MenuItemAlign.Left },
-            new VotingListMenuItem(menu, new Margin(30, 160, 30, 40), votingAction),
+            new VotingListMenuItem(menu, new Margin(30, 160, 30, 40), Candidates, votingAction),
             new ButtonMenuItem(menu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
             {
                 ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
@@ -84,7 +87,11 @@ public static class VotingTileActions
     private static void SelectVote(Item ballot,string[] votingBoothId, int candidateIndex)
     {
         Game1.exitActiveMenu();
-        var v = candidateIndex;
+
+        if (candidateIndex< Candidates.Count && Candidates[candidateIndex] == Game1.MasterPlayer.Name)
+        {
+            ModProgressManager.AddProgressFlag(ModProgressManager.HasVotedForHostFarmer);
+        }
 
         //Show filling in voting card
         var parsed = int.TryParse(votingBoothId[2], out int boothNum);

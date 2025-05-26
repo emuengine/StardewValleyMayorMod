@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
+using System.Collections.Generic;
 
 namespace MayorMod.Data.Menu;
 
@@ -11,18 +12,18 @@ internal partial class VotingListMenuItem : IClickableMenuItem
     private readonly Texture2D? _texture;
     private readonly Margin _margin;
     private readonly float _fontHeight;
+    private readonly IList<string> _candidates;
     private bool _closing;
     private Rectangle _boundingBox;
     //public int Padding { get; set; } = 5;
     private IList<VotingButtonData> _buttons = [];
     public Action<int> ButtonAction { get; set; }
-    //TODO: Fix this
-    public IList<string> Candidates = ["Lewis", Game1.player.Name];
 
-    internal VotingListMenuItem(MayorModMenu parent, Margin margin, Action<int> action)
+    internal VotingListMenuItem(MayorModMenu parent, Margin margin, IList<string> candidates, Action<int> action)
     {
         _parent = parent;
         _margin = margin;
+        _candidates = candidates;
         _fontHeight = Game1.dialogueFont.MeasureString("TEXT").Y / 2;
         _texture = _parent.Helper.ModContent.Load<Texture2D>("assets/voteTickbox.png");
         ButtonAction = action;
@@ -37,12 +38,12 @@ internal partial class VotingListMenuItem : IClickableMenuItem
                                      _parent.MenuRect.Height - _margin.Bottom - _margin.Top);
 
         _buttons.Clear();
-        var height = (_boundingBox.Height / Candidates.Count);
-        for (int i = 0; i < Candidates.Count; i++)
+        var height = (_boundingBox.Height / _candidates.Count);
+        for (int i = 0; i < _candidates.Count; i++)
         {
             _buttons.Add(new VotingButtonData
             {
-                Name = Candidates[i],
+                Name = _candidates[i],
                 Colour =  i % 2 == 0? Color.Blue : Color.Green,
                 ButtonRect = new Rectangle(_boundingBox.X,
                                            _boundingBox.Y + (height * i),
