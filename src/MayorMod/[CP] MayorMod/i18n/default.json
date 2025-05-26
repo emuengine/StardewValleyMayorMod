@@ -178,6 +178,10 @@
 	"EmuEngine.MayorModCP_Events.MayorSpeech_8": "Ok thanks Marnie. Lets get this over with.",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_9": "Hello Mayor @. Congratulations by the way! While those two are packing up lewis' stuff I have decorators in here fixing up the place for your new term of office. I also have a surprise planned for you so come back tomorrow when it's all fixed up.",
 
+	"EmuEngine.MayorModCP_Events.LostMayorElection_0": "Thank you all for coming. I am now happy to introduce to you Mayor Lewis!",
+	"EmuEngine.MayorModCP_Events.LostMayorElection_1": "Thank you Governor. Thank you everybody! I'd particularly like to thank my opponent for a good race.",
+	"EmuEngine.MayorModCP_Events.LostMayorElection_2": "Today is a great day! You have all made the right choice once again. I will continue to run this town with the honesty and integrity that you have all come to expect from me.",
+
 	"EmuEngine.MayorModCP_Events.ManorHouseIntro_0": "So what do you think? We've been working tirelessly to try and bring the town hall up to date. As you can see it's been completely redecorated.",
 	"EmuEngine.MayorModCP_Events.ManorHouseIntro_1": "Since we now have a competent mayor, we can have council meetings again and this is going to be the new town council meeting room.",
 	"EmuEngine.MayorModCP_Events.ManorHouseIntro_2": "I've been talking with the Wizard, Gunther, and Penny and they are very excited to start the council meetings again.",
