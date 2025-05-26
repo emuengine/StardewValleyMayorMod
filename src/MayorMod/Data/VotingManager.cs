@@ -63,19 +63,26 @@ public class VotingManager
         return votes;
     }
 
-    public bool VotingForFarmer(string name)
+    public bool VotingForFarmer(string name, bool HasRNG)
     {
         var hearts = GetNPCHearts(name);
         hearts += HasNPCBeenCanvassed(name) ? 1 : 0;
         hearts += HasNPCGotLeaflet(name) ? 1 : 0;
         var threshold = HeartThreshold;
         threshold -= HasWonDebate() ? 1 : 0;
-        return hearts > threshold;
+        if (HasRNG)
+        {
+            return (hearts * (1.0 / threshold)) > ModUtils.RNG.NextDouble();
+        }
+        else
+        {
+            return hearts > threshold;
+        }
     }
 
     public int CalculateTotalVotes()
     {
-        var votes =  Voters.Sum(v => VotingForFarmer(v) ? 1 : 0);
+        var votes =  Voters.Sum(v => VotingForFarmer(v, true) ? 1 : 0);
         votes += CalculatePlayerVotes();
         return votes;
     }

@@ -10,6 +10,8 @@ using System.Text.RegularExpressions;
 namespace MayorMod.Data;
 public static class ModUtils
 {
+    public static Random RNG { get; } = new();
+
     private static NPC? _officerMikeNPC;
     /// <summary>
     /// The NPC instance for Officer Mike, or a fuzzy search result if the instance hasn't been initialized.
