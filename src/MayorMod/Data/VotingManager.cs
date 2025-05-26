@@ -69,6 +69,7 @@ public class VotingManager
         hearts += HasNPCBeenCanvassed(name) ? 1 : 0;
         hearts += HasNPCGotLeaflet(name) ? 1 : 0;
         var threshold = HeartThreshold;
+        threshold += name.Equals("Lewis", StringComparison.InvariantCultureIgnoreCase) ? 3 : 0;
         threshold -= HasWonDebate() ? 1 : 0;
         if (HasRNG)
         {
