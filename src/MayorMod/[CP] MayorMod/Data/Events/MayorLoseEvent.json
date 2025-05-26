@@ -1,0 +1,12 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading MayorLose event",
+            "Action": "EditData",
+            "Target": "Data/Events/Town",
+            "Entries": {
+                "{{ModId}}_MayorLoseEvent/H/Hn {{ModId}}_LostMayorElection": "continue/-100 0/farmer 12 21 2 Governor -1000 -1000 0 Lewis -1000 -1000 2 Marnie -1000 -1000 2 Marlon -1000 -1000 0 /mailReceived  {{ModId}}_ElectedAsMayor true/addConversationTopic {{ModId}}_ElectedMayorTopic/changeLocation {{ModId}}_ForestStageArea/viewport 15 24/addTemporaryActor Governor_NewMayorEvent 16 32 14 22 2 true Character/addObject 14 22 {{ModId}}_Lecturn 1/skippable/pause 1000/speak Governor \"{{i18n:{{ModId}}_Events.MayorSpeech_0}}\"/move Governor_NewMayorEvent 2 0 1 farmer 2 0 1/move Governor_NewMayorEvent 0 -1 2 farmer 0 1 2/pause 1000/globalFade/viewport 1000 1000/end position 58 87"
+            }
+        }
+    ]
+}

@@ -95,9 +95,16 @@ internal sealed class ModEntry : Mod
         //Complete voting day
         if (_saveData is not null && _saveData.VotingDate == SDate.Now() && ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
         {
-            //TODO: Make it so you can lose election but for now just assume you win
+            var pd = new PollingData(Game1.MasterPlayer);
             ModProgressManager.RemoveAllModFlags();
-            ModProgressManager.AddProgressFlag(ModProgressManager.WonMayorElection);
+            if (pd.HasWonElection())
+            {
+                ModProgressManager.AddProgressFlag(ModProgressManager.WonMayorElection);
+            }
+            else
+            {
+                ModProgressManager.AddProgressFlag(ModProgressManager.LostMayorElection);
+            }
         }
 
         // Complete day as mayor
