@@ -14,11 +14,13 @@
 	"EmuEngine.MayorModCP_Item.Leaflet.Name": "Election Leaflets",
 	"EmuEngine.MayorModCP_Item.Leaflet.Description": "Describes your policies as mayor",
 
+
 	//////////////////////
 	//Powers
 	//////////////////////
 	"EmuEngine.MayorModCP_Powers.ElectedMayor.DisplayName": "Elected Mayor",
 	"EmuEngine.MayorModCP_Powers.ElectedMayor.Description": "You have been elected the mayor of Pelican Town!",
+
 
 	//////////////////////
 	//Mail
@@ -27,13 +29,14 @@
 	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body": "^^Dear @,^^Re: Registration for Mayoral Election^^ We are pleased to acknowledge your registration as a candidate in the upcoming mayoral election. Your interest in serving our community in this esteemed position is commendable. The election will take place on {0} so get campaigning. ^^If you have any questions or^concerns regarding the election^process, please do not hesitate^to contact us. We are more than^happy to assist you throughout this campaign.^^Sincerely,^Angela,^Chair of S.V. Election Committee[letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black]",
 
 	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Title": "Talk with voters",
-	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^^Now that you're all registered for the ballot sheet we need to start telling people about your policies. As your campaign manager I've printed up some leaflets that you can hand out. I also suggest that you make some time to actually talk to voters.^^-Marlon",
+	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^We need to communicate the vision you have for mayor to the town. As your campaign manager, I suggest that you make time for talking to the villagers. I'm going to do regular polling to see how effective the campaign is. Call me on the phone if you want updates on your polling numbers. I've also printed out policy leaflets that we can hand out.^-Marlon",
 
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Title": "Good News",
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Body": "Hey @,^^Good news! I have been talking with Morris and I think I've convinced him to vote for you. I've also printed up a poster that you can put up in the town. ^^-Marlon",
 
 	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Title": "Council member vote",
 	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Body": "Hey @,^^Did you know we used to have a town council? I handled security issues, Gus took care of commerce & culture, Maru focused on health & science, and Penny oversaw education. I've spoken with the old gang and they're keen for us to revive the council meetings. If we do they're also open to supporting your bid for mayor too.^^-Marlon",
+
 
 	//////////////////////
 	//Quests
@@ -42,30 +45,45 @@
 	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Description": "Quest Description",
 	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Task": "Give out leaflets",
 
+
 	//////////////////////
 	//Festival
 	//////////////////////
 	"EmuEngine.MayorModCP_Festival.VotingDay.Name": "Voting Day!",
 	"EmuEngine.MayorModCP_Festival.VotingDay.Message": "Don't forget to vote today!",
 
-	//////////////////////
-	//Maps
-	//////////////////////
-	"EmuEngine.MayorModCP_MapStrings.ManorHouseClosed": "Renovation is ongoing. Come back tomorrow.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingPlanned": "Council meeting has been planned.",
-	"EmuEngine.MayorModCP_MapStrings.HoldCouncilMeeting": "Council Meeting",
-	"EmuEngine.MayorModCP_MapStrings.AgendaQuestion": "Choose the agenda:",
-	"EmuEngine.MayorModCP_MapStrings.AlreadyPlanned": "You have already planned a council meeting.",
-	"EmuEngine.MayorModCP_MapStrings.NoNewMeetings": "There are no new issues for the city council.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingIntro": "Introductory Council Meeting.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingSaloonHours": "Saloon licencing.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingTownSecurity": "Public safety and security issues.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingTourism": "Boosting tourism and community spirit.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingEducation": "Access to educational resources.",
-	"EmuEngine.MayorModCP_MapStrings.MeetingBusPunctuality": "Public transport punctuality",
 
-	"EmuEngine.MayorModCP_MapStrings.VotingBallotTitle": "Ballot Paper",
-	"EmuEngine.MayorModCP_MapStrings.VotingBallotDescription": "Vote for only one candidate",
+	//////////////////////
+	//UI
+	//////////////////////
+
+	//Voting
+	"EmuEngine.MayorModCP_UIMenu.VotingBallotTitle": "Ballot Paper",
+	"EmuEngine.MayorModCP_UIMenu.VotingBallotDescription": "Vote for only one candidate",
+
+	//Polling Data
+	"EmuEngine.MayorModCP_UIMenu.PollingDataTitle": "Polling Data",
+	"EmuEngine.MayorModCP_UIMenu.PollingDataIntro": "Hello @. We have been doing a lot of polling of voters lately. Here are the trends we are seeing:",
+	"EmuEngine.MayorModCP_UIMenu.HadDebate": "Debated mayor :",
+	"EmuEngine.MayorModCP_UIMenu.Leaflets": "Leaflets distributed :",
+	"EmuEngine.MayorModCP_UIMenu.VotersCanvassed": "Voters canvassed :",
+	"EmuEngine.MayorModCP_UIMenu.VotingForYou": "Voting for you :",
+	"EmuEngine.MayorModCP_UIMenu.PollingDataVotingDayWinning": "Hi @. We have been doing exit polls all day and it's looking really good. Hopefully I can call you Mayor @ really soon!",
+	"EmuEngine.MayorModCP_UIMenu.PollingDataVotingDayLosing": "Hi @. I don't have the best news I'm afraid. I'm sorry to say that the exit polls are not looking good at the moment.",
+
+	//Council meetings
+	"EmuEngine.MayorModCP_MapStrings.ManorHouseClosed": "Renovation is ongoing. Come back tomorrow.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingPlanned": "Council meeting has been planned.",
+	"EmuEngine.MayorModCP_UIMenu.HoldCouncilMeeting": "Council Meeting",
+	"EmuEngine.MayorModCP_UIMenu.AgendaQuestion": "Choose the agenda:",
+	"EmuEngine.MayorModCP_UIMenu.AlreadyPlanned": "You have already planned a council meeting.",
+	"EmuEngine.MayorModCP_UIMenu.NoNewMeetings": "There are no new issues for the city council.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingIntro": "Introductory Council Meeting.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingSaloonHours": "Saloon licencing.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingTownSecurity": "Public safety and security issues.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingTourism": "Boosting tourism and community spirit.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingEducation": "Access to educational resources.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingBusPunctuality": "Public transport punctuality",
 
 	//////////////////////
 	//Dialogue
@@ -96,6 +114,7 @@
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Rainy_Night_3": "The sounds of rain is so beautiful. It actually makes it quite nice to patrol.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Rainy_Night_4": "I have my waterproof gear on and I've had my coffee. I'm ready for anything.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Rainy_Night_5": "One can never be too careful on a night like this.",
+
 
 	//////////////////////
 	//Events
@@ -221,6 +240,7 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_6A1": "I don't think this is a big issue. Let's do nothing for now and see.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_7": "Excellent! I'll look after ASAP. We will have a guard posted by the minee every night.'",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoSecurity_0": "This is very disappointing. I suppose the Adventure Guild can keep an eye out for the moment.'",
+
 
 	//////////////////////
 	//Gifting

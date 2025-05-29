@@ -40,16 +40,16 @@
         {
             "LogName": "Loading strings for CouncilMeeting",
             "Action": "EditData",
-            "Target": "Strings/StringsFromMaps",
+            "Target": "Strings/UI",
             "Entries": {
-                "{{ModId}}_HoldCouncilMeeting": "{{i18n:{{ModId}}_MapStrings.HoldCouncilMeeting}}",
-                "{{ModId}}_AgendaQuestion": "{{i18n:{{ModId}}_MapStrings.AgendaQuestion}}",
-                "{{ModId}}_MeetingPlanned": "{{i18n:{{ModId}}_MapStrings.MeetingPlanned}}",
-                "{{ModId}}_AlreadyPlanned": "{{i18n:{{ModId}}_MapStrings.AlreadyPlanned}}",
-                "{{ModId}}_NoNewMeetings": "{{i18n:{{ModId}}_MapStrings.NoNewMeetings}}",
-                "{{ModId}}_MeetingIntro": "{{i18n:{{ModId}}_MapStrings.MeetingIntro}}",
-                "{{ModId}}_MeetingSaloonHours": "{{i18n:{{ModId}}_MapStrings.MeetingSaloonHours}}",
-                "{{ModId}}_MeetingTownSecurity": "{{i18n:{{ModId}}_MapStrings.MeetingTownSecurity}}"
+                "{{ModId}}_HoldCouncilMeeting": "{{i18n:{{ModId}}_UIMenu.HoldCouncilMeeting}}",
+                "{{ModId}}_AgendaQuestion": "{{i18n:{{ModId}}_UIMenu.AgendaQuestion}}",
+                "{{ModId}}_MeetingPlanned": "{{i18n:{{ModId}}_UIMenu.MeetingPlanned}}",
+                "{{ModId}}_AlreadyPlanned": "{{i18n:{{ModId}}_UIMenu.AlreadyPlanned}}",
+                "{{ModId}}_NoNewMeetings": "{{i18n:{{ModId}}_UIMenu.NoNewMeetings}}",
+                "{{ModId}}_MeetingIntro": "{{i18n:{{ModId}}_UIMenu.MeetingIntro}}",
+                "{{ModId}}_MeetingSaloonHours": "{{i18n:{{ModId}}_UIMenu.MeetingSaloonHours}}",
+                "{{ModId}}_MeetingTownSecurity": "{{i18n:{{ModId}}_UIMenu.MeetingTownSecurity}}"
             }
         }
     ]

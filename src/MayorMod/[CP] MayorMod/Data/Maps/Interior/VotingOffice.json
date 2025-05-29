@@ -31,10 +31,10 @@
         {
             "LogName": "Loading strings for Voting",
             "Action": "EditData",
-            "Target": "Strings/StringsFromMaps",
+            "Target": "Strings/UI",
             "Entries": {
-                "{{ModId}}_VotingBallotTitle": "{{i18n:{{ModId}}_MapStrings.VotingBallotTitle}}",
-                "{{ModId}}_VotingBallotDescription": "{{i18n:{{ModId}}_MapStrings.VotingBallotDescription}}"
+                "{{ModId}}_VotingBallotTitle": "{{i18n:{{ModId}}_UIMenu.VotingBallotTitle}}",
+                "{{ModId}}_VotingBallotDescription": "{{i18n:{{ModId}}_UIMenu.VotingBallotDescription}}"
             }
         }
     ]

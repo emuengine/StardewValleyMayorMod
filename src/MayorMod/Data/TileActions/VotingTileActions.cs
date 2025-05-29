@@ -74,7 +74,7 @@ public static class VotingTileActions
         [
             new MenuBorder(menu),
             new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.VotingBooth.VotingBallotTitle), new Margin(0, 30, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
-            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.VotingBooth.VotingBallotDescription), new Margin(15, 100, 0, 0)){ Align = TextMenuItem.MenuItemAlign.Left },
+            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.VotingBooth.VotingBallotDescription), new Margin(15, 100, 0, 0)),
             new VotingListMenuItem(menu, new Margin(30, 160, 30, 40), Candidates, votingAction),
             new ButtonMenuItem(menu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
             {

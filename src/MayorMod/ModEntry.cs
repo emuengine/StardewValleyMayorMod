@@ -7,6 +7,7 @@ using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.GameData;
+using StardewValley.Objects;
 
 namespace MayorMod;
 
@@ -71,6 +72,8 @@ internal sealed class ModEntry : Mod
         {
             InvalidateModData();
         }
+
+        Phone.PhoneHandlers.Add(new PollingDataHandler(Helper));
     }
 
     /// <summary>

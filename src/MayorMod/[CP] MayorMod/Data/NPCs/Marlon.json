@@ -5,6 +5,20 @@
             "Action": "Load",
             "Target": "Characters/Marlon_ManorHouseIntroEvent",
             "FromFile": "Assets/NPCs/Marlon/SpriteSheet.png"
+        },
+        {
+            "Action": "EditData",
+            "Target": "Strings/UI",
+            "Entries": {
+                "{{ModId}}_PollingDataTitle": "{{i18n:{{ModId}}_UIMenu.PollingDataTitle}}",
+                "{{ModId}}_PollingDataIntro": "{{i18n:{{ModId}}_UIMenu.PollingDataIntro}}",
+                "{{ModId}}_HadDebate": "{{i18n:{{ModId}}_UIMenu.HadDebate}}",
+                "{{ModId}}_Leaflets": "{{i18n:{{ModId}}_UIMenu.Leaflets}}",
+                "{{ModId}}_VotersCanvassed": "{{i18n:{{ModId}}_UIMenu.VotersCanvassed}}",
+                "{{ModId}}_VotingForYou": "{{i18n:{{ModId}}_UIMenu.VotingForYou}}",
+                "{{ModId}}_PollingDataVotingDayWinning": "{{i18n:{{ModId}}_UIMenu.PollingDataVotingDayWinning}}",
+                "{{ModId}}_PollingDataVotingDayLosing": "{{i18n:{{ModId}}_UIMenu.PollingDataVotingDayLosing}}"
+            }
         }
     ]
 }

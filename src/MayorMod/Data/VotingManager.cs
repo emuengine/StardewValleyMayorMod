@@ -16,6 +16,7 @@ public class VotingManager
     private readonly Farmer _farmer;
 
     internal int HeartThreshold { get; set; } = 5;
+    public bool IsVotingRNG { get; set; } = true;
 
     public VotingManager(Farmer farmer)
     {
@@ -59,19 +60,22 @@ public class VotingManager
         {
             //TODO: Count votes for multiplayer
         }
-        votes = ModProgressManager.HasProgressFlag(ModProgressManager.HasVotedForHostFarmer) ? 1 : -1;
+        if (votes > 0)
+        {
+            votes = ModProgressManager.HasProgressFlag(ModProgressManager.HasVotedForHostFarmer) ? 1 : -1;
+        }
         return votes;
     }
 
-    public bool VotingForFarmer(string name, bool HasRNG)
+    public bool VotingForFarmer(string name)
     {
         var hearts = GetNPCHearts(name);
         hearts += HasNPCBeenCanvassed(name) ? 1 : 0;
         hearts += HasNPCGotLeaflet(name) ? 1 : 0;
+        hearts += HasWonDebate() ? 1 : 0;
         var threshold = HeartThreshold;
         threshold += name.Equals("Lewis", StringComparison.InvariantCultureIgnoreCase) ? 3 : 0;
-        threshold -= HasWonDebate() ? 1 : 0;
-        if (HasRNG)
+        if (IsVotingRNG)
         {
             return (hearts * (1.0 / threshold)) > ModUtils.RNG.NextDouble();
         }
@@ -81,9 +85,14 @@ public class VotingManager
         }
     }
 
+    public int CalculateTotalLeaflets()
+    {
+        return Voters.Sum(v => HasNPCGotLeaflet(v) ? 1 : 0);
+    }
+
     public int CalculateTotalVotes()
     {
-        var votes =  Voters.Sum(v => VotingForFarmer(v, true) ? 1 : 0);
+        var votes =  Voters.Sum(v => VotingForFarmer(v) ? 1 : 0);
         votes += CalculatePlayerVotes();
         return votes;
     }

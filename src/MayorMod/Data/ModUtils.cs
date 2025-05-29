@@ -12,6 +12,19 @@ public static class ModUtils
 {
     public static Random RNG { get; } = new();
 
+    private static NPC? _marlonNPC;
+    /// <summary>
+    /// The NPC instance for Marlon, or a fuzzy search result if the instance hasn't been initialized.
+    /// </summary>
+    public static NPC MarlonNPC
+    {
+        get
+        {
+            _marlonNPC ??= Utility.fuzzyCharacterSearch(ModNPCKeys.Marlon);
+            return _marlonNPC;
+        }
+    }
+
     private static NPC? _officerMikeNPC;
     /// <summary>
     /// The NPC instance for Officer Mike, or a fuzzy search result if the instance hasn't been initialized.
