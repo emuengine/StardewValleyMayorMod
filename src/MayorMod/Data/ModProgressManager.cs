@@ -14,6 +14,8 @@ public static class ModProgressManager
     public static readonly string WonMayorElection = $"{ModKeys.MayorModCPId}_WonMayorElection";
     public static readonly string LostMayorElection = $"{ModKeys.MayorModCPId}_LostMayorElection";
     public static readonly string ElectedAsMayor = $"{ModKeys.MayorModCPId}_ElectedAsMayor";
+    public static readonly string TownCleanup = $"{ModKeys.MayorModCPId}_TownCleanup";
+    public static readonly string CompleteTrashBearWorldState = "trashBearDone";
 
     /// <summary>
     /// Check if player has a progress flag.

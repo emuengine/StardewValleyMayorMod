@@ -33,6 +33,7 @@ public static class DialogueKeys
         public static readonly string MeetingIntro = $"{UIStringsLocation}:{ModKeys.MayorModCPId}_MeetingIntro";
         public static readonly string MeetingSaloonHours = $"{UIStringsLocation}:{ModKeys.MayorModCPId}_MeetingSaloonHours";
         public static readonly string MeetingTownSecurity = $"{UIStringsLocation}:{ModKeys.MayorModCPId}_MeetingTownSecurity";
+        public static readonly string MeetingTownCleanup = $"{UIStringsLocation}:{ModKeys.MayorModCPId}_MeetingTownCleanup";
     }
 
     public static class OfficerMike

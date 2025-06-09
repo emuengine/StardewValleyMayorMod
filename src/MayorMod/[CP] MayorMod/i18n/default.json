@@ -82,6 +82,7 @@
 	"EmuEngine.MayorModCP_UIMenu.MeetingSaloonHours": "Saloon licencing.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingTownSecurity": "Public safety and security issues.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingTourism": "Boosting tourism and community spirit.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingTownCleanup": "Tidy town initiative.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingEducation": "Access to educational resources.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingBusPunctuality": "Public transport punctuality",
 
@@ -238,8 +239,21 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_6Q": "What do you think?",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_6A0": "I think more security for the town would be good. We should hire some security.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_6A1": "I don't think this is a big issue. Let's do nothing for now and see.",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_7": "Excellent! I'll look after ASAP. We will have a guard posted by the minee every night.'",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingNoSecurity_0": "This is very disappointing. I suppose the Adventure Guild can keep an eye out for the moment.'",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_7": "Excellent! I'll look after ASAP. We will have a guard posted by the mine every night.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingNoSecurity_0": "This is very disappointing. I suppose the Adventure Guild can keep an eye out for the moment.",
+
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_0": "Hello everyone. Today's agenda is to discuss what to do about the rubbish problem in the town.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_1": "I am of the opinion that we need to hire a cleaning crew, our town looks terrible with all these littered streets.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_2": "I'm with Marlon on this. It is about time we took care of this problem. A clean town benefits everyone.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_3": "But at what cost? We can't just throw money at every problem. People should take care of their own trash.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_4": "Hmm certain people might think they don't need to dispose of their waste properly themselves.",	
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_5": "That's exactly why I think it's worth the investment. It will set a good example for residents and keeps our town looking nice.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_6": "And think about all the businesses that could benefit from a cleaner environment. It would be an attractive feature for potential customers.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_7Q": "What do you think?",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_7A0": "I think we should hire a cleaning crew for the town.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_7A1": "I don't think we need this.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_8": "Excellent! I'll call the company today and we should have the town cleaned up in no time.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingNoCleanup_0": "I'm disappointed but I understand that we do need to be careful with the budget.",
 
 
 	//////////////////////

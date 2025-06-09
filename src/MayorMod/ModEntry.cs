@@ -7,6 +7,7 @@ using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.GameData;
+using StardewValley.Network;
 using StardewValley.Objects;
 
 namespace MayorMod;
@@ -32,6 +33,8 @@ internal sealed class ModEntry : Mod
         Helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
         Helper.Events.Content.AssetRequested += OnAssetRequested;
         Helper.Events.Input.ButtonPressed += OnButtonPressed;
+
+        Phone.PhoneHandlers.Add(new PollingDataHandler(Helper));
     }
 
     /// <summary>
@@ -73,7 +76,12 @@ internal sealed class ModEntry : Mod
             InvalidateModData();
         }
 
-        Phone.PhoneHandlers.Add(new PollingDataHandler(Helper));
+        //Town cleanup
+        if (ModProgressManager.HasProgressFlag(ModProgressManager.TownCleanup) && 
+            !NetWorldState.checkAnywhereForWorldStateID(ModProgressManager.CompleteTrashBearWorldState))
+        {
+            NetWorldState.addWorldStateIDEverywhere(ModProgressManager.CompleteTrashBearWorldState);
+        }
     }
 
     /// <summary>
