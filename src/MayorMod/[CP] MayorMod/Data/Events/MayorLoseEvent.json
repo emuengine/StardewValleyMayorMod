@@ -5,7 +5,7 @@
             "Action": "EditData",
             "Target": "Data/Events/Town",
             "Entries": {
-                "{{ModId}}_MayorLoseEvent/H/Hn {{ModId}}_LostMayorElection": "continue/-100 0/farmer 13 32 0 Governor -1000 -1000 0 Lewis 12 21 2 Marnie -1000 -1000 2 Marlon -1000 -1000 0 Harvey 8 27 0/changeLocation {{ModId}}_ForestStageArea/viewport 15 24/addTemporaryActor Governor_NewMayorEvent 16 32 14 22 2 true Character/addObject 14 22 {{ModId}}_Lecturn 1/skippable/pause 1000/speak Governor \"{{i18n:{{ModId}}_Events.LostMayorElection_0}}\"/move Governor_NewMayorEvent 2 0 1 Lewis 2 0 1/move Governor_NewMayorEvent 0 -1 2 Lewis 0 1 2/pause 1000/speak Lewis \"{{i18n:{{ModId}}_Events.LostMayorElection_1}}\"/emote Lewis 32/speak Lewis \"{{i18n:{{ModId}}_Events.LostMayorElection_2}}\"/globalFade/viewport 1000 1000/end position 1 54"
+                "{{ModId}}_MayorLoseEvent/IsHost/HostMail {{ModId}}_LostMayorElection": "continue/-100 0/farmer 13 32 0 Governor -1000 -1000 0 Lewis 12 21 2 Marnie -1000 -1000 2 Marlon -1000 -1000 0 Harvey 8 27 0/changeLocation {{ModId}}_ForestStageArea/viewport 15 24/addTemporaryActor Governor_NewMayorEvent 16 32 14 22 2 true Character/addObject 14 22 {{ModId}}_Lecturn 1/skippable/pause 1000/speak Governor \"{{i18n:{{ModId}}_Events.LostMayorElection_0}}\"/move Governor_NewMayorEvent 2 0 1 Lewis 2 0 1/move Governor_NewMayorEvent 0 -1 2 Lewis 0 1 2/pause 1000/speak Lewis \"{{i18n:{{ModId}}_Events.LostMayorElection_1}}\"/emote Lewis 32/speak Lewis \"{{i18n:{{ModId}}_Events.LostMayorElection_2}}\"/globalFade/viewport 1000 1000/end position 1 54"
             }
         }
     ]
