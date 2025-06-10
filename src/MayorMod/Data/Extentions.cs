@@ -1,7 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using StardewValley;
-using StardewValley.Menus;
+﻿using StardewValley;
 
 namespace MayorMod.Data;
 
