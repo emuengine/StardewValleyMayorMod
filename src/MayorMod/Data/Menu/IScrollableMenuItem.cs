@@ -2,5 +2,5 @@
 
 public interface IScrollableMenuItem : IMenuItem
 {
-    void OnScroll(int direction);
+    bool OnScroll(int direction);
 }

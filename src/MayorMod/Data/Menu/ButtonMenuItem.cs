@@ -107,4 +107,17 @@ public class ButtonMenuItem : IClickableMenuItem
     {
         UpdateButtonComponent();
     }
+
+    public int UpdateCursor(int index)
+    {
+        if (index == 0 && ButtonComponent is not null)
+        {
+            Game1.setMousePosition(ButtonComponent.bounds.X + (ButtonComponent.bounds.Width / 2), ButtonComponent.bounds.Y + (ButtonComponent.bounds.Height / 2));
+            return index;
+        }
+        else
+        {
+            return -1;
+        }
+    }
 }

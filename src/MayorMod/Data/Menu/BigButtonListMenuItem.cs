@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
 using StardewValley.Menus;
+using System.Data;
 using System.Diagnostics.CodeAnalysis;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
@@ -212,17 +213,21 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
     /// Handles the scroll action for the control
     /// </summary>
     /// <param name="direction">Direction of the scroll</param>
-    public void OnScroll(int direction)
+    public bool OnScroll(int direction)
     {
+        bool scrolled = false;
         if (direction > 0 && _buttonIndexOffset - 1 >= 0)
         {
             _buttonIndexOffset -= 1;
+            scrolled = true;
         }
         else if (direction < 0 && _buttonIndexOffset + 1 <= _buttonText.Count - NumberOfButtons)
         {
             _buttonIndexOffset += 1;
+            scrolled = true;
         }
         _scrollBar.bounds.Y = CalculateScrollBarPostion();
+        return scrolled;
     }
 
     /// <summary>
@@ -246,5 +251,25 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
     public void OnWindowResize(Rectangle oldBounds, Rectangle newBounds)
     {
         UpdateButtonData();
+    }
+
+    public int UpdateCursor(int index)
+    {
+        var cursorData = _buttonData.Select(b => new Point(b.BoundingBox.X + (b.BoundingBox.Width / 2), 
+                                                           b.BoundingBox.Y + (b.BoundingBox.Height / 2)))
+                                    .ToList();
+
+        if (index >= 0 && index < cursorData.Count)
+        {
+            Game1.setMousePosition(cursorData[index]);
+            return index;
+        }
+
+        if (OnScroll(index < 0 ? 1 : -1))
+        {
+            return index < 0 ? 0 : _numberOfButtons - 1;
+        }
+
+        return -1;
     }
 }

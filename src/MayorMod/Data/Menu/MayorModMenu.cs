@@ -7,9 +7,9 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace MayorMod.Data.Menu;
 
-public class MayorModMenu : IClickableMenu
+public partial class MayorModMenu : IClickableMenu
 {
-    public IModHelper Helper{get; private set;}
+    private CursorSnapMenuItem _selectedCursorItem;
 
     private float _marginWidthPercent;
     public float MarginWidthPercent
@@ -31,6 +31,7 @@ public class MayorModMenu : IClickableMenu
             CalculateMenuRect();
         }
     }
+    public IModHelper Helper { get; private set; }
     public IList<IMenuItem> MenuItems { get; set; } = [];
     public Rectangle MenuRect { get; set; }
     public Color BackgoundColour { get; set; } = Color.Transparent;
@@ -109,23 +110,41 @@ public class MayorModMenu : IClickableMenu
         }
     }
 
-    //public override void snapToDefaultClickableComponent()
-    //{
-    //    var menuButton = MenuItems.FirstOrDefault(mi => mi is ButtonMenuItem);
-    //    if (menuButton is not null)
-    //    {
-    //        currentlySnappedComponent = ((ButtonMenuItem)menuButton).ButtonComponent;
-    //        snapCursorToCurrentSnappedComponent();
-    //    }
-    //}
+    public override void applyMovementKey(int direction)
+    {
+        base.applyMovementKey(direction);
+        CustomSnapBehavior(direction == 2 || direction == 1 ? 1 : -1);
+    }
 
-    //protected override void customSnapBehavior(int direction, int oldRegion, int oldID)
-    //{
-    //    base.customSnapBehavior(direction, oldRegion, oldID);
-    //}
+    private void CustomSnapBehavior(int direction)
+    {
+        var cursorButtons = MenuItems.Where(mi => mi is IClickableMenuItem)
+                                     .Cast<IClickableMenuItem>()
+                                     .ToList();
+        if (!cursorButtons.Any())
+        {
+            return;
+        }
 
-    //public override void automaticSnapBehavior(int direction, int oldRegion, int oldID)
-    //{
-    //    base.automaticSnapBehavior(direction, oldRegion, oldID);
-    //}
+        if (_selectedCursorItem is null)
+        {
+            _selectedCursorItem = new CursorSnapMenuItem(cursorButtons[0], 0);
+            _selectedCursorItem.menuItem.UpdateCursor(_selectedCursorItem.index);
+        }
+        else 
+        {
+            var updated = _selectedCursorItem.menuItem.UpdateCursor(_selectedCursorItem.index + direction);
+            if (updated != -1)
+            {
+                _selectedCursorItem = new CursorSnapMenuItem(_selectedCursorItem.menuItem, updated);
+            }
+            else
+            {
+                var index = cursorButtons.FindIndex(c => c == _selectedCursorItem.menuItem);
+                var update = Math.Clamp(index + direction, 0, cursorButtons.Count - 1); 
+                _selectedCursorItem = new CursorSnapMenuItem(cursorButtons[update], 0);
+                _selectedCursorItem.menuItem.UpdateCursor(_selectedCursorItem.index);
+            }
+        }
+    }
 }

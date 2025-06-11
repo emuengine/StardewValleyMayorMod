@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
-using System.Collections.Generic;
 
 namespace MayorMod.Data.Menu;
 
@@ -125,5 +124,16 @@ internal partial class VotingListMenuItem : IClickableMenuItem
     public void OnWindowResize(Rectangle oldBounds, Rectangle newBounds)
     {
         Init();
+    }
+
+    public int UpdateCursor(int index)
+    {
+        var cursorData = _buttons.Select(b => new Point(b.ButtonRect.X + (b.ButtonRect.Width / 2), b.ButtonRect.Y + (b.ButtonRect.Height / 2))).ToList();
+        if (index >= 0 && index < cursorData.Count)
+        {
+            Game1.setMousePosition(cursorData[index]);
+            return index;
+        }
+        return -1;
     }
 }
