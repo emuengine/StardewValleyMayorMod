@@ -36,7 +36,7 @@ internal sealed class ModEntry : Mod
 
         Phone.PhoneHandlers.Add(new PollingDataHandler(Helper));
 
-        EventCommands.AddExtraEventCommands();
+        EventCommands.AddExtraEventCommands(Monitor);
     }
 
     /// <summary>
