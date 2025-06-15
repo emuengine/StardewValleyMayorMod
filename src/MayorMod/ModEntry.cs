@@ -54,7 +54,7 @@ internal sealed class ModEntry : Mod
 
         if (Helper is not null && Helper.Data is not null)
         {
-            var saveData = Helper.Data.ReadSaveData<MayorModData>(ModKeys.MayorModSaveKey);
+            var saveData = Helper.Data.ReadSaveData<MayorModData>(ModKeys.SAVE_KEY);
             if (saveData is not null)
             {
                 _saveData = saveData;
@@ -69,11 +69,11 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
-        if (_saveData is not null && ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
+        if (_saveData is not null && ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
             if (_saveData.VotingDate == SDate.Now())
             {
-                ModProgressManager.AddProgressFlag(ModProgressManager.IsVotingDay);
+                ModProgressManager.AddProgressFlag(ProgressFlags.IsVotingDay);
             }
         }
 
@@ -83,10 +83,10 @@ internal sealed class ModEntry : Mod
         }
 
         //Town cleanup
-        if (ModProgressManager.HasProgressFlag(ModProgressManager.TownCleanup) && 
-            !NetWorldState.checkAnywhereForWorldStateID(ModProgressManager.CompleteTrashBearWorldState))
+        if (ModProgressManager.HasProgressFlag(ProgressFlags.TownCleanup) && 
+            !NetWorldState.checkAnywhereForWorldStateID(ProgressFlags.CompleteTrashBearWorldState))
         {
-            NetWorldState.addWorldStateIDEverywhere(ModProgressManager.CompleteTrashBearWorldState);
+            NetWorldState.addWorldStateIDEverywhere(ProgressFlags.CompleteTrashBearWorldState);
         }
     }
 
@@ -98,38 +98,38 @@ internal sealed class ModEntry : Mod
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
         //Set voting date
-        if (ModProgressManager.HasProgressFlag(ModProgressManager.RegisterVotingDate))
+        if (ModProgressManager.HasProgressFlag(ProgressFlags.RegisterVotingDate))
         {
             _saveData = new MayorModData()
             {
-                VotingDate = ModUtils.GetDateWithoutFestival(ModKeys.NumberOfCampaignDays)
+                VotingDate = ModUtils.GetDateWithoutFestival(ModKeys.CAMPAIGN_DURATION)
             };
-            Helper.Data.WriteSaveData(ModKeys.MayorModSaveKey, _saveData);
-            ModProgressManager.RemoveProgressFlag(ModProgressManager.RegisterVotingDate);
+            Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, _saveData);
+            ModProgressManager.RemoveProgressFlag(ProgressFlags.RegisterVotingDate);
             _modDataCacheInvalidationNeeded = true;
         }
 
         //Complete voting day
-        if (_saveData is not null && _saveData.VotingDate == SDate.Now() && ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
+        if (_saveData is not null && _saveData.VotingDate == SDate.Now() && ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
             var pd = new VotingManager(Game1.MasterPlayer);
             ModProgressManager.RemoveAllModFlags();
-            if (pd.HasWonElection())
+            if (pd.HasWonElection(Helper))
             {
-                ModProgressManager.AddProgressFlag(ModProgressManager.WonMayorElection);
+                ModProgressManager.AddProgressFlag(ProgressFlags.WonMayorElection);
             }
             else
             {
-                ModProgressManager.AddProgressFlag(ModProgressManager.LostMayorElection);
+                ModProgressManager.AddProgressFlag(ProgressFlags.LostMayorElection);
             }
         }
 
         // Complete day as mayor
-        if (ModProgressManager.HasProgressFlag(ModProgressManager.ElectedAsMayor))
+        if (ModProgressManager.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
-            if (ModProgressManager.HasProgressFlag(ModProgressManager.WonMayorElection))
+            if (ModProgressManager.HasProgressFlag(ProgressFlags.WonMayorElection))
             {
-                ModProgressManager.RemoveProgressFlag(ModProgressManager.WonMayorElection);
+                ModProgressManager.RemoveProgressFlag(ProgressFlags.WonMayorElection);
             }
 
             ModUtils.ForceCouncilMailDelivery();
@@ -158,20 +158,20 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
     {
-        if (_saveData is null || !ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
+        if (_saveData is null || !ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
             return;
         }
 
-        if (e.NameWithoutLocale.IsEquivalentTo(ModKeys.XNBPathKeys.MAIL))
+        if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.MAIL))
         {
             e.Edit(AssetUpdatesForMail);
         }
-        else if (e.NameWithoutLocale.IsEquivalentTo(ModKeys.XNBPathKeys.PASSIVE_FESTIVALS))
+        else if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.PASSIVE_FESTIVALS))
         {
             e.Edit(AssetUpdatesForPassiveFestivals);
         }
-        else if (e.NameWithoutLocale.StartsWith(ModKeys.XNBPathKeys.DIALOGUE))
+        else if (e.NameWithoutLocale.StartsWith(XNBPathKeys.DIALOGUE))
         {
             e.Edit(AssetUpdatesForDialogue);
         }
@@ -235,8 +235,8 @@ internal sealed class ModEntry : Mod
     /// </summary>
     public void InvalidateModData()
     {
-        Helper.GameContent.InvalidateCache(ModKeys.XNBPathKeys.MAIL);
-        Helper.GameContent.InvalidateCache(ModKeys.XNBPathKeys.PASSIVE_FESTIVALS);
+        Helper.GameContent.InvalidateCache(XNBPathKeys.MAIL);
+        Helper.GameContent.InvalidateCache(XNBPathKeys.PASSIVE_FESTIVALS);
         Game1.PerformPassiveFestivalSetup();
         Game1.UpdatePassiveFestivalStates();
         _modDataCacheInvalidationNeeded = false;

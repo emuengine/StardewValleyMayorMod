@@ -21,12 +21,16 @@ internal class PollingDataHandler : IPhoneHandler
 
     public string CheckForIncomingCall(Random random)
     {
+#pragma warning disable CS8603
         return null;
+#pragma warning restore CS8603
     }
 
     public bool TryHandleIncomingCall(string callId, out Action showDialogue)
     {
+#pragma warning disable CS8625
         showDialogue = null;
+#pragma warning restore CS8625
         return false;
     }
 
@@ -34,7 +38,7 @@ internal class PollingDataHandler : IPhoneHandler
     {
         List<KeyValuePair<string, string>> numbers = [];
 
-        if (ModProgressManager.HasProgressFlag(ModProgressManager.RunningForMayor))
+        if (ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
             numbers.Add(new KeyValuePair<string, string>(PollingDataKey, Game1.content.LoadString(DialogueKeys.PollingData.PollingDataTitle)));
         }
@@ -58,14 +62,15 @@ internal class PollingDataHandler : IPhoneHandler
         DelayedAction.functionAfterDelay(delegate
         {
             playSound("bigSelect", null);
-            if (ModProgressManager.HasProgressFlag(ModProgressManager.IsVotingDay))
+            if (ModProgressManager.HasProgressFlag(ProgressFlags.IsVotingDay))
             {
                 var polling = new VotingManager(Game1.player)
                 {
                     IsVotingRNG = false,
                 };
-                DrawDialogue(ModUtils.MarlonNPC, polling.HasWonElection()? DialogueKeys.PollingData.PollingDataVotingDayWinning:
-                                                                  DialogueKeys.PollingData.PollingDataVotingDayLosing);
+                DrawDialogue(ModUtils.MarlonNPC, 
+                             polling.HasWonElection(_helper) ? DialogueKeys.PollingData.PollingDataVotingDayWinning :
+                                                               DialogueKeys.PollingData.PollingDataVotingDayLosing);
             }
             else
             {
@@ -82,15 +87,17 @@ internal class PollingDataHandler : IPhoneHandler
 
     private MayorModMenu GetPollingDataMenu()
     {
+        var voters = VotingManager.GetVotingVillagers(_helper);
+
         var polling = new VotingManager(Game1.player)
         {
             IsVotingRNG = false,
         };
-        var totalVoters = VotingManager.Voters.Count;
+        var totalVoters = voters.Count;
         var debated = polling.HasWonDebate();
-        var leaflets = VotingManager.Voters.Sum(v => polling.HasNPCGotLeaflet(v) ? 1 : 0);
-        var canvassed = VotingManager.Voters.Sum(v => polling.HasNPCBeenCanvassed(v) ? 1 : 0);
-        var polls = polling.CalculateTotalVotes();
+        var leaflets = voters.Sum(v => polling.HasNPCGotLeaflet(v) ? 1 : 0);
+        var canvassed = voters.Sum(v => polling.HasNPCBeenCanvassed(v) ? 1 : 0);
+        var polls = polling.CalculateTotalVotes(_helper);
 
         var menu = new MayorModMenu(_helper, 0.4f, 0.5f);
         menu.MenuItems =

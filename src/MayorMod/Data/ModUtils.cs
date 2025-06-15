@@ -20,7 +20,7 @@ public static class ModUtils
     {
         get
         {
-            _marlonNPC ??= Utility.fuzzyCharacterSearch(ModNPCKeys.MARLON_ID);
+            _marlonNPC ??= Utility.fuzzyCharacterSearch(ModNPCKeys.MarlonId);
             return _marlonNPC;
         }
     }
@@ -33,7 +33,7 @@ public static class ModUtils
     {
         get
         {
-            _officerMikeNPC ??= Utility.fuzzyCharacterSearch(ModNPCKeys.OfficerMike);
+            _officerMikeNPC ??= Utility.fuzzyCharacterSearch(ModNPCKeys.OfficerMikeId);
             return _officerMikeNPC;
         }
     }

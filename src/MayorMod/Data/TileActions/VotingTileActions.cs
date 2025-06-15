@@ -90,7 +90,7 @@ public static class VotingTileActions
 
         if (candidateIndex< Candidates.Count && Candidates[candidateIndex] == Game1.MasterPlayer.Name)
         {
-            ModProgressManager.AddProgressFlag(ModProgressManager.HasVotedForHostFarmer);
+            ModProgressManager.AddProgressFlag(ProgressFlags.HasVotedForHostFarmer);
         }
 
         //Show filling in voting card
@@ -122,7 +122,7 @@ public static class VotingTileActions
         if (ballot is not null)
         {
             farmer.removeItemFromInventory(ballot);
-            ModProgressManager.AddProgressFlag(ModProgressManager.VotedForMayor);
+            ModProgressManager.AddProgressFlag(ProgressFlags.VotedForMayor);
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
         }
         else if (farmer.HasItemInInventory(ModItemKeys.Ballot))

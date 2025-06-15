@@ -2,6 +2,9 @@
 
 public static class ModNPCKeys
 {
-    public const string MARLON_ID = "Marlon";
-    public static readonly string OfficerMike = $"{ModKeys.MAYOR_MOD_CPID}_OfficerMike";
+    public static readonly string MarlonId = "Marlon";
+    public static readonly string LewisId = "Lewis";
+    public static readonly string GusId = "Gus";
+    public static readonly string OfficerMikeId = $"{ModKeys.MAYOR_MOD_CPID}_OfficerMike";
+
 }

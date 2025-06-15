@@ -48,7 +48,7 @@ internal static class TileActionManager
         {
             ManorHouseTileActions.MayorDeskAction(_helper, farmer);
         }
-        else if (!farmer.mailReceived.Contains(ModProgressManager.VotedForMayor))
+        else if (!farmer.mailReceived.Contains(ProgressFlags.VotedForMayor))
         {
             switch (arg2[1])
             {

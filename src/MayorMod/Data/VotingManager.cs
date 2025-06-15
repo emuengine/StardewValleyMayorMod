@@ -1,4 +1,5 @@
 ﻿using MayorMod.Constants;
+using StardewModdingAPI;
 using StardewValley;
 
 namespace MayorMod.Data;
@@ -9,10 +10,12 @@ public class VotingManager
     public static readonly string TalkingToVotersTopic = $"{ModKeys.MAYOR_MOD_CPID}_TalkingToVotersTopic";
     public static readonly string MayorDebateEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorDebateEvent";
     public static readonly string LeafletItem = $"{ModKeys.MAYOR_MOD_CPID}_Leaflet";
-    public static readonly IList<string> Voters = ["Alex","Elliott","Harvey","Sam","Sebastian","Shane",
+    private static readonly IList<string> Voters = ["Alex","Elliott","Harvey","Sam","Sebastian","Shane",
                                                    "Abigail","Emily","Haley","Leah","Maru","Penny","Caroline",
                                                    "Clint","Demetrius","Evelyn","George","Gus","Jodi","Kent",
                                                    "Lewis","Linus","Marnie","Pam","Pierre","Robin","Willy","Wizard"];
+    private static readonly IList<string> SVEVoters = ["Claire", "Lance", "Magnus", "Olivia", "Sophia", "Victor", "Andy", 
+                                                      "Gunther", "Marlon", "Morris", "Susan"];
     private readonly Farmer _farmer;
 
     internal int HeartThreshold { get; set; } = 5;
@@ -62,19 +65,30 @@ public class VotingManager
         }
         if (votes > 0)
         {
-            votes = ModProgressManager.HasProgressFlag(ModProgressManager.HasVotedForHostFarmer) ? 1 : -1;
+            votes = ModProgressManager.HasProgressFlag(ProgressFlags.HasVotedForHostFarmer) ? 1 : -1;
         }
         return votes;
     }
 
     public bool VotingForFarmer(string name)
     {
+        if (name.Equals(ModNPCKeys.MarlonId, StringComparison.InvariantCultureIgnoreCase))
+        {
+            return true;
+        }
+
+        if (name.Equals(ModNPCKeys.GusId, StringComparison.InvariantCultureIgnoreCase) &&
+            ModProgressManager.HasProgressFlag(ProgressFlags.GusVotingForYou))
+        {
+            return true;
+        }
+
         var hearts = GetNPCHearts(name);
         hearts += HasNPCBeenCanvassed(name) ? 1 : 0;
         hearts += HasNPCGotLeaflet(name) ? 1 : 0;
         hearts += HasWonDebate() ? 1 : 0;
         var threshold = HeartThreshold;
-        threshold += name.Equals("Lewis", StringComparison.InvariantCultureIgnoreCase) ? 3 : 0;
+        threshold += name.Equals(ModNPCKeys.LewisId, StringComparison.InvariantCultureIgnoreCase) ? 3 : 0;
         if (IsVotingRNG)
         {
             return (hearts * (1.0 / threshold)) > ModUtils.RNG.NextDouble();
@@ -85,21 +99,34 @@ public class VotingManager
         }
     }
 
-    public int CalculateTotalLeaflets()
+    public int CalculateTotalLeaflets(IModHelper helper)
     {
-        return Voters.Sum(v => HasNPCGotLeaflet(v) ? 1 : 0);
+        var voters = GetVotingVillagers(helper);
+        return voters.Sum(v => HasNPCGotLeaflet(v) ? 1 : 0);
     }
 
-    public int CalculateTotalVotes()
+    public static List<string> GetVotingVillagers(IModHelper helper)
     {
-        var votes =  Voters.Sum(v => VotingForFarmer(v) ? 1 : 0);
+        var villagers = Voters.ToList();
+        if (helper.ModRegistry.IsLoaded(ModKeys.SVE_MOD_ID))
+        {
+            villagers.AddRange(SVEVoters);
+        }
+        return villagers;
+    }
+
+    public int CalculateTotalVotes(IModHelper helper)
+    {
+        var voters = GetVotingVillagers(helper);
+        var votes = voters.Sum(v => VotingForFarmer(v) ? 1 : 0);
         votes += CalculatePlayerVotes();
         return votes;
     }
 
-    public bool HasWonElection()
+    public bool HasWonElection(IModHelper helper)
     {
-        var threshold = Voters.Count / 2;
-        return CalculateTotalVotes() > threshold;
+        var voters = GetVotingVillagers(helper);
+        var threshold = voters.Count / 2;
+        return CalculateTotalVotes(helper) > threshold;
     }
 }
