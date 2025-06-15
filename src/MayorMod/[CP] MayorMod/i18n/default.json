@@ -248,7 +248,7 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_1": "I am of the opinion that we need to hire a cleaning crew, our town looks terrible with all these littered streets.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_2": "I'm with Marlon on this. It is about time we took care of this problem. A clean town benefits everyone.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_3": "But at what cost? We can't just throw money at every problem. People should take care of their own trash.",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_4": "Hmm certain people might think they don't need to dispose of their waste properly themselves.",	
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_4": "Hmm certain people might think they don't need to dispose of their waste properly themselves.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_5": "That's exactly why I think it's worth the investment. It will set a good example for residents and keeps our town looking nice.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_6": "And think about all the businesses that could benefit from a cleaner environment. It would be an attractive feature for potential customers.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_7Q": "What do you think?",
@@ -302,7 +302,7 @@
 	//"EmuEngine.MayorModCP_Gifting.Gil.Leaflet": "",
 	//"EmuEngine.MayorModCP_Gifting.Gunther.Leaflet": "",
 	//"EmuEngine.MayorModCP_Gifting.Marlon.Leaflet": "",
-	//"EmuEngine.MayorModCP_Gifting.Morris.Leaflet": "",
+	"EmuEngine.MayorModCP_Gifting.Morris.Leaflet": "Hmm. This is not bad. You’ve got the language of leadership. Be careful though, promises are expensive.",
 
 	//////////////////////
 	//Converstaion Topics
@@ -347,7 +347,7 @@
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Gil.RegisteredForBallot": "",
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Gunther.RegisteredForBallot": "",
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.RegisteredForBallot": "",
-	//"EmuEngine.MayorModCP_ConverstaionTopic.Morris.RegisteredForBallot": "",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Morris.RegisteredForBallot": "Marlon told me you're running for mayor.",
 
 	"EmuEngine.MayorModCP_ConverstaionTopic.Alex.TalkingToVoters": "Better paths would really improve life around here",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Elliott.TalkingToVoters": "If elected I am counting on you to prioritize renewable energy",
@@ -389,7 +389,7 @@
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Gil.TalkingToVoters": "",
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Gunther.TalkingToVoters": "",
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.TalkingToVoters": "",
-	//"EmuEngine.MayorModCP_ConverstaionTopic.Morris.TalkingToVoters": "",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Morris.TalkingToVoters": "A new mayor ... I've got my eye on you. What kind of changes are you planning?",
 
 	"EmuEngine.MayorModCP_ConverstaionTopic.Alex.ElectedMayor": "Well, would you look at that? You have got yourself a whole new job now. Let's see what changes he brings to our little valley.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Elliott.ElectedMayor": "The farmer is now a mayor, huh? I must admit, I didn't see that coming. But if anyone can shake things up around here, it's you.",
@@ -426,12 +426,12 @@
 	//Non voters
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Sandy.ElectedMayor": "",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Dwarf.ElectedMayor": "You're the new mayor? Guess we'll see how long it takes before you start causing trouble around here.",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Krobus.ElectedMayor": "Mmm... Mayor @... I can't wait to see all the delicious opportunities this new position will bring..."
+	"EmuEngine.MayorModCP_ConverstaionTopic.Krobus.ElectedMayor": "Mmm... Mayor @... I can't wait to see all the delicious opportunities this new position will bring...",
 	//Non-giftable NPCs
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Gil.ElectedMayor": "",
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Gunther.ElectedMayor": "",
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.ElectedMayor": "",
-	//"EmuEngine.MayorModCP_ConverstaionTopic.Morris.ElectedMayor": "",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Morris.ElectedMayor": "Congratulations on becoming mayor!"
 
 }
 
@@ -439,7 +439,6 @@
 //What kind of community events do you have planned?
 //"Now that's a campaign leaflet with some serious clout behind it! It seems like you've really thought this through.",
 //"I hear you're running for mayor. Good luck. Lewis has been mayor as long as I can remember.",
-//"Marlon told me you're running for mayor. That's so cool.",
 //"Are you excited to be running for mayor?",
 //"Lewis has been mayor so long.",
 //"I can't picture anyone else being mayor.",

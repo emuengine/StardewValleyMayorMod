@@ -376,18 +376,17 @@
         //        "RejectItem_(O){{ModId}}_Leaflet": null
         //    }
         //},
-        //TODO: Check if Morris is giftable in other mods
-        //{
-        //    "Action": "EditData",
-        //    "Target": "Characters/Dialogue/Morris",
-        //    "Entries": {
-        //        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.RegisteredForBallot}}",
-        //        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.TalkingToVoters}}",
-        //        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.ElectedMayor}}",
-        //        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Morris.Leaflet}}",
-        //        "RejectItem_(O){{ModId}}_Leaflet": null
-        //    }
-        //},
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Morris",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.RegisteredForBallot}}",
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.ElectedMayor}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Morris.Leaflet}}",
+                "RejectItem_(O){{ModId}}_Leaflet": null
+            }
+        },
         //Non voters
         //{
         //    "Action": "EditData",

@@ -20,7 +20,7 @@ public static class ModUtils
     {
         get
         {
-            _marlonNPC ??= Utility.fuzzyCharacterSearch(ModNPCKeys.Marlon);
+            _marlonNPC ??= Utility.fuzzyCharacterSearch(ModNPCKeys.MARLON_ID);
             return _marlonNPC;
         }
     }
@@ -74,7 +74,7 @@ public static class ModUtils
     {
         try
         {
-            var modInfo = helper.ModRegistry.Get(ModKeys.MayorModCPId);
+            var modInfo = helper.ModRegistry.Get(ModKeys.MAYOR_MOD_CPID);
             var cpPack = modInfo?.GetType().GetProperty("ContentPack")?.GetValue(modInfo) as IContentPack;
             var key = cpPack?.Translation.Get(translationKey).ToString();
             return key ?? string.Empty;

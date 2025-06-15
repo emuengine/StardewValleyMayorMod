@@ -6,9 +6,9 @@ namespace MayorMod.Data;
 public class VotingManager
 {
     public const int PointsPerHeart = 250;
-    public static readonly string TalkingToVotersTopic = $"{ModKeys.MayorModCPId}_TalkingToVotersTopic";
-    public static readonly string MayorDebateEvent = $"{ModKeys.MayorModCPId}_MayorDebateEvent";
-    public static readonly string LeafletItem = $"{ModKeys.MayorModCPId}_Leaflet";
+    public static readonly string TalkingToVotersTopic = $"{ModKeys.MAYOR_MOD_CPID}_TalkingToVotersTopic";
+    public static readonly string MayorDebateEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorDebateEvent";
+    public static readonly string LeafletItem = $"{ModKeys.MAYOR_MOD_CPID}_Leaflet";
     public static readonly IList<string> Voters = ["Alex","Elliott","Harvey","Sam","Sebastian","Shane",
                                                    "Abigail","Emily","Haley","Leah","Maru","Penny","Caroline",
                                                    "Clint","Demetrius","Evelyn","George","Gus","Jodi","Kent",

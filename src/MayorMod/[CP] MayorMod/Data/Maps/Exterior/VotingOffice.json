@@ -42,7 +42,31 @@
                 "Height": 2
             },
             "When": {
-                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true
+                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": false
+            }
+        },
+        {
+            "LogName": "Patching Maps/Town to add voting sign on SVE town map",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "Overlay",
+            "FromFile": "Assets/Maps/MapPatches/VotingSignSVE.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 2,
+                "Height": 2
+            },
+            "ToArea": {
+                "X": 51,
+                "Y": 51,
+                "Width": 2,
+                "Height": 2
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
             }
         },
         {

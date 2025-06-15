@@ -2,11 +2,13 @@
 using MayorMod.Data;
 using MayorMod.Data.Models;
 using MayorMod.Data.TileActions;
+using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.GameData;
+using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
 
@@ -27,16 +29,18 @@ internal sealed class ModEntry : Mod
     public override void Entry(IModHelper helper)
     {
         TileActionManager.Init(Helper, Monitor);
+        Phone.PhoneHandlers.Add(new PollingDataHandler(Helper));
+        EventCommands.AddExtraEventCommands(Monitor);
 
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
         Helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
         Helper.Events.Content.AssetRequested += OnAssetRequested;
         Helper.Events.Input.ButtonPressed += OnButtonPressed;
-
-        Phone.PhoneHandlers.Add(new PollingDataHandler(Helper));
-
-        EventCommands.AddExtraEventCommands(Monitor);
+        if (helper.ModRegistry.IsLoaded(ModKeys.SVE_MOD_ID))
+        {
+            Helper.Events.Player.Warped += Player_Warped;
+        }
     }
 
     /// <summary>
@@ -133,6 +137,21 @@ internal sealed class ModEntry : Mod
     }
 
     /// <summary>
+    /// Does updates on player map change
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e">event args</param>
+    private void Player_Warped(object? sender, WarpedEventArgs e)
+    {
+        if (e.NewLocation.NameOrUniqueName == nameof(Town))
+        {
+            //Remove bushes on SVE town map
+            e.NewLocation.terrainFeatures.RemoveWhere(tf => tf.Key.Equals(new Vector2(30, 34)));
+            e.NewLocation.terrainFeatures.RemoveWhere(tf => tf.Key.Equals(new Vector2(31, 35)));
+        }
+    }
+
+    /// <summary>
     /// Updates assets for dynamic assets that change depending on mod data
     /// </summary>
     /// <param name="sender"></param>
@@ -144,15 +163,15 @@ internal sealed class ModEntry : Mod
             return;
         }
 
-        if (e.NameWithoutLocale.IsEquivalentTo("Data/Mail"))
+        if (e.NameWithoutLocale.IsEquivalentTo(ModKeys.XNBPathKeys.MAIL))
         {
             e.Edit(AssetUpdatesForMail);
         }
-        else if (e.NameWithoutLocale.IsEquivalentTo("Data/PassiveFestivals"))
+        else if (e.NameWithoutLocale.IsEquivalentTo(ModKeys.XNBPathKeys.PASSIVE_FESTIVALS))
         {
             e.Edit(AssetUpdatesForPassiveFestivals);
         }
-        else if (e.NameWithoutLocale.StartsWith("Characters/Dialogue"))
+        else if (e.NameWithoutLocale.StartsWith(ModKeys.XNBPathKeys.DIALOGUE))
         {
             e.Edit(AssetUpdatesForDialogue);
         }
@@ -161,14 +180,14 @@ internal sealed class ModEntry : Mod
     /// <summary>
     /// Updates mail assets that depend on voting day
     /// </summary>
-    /// <param name="mails"></param>
+    /// <param name="mails">mail data</param>
     private void AssetUpdatesForMail(IAssetData mails)
     {
         var data = mails.AsDictionary<string, string>().Data;
-        var title = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Mail.RegistrationMail.Title");
-        var body = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Mail.RegistrationMail.Body");
+        var title = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.RegistrationMail.Title");
+        var body = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.RegistrationMail.Body");
         body = string.Format(body, $"{_saveData.VotingDate.Season} {_saveData.VotingDate.Day}");
-        data[$"{ModKeys.MayorModCPId}_RegisteredForElectionMail"] = $"{body}[#]{title}";
+        data[$"{ModKeys.MAYOR_MOD_CPID}_RegisteredForElectionMail"] = $"{body}[#]{title}";
 
         //TODO Add mail the day before voting day
     }
@@ -176,34 +195,34 @@ internal sealed class ModEntry : Mod
     /// <summary>
     /// Updates Passive Festivals assets that depend on voting day
     /// </summary>
-    /// <param name="festivals"></param>
+    /// <param name="festivals">festivals data</param>
     private void AssetUpdatesForPassiveFestivals(IAssetData festivals)
     {
         var data = festivals.AsDictionary<string, PassiveFestivalData>().Data;
         var votingDay = new PassiveFestivalData()
         {
-            DisplayName = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Festival.VotingDay.Name"),
-            StartMessage = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Festival.VotingDay.Message"),
+            DisplayName = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Name"),
+            StartMessage = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Message"),
             Season = _saveData.VotingDate.Season,
             StartDay = _saveData.VotingDate.Day,
             EndDay = _saveData.VotingDate.Day,
             StartTime = 610,
             ShowOnCalendar = true,
         };
-        data[$"{ModKeys.MayorModCPId}_VotingDayPassiveFestival"] = votingDay;
+        data[$"{ModKeys.MAYOR_MOD_CPID}_VotingDayPassiveFestival"] = votingDay;
     }
 
     /// <summary>
     /// Updates dialogue so that all characters not specifically designated will reject election leaflets
     /// </summary>
-    /// <param name="dialogues"></param>
+    /// <param name="dialogues">dialogues data</param>
     private void AssetUpdatesForDialogue(IAssetData dialogues)
     {
         if (!dialogues.AsDictionary<string, string>().Data.ContainsKey($"AcceptGift_(O){ModItemKeys.Leaflet}") &&
             !dialogues.AsDictionary<string, string>().Data.ContainsKey($"RejectItem_(O){ModItemKeys.Leaflet}"))
         {
             var data = dialogues.AsDictionary<string, string>().Data;
-            data[$"RejectItem_(O){ModItemKeys.Leaflet}"] = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MayorModCPId}_Gifting.Default.Leaflet");
+            data[$"RejectItem_(O){ModItemKeys.Leaflet}"] = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Gifting.Default.Leaflet");
         }
     }
 
@@ -216,8 +235,8 @@ internal sealed class ModEntry : Mod
     /// </summary>
     public void InvalidateModData()
     {
-        Helper.GameContent.InvalidateCache("Data/Mail");
-        Helper.GameContent.InvalidateCache("Data/PassiveFestivals");
+        Helper.GameContent.InvalidateCache(ModKeys.XNBPathKeys.MAIL);
+        Helper.GameContent.InvalidateCache(ModKeys.XNBPathKeys.PASSIVE_FESTIVALS);
         Game1.PerformPassiveFestivalSetup();
         Game1.UpdatePassiveFestivalStates();
         _modDataCacheInvalidationNeeded = false;

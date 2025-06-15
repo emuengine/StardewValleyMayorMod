@@ -2,8 +2,8 @@
 
 public class CouncilMeetingKeys
 {
-    public static readonly string PlannedPrefix = $"{ModKeys.MayorModCPId}_CouncilMeetingPlanned";
-    public static readonly string HeldPrefix = $"{ModKeys.MayorModCPId}_CouncilMeetingHeld";
+    public static readonly string PlannedPrefix = $"{ModKeys.MAYOR_MOD_CPID}_CouncilMeetingPlanned";
+    public static readonly string HeldPrefix = $"{ModKeys.MAYOR_MOD_CPID}_CouncilMeetingHeld";
 
     //Meetings
     public static readonly string MeetingIntro = "Intro";
