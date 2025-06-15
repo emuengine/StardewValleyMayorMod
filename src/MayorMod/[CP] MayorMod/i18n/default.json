@@ -32,11 +32,10 @@
 	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^We need to communicate the vision you have for mayor to the town. As your campaign manager, I suggest that you make time for talking to the villagers. I'm going to do regular polling to see how effective the campaign is. Call me on the phone if you want updates on your polling numbers. I've also printed out policy leaflets that we can hand out.^-Marlon",
 
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Title": "Good News",
-	"EmuEngine.MayorModCP_Mail.CampaignMail.Body": "Hey @,^^Good news! I have been talking with Morris and I think I've convinced him to vote for you. I've also printed up a poster that you can put up in the town. ^^-Marlon",
+	"EmuEngine.MayorModCP_Mail.CampaignMail.Body": "Hey @,^^Good news! I have been talking with Gus and I think I've convinced him to vote for you. I've also printed up a poster that you can put up in the town. ^^-Marlon",
 
 	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Title": "Council member vote",
-	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Body": "Hey @,^^Did you know we used to have a town council? I handled security issues, Gus took care of commerce & culture, Maru focused on health & science, and Penny oversaw education. I've spoken with the old gang and they're keen for us to revive the council meetings. If we do they're also open to supporting your bid for mayor too.^^-Marlon",
-
+	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Body": "Hey @,^^Did you know we used to have a town council? I’ve spoken with Gus, Maru, and Penny from the old gang. They're keen for us to revive the council meetings again. If we do they're also open to supporting your bid for mayor.^^-Marlon",
 
 	//////////////////////
 	//Quests
