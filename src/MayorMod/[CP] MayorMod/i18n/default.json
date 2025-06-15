@@ -290,7 +290,7 @@
 	"EmuEngine.MayorModCP_Gifting.Willy.Leaflet": "This doesn't mention what your plans are for helping the fishing industry.",
 	"EmuEngine.MayorModCP_Gifting.Wizard.Leaflet": "Ah! Your leaflet is positively brimming with magical potential!",
 	//Kids
-	"EmuEngine.MayorModCP_Gifting.Jas.Leaflet": "No thanks. I can't vote silly.'",
+	"EmuEngine.MayorModCP_Gifting.Jas.Leaflet": "No thanks. I can't vote silly.",
 	//"EmuEngine.MayorModCP_Gifting.Leo.Leaflet": "",
 	"EmuEngine.MayorModCP_Gifting.Vincent.Leaflet": "This looks boring to read. Have you got a story with dragons?",
 	//Non voters
@@ -299,9 +299,18 @@
 	"EmuEngine.MayorModCP_Gifting.Krobus.Leaflet": "Mmm... intriguing proposals. Perhaps there's more to you than meets the eye...",
 	//Non-giftable NPCs
 	//"EmuEngine.MayorModCP_Gifting.Gil.Leaflet": "",
-	//"EmuEngine.MayorModCP_Gifting.Gunther.Leaflet": "",
-	//"EmuEngine.MayorModCP_Gifting.Marlon.Leaflet": "",
+	"EmuEngine.MayorModCP_Gifting.Gunther.Leaflet": "REPLACE_ME",
+	"EmuEngine.MayorModCP_Gifting.Marlon.Leaflet": "Dont be wasting leaflets on me. Give them out to the other villagers and talk to people. I''m sure you can convince them you're a much better choice for this town than Lewis.'",
 	"EmuEngine.MayorModCP_Gifting.Morris.Leaflet": "Hmm. This is not bad. You’ve got the language of leadership. Be careful though, promises are expensive.",
+	//Stardew Valley Expanded NPCs
+	"EmuEngine.MayorModCP_Gifting.Claire.Leaflet": "REPLACE_ME",
+	"EmuEngine.MayorModCP_Gifting.Lance.Leaflet": "REPLACE_ME",
+	"EmuEngine.MayorModCP_Gifting.Olivia.Leaflet": "REPLACE_ME",
+	"EmuEngine.MayorModCP_Gifting.Sophia.Leaflet": "REPLACE_ME",
+	"EmuEngine.MayorModCP_Gifting.Victor.Leaflet": "REPLACE_ME",
+	"EmuEngine.MayorModCP_Gifting.Andy.Leaflet": "REPLACE_ME",
+	"EmuEngine.MayorModCP_Gifting.Susan.Leaflet": "REPLACE_ME",
+	"EmuEngine.MayorModCP_Gifting.Martin.Leaflet": "You can keep that. I can''t vote in the election.",
 
 	//////////////////////
 	//Converstaion Topics
@@ -344,9 +353,18 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Krobus.RegisteredForBallot": "Ah, you're seeking to replace Lewis, are you? How... interesting. Good luck, I suppose.",
 	//Non-giftable NPCs
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Gil.RegisteredForBallot": "",
-	//"EmuEngine.MayorModCP_ConverstaionTopic.Gunther.RegisteredForBallot": "",
-	//"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.RegisteredForBallot": "",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Gunther.RegisteredForBallot": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.RegisteredForBallot": "You're registered for the bollot now. We need to start working on your campaign.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Morris.RegisteredForBallot": "Marlon told me you're running for mayor.",
+	//Stardew Valley Expanded NPCs
+	"EmuEngine.MayorModCP_ConverstaionTopic.Claire.RegisteredForBallot": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Lance.RegisteredForBallot": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Olivia.RegisteredForBallot": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Sophia.RegisteredForBallot": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Victor.RegisteredForBallot": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Andy.RegisteredForBallot": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Susan.RegisteredForBallot": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Martin.RegisteredForBallot": "REPLACE_ME",
 
 	"EmuEngine.MayorModCP_ConverstaionTopic.Alex.TalkingToVoters": "Better paths would really improve life around here",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Elliott.TalkingToVoters": "If elected I am counting on you to prioritize renewable energy",
@@ -386,9 +404,18 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Krobus.TalkingToVoters": "Mmm... perhaps we could discuss some... unique policy initiatives?",
 	//Non-giftable NPCs
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Gil.TalkingToVoters": "",
-	//"EmuEngine.MayorModCP_ConverstaionTopic.Gunther.TalkingToVoters": "",
-	//"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.TalkingToVoters": "",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Gunther.TalkingToVoters": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.TalkingToVoters": "I've been talking to as many voters as I can about your campaign. Most people seem receptive to change.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Morris.TalkingToVoters": "A new mayor ... I've got my eye on you. What kind of changes are you planning?",
+	//Stardew Valley Expanded NPCs
+	"EmuEngine.MayorModCP_ConverstaionTopic.Claire.TalkingToVoters": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Lance.TalkingToVoters": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Olivia.TalkingToVoters": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Sophia.TalkingToVoters": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Victor.TalkingToVoters": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Andy.TalkingToVoters": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Susan.TalkingToVoters": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Martin.TalkingToVoters": "REPLACE_ME",
 
 	"EmuEngine.MayorModCP_ConverstaionTopic.Alex.ElectedMayor": "Well, would you look at that? You have got yourself a whole new job now. Let's see what changes he brings to our little valley.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Elliott.ElectedMayor": "The farmer is now a mayor, huh? I must admit, I didn't see that coming. But if anyone can shake things up around here, it's you.",
@@ -428,10 +455,18 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Krobus.ElectedMayor": "Mmm... Mayor @... I can't wait to see all the delicious opportunities this new position will bring...",
 	//Non-giftable NPCs
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Gil.ElectedMayor": "",
-	//"EmuEngine.MayorModCP_ConverstaionTopic.Gunther.ElectedMayor": "",
-	//"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.ElectedMayor": "",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Morris.ElectedMayor": "Congratulations on becoming mayor!"
-
+	"EmuEngine.MayorModCP_ConverstaionTopic.Gunther.ElectedMayor": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.ElectedMayor": "WE DID IT! You're the mayor now! Great work!",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Morris.ElectedMayor": "Congratulations on becoming mayor!",
+	//Stardew Valley Expanded NPCs
+	"EmuEngine.MayorModCP_ConverstaionTopic.Claire.ElectedMayor": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Lance.ElectedMayor": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Olivia.ElectedMayor": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Sophia.ElectedMayor": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Victor.ElectedMayor": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Andy.ElectedMayor": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Susan.ElectedMayor": "REPLACE_ME",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Martin.ElectedMayor": "REPLACE_ME"
 }
 
 

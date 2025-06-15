@@ -14,7 +14,7 @@ public class VotingManager
                                                    "Abigail","Emily","Haley","Leah","Maru","Penny","Caroline",
                                                    "Clint","Demetrius","Evelyn","George","Gus","Jodi","Kent",
                                                    "Lewis","Linus","Marnie","Pam","Pierre","Robin","Willy","Wizard"];
-    private static readonly IList<string> SVEVoters = ["Claire", "Lance", "Magnus", "Olivia", "Sophia", "Victor", "Andy", 
+    private static readonly IList<string> SVEVoters = ["Claire", "Lance", "Olivia", "Sophia", "Victor", "Andy", 
                                                       "Gunther", "Marlon", "Morris", "Susan"];
     private readonly Farmer _farmer;
 

@@ -354,28 +354,28 @@
         //        "RejectItem_(O){{ModId}}_Leaflet": null
         //    }
         //},
-        //{
-        //    "Action": "EditData",
-        //    "Target": "Characters/Dialogue/Gunther",
-        //    "Entries": {
-        //        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.RegisteredForBallot}}",
-        //        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.TalkingToVoters}}",
-        //        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.ElectedMayor}}",
-        //        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gunther.Leaflet}}",
-        //        "RejectItem_(O){{ModId}}_Leaflet": null
-        //    }
-        //},
-        //{
-        //    "Action": "EditData",
-        //    "Target": "Characters/Dialogue/Marlon",
-        //    "Entries": {
-        //        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.RegisteredForBallot}}",
-        //        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.TalkingToVoters}}",
-        //        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.ElectedMayor}}",
-        //        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Marlon.Leaflet}}",
-        //        "RejectItem_(O){{ModId}}_Leaflet": null
-        //    }
-        //},
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Gunther",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.RegisteredForBallot}}",
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.ElectedMayor}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gunther.Leaflet}}",
+                "RejectItem_(O){{ModId}}_Leaflet": null
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Marlon",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.RegisteredForBallot}}",
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.ElectedMayor}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Marlon.Leaflet}}",
+                "RejectItem_(O){{ModId}}_Leaflet": null
+            }
+        },
         {
             "Action": "EditData",
             "Target": "Characters/Dialogue/Morris",
@@ -417,6 +417,111 @@
                 "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.TalkingToVoters}}",
                 "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.ElectedMayor}}",
                 "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Krobus.Leaflet}}"
+            }
+        },
+        //Stardew Valley Expanded characters
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Claire",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.RegisteredForBallot}}",
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.ElectedMayor}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Krobus.Leaflet}}"
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Lance",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lance.RegisteredForBallot}}",
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lance.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lance.ElectedMayor}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Lance.Leaflet}}"
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Olivia",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Olivia.RegisteredForBallot}}",
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Olivia.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Olivia.ElectedMayor}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Olivia.Leaflet}}"
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Sophia",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sophia.RegisteredForBallot}}",
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sophia.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sophia.ElectedMayor}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sophia.Leaflet}}"
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Victor",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Victor.RegisteredForBallot}}",
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Victor.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Victor.ElectedMayor}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Victor.Leaflet}}"
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Andy",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Andy.RegisteredForBallot}}",
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Andy.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Andy.ElectedMayor}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Andy.Leaflet}}"
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Susan",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Susan.RegisteredForBallot}}",
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Susan.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Susan.ElectedMayor}}",
+                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Susan.Leaflet}}"
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Martin",
+            "Entries": {
+                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Martin.RegisteredForBallot}}",
+                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Martin.TalkingToVoters}}",
+                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Martin.ElectedMayor}}",
+                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Martin.Leaflet}}"
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
             }
         }
     ]
