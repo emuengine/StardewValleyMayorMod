@@ -56,22 +56,6 @@ Host and lead council meetings where you and other council members discuss and v
 <br />
 <br />
 
-## 
-
-<p align="Left" width="100%">
-    <img width="30%" src="https://github.com/user-attachments/assets/cee81f24-3b83-4c03-a999-7e7d909cd758">
-</p>
-
-The mod is designed with minimal dependencies. <br />
-
-You'll need:  
-- SMAPI 
-- Content Patcher
-
-<p align="Left" width="100%">
-    <img width="30%" src="https://github.com/user-attachments/assets/bbe173a3-0666-433a-9286-923b0d1b053e">
-</p>
-Should work with most other mods. Let me know if you encounter any issues.
 
 ## Planned features
 The project is currently split up into phases:
