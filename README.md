@@ -42,10 +42,21 @@ Lewis has been using the old Town Hall as his personal space for years. Once you
 </p>
 Host and lead council meetings where you and other council members discuss and vote on town improvements. Make choices that affect Pelican Town's development and daily life.
 
+
+
+<p align="Center" width="100%">
+    <img src="https://github.com/user-attachments/assets/c4248b1d-da26-401c-9431-dba8d34542de" width="200" height="200">
+    <img src="https://github.com/user-attachments/assets/8bde4923-9b62-45ad-9a69-40599955cfa7" width="200" height="200">
+    <img src="https://github.com/user-attachments/assets/5e105cae-dca6-4e87-8b74-369c12e37ea3" width="200"  height="200">
+    <img src="https://github.com/user-attachments/assets/1f8ff7a8-bfa5-4ec9-9e87-9e51e0902659" width="200"  height="200">
+</p>
+
+<br />
+<br />
 <br />
 <br />
 
-<p align="Center" width="100%">
+<p align="Left" width="100%">
     <img width="30%" src="https://github.com/user-attachments/assets/cee81f24-3b83-4c03-a999-7e7d909cd758">
 </p>
 
@@ -55,25 +66,10 @@ You'll need:
 - SMAPI 
 - Content Patcher
 
-<br />
-<br />
-
-<p align="Center" width="100%">
+<p align="Left" width="100%">
     <img width="30%" src="https://github.com/user-attachments/assets/bbe173a3-0666-433a-9286-923b0d1b053e">
 </p>
 Should work with most other mods. Let me know if you encounter any issues.
-
-<br />
-<br />
-
-<p align="Center" width="100%">
-    <img src="https://github.com/user-attachments/assets/c4248b1d-da26-401c-9431-dba8d34542de" width="200" height="200">
-    <img src="https://github.com/user-attachments/assets/8bde4923-9b62-45ad-9a69-40599955cfa7" width="200" height="200">
-    <img src="https://github.com/user-attachments/assets/5e105cae-dca6-4e87-8b74-369c12e37ea3" width="200"  height="200">
-    <img src="https://github.com/user-attachments/assets/1f8ff7a8-bfa5-4ec9-9e87-9e51e0902659" width="200"  height="200">
-</p>
-
-
 
 ## Planned features
 The project is currently split up into phases:
