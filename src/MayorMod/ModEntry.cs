@@ -60,6 +60,7 @@ internal sealed class ModEntry : Mod
                 _saveData = saveData;
             }
         }
+
     }
 
     /// <summary>
@@ -117,6 +118,7 @@ internal sealed class ModEntry : Mod
             if (pd.HasWonElection(Helper))
             {
                 ModProgressManager.AddProgressFlag(ProgressFlags.WonMayorElection);
+                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonElectionMail");
             }
             else
             {
@@ -148,6 +150,9 @@ internal sealed class ModEntry : Mod
             //Remove bushes on SVE town map
             e.NewLocation.terrainFeatures.RemoveWhere(tf => tf.Key.Equals(new Vector2(30, 34)));
             e.NewLocation.terrainFeatures.RemoveWhere(tf => tf.Key.Equals(new Vector2(31, 35)));
+            
+            //TODO Look into if this is better to use
+            //Utility.clearObjectsInArea(bounds, gameLocation);
         }
     }
 

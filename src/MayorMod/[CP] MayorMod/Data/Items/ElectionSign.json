@@ -1,6 +1,5 @@
 {
     "Changes": [
-        // Add Election Sign
         {
             "Action": "Load",
             "Target": "Mods/{{ModId}}/ElectionSign",

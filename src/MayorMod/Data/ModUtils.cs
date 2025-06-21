@@ -5,6 +5,7 @@ using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.Extensions;
 using StardewValley.GameData;
+using StardewValley.Locations;
 using System.Text.RegularExpressions;
 
 namespace MayorMod.Data;
@@ -208,5 +209,18 @@ public static class ModUtils
             return Game1.currentLocation.isCharacterAtTile(Game1.player.GetGrabTile());
         }
         return null;
+    }
+
+    /// <summary>
+    /// Code to try Remove Travelling Cart. Doesn't work but might neeed it in the future.
+    /// </summary>
+    private static void RemoveTravellingCart()
+    {
+        //need to edit the passive festivals too
+        var f = Game1.locationData["Forest"];
+        Forest forest = (Forest)Game1.getLocationFromName("Forest");
+        forest.travelingMerchantBounds.Clear();
+        forest.travelingMerchantDay = false;
+        ((Forest)Game1.getLocationFromName(nameof(Forest))).ShouldTravelingMerchantVisitToday();
     }
 }

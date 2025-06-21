@@ -1,0 +1,18 @@
+{
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Data/Shirts",
+            "Entries": {
+                "{{ModId}}_MayorSuitJacket": {
+                    "Name": "{{ModId}}_MayorSuitJacket",
+                    "DisplayName": "Mayor Suit Jacket",
+                    "Description": "Suit jacket with mayoral chain",
+                    "Type": 0,
+                    "Texture": "{{InternalAssetKey: Assets/Clothing/MayorSuit.png}}",
+                    "SpriteIndex": 0
+                }
+            }
+        }
+    ]
+} 
