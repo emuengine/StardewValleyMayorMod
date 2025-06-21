@@ -44,8 +44,6 @@ Lewis has been using the old Town Hall as his personal space for years. Once you
 </p>
 Host and lead council meetings where you and other council members discuss and vote on town improvements. Make choices that affect Pelican Town's development and daily life.
 
-
-
 <p align="Center" width="100%">
     <img src="https://github.com/user-attachments/assets/c4248b1d-da26-401c-9431-dba8d34542de" width="200" height="200">
     <img src="https://github.com/user-attachments/assets/8bde4923-9b62-45ad-9a69-40599955cfa7" width="200" height="200">
@@ -57,6 +55,8 @@ Host and lead council meetings where you and other council members discuss and v
 <br />
 <br />
 <br />
+
+## 
 
 <p align="Left" width="100%">
     <img width="30%" src="https://github.com/user-attachments/assets/cee81f24-3b83-4c03-a999-7e7d909cd758">
