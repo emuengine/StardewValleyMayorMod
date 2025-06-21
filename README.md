@@ -1,8 +1,15 @@
-# Stardew Valley MayorMod
-![basiclogo](https://github.com/user-attachments/assets/c4248b1d-da26-401c-9431-dba8d34542de)
+<p align="center" width="100%">
+    <img src="https://github.com/user-attachments/assets/c4248b1d-da26-401c-9431-dba8d34542de">
+</p>
 
-A mod for Stardew Valley which lets you become the mayor.<br/>
-[**Try the latest version!**](https://github.com/emuengine/StardewValleyMayorMod/releases) </br>
+<p align="center" width="100%">
+    <img src="https://github.com/user-attachments/assets/515d56db-3209-46a5-b52c-ef46e18d1049">
+</p>
+The Mayor Mod lets you step into a leadership role in Pelican Town. Run for mayor in a local election, cast your vote, and take part in council meetings where you can make decisions that impact the town. Improve the community, work with villagers, and shape the future of Stardew Valley through local politics. 
+<br />
+<br />
+
+[**Try the latest version!**](https://github.com/emuengine/StardewValleyMayorMod/releases) <br />
 Any feedback is greatly appreciated.
 
 ## Current features
