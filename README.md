@@ -34,14 +34,17 @@ Host and lead council meetings where you and other council members discuss and v
 
 <br/>
 <br/>
-<p align="Center" width="100%">
-    <img src="https://github.com/user-attachments/assets/c4248b1d-da26-401c-9431-dba8d34542de" width="200" height="200">
-    <img src="https://github.com/user-attachments/assets/8bde4923-9b62-45ad-9a69-40599955cfa7" width="200" height="200">
-    <img src="https://github.com/user-attachments/assets/5e105cae-dca6-4e87-8b74-369c12e37ea3" width="200"  height="200">
-    <img src="https://github.com/user-attachments/assets/1f8ff7a8-bfa5-4ec9-9e87-9e51e0902659" width="200"  height="200">
+
+<p align="Center" width="100%">    
+    <p align="Center">
+    <img src="https://github.com/user-attachments/assets/e5c5388a-762d-4314-8adf-21f6acb5b49e" width="300"  height="200">
+    <img src="https://github.com/user-attachments/assets/61c46178-ff64-4a29-8b17-6f031278fb12" width="300"  height="200">
+    </p>
+    <p  align="Center">
+    <img src="https://github.com/user-attachments/assets/29648609-8fc1-4f2a-a67a-e66a1277f796" width="300" height="200">
+    <img src="https://github.com/user-attachments/assets/f9872ffe-6cf7-4114-99a3-cb64707fe193" width="300" height="200">
+    </p>    
 </p>
-<br/>
-<br/>
 
 ## 
 
