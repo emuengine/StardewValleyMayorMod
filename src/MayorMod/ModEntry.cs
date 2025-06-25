@@ -76,6 +76,11 @@ internal sealed class ModEntry : Mod
             {
                 ModProgressManager.AddProgressFlag(ProgressFlags.IsVotingDay);
             }
+
+            if (_saveData.VotingDate.AddDays(-1) == SDate.Now())
+            {
+                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_VoteTomorrowMail");
+            }
         }
 
         if (_modDataCacheInvalidationNeeded)

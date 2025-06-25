@@ -34,12 +34,15 @@
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Title": "Good News",
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Body": "Hey @,^^Good news! I have been talking with Gus and I think I've convinced him to vote for you. I've also printed up a poster that you can put up in the town. ^^-Marlon",
 
+	"EmuEngine.MayorModCP_Mail.VoteTomorrowMail.Title": "Voting Tomorrow",
+	"EmuEngine.MayorModCP_Mail.VoteTomorrowMail.Body": "^Dear Citizen,^Re: Mayoral Election^^ We are writing to remind you that voting for the Mayor of Pelican Town will take place tomorrow. The voting booths will be open all day, so we encourage you to vote early to avoid the crowds.^^Sincerely,^S.V. Election Committee[letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black]",
+
 	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Title": "Council member vote",
-	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Body": "Hey @,^^Did you know we used to have a town council? I’ve spoken with Gus, Maru, and Penny from the old gang. They're keen for us to revive the council meetings again. If we do they're also open to supporting your bid for mayor.^^-Marlon",
-	
+	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Body": "Hey @,^^Did you know we used to have a town council? I've spoken with Gus, Maru, and Penny from the old gang. They're keen for us to revive the council meetings again. If we do they're also open to supporting your bid for mayor.^^-Marlon",
+
 	"EmuEngine.MayorModCP_Mail.WonElectionMail.Title": "Election Win",
 	"EmuEngine.MayorModCP_Mail.WonElectionMail.Body": "Congratulations Mayor @! ^^I think you may need this today!^^-Marlon",
-	
+
 
 	//////////////////////
 	//Quests
@@ -260,6 +263,26 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_8": "Excellent! I'll call the company today and we should have the town cleaned up in no time.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoCleanup_0": "I'm disappointed but I understand that we do need to be careful with the budget.",
 
+	"EmuEngine.MayorModCP_Events.TreePlanting_0": "Ok class. In today's lesson we are going to learn about giving back to nature by having our own tree planting ceremony. The Mayor is a very talented farmer and has kindly offered up time to help us.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_1": "Now kids this is the sapling of a Bur Oak tree. It will grow slowly, but one day it'll stretch its branches far above us.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_2": "How slow is slow. Will I get to climb it?",
+	"EmuEngine.MayorModCP_Events.TreePlanting_3": "Let's just say by the time it’s tall enough to give real shade, you two might be grown-ups with kids of your own.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_4": "Awww we won't even get to sit under it?",
+	"EmuEngine.MayorModCP_Events.TreePlanting_5": "Maybe not. But that’s also a very good thing to learn. There’s an old saying that we should plant trees under whose shade we will never sit. It means that we should do good things now even if the benefits are for someone else. If we all do that it will make the world better for all of us.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_6": "Yeah! The future kids are gonna have so much fun climbing our new tree friend!",
+	"EmuEngine.MayorModCP_Events.TreePlanting_7": "Oooooo can we name our new tree fried? I think Mr. BurBur should have a name.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_8": "Yeah... but we should have a better name than 'Mr. BurBur'",
+	"EmuEngine.MayorModCP_Events.TreePlanting_9Q": "I think naming the tree is a lovely idea. How about",
+	"EmuEngine.MayorModCP_Events.TreePlanting_9A0": "Barky",
+	"EmuEngine.MayorModCP_Events.TreePlanting_9A1": "Whompy",
+	"EmuEngine.MayorModCP_Events.TreePlanting_9A2": "Stumpy",
+	"EmuEngine.MayorModCP_Events.TreePlanting_10": "Yeah I like that!",
+	"EmuEngine.MayorModCP_Events.TreePlanting_11": "Ok ok. Mayor, would you like to plant the tree for us now?",
+	"EmuEngine.MayorModCP_Events.TreePlanting_12": "You have to be gentle with the roots. Penny said we need to be careful with them. We don't want to hurt Mr. BurBur.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_13": "That's correct Jas. would you like to help the mayor place the sapling?",
+	"EmuEngine.MayorModCP_Events.TreePlanting_14": "Only if I get to decide on the name after.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_15": "What if we vote on the name?",
+	"EmuEngine.MayorModCP_Events.TreePlanting_16": "Alright kids, that sounds like democracy in action. How about we get this little tree into the ground first and while you're doing that the mayor can teach you all about how to write campaign speeches for your tree naming referendum.",
 
 	//////////////////////
 	//Gifting
@@ -307,15 +330,15 @@
 	"EmuEngine.MayorModCP_Gifting.Marlon.Leaflet": "Dont be wasting leaflets on me. Give them out to the other villagers and talk to people. I'm sure you can convince them you're a much better choice for this town than Lewis.'",
 	"EmuEngine.MayorModCP_Gifting.Morris.Leaflet": "Hmm. This is not bad. You've got the language of leadership. Be careful though, promises are expensive.",
 	//Stardew Valley Expanded NPCs
-	"EmuEngine.MayorModCP_Gifting.Claire.Leaflet": "Oh, you're really serious about this! I’ll read it on my break. It’s cool to see someone care so much.",
-	"EmuEngine.MayorModCP_Gifting.Lance.Leaflet": "A well-organized campaign. I appreciate the clarity of your goals. I’ll consider your vision carefully.",
-	"EmuEngine.MayorModCP_Gifting.Olivia.Leaflet": "Hmm, let’s see what you’re promising. Just remember that words are easy, but your actions are what counts.",
-	"EmuEngine.MayorModCP_Gifting.Sophia.Leaflet": "Your plans look really interesting... I hope people see how much thought you’ve put into this.",
-	"EmuEngine.MayorModCP_Gifting.Victor.Leaflet":  "You put a lot of thought into this. I think people will appreciate your ideas for the town.",
-	"EmuEngine.MayorModCP_Gifting.Andy.Leaflet": "Policies, huh? Let’s see if any of 'em help the folks who actually work the land.",
+	"EmuEngine.MayorModCP_Gifting.Claire.Leaflet": "Oh, you're really serious about this! I’ll read it on my break. It's cool to see someone care so much.",
+	"EmuEngine.MayorModCP_Gifting.Lance.Leaflet": "A well-organized campaign. I appreciate the clarity of your goals. I'll consider your vision carefully.",
+	"EmuEngine.MayorModCP_Gifting.Olivia.Leaflet": "Hmm, let's see what you're promising. Just remember that words are easy, but your actions are what counts.",
+	"EmuEngine.MayorModCP_Gifting.Sophia.Leaflet": "Your plans look really interesting... I hope people see how much thought you've put into this.",
+	"EmuEngine.MayorModCP_Gifting.Victor.Leaflet": "You put a lot of thought into this. I think people will appreciate your ideas for the town.",
+	"EmuEngine.MayorModCP_Gifting.Andy.Leaflet": "Policies, huh? Let's see if any of 'em help the folks who actually work the land.",
 	"EmuEngine.MayorModCP_Gifting.Susan.Leaflet": "This is so organized! I love how you're thinking about everyone in the valley.",
 	"EmuEngine.MayorModCP_Gifting.Martin.Leaflet": "You can keep that. I can't vote in the election.",
-	
+
 
 	//////////////////////
 	//Converstaion Topics
@@ -413,15 +436,15 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.TalkingToVoters": "I've been talking to as many voters as I can about your campaign. Most people seem receptive to change.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Morris.TalkingToVoters": "A new mayor ... I've got my eye on you. What kind of changes are you planning?",
 	//Stardew Valley Expanded NPCs
-	"EmuEngine.MayorModCP_ConverstaionTopic.Claire.TalkingToVoters": "You’re really going for it, huh? I think that’s awesome. Stardew Valley could use someone with fresh ideas.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Claire.TalkingToVoters": "You're really going for it, huh? I think that's awesome. Stardew Valley could use someone with fresh ideas.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Lance.TalkingToVoters": "If your words match your actions, you may prove to be exactly the leader this valley needs.",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Olivia.TalkingToVoters": "Politics isn’t easy, darling but you just might just be able to pull this off.",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Sophia.TalkingToVoters": "You’re so brave for putting yourself out there. I really hope people support your vision.",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Victor.TalkingToVoters": "It’s so cool that you’re running. I’ve never anyone who has actually done something like this!",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Andy.TalkingToVoters": "You’re talkin’ big, but I’ll believe it when I see it. Just don’t forget the little guys.",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Susan.TalkingToVoters": "It’s great that you’re running! I think a lot of people around here are ready for a change.",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Martin.TalkingToVoters": "I think it’s good that you want to help the whole town. Not many people step up like that.",
-	
+	"EmuEngine.MayorModCP_ConverstaionTopic.Olivia.TalkingToVoters": "Politics isn't easy, darling but you just might just be able to pull this off.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Sophia.TalkingToVoters": "You're so brave for putting yourself out there. I really hope people support your vision.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Victor.TalkingToVoters": "It's so cool that you're running. I’ve never anyone who has actually done something like this!",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Andy.TalkingToVoters": "You're talkin' big, but I'll believe it when I see it. Just don't forget the little guys.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Susan.TalkingToVoters": "It's great that you're running! I think a lot of people around here are ready for a change.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Martin.TalkingToVoters": "I think it's good that you want to help the whole town. Not many people step up like that.",
+
 	"EmuEngine.MayorModCP_ConverstaionTopic.Alex.ElectedMayor": "Well, would you look at that? You have got yourself a whole new job now. Let's see what changes he brings to our little valley.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Elliott.ElectedMayor": "The farmer is now a mayor, huh? I must admit, I didn't see that coming. But if anyone can shake things up around here, it's you.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Harvey.ElectedMayor": "Oh wow, that's amazing! Mayor... @. It has a nice ring to it. I'm so happy for you!",
