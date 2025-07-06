@@ -54,7 +54,7 @@ Host and lead council meetings where you and other council members discuss and v
 
 The project is currently split up into phases:
 - [~~Alpha~~](https://github.com/emuengine/StardewValleyMayorMod/milestone/1) (Complete)
-- [Beta](https://github.com/emuengine/StardewValleyMayorMod/milestone/2)
+- [~~Beta~~](https://github.com/emuengine/StardewValleyMayorMod/milestone/2) (Complete)
 - [RC-1](https://github.com/emuengine/StardewValleyMayorMod/milestone/4)
 - [1.0](https://github.com/emuengine/StardewValleyMayorMod/milestone/3)
 
