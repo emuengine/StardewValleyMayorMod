@@ -1,0 +1,34 @@
+{
+    "Changes": [
+        {
+            "Action": "Load",
+            "Target": "Mods/{{ModId}}/OakSapling",
+            "FromFile": "Assets/Items/{{TargetWithoutPath}}.png"
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_OakSapling": {
+                    "Name": "{{ModId}}_OakSapling",
+                    "DisplayName": "{{i18n:{{ModId}}_Item.OakSapling.Name}}",
+                    "Description": "{{i18n:{{ModId}}_Item.OakSapling.Description}}",
+                    "Type": "Basic",
+                    "Category": 0,
+                    "Price": 0,
+                    "Texture": "Mods/{{ModId}}/OakSapling",
+                    "SpriteIndex": 0,
+                    "Edibility": -300,
+                    "IsDrink": false,
+                    "ExcludeFromFishingCollection": true,
+                    "ExcludeFromShippingCollection": true,
+                    "ExcludeFromRandomSale": true,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": true,
+                    "ContextTags": [],
+                    "Buffs": []
+                }
+            }
+        }
+    ]
+}

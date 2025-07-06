@@ -1,0 +1,16 @@
+{
+    "Changes": [
+        {
+            "Action": "Load",
+            "Target": "Mods/{{ModId}}/ShovelHole",
+            "FromFile": "Assets/Items/{{TargetWithoutPath}}.png"
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Furniture",
+            "Entries": {
+                "{{ModId}}_ShovelHole": "ShovelHole/decor/3 2/3 2/1/500/1/{{i18n:{{ModId}}_Item.ShovelHole.Name}}/0/Mods\\{{ModId}}\\ShovelHole/true"                
+            }
+        }
+    ]
+}
