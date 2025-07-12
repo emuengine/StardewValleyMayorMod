@@ -36,7 +36,6 @@ internal sealed class ModEntry : Mod
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
         Helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
         Helper.Events.Content.AssetRequested += OnAssetRequested;
-        Helper.Events.Input.ButtonPressed += OnButtonPressed;
         if (helper.ModRegistry.IsLoaded(ModKeys.SVE_MOD_ID))
         {
             Helper.Events.Player.Warped += Player_Warped;
@@ -167,6 +166,12 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
     {
+        //if (ModProgressManager.HasProgressFlag(ProgressFlags.ElectedAsMayor) && e.NameWithoutLocale.StartsWith(XNBPathKeys.TOWN_EVENTS))
+        if (e.NameWithoutLocale.StartsWith(XNBPathKeys.EVENTS))
+        {
+            e.Edit(AssetUpdatesForEvents);
+        }
+
         if (_saveData is null || !ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
             return;
@@ -186,12 +191,32 @@ internal sealed class ModEntry : Mod
         }
     }
 
+    private void AssetUpdatesForEvents(IAssetData events)
+    {
+        var data = events.AsDictionary<string, string>().Data;
+        if (events.NameWithoutLocale.StartsWith(XNBPathKeys.TOWN_EVENTS))
+        {
+            var key = data.Keys.FirstOrDefault(k => k.Contains("191393"));
+            if (key is not null)
+            {
+                data[key] = data[key].Replace("Lewis", "Governor_NewMayorEvent")
+                                     .Replace("broadcastEvent/", "broadcastEvent/addTemporaryActor Governor_NewMayorEvent 16 32 52 33 0 true Character/")
+                                     .Replace("Governor_NewMayorEvent 52 33 0", "Governor 1000 1000 0")
+                                     .Replace("speak Governor_NewMayorEvent", "speak Governor");
+            }
+        }
+        if (events.NameWithoutLocale.StartsWith(XNBPathKeys.CC_EVENTS))
+        {
+            data["Punch"] = data["Punch"].Replace("Lewis", "Governor");
+        }
+    }
+
     /// <summary>
     /// Updates mail assets that depend on voting day
     /// </summary>
     /// <param name="mails">mail data</param>
     private void AssetUpdatesForMail(IAssetData mails)
-    {
+{
         var data = mails.AsDictionary<string, string>().Data;
         var title = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.RegistrationMail.Title");
         var body = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.RegistrationMail.Body");
@@ -235,7 +260,6 @@ internal sealed class ModEntry : Mod
         }
     }
 
-
     /// <summary>
     /// This invalidates the cache so that the dates for voting are correct in mail and passive festivals
     /// PassiveFestivals are loaded before the damn save data so we need to reload them to make the
@@ -249,18 +273,5 @@ internal sealed class ModEntry : Mod
         Game1.PerformPassiveFestivalSetup();
         Game1.UpdatePassiveFestivalStates();
         _modDataCacheInvalidationNeeded = false;
-    }
-
-    private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
-    {
-        //if (e.Button.IsActionButton())
-        //{
-        //    if (Game1.player.ActiveItem is not null && Game1.player.ActiveItem.ItemId == ModItemKeys.ElectionSign)
-        //    {
-        //        //item placed add percentage for vote
-        //    }
-
-        //    var n = HelperMethods.GetNPCForPlayerInteraction();
-        //}
     }
 }
