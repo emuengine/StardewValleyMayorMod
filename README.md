@@ -53,7 +53,7 @@ Host and lead council meetings where you and other council members discuss and v
 </p>
 
 The project is planned based on milestones:
-- [1.0](https://github.com/emuengine/StardewValleyMayorMod/milestone/3)
+- [1.0](https://github.com/emuengine/StardewValleyMayorMod/milestone/3) - First release on [Nexus Mods](https://www.nexusmods.com/stardewvalley/mods/33104)
 - [2.0](https://github.com/emuengine/StardewValleyMayorMod/milestone/5)
 
 While I'm currently managing the source for this project on another system, I will do my best to keep the milestone pages up to date. </br>
