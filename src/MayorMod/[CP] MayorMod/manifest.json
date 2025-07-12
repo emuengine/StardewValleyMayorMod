@@ -2,11 +2,16 @@
     "Name": "[CP] MayorMod",
     "Author": "EmuEngine",
     "Version": "1.0.0",
-    "Description": "Bring democracy back to Stardew valley",
+    "Description": "Bring democracy back to Stardew Valley",
     "UniqueID": "EmuEngine.MayorModCP",
     "MinimumApiVersion": "4.0.0",
-    "UpdateKeys": [],
+    "UpdateKeys": [ "Nexus:33104" ],
     "ContentPackFor": {
         "UniqueID": "Pathoschild.ContentPatcher"
-    }
+    },
+    "Dependencies": [
+        {
+            "UniqueID": "EmuEngine.MayorMod"
+        }
+    ]
 }
