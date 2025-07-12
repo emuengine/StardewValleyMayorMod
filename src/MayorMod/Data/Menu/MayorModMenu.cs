@@ -36,6 +36,7 @@ public partial class MayorModMenu : IClickableMenu
     public Rectangle MenuRect { get; set; }
     public Color BackgoundColour { get; set; } = Color.Transparent;
 
+#pragma warning disable CS8618
     public MayorModMenu(IModHelper helper, float marginWidthPercent = 1.0f, float marginHeightPercent = 1.0f)
     {
         Helper = helper;
@@ -43,6 +44,7 @@ public partial class MayorModMenu : IClickableMenu
         MarginWidthPercent = marginWidthPercent;
         allClickableComponents = [];
     }
+#pragma warning restore CS8618
 
     private void CalculateMenuRect()
     {

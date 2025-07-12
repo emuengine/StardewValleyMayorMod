@@ -72,6 +72,7 @@ public class VotingManager
 
     public bool VotingForFarmer(string name)
     {
+        IList<string> easyVotes = ["Gus", "Penny", "Maru"];
         if (name.Equals(ModNPCKeys.MarlonId, StringComparison.InvariantCultureIgnoreCase))
         {
             return true;
@@ -89,6 +90,7 @@ public class VotingManager
         hearts += HasWonDebate() ? 1 : 0;
         var threshold = HeartThreshold;
         threshold += name.Equals(ModNPCKeys.LewisId, StringComparison.InvariantCultureIgnoreCase) ? 3 : 0;
+        threshold -= easyVotes.Contains(name) ? 2 : 0;
         if (IsVotingRNG)
         {
             return (hearts * (1.0 / threshold)) > ModUtils.RNG.NextDouble();

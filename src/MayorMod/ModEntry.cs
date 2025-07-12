@@ -166,8 +166,7 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
     {
-        //if (ModProgressManager.HasProgressFlag(ProgressFlags.ElectedAsMayor) && e.NameWithoutLocale.StartsWith(XNBPathKeys.TOWN_EVENTS))
-        if (e.NameWithoutLocale.StartsWith(XNBPathKeys.EVENTS))
+        if (ModProgressManager.HasProgressFlag(ProgressFlags.ElectedAsMayor) && e.NameWithoutLocale.StartsWith(XNBPathKeys.EVENTS))
         {
             e.Edit(AssetUpdatesForEvents);
         }
@@ -191,11 +190,15 @@ internal sealed class ModEntry : Mod
         }
     }
 
+    /// <summary>
+    /// Updates event assets when farmer is mayor
+    /// </summary>
+    /// <param name="events">event data</param>
     private void AssetUpdatesForEvents(IAssetData events)
     {
-        var data = events.AsDictionary<string, string>().Data;
         if (events.NameWithoutLocale.StartsWith(XNBPathKeys.TOWN_EVENTS))
         {
+            var data = events.AsDictionary<string, string>().Data;
             var key = data.Keys.FirstOrDefault(k => k.Contains("191393"));
             if (key is not null)
             {
@@ -207,6 +210,7 @@ internal sealed class ModEntry : Mod
         }
         if (events.NameWithoutLocale.StartsWith(XNBPathKeys.CC_EVENTS))
         {
+            var data = events.AsDictionary<string, string>().Data;
             data["Punch"] = data["Punch"].Replace("Lewis", "Governor");
         }
     }

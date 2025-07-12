@@ -75,11 +75,11 @@
                 "NeedBallot": "{{i18n:{{ModId}}_Dialogue.OfficerMike.NeedBallot}}",
                 "NeedToVote": "{{i18n:{{ModId}}_Dialogue.OfficerMike.NeedToVote}}",
                 "RegisterForBallot": "{{i18n:{{ModId}}_Dialogue.OfficerMike.RegisterForBallot}}",
-                "Mon": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Random.{{Random: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}}}",
-                "Tue": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Random.{{Random: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}}}",
-                "Wed": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Random.{{Random: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}}}",
-                "Thu": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Random.{{Random: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}}}",
-                "Fri": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Random.{{Random: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}}}",
+                "Mon": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Random.{{Random: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}}}",
+                "Tue": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Random.{{Random: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}}}",
+                "Wed": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Random.{{Random: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}}}",
+                "Thu": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Random.{{Random: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}}}",
+                "Fri": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Random.{{Random: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}}}",
                 "Rainy_Night_0": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Rainy_Night_0}}",
                 "Rainy_Night_1": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Rainy_Night_1}}",
                 "Rainy_Night_2": "{{i18n:{{ModId}}_Dialogue.OfficerMike.Rainy_Night_2}}",
@@ -109,7 +109,7 @@
             }
         },
         {
-            "LogName": "Update Officer Mike schedule when guarding town",
+            "LogName": "Update Officer Mike schedule when guarding town in SVE",
             "Action": "EditData",
             "Target": "Characters/Schedules/{{ModId}}_OfficerMike",
             "Entries": {
