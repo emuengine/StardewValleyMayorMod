@@ -60,6 +60,7 @@
         {
             "LogName": "Load Characters/Dialogue {{ModId}}_OfficerMike Blank",
             "Action": "Load",
+            "Priority": "Low",
             "Target": "Characters/Dialogue/{{ModId}}_OfficerMike",
             "FromFile": "blank.json"
         },
@@ -92,6 +93,7 @@
         {
             "LogName": "Load Characters/Schedules {{ModId}}_OfficerMike Blank",
             "Action": "Load",
+            "Priority": "Low",
             "Target": "Characters/Schedules/{{ModId}}_OfficerMike",
             "FromFile": "blank.json"
         },

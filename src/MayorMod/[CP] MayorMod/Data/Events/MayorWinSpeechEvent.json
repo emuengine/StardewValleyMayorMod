@@ -4,6 +4,7 @@
         {
             "LogName": "Custom Locations Events Blank",
             "Action": "Load",
+            "Priority": "Low",
             "Target": "Data/Events/{{ModId}}_ForestStageArea",
             "FromFile": "blank.json"
         },

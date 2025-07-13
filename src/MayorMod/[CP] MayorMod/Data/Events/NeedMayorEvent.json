@@ -3,6 +3,7 @@
         {
             "LogName": "AdventureGuild Events Blank",
             "Action": "Load",
+            "Priority": "Low",
             "Target": "Data/Events/AdventureGuild",
             "FromFile": "blank.json"
         },
