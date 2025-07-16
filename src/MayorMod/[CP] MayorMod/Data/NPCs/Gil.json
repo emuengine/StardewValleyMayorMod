@@ -3,7 +3,7 @@
         {
             "LogName": "Loading Gil Portrait Update",
             "Action": "Load",
-            "Target": "Portraits/Gil",
+            "Target": "Portraits/Gil_RockingChair",
             "FromFile": "Assets/NPCs/Gil/Portrait.png"
         },
         {

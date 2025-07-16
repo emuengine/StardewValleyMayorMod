@@ -59,7 +59,6 @@ internal sealed class ModEntry : Mod
                 _saveData = saveData;
             }
         }
-
     }
 
     /// <summary>
@@ -148,7 +147,7 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void Player_Warped(object? sender, WarpedEventArgs e)
     {
-        if (e.NewLocation.NameOrUniqueName == nameof(Town))
+        if (e.NewLocation.NameOrUniqueName == nameof(Town) && ModProgressManager.HasProgressFlag(ProgressFlags.IsVotingDay))
         {
             //Remove bushes on SVE town map
             e.NewLocation.terrainFeatures.RemoveWhere(tf => tf.Key.Equals(new Vector2(30, 34)));
@@ -170,6 +169,10 @@ internal sealed class ModEntry : Mod
         {
             e.Edit(AssetUpdatesForEvents);
         }
+        //if (e.NameWithoutLocale.StartsWith(XNBPathKeys.EVENTS))
+        //{
+        //    var f = "{{ModId}}_LewisArrest/t 800 1200/e {{ModId}}_LewisEvidence/!ActiveDialogueEvent {{ModId}}_PrisonBed2";
+        //}
 
         if (_saveData is null || !ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
