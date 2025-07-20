@@ -495,5 +495,25 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Victor.ElectedMayor": "You really pulled it off! I'm proud of you. Let me know if there's anything I can help with.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Andy.ElectedMayor": "Heh. You won fair and square. Now let's see if you can back up all that campaign talk.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Susan.ElectedMayor": "Congratulations! You've got a kind heart. I think the town is in good hands.",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Martin.ElectedMayor": "Are you excited to be running the town?"
+	"EmuEngine.MayorModCP_ConverstaionTopic.Martin.ElectedMayor": "Are you excited to be running the town?",
+
+
+	//////////////////////
+	//Mayor asset updates
+	//////////////////////
+	"EmuEngine.MayorModCP_AssetUpdates.MarriageDialogueSam.Outdoor_0": "Maybe I should get some off-road wheels for my skateboard.$h",
+	"EmuEngine.MayorModCP_AssetUpdates.Sam.eventSeen_45": "I better lay low for a while.",
+	"EmuEngine.MayorModCP_AssetUpdates.Sam.eventSeen_45_memory_oneweek": "Wouldn't it be cool if the town had a skate park, though?$s",
+	"EmuEngine.MayorModCP_AssetUpdates.Quests.3": "Basic/The Mysterious Qi/You've found another note written by 'Mr. Qi'. The request is even more unusual this time./Place 10 beets inside the mayors' mini fridge./null/-1/0/-1/false",
+	"EmuEngine.MayorModCP_AssetUpdates.Quests.4": "Basic/The Mysterious Qi/You've found yet another strange note within the fridge. This time, the instructions are more cryptic./\"Give the sand dragon his final meal.\"/null/-1/0/-1/false",
+	"EmuEngine.MayorModCP_AssetUpdates.Festivals.summer11.Pierre": "Hmm... maybe if I get on the governor's good side he'll give my business a tax break...#$b#I wonder if he likes aged whiskey?",
+	"EmuEngine.MayorModCP_AssetUpdates.Festivals.summer11.Penny": "We do this festival every year to give the governor a taste of everything the valley has to offer.",
+	"EmuEngine.MayorModCP_AssetUpdates.ExtraDialogue.SummitEvent_Dialogue1_Lewis": "You know, @... I was mayor of Pelican Town for a long time. I really do miss it sometimes.#$b#People have come and gone. We've lived through times of hardship, and times of plenty.",
+
+	//Substring replacements
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.MayorLewis": "Mayor Lewis",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.Lewis": "Lewis",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.Mayor": "Mayor",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.Governor": "Governor",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.TownCouncil": "Pelican Town Council"
 }

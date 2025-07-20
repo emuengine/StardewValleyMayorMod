@@ -4,7 +4,7 @@
 		//Dialogue
 		{
 			"Action": "Include",
-			"FromFile": "Data/Dialogue/ConversationTopics.json, Data/Dialogue/MayorPatches.json"
+			"FromFile": "Data/Dialogue/ConversationTopics.json"
 		},
 		//Events
 		{
@@ -39,6 +39,11 @@
 		{
 			"Action": "Include",
 			"FromFile": "Data/Powers/Powers.json"
+		},
+		//Mayor Asset Patches
+		{
+			"Action": "Include",
+			"FromFile": "Data/MayorAssetPatchesCP.json"
 		}
 	]
 }

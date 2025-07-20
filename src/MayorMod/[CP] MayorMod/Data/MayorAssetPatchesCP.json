@@ -1,0 +1,58 @@
+{
+    // Update dialogue that references the mayor when farmer becomes mayor
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/MarriageDialogueSam",
+            "Entries": {
+                "Outdoor_0": "{{i18n:{{ModId}}_AssetUpdates.MarriageDialogueSam.Outdoor_0}}"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Sam",
+            "Entries": {
+                "eventSeen_45": "{{i18n:{{ModId}}_AssetUpdates.Sam.eventSeen_45}}",
+                "eventSeen_45_memory_oneweek": "{{i18n:{{ModId}}_AssetUpdates.Sam.eventSeen_45_memory_oneweek}}"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Quests",
+            "Entries": {
+                "3": "{{i18n:{{ModId}}_AssetUpdates.Quests.3}}",
+                "4": "{{i18n:{{ModId}}_AssetUpdates.Quests.4}}"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Festivals/summer11",
+            "Entries": {
+                "Pierre": "{{i18n:{{ModId}}_AssetUpdates.Festivals.summer11.Pierre}}",
+                "Penny": "{{i18n:{{ModId}}_AssetUpdates.Festivals.summer11.Penny}}"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/ExtraDialogue",
+            "Entries": {
+                "SummitEvent_Dialogue1_Lewis": "{{i18n:{{ModId}}_AssetUpdates.ExtraDialogue.SummitEvent_Dialogue1_Lewis}}"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            }
+        }
+    ]
+}

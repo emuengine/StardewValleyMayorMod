@@ -110,7 +110,7 @@ public class VotingManager
     public static List<string> GetVotingVillagers(IModHelper helper)
     {
         var villagers = Voters.ToList();
-        if (helper.ModRegistry.IsLoaded(ModKeys.SVE_MOD_ID))
+        if (helper.ModRegistry.IsLoaded(CompatibilityKeys.SVE_MOD_ID))
         {
             villagers.AddRange(SVEVoters);
         }

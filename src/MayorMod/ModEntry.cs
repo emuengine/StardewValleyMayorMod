@@ -1,4 +1,5 @@
-﻿using MayorMod.Constants;
+﻿using GenericModConfigMenu;
+using MayorMod.Constants;
 using MayorMod.Data;
 using MayorMod.Data.Models;
 using MayorMod.Data.TileActions;
@@ -11,6 +12,7 @@ using StardewValley.GameData;
 using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
+using System.Text.Json;
 
 namespace MayorMod;
 
@@ -21,6 +23,8 @@ internal sealed class ModEntry : Mod
 {
     private MayorModData _saveData = new();
     private bool _modDataCacheInvalidationNeeded;
+    private Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements;
+    private MayorModConfig _mayorModConfig;
 
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
@@ -28,6 +32,15 @@ internal sealed class ModEntry : Mod
     /// <param name="helper">Provides simplified APIs for writing mods.</param>
     public override void Entry(IModHelper helper)
     {
+        var stringPatchLocation = Path.Join(helper.DirectoryPath, ModKeys.REPLACEMENT_STRING_CONFIG);
+        if (!File.Exists(stringPatchLocation))
+        {
+            Monitor.Log($"Error: File not found {stringPatchLocation}", LogLevel.Error);
+        }
+        var stringPatchFile =  File.ReadAllText(stringPatchLocation);
+        _mayorStringReplacements = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<StringPatch>>>>(stringPatchFile) ?? [];
+        _mayorModConfig = Helper.ReadConfig<MayorModConfig>();
+
         TileActionManager.Init(Helper, Monitor);
         Phone.PhoneHandlers.Add(new PollingDataHandler(Helper));
         EventCommands.AddExtraEventCommands(Monitor);
@@ -36,10 +49,49 @@ internal sealed class ModEntry : Mod
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
         Helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
         Helper.Events.Content.AssetRequested += OnAssetRequested;
-        if (helper.ModRegistry.IsLoaded(ModKeys.SVE_MOD_ID))
+        //Helper.Events.GameLoop.GameLaunched += OnGameLaunched;
+        if (helper.ModRegistry.IsLoaded(CompatibilityKeys.SVE_MOD_ID))
         {
             Helper.Events.Player.Warped += Player_Warped;
         }
+    }
+
+    private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
+    {
+        // get Generic Mod Config Menu's API (if it's installed)
+        var configMenu = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>(ModKeys.CONFIG_MENU_ID);
+        if (configMenu is null)
+            return;
+
+        // register mod
+        configMenu.Register(
+            mod: this.ModManifest,
+            reset: () => this._mayorModConfig = new MayorModConfig(),
+            save: () => this.Helper.WriteConfig(this._mayorModConfig)
+        );
+
+        // add some config options
+        configMenu.AddBoolOption(
+            mod: this.ModManifest,
+            //name: () => this.Helper.Translation.Get("translation-key")
+            name: () => "Example checkbox",
+            tooltip: () => "An optional description shown as a tooltip to the player.",
+            getValue: () => this._mayorModConfig.ExampleCheckbox,
+            setValue: value => this._mayorModConfig.ExampleCheckbox = value
+        );
+        configMenu.AddTextOption(
+            mod: this.ModManifest,
+            name: () => "Example string",
+            getValue: () => this._mayorModConfig.ExampleString,
+            setValue: value => this._mayorModConfig.ExampleString = value
+        );
+        configMenu.AddTextOption(
+            mod: this.ModManifest,
+            name: () => "Example dropdown",
+            getValue: () => this._mayorModConfig.ExampleDropdown,
+            setValue: value => this._mayorModConfig.ExampleDropdown = value,
+            allowedValues: new string[] { "choice A", "choice B", "choice C" }
+        );
     }
 
     /// <summary>
@@ -165,14 +217,10 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
     {
-        if (ModProgressManager.HasProgressFlag(ProgressFlags.ElectedAsMayor) && e.NameWithoutLocale.StartsWith(XNBPathKeys.EVENTS))
+        if (ModProgressManager.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
-            e.Edit(AssetUpdatesForEvents);
+            AssetSubstringPatch(e);
         }
-        //if (e.NameWithoutLocale.StartsWith(XNBPathKeys.EVENTS))
-        //{
-        //    var f = "{{ModId}}_LewisArrest/t 800 1200/e {{ModId}}_LewisEvidence/!ActiveDialogueEvent {{ModId}}_PrisonBed2";
-        //}
 
         if (_saveData is null || !ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
@@ -194,27 +242,28 @@ internal sealed class ModEntry : Mod
     }
 
     /// <summary>
-    /// Updates event assets when farmer is mayor
+    /// Replaces substrings in assets from patches loaded from json 
+    /// NOTE: Can possibly be done by content patcher but I couldn't work out how.
     /// </summary>
-    /// <param name="events">event data</param>
-    private void AssetUpdatesForEvents(IAssetData events)
+    /// <param name="e"></param>
+    private void AssetSubstringPatch(AssetRequestedEventArgs e)
     {
-        if (events.NameWithoutLocale.StartsWith(XNBPathKeys.TOWN_EVENTS))
+        if (e.NameWithoutLocale is not null && 
+            e.NameWithoutLocale.BaseName is not null &&
+            _mayorStringReplacements.ContainsKey(e.NameWithoutLocale.BaseName))
         {
-            var data = events.AsDictionary<string, string>().Data;
-            var key = data.Keys.FirstOrDefault(k => k.Contains("191393"));
-            if (key is not null)
+            e.Edit((asset) =>
             {
-                data[key] = data[key].Replace("Lewis", "Governor_NewMayorEvent")
-                                     .Replace("broadcastEvent/", "broadcastEvent/addTemporaryActor Governor_NewMayorEvent 16 32 52 33 0 true Character/")
-                                     .Replace("Governor_NewMayorEvent 52 33 0", "Governor 1000 1000 0")
-                                     .Replace("speak Governor_NewMayorEvent", "speak Governor");
-            }
-        }
-        if (events.NameWithoutLocale.StartsWith(XNBPathKeys.CC_EVENTS))
-        {
-            var data = events.AsDictionary<string, string>().Data;
-            data["Punch"] = data["Punch"].Replace("Lewis", "Governor");
+                var data = asset.AsDictionary<string, string>().Data;
+                var updates = _mayorStringReplacements[e.NameWithoutLocale.BaseName];
+                foreach (var key in updates.Keys)
+                {
+                    if (data.Keys.FirstOrDefault(k => k.StartsWith(key)) is { } keyMatch)
+                    {
+                        data[keyMatch] = updates[key].Aggregate(data[keyMatch], (current, patch) => patch.PatchString(Helper, current));
+                    }
+                }
+            }, AssetEditPriority.Late);
         }
     }
 
@@ -223,7 +272,7 @@ internal sealed class ModEntry : Mod
     /// </summary>
     /// <param name="mails">mail data</param>
     private void AssetUpdatesForMail(IAssetData mails)
-{
+    {
         var data = mails.AsDictionary<string, string>().Data;
         var title = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.RegistrationMail.Title");
         var body = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.RegistrationMail.Body");
@@ -259,10 +308,10 @@ internal sealed class ModEntry : Mod
     /// <param name="dialogues">dialogues data</param>
     private void AssetUpdatesForDialogue(IAssetData dialogues)
     {
-        if (!dialogues.AsDictionary<string, string>().Data.ContainsKey($"AcceptGift_(O){ModItemKeys.Leaflet}") &&
-            !dialogues.AsDictionary<string, string>().Data.ContainsKey($"RejectItem_(O){ModItemKeys.Leaflet}"))
+        var data = dialogues.AsDictionary<string, string>().Data;
+        if (!data.ContainsKey($"AcceptGift_(O){ModItemKeys.Leaflet}") &&
+            !data.ContainsKey($"RejectItem_(O){ModItemKeys.Leaflet}"))
         {
-            var data = dialogues.AsDictionary<string, string>().Data;
             data[$"RejectItem_(O){ModItemKeys.Leaflet}"] = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Gifting.Default.Leaflet");
         }
     }

@@ -4,6 +4,7 @@
         {
             "LogName": "Update lewis schedule for when farmer becomes mayor",
             "Action": "EditData",
+            "Priority": "Late",
             "Target": "Characters/Schedules/Lewis",
             "Entries": {
                 "rain": "800 AnimalShop 28 17 3/1000 AnimalShop 31 17 3 square_5_1_0/1400 Saloon 12 20 0/1950 AnimalShop 31 17 3 square_5_1_0/2200 AnimalShop 13 5 1 lewis_sleep",
@@ -35,6 +36,7 @@
         {
             "LogName": "Update lewis schedule for when farmer becomes mayor",
             "Action": "EditData",
+            "Priority": "Late",
             "Target": "Strings/schedules/Lewis",
             "Entries": {
                 "15.000": "I used to come here to check on local businesses but now I just like having someone to talk to.",
@@ -50,6 +52,7 @@
         {
             "LogName": "Loading Lewis default location update",
             "Action": "EditData",
+            "Priority": "Late",
             "Target": "Data/Characters",
             "TargetField": [ "Lewis", "Home" ],
             "Entries": {

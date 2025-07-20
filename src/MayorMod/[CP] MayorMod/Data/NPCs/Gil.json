@@ -3,12 +3,14 @@
         {
             "LogName": "Loading Gil Portrait Update",
             "Action": "Load",
+            "Priority": "Low",
             "Target": "Portraits/Gil_RockingChair",
             "FromFile": "Assets/NPCs/Gil/Portrait.png"
         },
         {
             "LogName": "Loading Gil Sprite Update",
             "Action": "Load",
+            "Priority": "High",
             "Target": "Characters/Gil",
             "FromFile": "Assets/NPCs/Gil/SpriteSheet.png"
         },
