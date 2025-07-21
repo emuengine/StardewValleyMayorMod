@@ -13,10 +13,12 @@ internal class PollingDataHandler : IPhoneHandler
 {
     private const string PollingDataKey = "PollingData";
     private readonly IModHelper _helper;
+    private readonly MayorModConfig _mayorModConfig;
 
-    public PollingDataHandler(IModHelper helper)
+    public PollingDataHandler(IModHelper helper, MayorModConfig mayorModConfig)
     {
         _helper = helper;
+        _mayorModConfig = mayorModConfig;
     }
 
     public string CheckForIncomingCall(Random random)
@@ -64,7 +66,7 @@ internal class PollingDataHandler : IPhoneHandler
             playSound("bigSelect", null);
             if (ModProgressManager.HasProgressFlag(ProgressFlags.IsVotingDay))
             {
-                var polling = new VotingManager(Game1.player)
+                var polling = new VotingManager(Game1.player, _mayorModConfig)
                 {
                     IsVotingRNG = false,
                 };
@@ -89,7 +91,7 @@ internal class PollingDataHandler : IPhoneHandler
     {
         var voters = VotingManager.GetVotingVillagers(_helper);
 
-        var polling = new VotingManager(Game1.player)
+        var polling = new VotingManager(Game1.player, _mayorModConfig)
         {
             IsVotingRNG = false,
         };

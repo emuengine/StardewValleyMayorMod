@@ -92,6 +92,16 @@
 	"EmuEngine.MayorModCP_UIMenu.MeetingEducation": "Access to educational resources.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingBusPunctuality": "Public transport punctuality",
 
+	//Config menu
+	"EmuEngine.MayorModCP_UIMenu.VotingOptions": "Voting Options",
+	"EmuEngine.MayorModCP_UIMenu.VotingOptions.Tooltip": "Voting options tooltip",
+	"EmuEngine.MayorModCP_UIMenu.VoteThreshold": "Voting Threshold",
+	"EmuEngine.MayorModCP_UIMenu.VoteThreshold.Tooltip": "Heart threshold needed for a villager to vote for you. This is still modified by campagining actions.",
+	"EmuEngine.MayorModCP_UIMenu.VoterPercentageNeeded": "Voter Percentage Needed",
+	"EmuEngine.MayorModCP_UIMenu.VoterPercentageNeeded.Tooltip": "The percentage of elegable voters needed to win the election.",
+	"EmuEngine.MayorModCP_UIMenu.NumberOfCampaignDays": "Campaigning Days",
+	"EmuEngine.MayorModCP_UIMenu.NumberOfCampaignDays.Tooltip": "The number of days for election campaigning. Note: Once the voting date is set this wont update it.",
+
 	//////////////////////
 	//Dialogue
 	//////////////////////
@@ -370,7 +380,7 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Pam.RegisteredForBallot": "I can't picture anyone else being mayor.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Pierre.RegisteredForBallot": "Well, isn't this a turn of events? Running for mayor ... Guess we'll see if you have what it takes to start making waves around here.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Robin.RegisteredForBallot": "A possible new mayor how exciting!",
-	"EmuEngine.MayorModCP_ConverstaionTopic.Willy.RegisteredForBallot": "I hear you're look to be mayor. We should sit down and talk about fishing permits.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Willy.RegisteredForBallot": "I hear you're looking to be mayor. We should sit down and talk about fishing permits.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Wizard.RegisteredForBallot": "I see you have your eyes set on higher ambitions now! Mayor of Pelican Town, eh? Well, I must admit, it is a position that requires great wisdom and foresight. Two qualities I know you possess in abundance. Lewis has held the office for many years, but perhaps it is time for a change. The winds of magic are shifting, and who knows what new adventures await us on this path? I wish you luck, and may the fates guide your hand.",
 	//Kids
 	"EmuEngine.MayorModCP_ConverstaionTopic.Jas.RegisteredForBallot": "I can't picture anyone else as mayor of Pelican Town.",

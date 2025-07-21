@@ -12,6 +12,7 @@ using StardewValley.GameData;
 using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 
 namespace MayorMod;
@@ -22,9 +23,9 @@ namespace MayorMod;
 internal sealed class ModEntry : Mod
 {
     private MayorModData _saveData = new();
+    private MayorModConfig _mayorModConfig = new();
     private bool _modDataCacheInvalidationNeeded;
-    private Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements;
-    private MayorModConfig _mayorModConfig;
+    private Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements = [];
 
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
@@ -42,56 +43,28 @@ internal sealed class ModEntry : Mod
         _mayorModConfig = Helper.ReadConfig<MayorModConfig>();
 
         TileActionManager.Init(Helper, Monitor);
-        Phone.PhoneHandlers.Add(new PollingDataHandler(Helper));
+        Phone.PhoneHandlers.Add(new PollingDataHandler(Helper, _mayorModConfig));
         EventCommands.AddExtraEventCommands(Monitor);
 
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
         Helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
         Helper.Events.Content.AssetRequested += OnAssetRequested;
-        //Helper.Events.GameLoop.GameLaunched += OnGameLaunched;
+        Helper.Events.GameLoop.GameLaunched += OnGameLaunched;
         if (helper.ModRegistry.IsLoaded(CompatibilityKeys.SVE_MOD_ID))
         {
             Helper.Events.Player.Warped += Player_Warped;
         }
     }
 
-    private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
+    /// <summary>
+    /// Runs on game launched. Mainly used for adding the Generic Mod Menu
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e">event args</param>
+    private void OnGameLaunched(object? sender, GameLaunchedEventArgs e)
     {
-        // get Generic Mod Config Menu's API (if it's installed)
-        var configMenu = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>(ModKeys.CONFIG_MENU_ID);
-        if (configMenu is null)
-            return;
-
-        // register mod
-        configMenu.Register(
-            mod: this.ModManifest,
-            reset: () => this._mayorModConfig = new MayorModConfig(),
-            save: () => this.Helper.WriteConfig(this._mayorModConfig)
-        );
-
-        // add some config options
-        configMenu.AddBoolOption(
-            mod: this.ModManifest,
-            //name: () => this.Helper.Translation.Get("translation-key")
-            name: () => "Example checkbox",
-            tooltip: () => "An optional description shown as a tooltip to the player.",
-            getValue: () => this._mayorModConfig.ExampleCheckbox,
-            setValue: value => this._mayorModConfig.ExampleCheckbox = value
-        );
-        configMenu.AddTextOption(
-            mod: this.ModManifest,
-            name: () => "Example string",
-            getValue: () => this._mayorModConfig.ExampleString,
-            setValue: value => this._mayorModConfig.ExampleString = value
-        );
-        configMenu.AddTextOption(
-            mod: this.ModManifest,
-            name: () => "Example dropdown",
-            getValue: () => this._mayorModConfig.ExampleDropdown,
-            setValue: value => this._mayorModConfig.ExampleDropdown = value,
-            allowedValues: new string[] { "choice A", "choice B", "choice C" }
-        );
+        InitGMCM();
     }
 
     /// <summary>
@@ -157,7 +130,7 @@ internal sealed class ModEntry : Mod
         {
             _saveData = new MayorModData()
             {
-                VotingDate = ModUtils.GetDateWithoutFestival(ModKeys.CAMPAIGN_DURATION)
+                VotingDate = ModUtils.GetDateWithoutFestival(_mayorModConfig.NumberOfCampaignDays)
             };
             Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, _saveData);
             ModProgressManager.RemoveProgressFlag(ProgressFlags.RegisterVotingDate);
@@ -167,7 +140,7 @@ internal sealed class ModEntry : Mod
         //Complete voting day
         if (_saveData is not null && _saveData.VotingDate == SDate.Now() && ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
-            var pd = new VotingManager(Game1.MasterPlayer);
+            var pd = new VotingManager(Game1.MasterPlayer, _mayorModConfig);
             ModProgressManager.RemoveAllModFlags();
             if (pd.HasWonElection(Helper))
             {
@@ -329,5 +302,64 @@ internal sealed class ModEntry : Mod
         Game1.PerformPassiveFestivalSetup();
         Game1.UpdatePassiveFestivalStates();
         _modDataCacheInvalidationNeeded = false;
+    }
+
+
+    /// <summary>
+    /// Setup Generic Mod Config Menu
+    /// </summary>
+    private void InitGMCM()
+    {
+        var configMenu = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>(ModKeys.CONFIG_MENU_ID);
+        if (configMenu is null)
+        {
+            return;
+        }
+
+        configMenu.Register(
+            mod: this.ModManifest,
+            reset: () => this._mayorModConfig = new MayorModConfig(),
+            save: () => this.Helper.WriteConfig(this._mayorModConfig)
+        );
+
+
+        configMenu.AddSectionTitle(
+            mod: this.ModManifest,
+            text: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VotingOptions")
+            //tooltip: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VotingOptions.Tooltip")
+        );
+
+        configMenu.AddNumberOption(
+            mod: this.ModManifest,
+            name: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoteThreshold"),
+            tooltip: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoteThreshold.Tooltip"),
+            getValue: () => this._mayorModConfig.ThresholdForVote,
+            setValue: value => this._mayorModConfig.ThresholdForVote = value,
+            min: 0,
+            max: 15,
+            interval: 1
+        );
+
+        configMenu.AddNumberOption(
+            mod: this.ModManifest,
+            name: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoterPercentageNeeded"),
+            tooltip: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoterPercentageNeeded.Tooltip"),
+            getValue: () => this._mayorModConfig.VoterPercentageNeeded,
+            setValue: value => this._mayorModConfig.VoterPercentageNeeded = value,
+            min: 0,
+            max: 100,
+            interval: 1
+        );
+
+        configMenu.AddNumberOption(
+            mod: this.ModManifest,
+            name: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.NumberOfCampaignDays"),
+            tooltip: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.NumberOfCampaignDays.Tooltip"),
+            getValue: () => this._mayorModConfig.NumberOfCampaignDays,
+            setValue: value => this._mayorModConfig.NumberOfCampaignDays = value,
+            min: 0,
+            max: 100,
+            interval: 1
+        );
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MayorMod.Constants;
+using MayorMod.Data.Models;
 using StardewModdingAPI;
 using StardewValley;
 
@@ -17,13 +18,14 @@ public class VotingManager
     private static readonly IList<string> SVEVoters = ["Claire", "Lance", "Olivia", "Sophia", "Victor", "Andy", 
                                                       "Gunther", "Marlon", "Morris", "Susan"];
     private readonly Farmer _farmer;
+    private readonly MayorModConfig _mayorModConfig;
 
-    internal int HeartThreshold { get; set; } = 5;
     public bool IsVotingRNG { get; set; } = true;
 
-    public VotingManager(Farmer farmer)
+    public VotingManager(Farmer farmer, MayorModConfig mayorModConfig)
     {
         _farmer = farmer;
+        _mayorModConfig = mayorModConfig;
     }
 
     public int GetNPCHearts(string name)
@@ -88,7 +90,7 @@ public class VotingManager
         hearts += HasNPCBeenCanvassed(name) ? 1 : 0;
         hearts += HasNPCGotLeaflet(name) ? 1 : 0;
         hearts += HasWonDebate() ? 1 : 0;
-        var threshold = HeartThreshold;
+        var threshold = _mayorModConfig.ThresholdForVote;
         threshold += name.Equals(ModNPCKeys.LewisId, StringComparison.InvariantCultureIgnoreCase) ? 3 : 0;
         threshold -= easyVotes.Contains(name) ? 2 : 0;
         if (IsVotingRNG)
@@ -128,7 +130,7 @@ public class VotingManager
     public bool HasWonElection(IModHelper helper)
     {
         var voters = GetVotingVillagers(helper);
-        var threshold = voters.Count / 2;
+        var threshold = voters.Count * (_mayorModConfig.VoterPercentageNeeded/100.0);
         return CalculateTotalVotes(helper) > threshold;
     }
 }

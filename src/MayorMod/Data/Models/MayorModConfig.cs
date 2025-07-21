@@ -2,7 +2,7 @@
 
 public class MayorModConfig
 {
-    public bool ExampleCheckbox { get; set; }
-    public string ExampleString { get; set; } = string.Empty;
-    public string ExampleDropdown { get; set; } = string.Empty;
+    public int ThresholdForVote { get; internal set; } = 5;
+    public int VoterPercentageNeeded { get; set; } = 50;
+    public int NumberOfCampaignDays { get; set; } = 14;
 }
