@@ -221,36 +221,43 @@ internal sealed class ModEntry : Mod
     /// <param name="e"></param>
     private void AssetSubstringPatch(AssetRequestedEventArgs e)
     {
-        if (e.NameWithoutLocale is not null &&
-            e.NameWithoutLocale.BaseName is not null &&
-            _mayorStringReplacements.ContainsKey(e.NameWithoutLocale.BaseName))
+        try
         {
-            e.Edit((asset) =>
+            if (e.NameWithoutLocale is not null &&
+                e.NameWithoutLocale.BaseName is not null &&
+                _mayorStringReplacements.ContainsKey(e.NameWithoutLocale.BaseName))
             {
-                var updates = _mayorStringReplacements[e.NameWithoutLocale.BaseName];
-                if (e.NameWithoutLocale.BaseName == "Data/SecretNotes")
+                e.Edit((asset) =>
                 {
-                    var data = asset.AsDictionary<int, string>().Data;
-                    foreach (var key in updates.Keys)
+                    var updates = _mayorStringReplacements[e.NameWithoutLocale.BaseName];
+                    if (e.NameWithoutLocale.BaseName.Equals(XNBPathKeys.SECRET_NOTES, StringComparison.InvariantCultureIgnoreCase))
                     {
-                        if (Int32.TryParse(key, out int KeyInt) && data.ContainsKey(KeyInt))
+                        var data = asset.AsDictionary<int, string>().Data;
+                        foreach (var key in updates.Keys)
                         {
-                            data[KeyInt] = updates[key].Aggregate(data[KeyInt], (current, patch) => patch.PatchString(Helper, current));
+                            if (Int32.TryParse(key, out int KeyInt) && data.ContainsKey(KeyInt))
+                            {
+                                data[KeyInt] = updates[key].Aggregate(data[KeyInt], (current, patch) => patch.PatchString(Helper, current));
+                            }
                         }
                     }
-                }
-                else
-                {
-                    var data = asset.AsDictionary<string, string>().Data;
-                    foreach (var key in updates.Keys)
+                    else
                     {
-                        if (data.Keys.FirstOrDefault(k => k.StartsWith(key)) is { } keyMatch)
+                        var data = asset.AsDictionary<string, string>().Data;
+                        foreach (var key in updates.Keys)
                         {
-                            data[keyMatch] = updates[key].Aggregate(data[keyMatch], (current, patch) => patch.PatchString(Helper, current));
+                            if (data.Keys.FirstOrDefault(k => k.StartsWith(key)) is { } keyMatch)
+                            {
+                                data[keyMatch] = updates[key].Aggregate(data[keyMatch], (current, patch) => patch.PatchString(Helper, current));
+                            }
                         }
                     }
-                }
-            }, AssetEditPriority.Late);
+                }, AssetEditPriority.Late);
+            }
+        }
+        catch (Exception ex)
+        {
+            Monitor.Log($"Failed to patch asset - {ex.Message}", LogLevel.Error);
         }
     }
 
