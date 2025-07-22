@@ -4,6 +4,7 @@
         {
             "Action": "EditData",
             "Target": "Characters/Dialogue/MarriageDialogueSam",
+            "Priority": "Late",
             "Entries": {
                 "Outdoor_0": "{{i18n:{{ModId}}_AssetUpdates.MarriageDialogueSam.Outdoor_0}}"
             },
@@ -14,6 +15,7 @@
         {
             "Action": "EditData",
             "Target": "Characters/Dialogue/Sam",
+            "Priority": "Late",
             "Entries": {
                 "eventSeen_45": "{{i18n:{{ModId}}_AssetUpdates.Sam.eventSeen_45}}",
                 "eventSeen_45_memory_oneweek": "{{i18n:{{ModId}}_AssetUpdates.Sam.eventSeen_45_memory_oneweek}}"
@@ -25,6 +27,7 @@
         {
             "Action": "EditData",
             "Target": "Data/Quests",
+            "Priority": "Late",
             "Entries": {
                 "3": "{{i18n:{{ModId}}_AssetUpdates.Quests.3}}",
                 "4": "{{i18n:{{ModId}}_AssetUpdates.Quests.4}}"
@@ -36,6 +39,7 @@
         {
             "Action": "EditData",
             "Target": "Data/Festivals/summer11",
+            "Priority": "Late",
             "Entries": {
                 "Pierre": "{{i18n:{{ModId}}_AssetUpdates.Festivals.summer11.Pierre}}",
                 "Penny": "{{i18n:{{ModId}}_AssetUpdates.Festivals.summer11.Penny}}"
@@ -47,8 +51,24 @@
         {
             "Action": "EditData",
             "Target": "Data/ExtraDialogue",
+            "Priority": "Late",
             "Entries": {
                 "SummitEvent_Dialogue1_Lewis": "{{i18n:{{ModId}}_AssetUpdates.ExtraDialogue.SummitEvent_Dialogue1_Lewis}}"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            }
+        },
+        {
+            "LogName": "Update lewis schedule for when farmer becomes mayor",
+            "Action": "EditData",
+            "Priority": "Late",
+            "Target": "Strings/schedules/Lewis",
+            "Entries": {
+                "15.000": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.15.000}}",
+                "6.000": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.6.000}}",
+                "3.000": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.3.000}}",
+                "6.001": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.6.001}}"
             },
             "When": {
                 "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true

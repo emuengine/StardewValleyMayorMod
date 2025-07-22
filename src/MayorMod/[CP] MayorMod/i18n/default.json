@@ -273,6 +273,7 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_8": "Excellent! I'll call the company today and we should have the town cleaned up in no time.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoCleanup_0": "I'm disappointed but I understand that we do need to be careful with the budget.",
 
+	"EmuEngine.MayorModCP_Events.TreePlanting.ThankYou": "Thank you Mayor",
 	"EmuEngine.MayorModCP_Events.TreePlanting_0": "Hi Mayor @. I have a small favour to ask. I'm doing a lesson about nature with the kids today. I would love to include a tree planting ceremony as part of it. It would mean a lot if you could come along and help out. If you were there as the mayor it would really make it feel like a proper ceremony and a special moment for the kids.",
 	"EmuEngine.MayorModCP_Events.TreePlanting_1": "Ok class. In today's lesson we are going to learn about giving back to nature by having our own tree planting ceremony. The Mayor is a very talented farmer and has kindly offered up time to help us.",
 	"EmuEngine.MayorModCP_Events.TreePlanting_2": "Now kids this is the sapling of a Bur Oak tree. It will grow slowly, but one day it'll stretch its branches far above us.",
@@ -519,6 +520,10 @@
 	"EmuEngine.MayorModCP_AssetUpdates.Festivals.summer11.Pierre": "Hmm... maybe if I get on the governor's good side he'll give my business a tax break...#$b#I wonder if he likes aged whiskey?",
 	"EmuEngine.MayorModCP_AssetUpdates.Festivals.summer11.Penny": "We do this festival every year to give the governor a taste of everything the valley has to offer.",
 	"EmuEngine.MayorModCP_AssetUpdates.ExtraDialogue.SummitEvent_Dialogue1_Lewis": "You know, @... I was mayor of Pelican Town for a long time. I really do miss it sometimes.#$b#People have come and gone. We've lived through times of hardship, and times of plenty.",
+	"EmuEngine.MayorModCP_AssetUpdates.Schedules.Lewis.15.000": "I used to come here to check on local businesses but now I just like having someone to talk to.",
+	"EmuEngine.MayorModCP_AssetUpdates.Schedules.Lewis.6.000": "I used to come here as mayor to collect tax but now I just miss talking to Clint, so I still drop by.",
+	"EmuEngine.MayorModCP_AssetUpdates.Schedules.Lewis.3.000": "Marnie has been so kind to give me a place to stay.",
+	"EmuEngine.MayorModCP_AssetUpdates.Schedules.Lewis.6.001": "The library is one of Pelican Town's greatest features.",
 
 	//Substring replacements
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.MayorLewis": "Mayor Lewis",

@@ -7,36 +7,17 @@
             "FromFile": "Assets/Maps/Interior/ManorHouse.tmx"
         },
         {
-            "LogName": "Updating Data/Locations to add {{ModId}}_ManorHouse",
             "Action": "EditData",
             "Target": "Data/Locations",
+            "TargetField": [ "ManorHouse", "CreateOnLoad" ],
             "Entries": {
-                "{{ModId}}_ManorHouse": {
-                    "CreateOnLoad": {
-                        "MapPath": "Maps/{{ModId}}_ManorHouse"
-                    },
-                    "DisplayName": "Manor House",
-                    "DefaultArrivalTile": {
-                        "X": 7,
-                        "Y": 9
-                    },
-                    "ExcludeFromNpcPathfinding": false,
-                    "ArtifactSpots": [],
-                    "FishAreas": {},
-                    "Fish": [],
-                    "Forage": [],
-                    "MusicContext": "Default"
-                }
+                "MapPath": "Maps/{{ModId}}_ManorHouse"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true,
+                "HasFlag: hostPlayer | contains={{ModId}}_WonMayorElection": false
             }
         },
-        //{
-        //    "LogName": "Updated Data/ChairTiles with Mayor Chair",
-        //    "Action": "EditData",
-        //    "Target": "Data/ChairTiles",
-        //    "Entries": {
-        //        "{{ModId}}_Misc_Tilesheet/18/1": "1/1/down/couch/-1/-1/false"
-        //    }
-        //},
         {
             "LogName": "Loading strings for CouncilMeeting",
             "Action": "EditData",

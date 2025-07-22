@@ -1,5 +1,27 @@
 {
     "Changes": [
+        //Update home location when not mayor
+        {
+            "LogName": "Loading Lewis default location update",
+            "Action": "EditData",
+            "Priority": "Late",
+            "Target": "Data/Characters",
+            "TargetField": [ "Lewis", "Home" ],
+            "Entries": {
+                "Default": {
+                    "Id": "Default",
+                    "Location": "AnimalShop",
+                    "Tile": {
+                        "X": 13,
+                        "Y": 5
+                    },
+                    "Direction": "down"
+                }
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            }
+        },
         //Schedule
         {
             "LogName": "Update lewis schedule for when farmer becomes mayor",
@@ -26,48 +48,41 @@
                 "fall_Sun": "800 AnimalShop 28 17 3/930 Forest 95 39 2/1110 Forest 84 40 2/1600 AnimalShop 31 17 3 square_5_1_0/2000 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
                 "summer_Sun": "800 AnimalShop 28 17 3/1000 Forest 95 39 2/1140 Beach 19 24 2/1600 AnimalShop 31 17 3 square_5_1_0/2000 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
                 "spring": "800 AnimalShop 28 17 3/900 Forest 95 39 2/1040 CommunityCenter 55 6 0/1400 CommunityCenter 47 5 0/1440 CommunityCenter 51 4 2/1600 CommunityCenter 47 13 0/1700 CommunityCenter 33 9 0/1830 AnimalShop 17 16 3/2300 AnimalShop 13 5 1 lewis_sleep",
-                "default": "800 AnimalShop 28 17 3/1000 Forest 95 39 2/1140 Town 30 56 2/1400 Town 41 57 0/1600 AnimalShop 31 17 3 square_5_1_0/2000 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep"
+                "default": "800 AnimalShop 28 17 3/1000 Forest 95 39 2/1140 Town 30 56 2/1400 Town 26 29 0/1600 AnimalShop 31 17 3 square_5_1_0/2000 AnimalShop 17 16 3/2200 AnimalShop 13 5 1 lewis_sleep",
+                "FlashShifter.StardewValleyExpandedCP_CommunityDay": "630 AnimalShop 28 17 3/730 CommunityCenter 55 6 0/1000 CommunityCenter 47 5 0/1030 CommunityCenter 53 5 0/1100 CommunityCenter 31 12 2 \"Strings\\schedules\\Lewis:CommunityDay_Lewis\"/1320 CommunityCenter 31 13 2 \"Strings\\schedules\\Lewis:CommunityDay_Lewis\"/1450 CommunityCenter 47 13 0 \"Strings\\schedules\\Lewis:CommunityDay_Lewis\"/1540 CommunityCenter 31 13 2 \"Strings\\schedules\\Lewis:CommunityDay_Lewis\"/1810 CommunityCenter 33 12 2 \"Strings\\schedules\\Lewis:CommunityDay_Lewis\"/1900 CommunityCenter 33 12 2 \"Strings\\schedules\\Lewis:CommunityDay_Lewis\"/1950 AnimalShop 13 5 1 lewis_sleep",
+                "summer_18": "GOTO default",
+                "fall_4": "GOTO default",
+                "winter_11": "GOTO default",
+                "winter_25": "GOTO default"
             },
             "When": {
                 "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
             }
         },
-        // Update Lewis schedule strings
-        {
-            "LogName": "Update lewis schedule for when farmer becomes mayor",
+        //Stardew Valley Expanded Update
+        { //LEWIS Joja Day Schedule
             "Action": "EditData",
+            "Target": "characters/schedules/Lewis",
             "Priority": "Late",
-            "Target": "Strings/schedules/Lewis",
-            "Entries": {
-                "15.000": "I used to come here to check on local businesses but now I just like having someone to talk to.",
-                "6.000": "I used to come here as mayor to collect tax but now I just miss talking to Clint, so I still drop by.",
-                "3.000": "Marnie has been so kind to give me a place to stay.",
-                "6.001": "The library is one of Pelican Town's greatest features."
-            },
             "When": {
+                "HasSeenEvent": "502261",
                 "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            },
+            "Entries": {
+                "22": "630 AnimalShop 28 17 3/1000 Town 41 102 2 \"Strings\\schedules\\Lewis:JojaDay1_Lewis\"/1200 Town 65 100 2 \"Strings\\schedules\\Lewis:JojaDay1_Lewis\"/1230 JojaMart 13 27 0 \"Strings\\schedules\\Lewis:JojaDay2_Lewis\"/1400 Town 41 102 2 \"Strings\\schedules\\Lewis:JojaDay3_Lewis\"/2100 AnimalShop 13 5 1 lewis_sleep"
             }
         },
-        //Update home location when not mayor
-        {
-            "LogName": "Loading Lewis default location update",
+        { //LEWIS SCHEDULE - Marnie
             "Action": "EditData",
+            "Target": "characters/schedules/Lewis",
             "Priority": "Late",
-            "Target": "Data/Characters",
-            "TargetField": [ "Lewis", "Home" ],
-            "Entries": {
-                "Default": {
-                    "Id": "Default",
-                    "Location": "AnimalShop",
-                    "Tile": {
-                        "X": 13,
-                        "Y": 5
-                    },
-                    "Direction": "down"
-                }
-            },
             "When": {
+                "Weather": "Sun",
                 "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            },
+            "Entries": {
+                "10": "800 AnimalShop 28 17 3/1000 Town 41 102 2/1140 Town 30 56 2/1400 Town 29 27 3/1700 Saloon 9 22 3 lewis_drink/2230 AnimalShop 13 5 1 lewis_sleep",
+                "17": "800 AnimalShop 28 17 3/1000 Town 41 102 2/1500 AnimalShop 30 16 3/1900 AnimalShop 13 5 1 lewis_sleep"
             }
         }
     ]
