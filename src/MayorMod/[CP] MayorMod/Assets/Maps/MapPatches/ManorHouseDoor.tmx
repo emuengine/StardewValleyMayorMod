@@ -3131,12 +3131,12 @@
  <objectgroup id="12" name="Buildings">
   <object id="29" name="TileData" x="16" y="0" width="16" height="16">
    <properties>
-    <property name="Action" value="Warp 5 11 ManorHouse"/>
+    <property name="Action" value="Warp 5 11 EmuEngine.MayorModCP_ManorHouse"/>
    </properties>
   </object>
   <object id="28" name="TileData" x="0" y="0" width="16" height="16">
    <properties>
-    <property name="Action" value="Warp 4 11 ManorHouse"/>
+    <property name="Action" value="Warp 4 11 EmuEngine.MayorModCP_ManorHouse"/>
    </properties>
   </object>
  </objectgroup>
