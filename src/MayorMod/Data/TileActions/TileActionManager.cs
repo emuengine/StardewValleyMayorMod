@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewValley;
+using StardewValley.Locations;
 
 namespace MayorMod.Data.TileActions;
 
@@ -19,6 +20,10 @@ internal static class TileActionManager
     public const string DeskRegisterActionType = "DeskRegister";
     public const string VotingBoothActionType = "VotingBooth";
     public const string BallotBoxActionType = "BallotBox";
+    public const string LostAndFoundActionType = "LostAndFound";
+    public const string DivorceBookActionType = "DivorceBook";
+    public const string LedgerBookActionType = "LedgerBook";
+    public const string MayorFridgeActionType = "MayorFridge";
 
 
     public static void Init(IModHelper helper, IMonitor monitor)
@@ -44,31 +49,22 @@ internal static class TileActionManager
             return false;
         }
         
-        if (arg2[1] == MayorDeskActionType)
+        switch (arg2[1])
         {
-            ManorHouseTileActions.MayorDeskAction(_helper, farmer);
-        }
-        else if (!farmer.mailReceived.Contains(ProgressFlags.VotedForMayor))
-        {
-            switch (arg2[1])
+            case LostAndFoundActionType: Game1.getLocationFromName(nameof(ManorHouse)).performAction(LostAndFoundActionType, Game1.player, new xTile.Dimensions.Location(point.X,point.Y)); break;
+            case DivorceBookActionType: Game1.getLocationFromName(nameof(ManorHouse)).performAction(DivorceBookActionType, Game1.player, new xTile.Dimensions.Location(point.X, point.Y)); break;
+            case LedgerBookActionType: Game1.getLocationFromName(nameof(ManorHouse)).performAction(LedgerBookActionType, Game1.player, new xTile.Dimensions.Location(point.X, point.Y)); break;
+            case MayorFridgeActionType: Game1.getLocationFromName(nameof(ManorHouse)).performAction(MayorFridgeActionType, Game1.player, new xTile.Dimensions.Location(point.X, point.Y)); break;
+            case MayorDeskActionType: ManorHouseTileActions.MayorDeskAction(_helper, farmer); break;
+            case DeskActionType: VotingTileActions.VotingDeskAction(farmer); break;
+            case VotingBoothActionType: VotingTileActions.VotingBoothAction(_helper, farmer, arg2); break;
+            case BallotBoxActionType: VotingTileActions.BallotBoxAction(farmer); break;
+            default:
             {
-                //case MayorDeskActionType: ManorHouseTileActions.MayorDeskAction(_helper, farmer); break;
-                case DeskActionType: VotingTileActions.DeskAction(farmer); break;
-                case VotingBoothActionType: VotingTileActions.VotingBoothAction(_helper, farmer, arg2); break;
-                case BallotBoxActionType: VotingTileActions.BallotBoxAction(farmer); break;
-                default:
-                {
-                    _monitor?.Log($"Unknown tile action - {arg2[1]}", LogLevel.Error);
-                    return false;
-                }
+                _monitor?.Log($"Unknown tile action - {arg2[1]}", LogLevel.Error);
+                return false;
             }
-        }
-        else
-        {
-            Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
         }
         return true;
     }
-
-
 }

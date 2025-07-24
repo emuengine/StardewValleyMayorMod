@@ -208,17 +208,17 @@
   </object>
   <object id="4" name="TileData" x="32" y="80" width="16" height="16">
    <properties>
-    <property name="Action" value="LedgerBook"/>
+    <property name="Action" value="MayorModAction LedgerBook"/>
    </properties>
   </object>
   <object id="5" name="TileData" x="48" y="80" width="16" height="16">
    <properties>
-    <property name="Action" value="DivorceBook"/>
+    <property name="Action" value="MayorModAction DivorceBook"/>
    </properties>
   </object>
-  <object id="6" name="TileData" x="64" y="81" width="16" height="16">
+  <object id="6" name="TileData" x="64" y="80" width="16" height="16">
    <properties>
-    <property name="Action" value="LostAndFound"/>
+    <property name="Action" value="MayorModAction LostAndFound"/>
    </properties>
   </object>
   <object id="35" name="TileData" x="320" y="80" width="16" height="16">

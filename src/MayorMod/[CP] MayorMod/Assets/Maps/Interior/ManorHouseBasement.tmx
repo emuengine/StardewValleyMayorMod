@@ -146,7 +146,7 @@
   </object>
   <object id="2" name="TileData" x="32" y="64" width="16" height="16">
    <properties>
-    <property name="Action" value="MayorFridge"/>
+    <property name="Action" value="MayorModAction MayorFridge"/>
    </properties>
   </object>
  </objectgroup>

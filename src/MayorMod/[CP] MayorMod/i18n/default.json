@@ -102,6 +102,12 @@
 	"EmuEngine.MayorModCP_UIMenu.NumberOfCampaignDays": "Campaigning Days",
 	"EmuEngine.MayorModCP_UIMenu.NumberOfCampaignDays.Tooltip": "The number of days for election campaigning. Note: Once the voting date is set this wont update it.",
 
+	//Mayor machines
+	"EmuEngine.MayorModCP_UIMenu.ManorHouse_MayorFridge_Initial": "It's a mini fridge. It's mostly full of cans of cola and iced tea.",
+	"EmuEngine.MayorModCP_UIMenu.ManorHouse_LedgerBook_Singleplayer": "Pelican Town Ledger Book... It can be used to keep track of finances.",
+	"EmuEngine.MayorModCP_UIMenu.ManorHouse_LedgerBook_SharedWallets_Client": "Pelican Town Ledger Book... The owner of the farm can request to split the funds of the farmhands.",
+	"EmuEngine.MayorModCP_UIMenu.ManorHouse_LedgerBook_SeparateWallets_HostQuestion": "It's the ledger book. What would you like to do?",
+
 	//////////////////////
 	//Dialogue
 	//////////////////////
@@ -334,7 +340,7 @@
 
 	"EmuEngine.MayorModCP_Events.PrizeTicketIntro_0": "Ah, hello there, @.",
 	"EmuEngine.MayorModCP_Events.PrizeTicketIntro_1": "I was just loading some more prizes into this machine here... like I used to do.",
-	"EmuEngine.MayorModCP_Events.PrizeTicketIntro_2": "It's was a program I've came up with, to help promote a spirit of goodwill among the townsfolk... You included!#$b#It's pretty simple... sometimes, when you help out others in town, you'll receive a 'Prize Ticket'. You can turn them in for rewards.#$b#There's some special stuff in there!",
+	"EmuEngine.MayorModCP_Events.PrizeTicketIntro_2": "It's was a program I came up with, to help promote a spirit of goodwill among the townsfolk... You included!#$b#It's pretty simple... sometimes, when you help out others in town, you'll receive a 'Prize Ticket'. You can turn them in for rewards.#$b#There's some special stuff in there!",
 	"EmuEngine.MayorModCP_Events.PrizeTicketIntro_3": "My only worry was that people just went after the tickets, rather than cultivating a true compassion for their fellow man...",
 	"EmuEngine.MayorModCP_Events.PrizeTicketIntro_4": "At any rate... you can still check the 'Help Wanted' board in town. That's a good way to get your hands on more tickets.#$b#Good luck out there.",
 

@@ -15,8 +15,13 @@ public static class VotingTileActions
     /// Tile action for the security desk in the voting area. Officer mike should give the farmer a voting ballot.
     /// </summary>
     /// <param name="farmer">Current player</param>
-    public static void DeskAction(Farmer farmer)
+    public static void VotingDeskAction(Farmer farmer)
     {
+        if (!farmer.mailReceived.Contains(ProgressFlags.VotedForMayor))
+        {
+            Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
+        }
+
         if (farmer.HasItemInInventory(ModItemKeys.Ballot))
         {
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.NeedToFillBallot);
@@ -44,6 +49,11 @@ public static class VotingTileActions
     /// <param name="votingBoothId">Voting booth id</param>
     public static void VotingBoothAction(IModHelper helper, Farmer farmer, string[] votingBoothId)
     {
+        if (!farmer.mailReceived.Contains(ProgressFlags.VotedForMayor))
+        {
+            Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
+        }
+
         var ballot = farmer.ItemFromInventory(ModItemKeys.Ballot);
 
         if (ballot is not null && votingBoothId.Length == 3)
@@ -117,6 +127,11 @@ public static class VotingTileActions
     /// <param name="farmer">Current player</param>
     public static void BallotBoxAction(Farmer farmer)
     {
+        if (!farmer.mailReceived.Contains(ProgressFlags.VotedForMayor))
+        {
+            Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
+        }
+
         var ballot = farmer.ItemFromInventory(ModItemKeys.BallotUsed);
 
         if (ballot is not null)
