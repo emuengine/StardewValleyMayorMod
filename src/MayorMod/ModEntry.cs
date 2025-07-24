@@ -12,7 +12,6 @@ using StardewValley.GameData;
 using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
-using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 
 namespace MayorMod;

@@ -155,7 +155,13 @@
 	"EmuEngine.MayorModCP_Events.NeedMayor_8A1": "No I haven't and I'm not interested.",
 	"EmuEngine.MayorModCP_Events.NeedMayor_9": "That's the spirit!",
 	"EmuEngine.MayorModCP_Events.NeedMayor_10": "That's a great idea! I may not have the confidence to run myself any more but I can definitely help you with your campaign. I have the forms around here somewhere for registration. I'll fill them out and post them to the election commission for you. This might actually turn out great!",
-	"EmuEngine.MayorModCP_Events.NotMayor_0": "That's a pity. Looks like Lewis will run uncontested again.",
+	"EmuEngine.MayorModCP_Events.NotMayor_0": "That's a pity. Looks like Lewis will run uncontested again. Maybe you can think about it and we can try next year.",
+
+	"EmuEngine.MayorModCP_Events.NeedMayorRetry_0": "Another year with Lewis as mayor. You've done so much for the town this year. We could try and push for an election against Lewis again. It might be the right time.",
+	"EmuEngine.MayorModCP_Events.NeedMayorRetry_1Q": "Have reconsidered running for office?",
+	"EmuEngine.MayorModCP_Events.NeedMayorRetry_1A0": "I have and I think now is the time to run.",
+	"EmuEngine.MayorModCP_Events.NeedMayorRetry_1A1": "No I haven't and I'm not interested.",
+
 
 	"EmuEngine.MayorModCP_Events.WorriedLewis_0": "I don't know what I'm gonna do. @ is very popular in the town. I think I may be losing this one.",
 	"EmuEngine.MayorModCP_Events.WorriedLewis_1": "Don't worry people still like you too. You haven't been mayor for such a long time for no reason. Also ... It might even be a good thing if you don't have so much of this responsibility taking up all of your time. We could spend more time together.",
