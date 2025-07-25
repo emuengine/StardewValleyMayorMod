@@ -65,8 +65,9 @@ public class VotingManager
         {
             //TODO: Count votes for multiplayer
         }
-        if (votes > 0)
+        if (ModProgressManager.HasProgressFlag(ProgressFlags.VotedForMayor)) 
         {
+            //If you dont for for yourself you're voting for Lewis
             votes = ModProgressManager.HasProgressFlag(ProgressFlags.HasVotedForHostFarmer) ? 1 : -1;
         }
         return votes;
@@ -74,7 +75,6 @@ public class VotingManager
 
     public bool VotingForFarmer(string name)
     {
-        IList<string> easyVotes = ["Gus", "Penny", "Maru"];
         if (name.Equals(ModNPCKeys.MarlonId, StringComparison.InvariantCultureIgnoreCase))
         {
             return true;
@@ -85,6 +85,7 @@ public class VotingManager
         {
             return true;
         }
+        IList<string> easyVotes = [ModNPCKeys.GusId, ModNPCKeys.PennyId, ModNPCKeys.MaruId];
 
         var hearts = GetNPCHearts(name);
         hearts += HasNPCBeenCanvassed(name) ? 1 : 0;
