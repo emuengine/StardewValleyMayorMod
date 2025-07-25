@@ -14,6 +14,9 @@
 	"EmuEngine.MayorModCP_Item.Leaflet.Name": "Election Leaflets",
 	"EmuEngine.MayorModCP_Item.Leaflet.Description": "Describes your policies as mayor",
 
+	"EmuEngine.MayorModCP_Item.MayorShirt.Name": "Mayor Suit Jacket",
+	"EmuEngine.MayorModCP_Item.MayorShirt.Description": "Suit jacket with mayoral chain",
+
 
 	//////////////////////
 	//Powers
@@ -107,6 +110,21 @@
 	"EmuEngine.MayorModCP_UIMenu.ManorHouse_LedgerBook_Singleplayer": "Pelican Town Ledger Book... It can be used to keep track of finances.",
 	"EmuEngine.MayorModCP_UIMenu.ManorHouse_LedgerBook_SharedWallets_Client": "Pelican Town Ledger Book... The owner of the farm can request to split the funds of the farmhands.",
 	"EmuEngine.MayorModCP_UIMenu.ManorHouse_LedgerBook_SeparateWallets_HostQuestion": "It's the ledger book. What would you like to do?",
+
+	//////////////////////
+	//Locations
+	//////////////////////
+	"EmuEngine.MayorModCP_Locations.ForestStageArea": "Forest Stage Area",
+	"EmuEngine.MayorModCP_Locations.ManorHouse": "Manor House",
+	"EmuEngine.MayorModCP_Locations.ManorHouseBasement": "Manor House Basement",
+	"EmuEngine.MayorModCP_Locations.VotingOffice": "Voting Office",
+	"EmuEngine.MayorModCP_Locations.MayorModWarpRoom": "MayorMod Warp Room",
+
+	//////////////////////
+	//NPCs
+	//////////////////////
+	"EmuEngine.MayorModCP_NPCs.OfficerMike": "Officer Mike",
+
 
 	//////////////////////
 	//Dialogue

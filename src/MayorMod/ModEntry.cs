@@ -162,6 +162,12 @@ internal sealed class ModEntry : Mod
 
             ModUtils.ForceCouncilMailDelivery();
         }
+
+        //Allow NeedMayorRetryEvent to repeat
+        if (Game1.player.eventsSeen.Contains(ProgressFlags.NeedMayorRetryEvent))
+        {
+            Game1.player.eventsSeen.Remove(ProgressFlags.NeedMayorRetryEvent);
+        }
     }
 
     /// <summary>

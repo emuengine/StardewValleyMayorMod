@@ -15,7 +15,7 @@
                     "CreateOnLoad": {
                         "MapPath": "Maps/{{ModId}}_VotingOffice"
                     },
-                    "DisplayName": "Voting Office",
+                    "DisplayName": "{{i18n:{{ModId}}_Locations.VotingOffice}}",
                     "DefaultArrivalTile": {
                         "X": 7,
                         "Y": 9

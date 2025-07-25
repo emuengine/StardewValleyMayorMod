@@ -6,8 +6,8 @@
             "Entries": {
                 "{{ModId}}_MayorSuitJacket": {
                     "Name": "{{ModId}}_MayorSuitJacket",
-                    "DisplayName": "Mayor Suit Jacket",
-                    "Description": "Suit jacket with mayoral chain",
+                    "DisplayName": "{{i18n:{{ModId}}_Item.MayorShirt.Name}}",
+                    "Description": "{{i18n:{{ModId}}_Item.MayorShirt.Description}}",
                     "Type": 0,
                     "Texture": "{{InternalAssetKey: Assets/Clothing/MayorSuit.png}}",
                     "SpriteIndex": 0

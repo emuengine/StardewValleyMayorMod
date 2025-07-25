@@ -12,7 +12,7 @@
             "Target": "Data/Locations",
             "Entries": {
                 "{{ModId}}_ForestStageArea": {
-                    "DisplayName": "Forest Stage Area",
+                    "DisplayName": "{{i18n:{{ModId}}_Locations.ForestStageArea}}",
                     "DefaultArrivalTile": {
                         "X": 27,
                         "Y": 38

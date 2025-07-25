@@ -20,7 +20,7 @@
             "Target": "Data/Characters",
             "Entries": {
                 "{{ModId}}_OfficerMike": {
-                    "DisplayName": "Officer Mike",
+                    "DisplayName": "{{i18n:{{ModId}}_NPCs.OfficerMike}}",
                     "Gender": "Male",
                     "Age": "Adult",
                     "Manner": "Neutral",

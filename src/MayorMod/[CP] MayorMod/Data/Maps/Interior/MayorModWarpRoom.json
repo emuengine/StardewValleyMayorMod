@@ -15,7 +15,7 @@
                     "CreateOnLoad": {
                         "MapPath": "Maps/{{ModId}}_MayorModWarpRoom"
                     },
-                    "DisplayName": "MayorMod Warp Room",
+                    "DisplayName": "{{i18n:{{ModId}}_Locations.MayorModWarpRoom}}",
                     "DefaultArrivalTile": {
                         "X": 4,
                         "Y": 10

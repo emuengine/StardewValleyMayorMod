@@ -15,7 +15,7 @@
                     "CreateOnLoad": {
                         "MapPath": "Maps/{{ModId}}_ManorHouseBasement"
                     },
-                    "DisplayName": "Empty Manor House Basement",
+                    "DisplayName": "{{i18n:{{ModId}}_Locations.ManorHouseBasement}}",
                     "DefaultArrivalTile": {
                         "X": 4,
                         "Y": 4

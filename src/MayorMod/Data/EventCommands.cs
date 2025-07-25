@@ -9,6 +9,8 @@ public static class EventCommands
 {
     public const string STORE_MAP_TILE = "emuEngineMayorMod_storeMapTile";
     public const string RETRIEVE_MAP_TILE = "emuEngineMayorMod_retrieveMapTile";
+    public const string CLEAR_DIALOGUE_EVENT = "emuEngineMayorMod_clearDialogueEvent";
+    public const string CLEAR_SEEN_EVENT = "emuEngineMayorMod_clearSeenEvent";
 
     /// <summary>
     /// Stores full tile object. This allows restoring of animated tiles.
@@ -21,6 +23,7 @@ public static class EventCommands
     /// </summary>
     public static void AddExtraEventCommands(IMonitor monitor)
     {
+        //storeMapTile
         var storageMethodInfo = typeof(EventCommands).GetMethod(nameof(StoreMapTile));
         if (storageMethodInfo is null)
         {
@@ -30,6 +33,7 @@ public static class EventCommands
         var storageCommand = (EventCommandDelegate)Delegate.CreateDelegate(typeof(EventCommandDelegate), storageMethodInfo);
         Event.RegisterCommand(STORE_MAP_TILE, storageCommand);
 
+        //retrieveMapTile
         var retrievalMethodInfo = typeof(EventCommands).GetMethod(nameof(RetrieveMapTile));
         if (retrievalMethodInfo is null)
         {
@@ -38,6 +42,27 @@ public static class EventCommands
         }
         var retrievalCommand = (EventCommandDelegate)Delegate.CreateDelegate(typeof(EventCommandDelegate), retrievalMethodInfo);
         Event.RegisterCommand(RETRIEVE_MAP_TILE, retrievalCommand);
+
+        //clearActiveDialogueEvent
+        var clearDialogueEventMethodInfo = typeof(EventCommands).GetMethod(nameof(ClearDialogueEvent));
+        if (clearDialogueEventMethodInfo is null)
+        {
+            monitor.Log($"Error: MethodInfo for {ClearDialogueEvent} not found");
+            return;
+        }
+        var clearDialogueEventCommand = (EventCommandDelegate)Delegate.CreateDelegate(typeof(EventCommandDelegate), clearDialogueEventMethodInfo);
+        Event.RegisterCommand(CLEAR_DIALOGUE_EVENT, clearDialogueEventCommand);
+
+
+        //clearSeenEvent
+        var clearSeenEventMethodInfo = typeof(EventCommands).GetMethod(nameof(ClearSeenEvent));
+        if (clearSeenEventMethodInfo is null)
+        {
+            monitor.Log($"Error: MethodInfo for {ClearSeenEvent} not found");
+            return;
+        }
+        var clearSeenEventCommand = (EventCommandDelegate)Delegate.CreateDelegate(typeof(EventCommandDelegate), clearSeenEventMethodInfo);
+        Event.RegisterCommand(CLEAR_SEEN_EVENT, clearSeenEventCommand);
     }
 
     /// <summary>
@@ -108,6 +133,43 @@ public static class EventCommands
             return;
         }
         TileStorage[storedTileId] = tile;
+        @event.CurrentCommand++;
+    }
+
+    /// <summary>
+    /// Remove dialogueEventId from activeDialogueEvents and previousActiveDialogueEvents 
+    /// </summary>
+    /// <param name="event"></param>
+    /// <param name="args"></param>
+    /// <param name="context"></param>
+    public static void ClearDialogueEvent(Event @event, string[] args, EventContext context)
+    {
+        if (!ArgUtility.TryGet(args, 1, out var dialogueEventId, out var error, allowBlank: true, "string dialogueEventId"))
+        {
+            context.LogErrorAndSkip(error);
+            return;
+        }
+
+        Game1.player.activeDialogueEvents.RemoveWhere((KeyValuePair<string, int> m) => m.Key.Contains(dialogueEventId));
+        Game1.player.previousActiveDialogueEvents.RemoveWhere((KeyValuePair<string, int> m) => m.Key.Contains(dialogueEventId));
+        @event.CurrentCommand++;
+    }
+
+    /// <summary>
+    /// Remove event from eventsSeen
+    /// </summary>
+    /// <param name="event"></param>
+    /// <param name="args"></param>
+    /// <param name="context"></param>
+    public static void ClearSeenEvent(Event @event, string[] args, EventContext context)
+    {
+        if (!ArgUtility.TryGet(args, 1, out var seenEventId, out var error, allowBlank: true, "string seenEventId"))
+        {
+            context.LogErrorAndSkip(error);
+            return;
+        }
+
+        Game1.player.eventsSeen.RemoveWhere(m => m.Contains(seenEventId));
         @event.CurrentCommand++;
     }
 }
