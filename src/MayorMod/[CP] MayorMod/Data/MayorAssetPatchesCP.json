@@ -73,6 +73,20 @@
             "When": {
                 "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
             }
+        },
+        {
+            "LogName": "Update strings for Mayor machines",
+            "Action": "EditData",
+            "Target": "Strings/Locations",
+            "Entries": {
+                "ManorHouse_MayorFridge_Initial": "{{i18n:{{ModId}}_UIMenu.ManorHouse_MayorFridge_Initial}}",
+                "ManorHouse_LedgerBook_Singleplayer": "{{i18n:{{ModId}}_UIMenu.ManorHouse_LedgerBook_Singleplayer}}",
+                "ManorHouse_LedgerBook_SharedWallets_Client": "{{i18n:{{ModId}}_UIMenu.ManorHouse_LedgerBook_SharedWallets_Client}}",
+                "ManorHouse_LedgerBook_SeparateWallets_HostQuestion": "{{i18n:{{ModId}}_UIMenu.ManorHouse_LedgerBook_SeparateWallets_HostQuestion}}"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            }
         }
     ]
 }
