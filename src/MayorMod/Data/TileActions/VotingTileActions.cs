@@ -17,9 +17,10 @@ public static class VotingTileActions
     /// <param name="farmer">Current player</param>
     public static void VotingDeskAction(Farmer farmer)
     {
-        if (!farmer.mailReceived.Contains(ProgressFlags.VotedForMayor))
+        if (farmer.mailReceived.Contains(ProgressFlags.VotedForMayor))
         {
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
+            return;
         }
 
         if (farmer.HasItemInInventory(ModItemKeys.Ballot))
@@ -49,9 +50,10 @@ public static class VotingTileActions
     /// <param name="votingBoothId">Voting booth id</param>
     public static void VotingBoothAction(IModHelper helper, Farmer farmer, string[] votingBoothId)
     {
-        if (!farmer.mailReceived.Contains(ProgressFlags.VotedForMayor))
+        if (farmer.mailReceived.Contains(ProgressFlags.VotedForMayor))
         {
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
+            return;
         }
 
         var ballot = farmer.ItemFromInventory(ModItemKeys.Ballot);
@@ -127,9 +129,10 @@ public static class VotingTileActions
     /// <param name="farmer">Current player</param>
     public static void BallotBoxAction(Farmer farmer)
     {
-        if (!farmer.mailReceived.Contains(ProgressFlags.VotedForMayor))
+        if (farmer.mailReceived.Contains(ProgressFlags.VotedForMayor))
         {
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);
+            return;
         }
 
         var ballot = farmer.ItemFromInventory(ModItemKeys.BallotUsed);
