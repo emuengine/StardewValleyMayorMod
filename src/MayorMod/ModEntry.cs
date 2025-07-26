@@ -144,7 +144,8 @@ internal sealed class ModEntry : Mod
             if (pd.HasWonElection(Helper))
             {
                 ModProgressManager.AddProgressFlag(ProgressFlags.WonMayorElection);
-                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonElectionMail");
+                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonElectionMail"); 
+                _modDataCacheInvalidationNeeded = true;
             }
             else
             {
