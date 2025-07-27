@@ -14,4 +14,5 @@ public static class ProgressFlags
     public static readonly string GusVotingForYou = $"{ModKeys.MAYOR_MOD_CPID}_CampaignMail";
     public static readonly string CompleteTrashBearWorldState = "trashBearDone";
     public static readonly string NeedMayorRetryEvent = $"{ModKeys.MAYOR_MOD_CPID}_NeedMayorRetryEvent";
+    public static readonly string CleanUpRivers = $"{ModKeys.MAYOR_MOD_CPID}_RiverCleanup";
 }

@@ -94,6 +94,7 @@
 	"EmuEngine.MayorModCP_UIMenu.MeetingTownCleanup": "Tidy town initiative.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingEducation": "Access to educational resources.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingBusPunctuality": "Public transport punctuality",
+	"EmuEngine.MayorModCP_UIMenu.MeetingRiverCleanup": "Clean river initiative.",
 
 	//Config menu
 	"EmuEngine.MayorModCP_UIMenu.VotingOptions": "Voting Options",
@@ -302,6 +303,19 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_7A1": "I don't think we need this.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_8": "Excellent! I'll call the company today and we should have the town cleaned up in no time.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoCleanup_0": "I'm disappointed but I understand that we do need to be careful with the budget.",
+
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_0": "Hello everyone. I wanted us to discuss more about the town environmental initiatives. The town clean up has been amazing so far! It's really made a difference to Pelican town.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_1": "Yeah it's been really successful. It's so much nicer in the town now.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_2": "Agreed and we need to finish what we began. There is still a lot of trash in the rivers so I think we need to get them cleaned up too.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_3": "The cost for the current town clean up is already quite a chunk of our budget. Can we not just put up some signs or something?",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_4": "Those signs wont help and are just as ugly as the rubbish.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_5": "I think they will give the desired results while staying within budget.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_6": "I don't think it's good enough. Willy told me his lines are still getting snagged on junk in the river. The fishing industry will benefit from a cleaner environment.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_7Q": "Mayor, the decision rests with you. What is your course of action?",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_7A0": "I think this will be really beneficial. We should clean up the river.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_7A1": "Sorry Maru but I think this is too costly.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_8": "I'll reach out to the company today and we can get the river restoration process started.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingNoRiverCleanup_0": "Well maybe we can think about it again in the future when the budget is in better shape.",
 
 	"EmuEngine.MayorModCP_Events.TreePlanting.ThankYou": "Thank you Mayor",
 	"EmuEngine.MayorModCP_Events.TreePlanting_0": "Hi Mayor @. I have a small favour to ask. I'm doing a lesson about nature with the kids today. I would love to include a tree planting ceremony as part of it. It would mean a lot if you could come along and help out. If you were there as the mayor it would really make it feel like a proper ceremony and a special moment for the kids.",

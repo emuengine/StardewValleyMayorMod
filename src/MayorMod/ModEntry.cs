@@ -9,6 +9,7 @@ using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.GameData;
+using StardewValley.GameData.Locations;
 using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
@@ -102,6 +103,12 @@ internal sealed class ModEntry : Mod
             {
                 Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_VoteTomorrowMail");
             }
+        }
+
+        if (ModProgressManager.HasProgressFlag(ProgressFlags.ElectedAsMayor) && 
+            ModProgressManager.HasProgressFlag(ProgressFlags.CleanUpRivers))
+        {
+            Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
         }
 
         if (_modDataCacheInvalidationNeeded)
@@ -199,6 +206,11 @@ internal sealed class ModEntry : Mod
         if (ModProgressManager.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
             AssetSubstringPatch(e);
+            if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.LOCATIONS) && ModProgressManager.HasProgressFlag(ProgressFlags.CleanUpRivers))
+            {
+                e.Edit(RemoveTrashFromRivers);
+                return;
+            }
         }
 
         if (_saveData is null || !ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
@@ -219,6 +231,21 @@ internal sealed class ModEntry : Mod
             e.Edit(AssetUpdatesForDialogue);
         }
     }
+
+    /// <summary>
+    /// Update the Locations default fish catch rate
+    /// </summary>
+    /// <param name="asset"></param>
+    private void RemoveTrashFromRivers(IAssetData asset)
+    {
+        var data = asset.AsDictionary<string, LocationData>().Data;
+        var rubbish = data["Default"].Fish.FirstOrDefault(f => f.Id == ModKeys.RUBBISH_ID);
+        if (rubbish is not null)
+        {
+            rubbish.Chance = 0.01f;
+        }
+    }
+
 
     /// <summary>
     /// Replaces substrings in assets from patches loaded from json 

@@ -50,7 +50,8 @@
                 "{{ModId}}_MeetingIntro": "{{i18n:{{ModId}}_UIMenu.MeetingIntro}}",
                 "{{ModId}}_MeetingSaloonHours": "{{i18n:{{ModId}}_UIMenu.MeetingSaloonHours}}",
                 "{{ModId}}_MeetingTownSecurity": "{{i18n:{{ModId}}_UIMenu.MeetingTownSecurity}}",
-                "{{ModId}}_MeetingTownCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingTownCleanup}}"
+                "{{ModId}}_MeetingTownCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingTownCleanup}}",
+                "{{ModId}}_MeetingRiverCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingRiverCleanup}}"
             }
         }
     ]

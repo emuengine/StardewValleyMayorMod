@@ -64,6 +64,10 @@ public static partial class ManorHouseTileActions
                 new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingSaloonHours), CouncilMeetingKeys.MeetingSaloonHours),
                 new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownCleanup), CouncilMeetingKeys.MeetingTownCleanup),
              ];
+            if (ModProgressManager.HasProgressFlag(CouncilMeetingKeys.HeldPrefix + CouncilMeetingKeys.MeetingTownCleanup))
+            {
+                meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingRiverCleanup), CouncilMeetingKeys.MeetingRiverCleanup));
+            }
         }
 
         return [.. meetings.Where(m=>!m.EventHasHappened)];
