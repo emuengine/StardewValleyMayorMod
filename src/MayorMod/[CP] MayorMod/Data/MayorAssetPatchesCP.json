@@ -87,6 +87,20 @@
             "When": {
                 "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
             }
+        },
+        { //SVE Update
+            "LogName": "Update lewis schedule for when farmer becomes mayor",
+            "Action": "EditData",
+            "Priority": "Late",
+            "Target": "Characters/schedules/JosephineK",
+            "Entries": {
+                "Sun": "GOTO Fri"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true,
+                "HasSeenEvent": "57873000",
+                "HasSeenEvent |contains=57873005": "false"
+            }
         }
     ]
 }

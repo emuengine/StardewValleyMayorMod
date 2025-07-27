@@ -1,15 +1,15 @@
-﻿using MayorMod.Constants;
+﻿using MayorMod.Data.TileActions;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Locations;
 
-namespace MayorMod.Data.TileActions;
+namespace MayorMod.Data.Handlers;
 
 /// <summary>
 /// Handles various map Tile Actions 
 /// </summary>
-internal static class TileActionManager
+internal static class TileActionHandler
 {
     private static IModHelper _helper = null!;
     private static IMonitor _monitor = null!;

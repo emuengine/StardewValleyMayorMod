@@ -7,7 +7,7 @@ using StardewValley;
 using StardewValley.Objects;
 using static StardewValley.Game1;
 
-namespace MayorMod.Data;
+namespace MayorMod.Data.Handlers;
 
 internal class PollingDataHandler : IPhoneHandler
 {
@@ -40,9 +40,9 @@ internal class PollingDataHandler : IPhoneHandler
     {
         List<KeyValuePair<string, string>> numbers = [];
 
-        if (ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
-            numbers.Add(new KeyValuePair<string, string>(PollingDataKey, Game1.content.LoadString(DialogueKeys.PollingData.PollingDataTitle)));
+            numbers.Add(new KeyValuePair<string, string>(PollingDataKey, content.LoadString(DialogueKeys.PollingData.PollingDataTitle)));
         }
         return numbers;
     }
@@ -64,9 +64,9 @@ internal class PollingDataHandler : IPhoneHandler
         DelayedAction.functionAfterDelay(delegate
         {
             playSound("bigSelect", null);
-            if (ModProgressManager.HasProgressFlag(ProgressFlags.IsVotingDay))
+            if (ModProgressHandler.HasProgressFlag(ProgressFlags.IsVotingDay))
             {
-                var polling = new VotingManager(Game1.player, _mayorModConfig)
+                var polling = new VotingHandler(player, _mayorModConfig)
                 {
                     IsVotingRNG = false,
                 };
@@ -89,9 +89,9 @@ internal class PollingDataHandler : IPhoneHandler
 
     private MayorModMenu GetPollingDataMenu()
     {
-        var voters = VotingManager.GetVotingVillagers(_helper);
+        var voters = VotingHandler.GetVotingVillagers(_helper);
 
-        var polling = new VotingManager(Game1.player, _mayorModConfig)
+        var polling = new VotingHandler(player, _mayorModConfig)
         {
             IsVotingRNG = false,
         };
@@ -105,11 +105,11 @@ internal class PollingDataHandler : IPhoneHandler
         menu.MenuItems =
         [
             new MenuBorder(menu),
-            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.PollingData.PollingDataTitle), new Margin(0, 30, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
-            new TextMenuItem(menu, $"{Game1.content.LoadString(DialogueKeys.PollingData.HadDebate)} {debated}", new Margin(15, 100, 0, 0)),
-            new TextMenuItem(menu, $"{Game1.content.LoadString(DialogueKeys.PollingData.Leaflets)} {leaflets}/{totalVoters}", new Margin(15, 150, 0, 0)),
-            new TextMenuItem(menu, $"{Game1.content.LoadString(DialogueKeys.PollingData.VotersCanvassed)} {canvassed}/{totalVoters}", new Margin(15, 200, 0, 0)),
-            new TextMenuItem(menu, $"{Game1.content.LoadString(DialogueKeys.PollingData.VotingForYou)} {polls}/{totalVoters}", new Margin(15, 250, 0, 0)),
+            new TextMenuItem(menu, content.LoadString(DialogueKeys.PollingData.PollingDataTitle), new Margin(0, 30, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
+            new TextMenuItem(menu, $"{content.LoadString(DialogueKeys.PollingData.HadDebate)} {debated}", new Margin(15, 100, 0, 0)),
+            new TextMenuItem(menu, $"{content.LoadString(DialogueKeys.PollingData.Leaflets)} {leaflets}/{totalVoters}", new Margin(15, 150, 0, 0)),
+            new TextMenuItem(menu, $"{content.LoadString(DialogueKeys.PollingData.VotersCanvassed)} {canvassed}/{totalVoters}", new Margin(15, 200, 0, 0)),
+            new TextMenuItem(menu, $"{content.LoadString(DialogueKeys.PollingData.VotingForYou)} {polls}/{totalVoters}", new Margin(15, 250, 0, 0)),
 
             new ButtonMenuItem(menu, new Vector2(-84, 20), () => { exitActiveMenu(); })
             {

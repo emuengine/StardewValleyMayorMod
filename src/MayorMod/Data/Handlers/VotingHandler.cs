@@ -3,9 +3,9 @@ using MayorMod.Data.Models;
 using StardewModdingAPI;
 using StardewValley;
 
-namespace MayorMod.Data;
+namespace MayorMod.Data.Handlers;
 
-public class VotingManager
+public class VotingHandler
 {
     public const int PointsPerHeart = 250;
     public static readonly string TalkingToVotersTopic = $"{ModKeys.MAYOR_MOD_CPID}_TalkingToVotersTopic";
@@ -22,7 +22,7 @@ public class VotingManager
 
     public bool IsVotingRNG { get; set; } = true;
 
-    public VotingManager(Farmer farmer, MayorModConfig mayorModConfig)
+    public VotingHandler(Farmer farmer, MayorModConfig mayorModConfig)
     {
         _farmer = farmer;
         _mayorModConfig = mayorModConfig;
@@ -65,10 +65,10 @@ public class VotingManager
         {
             //TODO: Count votes for multiplayer
         }
-        if (ModProgressManager.HasProgressFlag(ProgressFlags.VotedForMayor)) 
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.VotedForMayor)) 
         {
             //If you dont for for yourself you're voting for Lewis
-            votes = ModProgressManager.HasProgressFlag(ProgressFlags.HasVotedForHostFarmer) ? 1 : -1;
+            votes = ModProgressHandler.HasProgressFlag(ProgressFlags.HasVotedForHostFarmer) ? 1 : -1;
         }
         return votes;
     }
@@ -81,7 +81,7 @@ public class VotingManager
         }
 
         if (name.Equals(ModNPCKeys.GusId, StringComparison.InvariantCultureIgnoreCase) &&
-            ModProgressManager.HasProgressFlag(ProgressFlags.GusVotingForYou))
+            ModProgressHandler.HasProgressFlag(ProgressFlags.GusVotingForYou))
         {
             return true;
         }
@@ -96,7 +96,7 @@ public class VotingManager
         threshold -= easyVotes.Contains(name) ? 2 : 0;
         if (IsVotingRNG)
         {
-            return (hearts * (1.0 / threshold)) > ModUtils.RNG.NextDouble();
+            return hearts * (1.0 / threshold) > ModUtils.RNG.NextDouble();
         }
         else
         {

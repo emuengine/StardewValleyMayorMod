@@ -19,7 +19,8 @@
                 }
             },
             "When": {
-                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true,
+                "HasConversationTopic |contains=sdvhead.LawAndOrderSV_LewisInJail": false
             }
         },
         //Schedule
@@ -53,10 +54,12 @@
                 "summer_18": "GOTO default",
                 "fall_4": "GOTO default",
                 "winter_11": "GOTO default",
-                "winter_25": "GOTO default"
+                "winter_25": "GOTO default",
+                "22": "GOTO spring"
             },
             "When": {
-                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true,
+                "HasConversationTopic |contains=sdvhead.LawAndOrderSV_LewisInJail": false
             }
         },
         //Stardew Valley Expanded Update
@@ -66,7 +69,8 @@
             "Priority": "Late",
             "When": {
                 "HasSeenEvent": "502261",
-                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true,
+                "HasConversationTopic |contains=sdvhead.LawAndOrderSV_LewisInJail": false
             },
             "Entries": {
                 "22": "630 AnimalShop 28 17 3/1000 Town 41 102 2 \"Strings\\schedules\\Lewis:JojaDay1_Lewis\"/1200 Town 65 100 2 \"Strings\\schedules\\Lewis:JojaDay1_Lewis\"/1230 JojaMart 13 27 0 \"Strings\\schedules\\Lewis:JojaDay2_Lewis\"/1400 Town 41 102 2 \"Strings\\schedules\\Lewis:JojaDay3_Lewis\"/2100 AnimalShop 13 5 1 lewis_sleep"
@@ -78,7 +82,8 @@
             "Priority": "Late",
             "When": {
                 "Weather": "Sun",
-                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true,
+                "HasConversationTopic |contains=sdvhead.LawAndOrderSV_LewisInJail": false
             },
             "Entries": {
                 "10": "800 AnimalShop 28 17 3/1000 Town 41 102 2/1140 Town 30 56 2/1400 Town 29 27 3/1700 Saloon 9 22 3 lewis_drink/2230 AnimalShop 13 5 1 lewis_sleep",

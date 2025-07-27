@@ -1,19 +1,15 @@
-﻿using GenericModConfigMenu;
-using MayorMod.Constants;
+﻿using MayorMod.Constants;
 using MayorMod.Data;
+using MayorMod.Data.Handlers;
 using MayorMod.Data.Models;
-using MayorMod.Data.TileActions;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
-using StardewValley.GameData;
-using StardewValley.GameData.Locations;
 using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
-using System.Text.Json;
 
 namespace MayorMod;
 
@@ -23,9 +19,11 @@ namespace MayorMod;
 internal sealed class ModEntry : Mod
 {
     private MayorModData _saveData = new();
-    private MayorModConfig _mayorModConfig = new();
-    private bool _modDataCacheInvalidationNeeded;
-    private Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements = [];
+    private ModConfigHandler _configHandler = null!;
+    private AssetUpdateHandler _assetUpdateHandler = null!;
+    private AssetInvalidationHandler _assetInvalidationHandler = null!;
+    private bool riverCleanUpRunOnce = true;
+    
 
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
@@ -33,18 +31,13 @@ internal sealed class ModEntry : Mod
     /// <param name="helper">Provides simplified APIs for writing mods.</param>
     public override void Entry(IModHelper helper)
     {
-        var stringPatchLocation = Path.Join(helper.DirectoryPath, ModKeys.REPLACEMENT_STRING_CONFIG);
-        if (!File.Exists(stringPatchLocation))
-        {
-            Monitor.Log($"Error: File not found {stringPatchLocation}", LogLevel.Error);
-        }
-        var stringPatchFile =  File.ReadAllText(stringPatchLocation);
-        _mayorStringReplacements = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<StringPatch>>>>(stringPatchFile) ?? [];
-        _mayorModConfig = Helper.ReadConfig<MayorModConfig>();
+        _configHandler = new ModConfigHandler(Helper, ModManifest, Helper.ReadConfig<MayorModConfig>());
+        _assetUpdateHandler = new AssetUpdateHandler(Helper, Monitor);
+        _assetInvalidationHandler = new AssetInvalidationHandler(Helper);
 
-        TileActionManager.Init(Helper, Monitor);
-        Phone.PhoneHandlers.Add(new PollingDataHandler(Helper, _mayorModConfig));
-        EventCommands.AddExtraEventCommands(Monitor);
+        TileActionHandler.Init(Helper, Monitor);
+        Phone.PhoneHandlers.Add(new PollingDataHandler(Helper, _configHandler.ModConfig));
+        EventCommandHandler.AddExtraEventCommands(Monitor);
 
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
@@ -64,7 +57,7 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void OnGameLaunched(object? sender, GameLaunchedEventArgs e)
     {
-        InitGMCM();
+        _configHandler.InitGMCM();
     }
 
     /// <summary>
@@ -74,7 +67,6 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
     {
-        _modDataCacheInvalidationNeeded = true;
 
         if (Helper is not null && Helper.Data is not null)
         {
@@ -84,6 +76,13 @@ internal sealed class ModEntry : Mod
                 _saveData = saveData;
             }
         }
+
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
+        {
+            riverCleanUpRunOnce = false;
+        }
+
+        _assetInvalidationHandler.UpdateAssetInvalidations();
     }
 
     /// <summary>
@@ -93,11 +92,11 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
-        if (_saveData is not null && ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
+        if (_saveData is not null && ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
             if (_saveData.VotingDate == SDate.Now())
             {
-                ModProgressManager.AddProgressFlag(ProgressFlags.IsVotingDay);
+                ModProgressHandler.AddProgressFlag(ProgressFlags.IsVotingDay);
             }
             else if (_saveData.VotingDate.AddDays(-1) == SDate.Now())
             {
@@ -105,19 +104,10 @@ internal sealed class ModEntry : Mod
             }
         }
 
-        if (ModProgressManager.HasProgressFlag(ProgressFlags.ElectedAsMayor) && 
-            ModProgressManager.HasProgressFlag(ProgressFlags.CleanUpRivers))
-        {
-            Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
-        }
-
-        if (_modDataCacheInvalidationNeeded)
-        {
-            InvalidateModData();
-        }
+        _assetInvalidationHandler.InvalidateModDataIfNeeded();
 
         //Town cleanup
-        if (ModProgressManager.HasProgressFlag(ProgressFlags.TownCleanup) && 
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.TownCleanup) && 
             !NetWorldState.checkAnywhereForWorldStateID(ProgressFlags.CompleteTrashBearWorldState))
         {
             NetWorldState.addWorldStateIDEverywhere(ProgressFlags.CompleteTrashBearWorldState);
@@ -132,43 +122,49 @@ internal sealed class ModEntry : Mod
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
         //Set voting date
-        if (ModProgressManager.HasProgressFlag(ProgressFlags.RegisterVotingDate))
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.RegisterVotingDate))
         {
             _saveData = new MayorModData()
             {
-                VotingDate = ModUtils.GetDateWithoutFestival(_mayorModConfig.NumberOfCampaignDays)
+                VotingDate = ModUtils.GetDateWithoutFestival(_configHandler.ModConfig.NumberOfCampaignDays)
             };
             Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, _saveData);
-            ModProgressManager.RemoveProgressFlag(ProgressFlags.RegisterVotingDate);
-            _modDataCacheInvalidationNeeded = true;
+            ModProgressHandler.RemoveProgressFlag(ProgressFlags.RegisterVotingDate);
+            _assetInvalidationHandler.UpdateAssetInvalidations();
         }
 
         //Complete voting day
-        if (_saveData is not null && _saveData.VotingDate == SDate.Now() && ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
+        if (_saveData is not null && _saveData.VotingDate == SDate.Now() && ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
-            var pd = new VotingManager(Game1.MasterPlayer, _mayorModConfig);
-            ModProgressManager.RemoveAllModFlags();
-            if (pd.HasWonElection(Helper))
+            var voteManager = new VotingHandler(Game1.MasterPlayer, _configHandler.ModConfig);
+            ModProgressHandler.RemoveAllModFlags();
+            if (voteManager.HasWonElection(Helper))
             {
-                ModProgressManager.AddProgressFlag(ProgressFlags.WonMayorElection);
-                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonElectionMail"); 
-                _modDataCacheInvalidationNeeded = true;
+                ModProgressHandler.AddProgressFlag(ProgressFlags.WonMayorElection);
+                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonElectionMail");
+                _assetInvalidationHandler.UpdateAssetInvalidations();
             }
             else
             {
-                ModProgressManager.AddProgressFlag(ProgressFlags.LostMayorElection);
+                ModProgressHandler.AddProgressFlag(ProgressFlags.LostMayorElection);
             }
         }
 
         // Complete day as mayor
-        if (ModProgressManager.HasProgressFlag(ProgressFlags.ElectedAsMayor))
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
-            if (ModProgressManager.HasProgressFlag(ProgressFlags.WonMayorElection))
+            if (ModProgressHandler.HasProgressFlag(ProgressFlags.WonMayorElection))
             {
-                ModProgressManager.RemoveProgressFlag(ProgressFlags.WonMayorElection);
+                ModProgressHandler.RemoveProgressFlag(ProgressFlags.WonMayorElection);
             }
 
             ModUtils.ForceCouncilMailDelivery();
+            
+            if (riverCleanUpRunOnce && ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
+            {
+                riverCleanUpRunOnce = false;
+                _assetInvalidationHandler.LocationCacheInvalidate = true;
+            }
         }
 
         //Allow NeedMayorRetryEvent to repeat
@@ -185,7 +181,7 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void Player_Warped(object? sender, WarpedEventArgs e)
     {
-        if (e.NewLocation.NameOrUniqueName == nameof(Town) && ModProgressManager.HasProgressFlag(ProgressFlags.IsVotingDay))
+        if (e.NewLocation.NameOrUniqueName == nameof(Town) && ModProgressHandler.HasProgressFlag(ProgressFlags.IsVotingDay))
         {
             //Remove bushes on SVE town map
             e.NewLocation.terrainFeatures.RemoveWhere(tf => tf.Key.Equals(new Vector2(30, 34)));
@@ -203,217 +199,19 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
     {
-        if (ModProgressManager.HasProgressFlag(ProgressFlags.ElectedAsMayor))
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
-            AssetSubstringPatch(e);
-            if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.LOCATIONS) && ModProgressManager.HasProgressFlag(ProgressFlags.CleanUpRivers))
+            _assetUpdateHandler.AssetSubstringPatch(e);
+            if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.LOCATIONS) && ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
             {
-                e.Edit(RemoveTrashFromRivers);
+                _assetUpdateHandler.RemoveTrashFromRivers(e);
                 return;
             }
         }
 
-        if (_saveData is null || !ModProgressManager.HasProgressFlag(ProgressFlags.RunningForMayor))
+        if (_saveData is not null && ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
-            return;
+            _assetUpdateHandler.RunningForMayorAssetUpdates(e, _saveData);
         }
-
-        if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.MAIL))
-        {
-            e.Edit(AssetUpdatesForMail);
-        }
-        else if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.PASSIVE_FESTIVALS))
-        {
-            e.Edit(AssetUpdatesForPassiveFestivals);
-        }
-        else if (e.NameWithoutLocale.StartsWith(XNBPathKeys.DIALOGUE))
-        {
-            e.Edit(AssetUpdatesForDialogue);
-        }
-    }
-
-    /// <summary>
-    /// Update the Locations default fish catch rate
-    /// </summary>
-    /// <param name="asset"></param>
-    private void RemoveTrashFromRivers(IAssetData asset)
-    {
-        var data = asset.AsDictionary<string, LocationData>().Data;
-        var rubbish = data["Default"].Fish.FirstOrDefault(f => f.Id == ModKeys.RUBBISH_ID);
-        if (rubbish is not null)
-        {
-            rubbish.Chance = 0.01f;
-        }
-    }
-
-
-    /// <summary>
-    /// Replaces substrings in assets from patches loaded from json 
-    /// NOTE: Can possibly be done by content patcher but I couldn't work out how.
-    /// </summary>
-    /// <param name="e"></param>
-    private void AssetSubstringPatch(AssetRequestedEventArgs e)
-    {
-        try
-        {
-            if (e.NameWithoutLocale is not null &&
-                e.NameWithoutLocale.BaseName is not null &&
-                _mayorStringReplacements.ContainsKey(e.NameWithoutLocale.BaseName))
-            {
-                e.Edit((asset) =>
-                {
-                    var updates = _mayorStringReplacements[e.NameWithoutLocale.BaseName];
-                    if (e.NameWithoutLocale.BaseName.Equals(XNBPathKeys.SECRET_NOTES, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        var data = asset.AsDictionary<int, string>().Data;
-                        foreach (var key in updates.Keys)
-                        {
-                            if (Int32.TryParse(key, out int KeyInt) && data.ContainsKey(KeyInt))
-                            {
-                                data[KeyInt] = updates[key].Aggregate(data[KeyInt], (current, patch) => patch.PatchString(Helper, current));
-                            }
-                        }
-                    }
-                    else
-                    {
-                        var data = asset.AsDictionary<string, string>().Data;
-                        foreach (var key in updates.Keys)
-                        {
-                            if (data.Keys.FirstOrDefault(k => k.StartsWith(key)) is { } keyMatch)
-                            {
-                                data[keyMatch] = updates[key].Aggregate(data[keyMatch], (current, patch) => patch.PatchString(Helper, current));
-                            }
-                        }
-                    }
-                }, AssetEditPriority.Late);
-            }
-        }
-        catch (Exception ex)
-        {
-            Monitor.Log($"Failed to patch asset - {ex.Message}", LogLevel.Error);
-        }
-    }
-
-    /// <summary>
-    /// Updates mail assets that depend on voting day
-    /// </summary>
-    /// <param name="mails">mail data</param>
-    private void AssetUpdatesForMail(IAssetData mails)
-    {
-        var data = mails.AsDictionary<string, string>().Data;
-        var title = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.RegistrationMail.Title");
-        var body = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.RegistrationMail.Body");
-        body = string.Format(body, $"{_saveData.VotingDate.Season} {_saveData.VotingDate.Day}");
-        data[$"{ModKeys.MAYOR_MOD_CPID}_RegisteredForElectionMail"] = $"{body}[#]{title}";
-
-        //TODO Add mail the day before voting day
-    }
-
-    /// <summary>
-    /// Updates Passive Festivals assets that depend on voting day
-    /// </summary>
-    /// <param name="festivals">festivals data</param>
-    private void AssetUpdatesForPassiveFestivals(IAssetData festivals)
-    {
-        var data = festivals.AsDictionary<string, PassiveFestivalData>().Data;
-        var votingDay = new PassiveFestivalData()
-        {
-            DisplayName = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Name"),
-            StartMessage = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Message"),
-            Season = _saveData.VotingDate.Season,
-            StartDay = _saveData.VotingDate.Day,
-            EndDay = _saveData.VotingDate.Day,
-            StartTime = 610,
-            ShowOnCalendar = true,
-        };
-        data[$"{ModKeys.MAYOR_MOD_CPID}_VotingDayPassiveFestival"] = votingDay;
-    }
-
-    /// <summary>
-    /// Updates dialogue so that all characters not specifically designated will reject election leaflets
-    /// </summary>
-    /// <param name="dialogues">dialogues data</param>
-    private void AssetUpdatesForDialogue(IAssetData dialogues)
-    {
-        var data = dialogues.AsDictionary<string, string>().Data;
-        if (!data.ContainsKey($"AcceptGift_(O){ModItemKeys.Leaflet}") &&
-            !data.ContainsKey($"RejectItem_(O){ModItemKeys.Leaflet}"))
-        {
-            data[$"RejectItem_(O){ModItemKeys.Leaflet}"] = ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_Gifting.Default.Leaflet");
-        }
-    }
-
-    /// <summary>
-    /// This invalidates the cache so that the dates for voting are correct in mail and passive festivals
-    /// PassiveFestivals are loaded before the damn save data so we need to reload them to make the
-    /// variable date passive festivals show. They also don't seem to reload between loading saves
-    /// so you can have the voting day appear in other saves even though you're not running for mayor.
-    /// </summary>
-    public void InvalidateModData()
-    {
-        Helper.GameContent.InvalidateCache(XNBPathKeys.MAIL);
-        Helper.GameContent.InvalidateCache(XNBPathKeys.PASSIVE_FESTIVALS);
-        Game1.PerformPassiveFestivalSetup();
-        Game1.UpdatePassiveFestivalStates();
-        _modDataCacheInvalidationNeeded = false;
-    }
-
-
-    /// <summary>
-    /// Setup Generic Mod Config Menu
-    /// </summary>
-    private void InitGMCM()
-    {
-        var configMenu = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>(ModKeys.CONFIG_MENU_ID);
-        if (configMenu is null)
-        {
-            return;
-        }
-
-        configMenu.Register(
-            mod: this.ModManifest,
-            reset: () => this._mayorModConfig = new MayorModConfig(),
-            save: () => this.Helper.WriteConfig(this._mayorModConfig)
-        );
-
-
-        configMenu.AddSectionTitle(
-            mod: this.ModManifest,
-            text: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VotingOptions")
-            //tooltip: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VotingOptions.Tooltip")
-        );
-
-        configMenu.AddNumberOption(
-            mod: this.ModManifest,
-            name: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoteThreshold"),
-            tooltip: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoteThreshold.Tooltip"),
-            getValue: () => this._mayorModConfig.ThresholdForVote,
-            setValue: value => this._mayorModConfig.ThresholdForVote = value,
-            min: 0,
-            max: 15,
-            interval: 1
-        );
-
-        configMenu.AddNumberOption(
-            mod: this.ModManifest,
-            name: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoterPercentageNeeded"),
-            tooltip: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoterPercentageNeeded.Tooltip"),
-            getValue: () => this._mayorModConfig.VoterPercentageNeeded,
-            setValue: value => this._mayorModConfig.VoterPercentageNeeded = value,
-            min: 0,
-            max: 100,
-            interval: 1
-        );
-
-        configMenu.AddNumberOption(
-            mod: this.ModManifest,
-            name: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.NumberOfCampaignDays"),
-            tooltip: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.NumberOfCampaignDays.Tooltip"),
-            getValue: () => this._mayorModConfig.NumberOfCampaignDays,
-            setValue: value => this._mayorModConfig.NumberOfCampaignDays = value,
-            min: 0,
-            max: 100,
-            interval: 1
-        );
     }
 }

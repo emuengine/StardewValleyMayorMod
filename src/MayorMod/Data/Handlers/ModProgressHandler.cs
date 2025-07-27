@@ -1,9 +1,9 @@
 ﻿using MayorMod.Constants;
 using StardewValley;
 
-namespace MayorMod.Data;
+namespace MayorMod.Data.Handlers;
 
-public static class ModProgressManager
+public static class ModProgressHandler
 {
     /// <summary>
     /// Check if player has a progress flag.

@@ -3,9 +3,9 @@ using StardewValley;
 using StardewValley.Delegates;
 using xTile.Tiles;
 
-namespace MayorMod.Data;
+namespace MayorMod.Data.Handlers;
 
-public static class EventCommands
+public static class EventCommandHandler
 {
     public const string STORE_MAP_TILE = "emuEngineMayorMod_storeMapTile";
     public const string RETRIEVE_MAP_TILE = "emuEngineMayorMod_retrieveMapTile";
@@ -24,7 +24,7 @@ public static class EventCommands
     public static void AddExtraEventCommands(IMonitor monitor)
     {
         //storeMapTile
-        var storageMethodInfo = typeof(EventCommands).GetMethod(nameof(StoreMapTile));
+        var storageMethodInfo = typeof(EventCommandHandler).GetMethod(nameof(StoreMapTile));
         if (storageMethodInfo is null)
         {
             monitor.Log($"Error: MethodInfo for {StoreMapTile} not found");
@@ -34,7 +34,7 @@ public static class EventCommands
         Event.RegisterCommand(STORE_MAP_TILE, storageCommand);
 
         //retrieveMapTile
-        var retrievalMethodInfo = typeof(EventCommands).GetMethod(nameof(RetrieveMapTile));
+        var retrievalMethodInfo = typeof(EventCommandHandler).GetMethod(nameof(RetrieveMapTile));
         if (retrievalMethodInfo is null)
         {
             monitor.Log($"Error: MethodInfo for {RetrieveMapTile} not found");
@@ -44,7 +44,7 @@ public static class EventCommands
         Event.RegisterCommand(RETRIEVE_MAP_TILE, retrievalCommand);
 
         //clearActiveDialogueEvent
-        var clearDialogueEventMethodInfo = typeof(EventCommands).GetMethod(nameof(ClearDialogueEvent));
+        var clearDialogueEventMethodInfo = typeof(EventCommandHandler).GetMethod(nameof(ClearDialogueEvent));
         if (clearDialogueEventMethodInfo is null)
         {
             monitor.Log($"Error: MethodInfo for {ClearDialogueEvent} not found");
@@ -55,7 +55,7 @@ public static class EventCommands
 
 
         //clearSeenEvent
-        var clearSeenEventMethodInfo = typeof(EventCommands).GetMethod(nameof(ClearSeenEvent));
+        var clearSeenEventMethodInfo = typeof(EventCommandHandler).GetMethod(nameof(ClearSeenEvent));
         if (clearSeenEventMethodInfo is null)
         {
             monitor.Log($"Error: MethodInfo for {ClearSeenEvent} not found");
@@ -150,8 +150,8 @@ public static class EventCommands
             return;
         }
 
-        Game1.player.activeDialogueEvents.RemoveWhere((KeyValuePair<string, int> m) => m.Key.Contains(dialogueEventId));
-        Game1.player.previousActiveDialogueEvents.RemoveWhere((KeyValuePair<string, int> m) => m.Key.Contains(dialogueEventId));
+        Game1.player.activeDialogueEvents.RemoveWhere((m) => m.Key.Contains(dialogueEventId));
+        Game1.player.previousActiveDialogueEvents.RemoveWhere((m) => m.Key.Contains(dialogueEventId));
         @event.CurrentCommand++;
     }
 

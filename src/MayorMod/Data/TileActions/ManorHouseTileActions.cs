@@ -4,6 +4,7 @@ using StardewValley;
 using Microsoft.Xna.Framework;
 using MayorMod.Data.Models;
 using StardewModdingAPI;
+using MayorMod.Data.Handlers;
 
 namespace MayorMod.Data.TileActions;
 
@@ -57,14 +58,14 @@ public static partial class ManorHouseTileActions
         IList<CouncilMeetingData> meetings = [
             new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingIntro), CouncilMeetingKeys.MeetingIntro),
         ];
-        if (ModProgressManager.HasProgressFlag(CouncilMeetingKeys.HeldPrefix + CouncilMeetingKeys.MeetingIntro))
+        if (ModProgressHandler.HasProgressFlag(CouncilMeetingKeys.HeldPrefix + CouncilMeetingKeys.MeetingIntro))
         {
             meetings = [
                 new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownSecurity), CouncilMeetingKeys.MeetingTownSecurity),
                 new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingSaloonHours), CouncilMeetingKeys.MeetingSaloonHours),
                 new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownCleanup), CouncilMeetingKeys.MeetingTownCleanup),
              ];
-            if (ModProgressManager.HasProgressFlag(CouncilMeetingKeys.HeldPrefix + CouncilMeetingKeys.MeetingTownCleanup))
+            if (ModProgressHandler.HasProgressFlag(CouncilMeetingKeys.HeldPrefix + CouncilMeetingKeys.MeetingTownCleanup))
             {
                 meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingRiverCleanup), CouncilMeetingKeys.MeetingRiverCleanup));
             }
