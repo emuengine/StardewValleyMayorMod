@@ -52,6 +52,29 @@
                 "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true,
                 "HasFlag: hostPlayer | contains={{ModId}}_WonMayorElection": false
             }
+        },
+        {
+            "LogName": "Patching Maps/Town to remove truck beside ManorHouse when mayor",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "ReplaceByLayer",
+            "FromFile": "Assets/Maps/MapPatches/ManorHouseTruck.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 4,
+                "Height": 7
+            },
+            "ToArea": {
+                "X": 65,
+                "Y": 79,
+                "Width": 4,
+                "Height": 7
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true,
+                "HasFlag: hostPlayer | contains={{ModId}}_WonMayorElection": false
+            }
         }
     ]
 }
