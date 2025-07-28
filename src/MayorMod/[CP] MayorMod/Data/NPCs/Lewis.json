@@ -89,6 +89,28 @@
                 "10": "800 AnimalShop 28 17 3/1000 Town 41 102 2/1140 Town 30 56 2/1400 Town 29 27 3/1700 Saloon 9 22 3 lewis_drink/2230 AnimalShop 13 5 1 lewis_sleep",
                 "17": "800 AnimalShop 28 17 3/1000 Town 41 102 2/1500 AnimalShop 30 16 3/1900 AnimalShop 13 5 1 lewis_sleep"
             }
+        },
+        { //LEWIS SCHEDULE EDITS
+            "Action": "EditData",
+            "Target": "characters/schedules/Lewis",
+            "Priority": "Late",
+            "When": {
+                "HasSeenEvent |contains=5553210": false,
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            },
+            "Entries": {
+                "spring_4": "GOTO default",
+                "spring_11": "GOTO default",
+                "spring_18": "GOTO default",
+                "summer_4": "GOTO default",
+                "summer_11": "GOTO default",
+                "summer_25": "GOTO default",
+                "fall_11": "GOTO default",
+                "fall_18": "GOTO default",
+                "fall_25": "GOTO default",
+                "winter_4": "GOTO default",
+                "winter_18": "GOTO default"
+            }
         }
     ]
 }
