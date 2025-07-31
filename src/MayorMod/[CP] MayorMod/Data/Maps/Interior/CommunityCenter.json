@@ -3,24 +3,51 @@
         {
             "LogName": "Patching CommunityCenter to add voting booths",
             "Action": "EditMap",
+            "Priority": "Late",
             "Target": "Maps/CommunityCenter_Refurbished",
-            "PatchMode": "ReplaceByLayer",
+            "PatchMode": "Replace",
             "FromFile": "Assets/Maps/MapPatches/CommunityCenterVotingDay.tmx",
             "FromArea": {
                 "X": 0,
                 "Y": 0,
-                "Width": 12,
+                "Width": 10,
                 "Height": 8
             },
             "ToArea": {
                 "X": 21,
                 "Y": 4,
-                "Width": 12,
+                "Width": 10,
                 "Height": 8
             },
             "When": {
                 "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
-                "IsCommunityCenterComplete": true
+                "IsCommunityCenterComplete": true,
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": false
+            }
+        },
+        {
+            "LogName": "Patching CommunityCenter to add voting booths for SVE",
+            "Action": "EditMap",
+            "Priority": "Late",
+            "Target": "Maps/CommunityCenter_Refurbished",
+            "PatchMode": "Replace",
+            "FromFile": "Assets/Maps/MapPatches/CommunityCenterVotingDay_SVE.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 10,
+                "Height": 8
+            },
+            "ToArea": {
+                "X": 21,
+                "Y": 4,
+                "Width": 10,
+                "Height": 8
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
+                "IsCommunityCenterComplete": true,
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
             }
         }
     ]

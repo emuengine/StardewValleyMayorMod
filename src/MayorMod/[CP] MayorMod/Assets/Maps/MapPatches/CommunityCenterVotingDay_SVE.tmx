@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="10" height="8" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="27">
+ <editorsettings>
+  <export target="CommunityCenterVotingDay_SVE.tmx" format="tmx"/>
+ </editorsettings>
  <properties>
   <property name="Warp" value="32 24 Town 52 21 33 24 Town 53 21"/>
  </properties>
@@ -24,10 +27,10 @@
 1393,1404,1404,1404,1404,1404,1404,1404,1404,1404,
 1393,1436,1436,1436,1436,1436,1436,1436,1436,1436,
 0,1468,1468,1468,1468,1468,1468,1468,1468,1468,
-575,574,576,575,576,575,576,575,575,576,
-1393,607,608,2147,2147,2147,608,607,607,608,
-1393,2147,640,70,70,640,70,639,640,639,
-607,2147,608,607,608,607,608,70,608,607
+575,200,200,201,576,575,200,201,200,201,
+1393,232,232,233,200,201,232,233,232,233,
+1393,264,264,265,232,233,264,265,265,265,
+607,2147,608,607,264,265,232,265,264,264
 </data>
  </layer>
  <layer id="2" name="Buildings" width="10" height="8">
