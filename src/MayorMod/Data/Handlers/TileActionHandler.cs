@@ -24,6 +24,7 @@ internal static class TileActionHandler
     public const string DivorceBookActionType = "DivorceBook";
     public const string LedgerBookActionType = "LedgerBook";
     public const string MayorFridgeActionType = "MayorFridge";
+    public const string Resign = "Resign";
 
 
     public static void Init(IModHelper helper, IMonitor monitor)
@@ -59,6 +60,7 @@ internal static class TileActionHandler
             case DeskActionType: VotingTileActions.VotingDeskAction(farmer); break;
             case VotingBoothActionType: VotingTileActions.VotingBoothAction(_helper, farmer, arg2); break;
             case BallotBoxActionType: VotingTileActions.BallotBoxAction(farmer); break;
+            case Resign: ModUtils.OpenResignationDialogue(_helper, farmer); break;
             default:
             {
                 _monitor?.Log($"Unknown tile action - {arg2[1]}", LogLevel.Error);

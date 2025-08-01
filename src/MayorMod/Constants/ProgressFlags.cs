@@ -2,6 +2,7 @@
 
 public static class ProgressFlags
 {
+    public static readonly string ModNeedsReset = $"{ModKeys.MAYOR_MOD_CPID}_ModNeedsReset";
     public static readonly string RunningForMayor = $"{ModKeys.MAYOR_MOD_CPID}_RunningForMayor";
     public static readonly string RegisterVotingDate = $"{ModKeys.MAYOR_MOD_CPID}_RegisterVotingDate";
     public static readonly string IsVotingDay = $"{ModKeys.MAYOR_MOD_CPID}_VotingDay";
@@ -15,4 +16,5 @@ public static class ProgressFlags
     public static readonly string CompleteTrashBearWorldState = "trashBearDone";
     public static readonly string NeedMayorRetryEvent = $"{ModKeys.MAYOR_MOD_CPID}_NeedMayorRetryEvent";
     public static readonly string CleanUpRivers = $"{ModKeys.MAYOR_MOD_CPID}_RiverCleanup";
+    public static readonly string SecurityOnGuard = $"{ModKeys.MAYOR_MOD_CPID}_SecurityOnGuard";
 }

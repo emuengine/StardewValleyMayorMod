@@ -7,6 +7,7 @@ using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
+using StardewValley.GameData.Characters;
 using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
@@ -112,6 +113,12 @@ internal sealed class ModEntry : Mod
         {
             NetWorldState.addWorldStateIDEverywhere(ProgressFlags.CompleteTrashBearWorldState);
         }
+
+        //Security guard so no money loss on passout
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.SecurityOnGuard))
+        {
+            LocationContexts.Default.MaxPassOutCost = 0;
+        }
     }
 
     /// <summary>
@@ -172,6 +179,12 @@ internal sealed class ModEntry : Mod
         {
             Game1.player.eventsSeen.Remove(ProgressFlags.NeedMayorRetryEvent);
         }
+
+        //Allow NeedMayorRetryEvent to repeat
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.ModNeedsReset))
+        {
+            ResignAndReset();
+        }
     }
 
     /// <summary>
@@ -213,5 +226,24 @@ internal sealed class ModEntry : Mod
         {
             _assetUpdateHandler.RunningForMayorAssetUpdates(e, _saveData);
         }
+    }
+
+
+    /// <summary>
+    /// Reset the mod to factory settings.
+    /// </summary>
+    void ResignAndReset()
+    {
+        Game1.MasterPlayer.mailReceived.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID)); 
+        Game1.MasterPlayer.mailbox.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.MasterPlayer.mailForTomorrow.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.MasterPlayer.eventsSeen.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.MasterPlayer.activeDialogueEvents.RemoveWhere((m) => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.MasterPlayer.previousActiveDialogueEvents.RemoveWhere((m) => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
+
+        Helper.GameContent.InvalidateCache(XNBPathKeys.MAIL);
+        Helper.GameContent.InvalidateCache(XNBPathKeys.PASSIVE_FESTIVALS);
+        Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
+        Helper.GameContent.InvalidateCache(XNBPathKeys.CHARACTERS);
     }
 }

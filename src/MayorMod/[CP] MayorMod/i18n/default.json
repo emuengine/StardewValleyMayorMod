@@ -112,6 +112,11 @@
 	"EmuEngine.MayorModCP_UIMenu.ManorHouse_LedgerBook_SharedWallets_Client": "Pelican Town Ledger Book... The owner of the farm can request to split the funds of the farmhands.",
 	"EmuEngine.MayorModCP_UIMenu.ManorHouse_LedgerBook_SeparateWallets_HostQuestion": "It's the ledger book. What would you like to do?",
 
+	//Resignation Dialogue
+	"EmuEngine.MayorModCP_UIMenu.Resign_Question": "These photos remind you of a simpler time on your farm before the pressures of being mayor took over. Maybe you'd like to resign as mayor?",
+	"EmuEngine.MayorModCP_UIMenu.Resign_DoubleCheck": "Are you sure you wish to resign as mayor? (This will reset the MayorMod data)",
+	"EmuEngine.MayorModCP_UIMenu.Resign_ResignText": "Wish granted! After you have slept for two days it will be like this never happened.",
+
 	//////////////////////
 	//Locations
 	//////////////////////

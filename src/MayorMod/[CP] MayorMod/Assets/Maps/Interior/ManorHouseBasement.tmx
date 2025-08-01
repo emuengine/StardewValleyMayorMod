@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="20" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="3">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="20" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="4">
  <properties>
   <property name="Warp" value="4 2 EmuEngine.MayorModCP_ManorHouse 21 10"/>
  </properties>
@@ -19,7 +19,7 @@
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,2514,2546,2546,2420,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2515,0,
-0,2514,2546,2546,2452,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2515,0,
+0,2514,2546,2546,2420,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2546,2515,0,
 0,2514,61,919,2452,919,919,919,919,919,919,919,919,919,919,919,919,919,2515,0,
 0,2305,2374,2374,2374,2374,2374,2374,2374,2374,2374,2374,2374,2374,2374,2374,2374,2374,2372,0,
 0,2375,2375,2375,2375,2375,2375,2375,2375,2375,2375,2375,2375,2375,2375,2375,2375,2375,2375,0,
@@ -65,7 +65,7 @@
 1377,1377,1377,1377,1377,1377,1377,1377,1377,1377,1377,1377,1377,1377,1377,1377,1377,1377,1377,1377
 </data>
  </layer>
- <layer id="3" name="Paths" width="20" height="21">
+ <layer id="3" name="Paths" width="20" height="21" visible="0">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -94,7 +94,7 @@
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,3879,3880,3881,2546,0,2630,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,3905,3906,3907,0,0,2662,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,3905,3906,3907,0,0,2662,0,0,0,0,0,0,0,0,0,2764,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -145,6 +145,11 @@
   <object id="2" name="TileData" x="32" y="64" width="16" height="16">
    <properties>
     <property name="Action" value="MayorModAction MayorFridge"/>
+   </properties>
+  </object>
+  <object id="3" name="TileData" x="256" y="48" width="16" height="16">
+   <properties>
+    <property name="Action" value="MayorModAction Resign"/>
    </properties>
   </object>
  </objectgroup>

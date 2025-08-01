@@ -45,5 +45,12 @@ public static class DialogueKeys
         public static readonly string NeedBallot = $"{XNBPathKeys.DIALOGUE}/{ModKeys.MAYOR_MOD_CPID}_OfficerMike:NeedBallot";
         public static readonly string NeedToVote = $"{XNBPathKeys.DIALOGUE}/{ModKeys.MAYOR_MOD_CPID}_OfficerMike:NeedToVote";
     }
+
+    public static class Resignation
+    {
+        public static readonly string Question = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Resign_Question";
+        public static readonly string DoubleCheck = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Resign_DoubleCheck";
+        public static readonly string ResignText = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Resign_ResignText";
+    }
 }
 

@@ -1,4 +1,5 @@
 ﻿using MayorMod.Constants;
+using MayorMod.Data.Handlers;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Utilities;
@@ -6,7 +7,9 @@ using StardewValley;
 using StardewValley.Extensions;
 using StardewValley.GameData;
 using StardewValley.Locations;
+using StardewValley.Menus;
 using System.Text.RegularExpressions;
+using static StardewValley.GameLocation;
 
 namespace MayorMod.Data;
 public static class ModUtils
@@ -222,5 +225,42 @@ public static class ModUtils
         forest.travelingMerchantBounds.Clear();
         forest.travelingMerchantDay = false;
         ((Forest)Game1.getLocationFromName(nameof(Forest))).ShouldTravelingMerchantVisitToday();
+    }
+
+    public static void OpenResignationDialogue(IModHelper helper, Farmer farmer)
+    {
+        if (farmer.userID != Game1.MasterPlayer.userID)
+        {
+            return;
+        }
+
+        afterQuestionBehavior resign = (Farmer who, string whichAnswer) =>
+        {
+            if (whichAnswer == "Yes")
+            {
+                ModProgressHandler.AddProgressFlag(ProgressFlags.ModNeedsReset);
+                Game1.drawObjectDialogue(GetTranslationForKey(helper, DialogueKeys.Resignation.ResignText));
+            }
+        };
+
+        afterQuestionBehavior doubleCheckResign = (Farmer who, string whichAnswer) =>
+        {
+            if (whichAnswer == "Yes")
+            {
+                DelayedAction.functionAfterDelay(()=> // Hack to chain question dialogues
+                {
+                    farmer.currentLocation.createQuestionDialogue(GetTranslationForKey(helper, DialogueKeys.Resignation.DoubleCheck),
+                                                                  farmer.currentLocation.createYesNoResponses(),
+                                                                  resign);
+                }, 1);
+            }
+        };
+
+        if (!ModProgressHandler.HasProgressFlag(ProgressFlags.ModNeedsReset))
+        {
+            Game1.player.currentLocation.createQuestionDialogue(GetTranslationForKey(helper, DialogueKeys.Resignation.Question), 
+                                                                farmer.currentLocation.createYesNoResponses(), 
+                                                                doubleCheckResign);
+        }
     }
 }
