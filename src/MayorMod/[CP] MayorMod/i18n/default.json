@@ -187,7 +187,6 @@
 	"EmuEngine.MayorModCP_Events.NeedMayorRetry_1A0": "I have and I think now is the time to run.",
 	"EmuEngine.MayorModCP_Events.NeedMayorRetry_1A1": "No I haven't and I'm not interested.",
 
-
 	"EmuEngine.MayorModCP_Events.WorriedLewis_0": "I don't know what I'm gonna do. @ is very popular in the town. I think I may be losing this one.",
 	"EmuEngine.MayorModCP_Events.WorriedLewis_1": "Don't worry people still like you too. You haven't been mayor for such a long time for no reason. Also ... It might even be a good thing if you don't have so much of this responsibility taking up all of your time. We could spend more time together.",
 	"EmuEngine.MayorModCP_Events.WorriedLewis_2": "Yeah but if @ wins I'll lose my job and my house. Where would I go? This is who I am! I have to do something about ...",
@@ -265,6 +264,30 @@
 	"EmuEngine.MayorModCP_Events.ManorHouseIntro_5": "At the desk you can decide when the next council meetings will take place. It will take a day or so to set them up once you pick the meeting agenda.",
 	"EmuEngine.MayorModCP_Events.ManorHouseIntro_6": "Well I will leave you to get settled in. Once again congratulations! I'm looking forward to working with you.",
 
+	"EmuEngine.MayorModCP_Events.TreePlanting.ThankYou": "Thank you Mayor",
+	"EmuEngine.MayorModCP_Events.TreePlanting_0": "Hi Mayor @. I have a small favour to ask. I'm doing a lesson about nature with the kids today. I would love to include a tree planting ceremony as part of it. It would mean a lot if you could come along and help out. If you were there as the mayor it would really make it feel like a proper ceremony and a special moment for the kids.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_1": "Ok class. In today's lesson we are going to learn about giving back to nature by having our own tree planting ceremony. The Mayor is a very talented farmer and has kindly offered up time to help us.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_2": "Now kids this is the sapling of a Bur Oak tree. It will grow slowly, but one day it'll stretch its branches far above us.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_3": "How slow is slow? Will I get to climb it?",
+	"EmuEngine.MayorModCP_Events.TreePlanting_4": "Let's just say by the time it’s tall enough to give real shade, you two might be grown-ups with kids of your own.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_5": "Awww we won't even get to sit under it?",
+	"EmuEngine.MayorModCP_Events.TreePlanting_6": "Maybe not. But that’s also a very good thing to learn. There’s an old saying that we should plant trees under whose shade we will never sit. It means that we should do good things now even if the benefits are for someone else. If we all do that it will make the world better for all of us.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_7": "Yeah! The future kids are gonna have so much fun climbing our new tree friend!",
+	"EmuEngine.MayorModCP_Events.TreePlanting_8": "Oooooo can we name our new tree friend? I think Mr. BurBur should have a name.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_9": "Yeah... But that name is boring! Let’s pick a fun name!",
+	"EmuEngine.MayorModCP_Events.TreePlanting_10Q": "I think naming the tree is a lovely idea. How about",
+	"EmuEngine.MayorModCP_Events.TreePlanting_10A0": "Barky",
+	"EmuEngine.MayorModCP_Events.TreePlanting_10A1": "Whompy",
+	"EmuEngine.MayorModCP_Events.TreePlanting_10A2": "Stumpy",
+	"EmuEngine.MayorModCP_Events.TreePlanting_11": "Yeah I like that!",
+	"EmuEngine.MayorModCP_Events.TreePlanting_12": "Ok ok. Mayor, would you like to plant the tree for us now? Jas, Vincent, would you like to help the mayor place the sapling?",
+	"EmuEngine.MayorModCP_Events.TreePlanting_13": "You have to be gentle with the roots. Penny said we need to be careful with them. We don't want to hurt Mr. BurBur.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_14": "That's correct Jas, but we just decided on a different name for the tree.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_15": "But I want him to be called Mr. BurBur.",
+	"EmuEngine.MayorModCP_Events.TreePlanting_16": "What if we vote on a new name we both like?",
+	"EmuEngine.MayorModCP_Events.TreePlanting_17": "Alright kids, that sounds like democracy in action. How about we get this little tree into the ground first and while you're doing that the mayor can teach you all about how to write campaign speeches for your tree naming referendum.",
+
+	// Council meetings
 	"EmuEngine.MayorModCP_Events.CouncilMeetingIntro_0": "Welcome everyone to the first council meeting of the new term. Maybe we can go around the table and talk about our roles.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingIntro_1": "My role is primarily to focus on town safety. I already have some ideas that I was trying to get Lewis to look at. Hopefully you'll consider them for the next meeting.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingIntro_2": "I'm representing the interests of businesses and cultural affairs. I'm looking forward to having discussions about future events and festivals in the town.",
@@ -285,16 +308,16 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingSaloonHours_5": "O good. The saloon will be open from 10am-1.30am from tomorrow on.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoSaloonHours_0": "O that's a pity but I suppose I understand your concerns.",
 
-	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_0": "Today's agenda includes a discussion about enhancing the town's roads.",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_1": "A lot of the roads are still dirt. It's time we pave them properly and modernize.",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_2": "If we consider using more durable materials this time it can also reduce long-term costs.",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_3": "Some people feel that the natural pathways are part of what gives our town its charm. Do we really want to lose that?",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_4": "We can still pave them in a nice way that fits in with the towns current aesthetic.",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_5": "Also if we keep delaying doing this then the maintenance costs from erosion and washouts will just pile up anyway.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_0": "Today's agenda includes a discussion about improving the town's roads.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_1": "A lot of the roads are still just dirt pathways. It's time we gave this town better road infrastructure.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_2": "Some people feel that the natural pathways are part of what gives our town its charm. Do we really want to lose that?",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_3": "We can still pave them in a nice way that fits in with the town's current aesthetic.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_4": "If we consider using more durable materials this time it can also reduce long-term costs.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_5": "Also if we do this it will help with accessibility throughout the town. George has mentioned how hard it is getting around for him lately.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_6Q": "Mayor, do you support moving forward with paving, or would you like to keep things the way they are for now?",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_6A0": "Yes, we badly need to invest in infrastructure.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_6A1": "No, I don't this this is a priority right now.",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_7": "Great! If we coordinate with the county, we might even qualify for matching funds on the resurfacing project.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_7": "Great! If we coordinate with the county, we might even qualify for funds on this project.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoRoads_0": "Well the current roads do have their charm.",
 
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_0": "Hello everyone. I've been waiting for this meeting for quite some time. We are here to discuss the town's security.",
@@ -309,7 +332,7 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_7": "Excellent! I'll look after it ASAP. We will have a guard posted by the mine every night.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoSecurity_0": "This is very disappointing. I suppose the Adventure Guild can keep an eye out for the moment.",
 
-	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_0": "Hello everyone. Today's agenda is to discuss what to do about the rubbish problem in the town.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_0": "Hello everyone. Today's agenda is to discuss what to do about the trash problem in the town.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_1": "I am of the opinion that we need to hire a cleaning crew. Our town looks terrible with all these littered streets.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_2": "I'm with Marlon on this. It is about time we took care of this problem. A clean town benefits everyone.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_3": "But at what cost? We can't just throw money at every problem. People should take care of their own trash.",
@@ -322,7 +345,7 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_8": "Excellent! I'll call the company today and we should have the town cleaned up in no time.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoCleanup_0": "I'm disappointed but I understand that we do need to be careful with the budget.",
 
-	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_0": "Hello everyone. I wanted us to discuss more about the town environmental initiatives. The town clean up has been amazing so far! It's really made a difference to Pelican town.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_0": "Hello everyone. I wanted us to return to our discussion about environmental initiatives. The town clean up has been amazing so far! It's really made a difference to Pelican town.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_1": "Yeah it's been really successful. It's so much nicer in the town now.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_2": "Agreed and we need to finish what we began. There is still a lot of trash in the rivers so I think we need to get them cleaned up too.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_3": "The cost for the current town clean up is already quite a chunk of our budget. Can we not just put up some signs or something?",
@@ -335,30 +358,7 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_8": "I'll reach out to the company today and we can get the river restoration process started.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoRiverCleanup_0": "Well maybe we can think about it again in the future when the budget is in better shape.",
 
-	"EmuEngine.MayorModCP_Events.TreePlanting.ThankYou": "Thank you Mayor",
-	"EmuEngine.MayorModCP_Events.TreePlanting_0": "Hi Mayor @. I have a small favour to ask. I'm doing a lesson about nature with the kids today. I would love to include a tree planting ceremony as part of it. It would mean a lot if you could come along and help out. If you were there as the mayor it would really make it feel like a proper ceremony and a special moment for the kids.",
-	"EmuEngine.MayorModCP_Events.TreePlanting_1": "Ok class. In today's lesson we are going to learn about giving back to nature by having our own tree planting ceremony. The Mayor is a very talented farmer and has kindly offered up time to help us.",
-	"EmuEngine.MayorModCP_Events.TreePlanting_2": "Now kids this is the sapling of a Bur Oak tree. It will grow slowly, but one day it'll stretch its branches far above us.",
-	"EmuEngine.MayorModCP_Events.TreePlanting_3": "How slow is slow. Will I get to climb it?",
-	"EmuEngine.MayorModCP_Events.TreePlanting_4": "Let's just say by the time it’s tall enough to give real shade, you two might be grown-ups with kids of your own.",
-	"EmuEngine.MayorModCP_Events.TreePlanting_5": "Awww we won't even get to sit under it?",
-	"EmuEngine.MayorModCP_Events.TreePlanting_6": "Maybe not. But that’s also a very good thing to learn. There’s an old saying that we should plant trees under whose shade we will never sit. It means that we should do good things now even if the benefits are for someone else. If we all do that it will make the world better for all of us.",
-	"EmuEngine.MayorModCP_Events.TreePlanting_7": "Yeah! The future kids are gonna have so much fun climbing our new tree friend!",
-	"EmuEngine.MayorModCP_Events.TreePlanting_8": "Oooooo can we name our new tree friend? I think Mr. BurBur should have a name.",
-	"EmuEngine.MayorModCP_Events.TreePlanting_9": "Yeah... but we should have a better name than 'Mr. BurBur'",
-	"EmuEngine.MayorModCP_Events.TreePlanting_10Q": "I think naming the tree is a lovely idea. How about",
-	"EmuEngine.MayorModCP_Events.TreePlanting_10A0": "Barky",
-	"EmuEngine.MayorModCP_Events.TreePlanting_10A1": "Whompy",
-	"EmuEngine.MayorModCP_Events.TreePlanting_10A2": "Stumpy",
-	"EmuEngine.MayorModCP_Events.TreePlanting_11": "Yeah I like that!",
-	"EmuEngine.MayorModCP_Events.TreePlanting_12": "Ok ok. Mayor, would you like to plant the tree for us now?",
-	"EmuEngine.MayorModCP_Events.TreePlanting_13": "You have to be gentle with the roots. Penny said we need to be careful with them. We don't want to hurt Mr. BurBur.",
-	"EmuEngine.MayorModCP_Events.TreePlanting_14": "That's correct Jas. would you like to help the mayor place the sapling?",
-	"EmuEngine.MayorModCP_Events.TreePlanting_15": "Only if I get to decide on the name after.",
-	"EmuEngine.MayorModCP_Events.TreePlanting_16": "What if we vote on the name?",
-	"EmuEngine.MayorModCP_Events.TreePlanting_17": "Alright kids, that sounds like democracy in action. How about we get this little tree into the ground first and while you're doing that the mayor can teach you all about how to write campaign speeches for your tree naming referendum.",
-
-	//This is just the vanilla event dialogue but I had to edit the event
+	// Vanilla event updates
 	"EmuEngine.MayorModCP_Events.ClothingTherapy_0": "Welcome to clothing therapy!",
 	"EmuEngine.MayorModCP_Events.ClothingTherapy_1": "You're probably wondering... what is clothing therapy?#$b#I'll try to explain.",
 	"EmuEngine.MayorModCP_Events.ClothingTherapy_2": "So many of us are struggling with personal issues... things holding us back from living how we want.$u#$b#It's important to me that everyone has a free and happy life... so I came up with a new kind of therapy to help people achieve that.",
@@ -399,6 +399,7 @@
 	"EmuEngine.MayorModCP_Events.PrizeTicketIntro_2": "It's was a program I came up with, to help promote a spirit of goodwill among the townsfolk... You included!#$b#It's pretty simple... sometimes, when you help out others in town, you'll receive a 'Prize Ticket'. You can turn them in for rewards.#$b#There's some special stuff in there!",
 	"EmuEngine.MayorModCP_Events.PrizeTicketIntro_3": "My only worry was that people just went after the tickets, rather than cultivating a true compassion for their fellow man...",
 	"EmuEngine.MayorModCP_Events.PrizeTicketIntro_4": "At any rate... you can still check the 'Help Wanted' board in town. That's a good way to get your hands on more tickets.#$b#Good luck out there.",
+
 
 	//////////////////////
 	//Gifting
