@@ -106,7 +106,7 @@ internal class PollingDataHandler : IPhoneHandler
         [
             new MenuBorder(menu),
             new TextMenuItem(menu, content.LoadString(DialogueKeys.PollingData.PollingDataTitle), new Margin(0, 30, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
-            new TextMenuItem(menu, $"{content.LoadString(DialogueKeys.PollingData.HadDebate)} {debated}", new Margin(15, 100, 0, 0)),
+            new BoolMenuItem(menu, content.LoadString(DialogueKeys.PollingData.HadDebate),debated, new Margin(15, 100, 0, 0)),
             new TextMenuItem(menu, $"{content.LoadString(DialogueKeys.PollingData.Leaflets)} {leaflets}/{totalVoters}", new Margin(15, 150, 0, 0)),
             new TextMenuItem(menu, $"{content.LoadString(DialogueKeys.PollingData.VotersCanvassed)} {canvassed}/{totalVoters}", new Margin(15, 200, 0, 0)),
             new TextMenuItem(menu, $"{content.LoadString(DialogueKeys.PollingData.VotingForYou)} {polls}/{totalVoters}", new Margin(15, 250, 0, 0)),
