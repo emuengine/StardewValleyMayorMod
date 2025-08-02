@@ -95,6 +95,7 @@
 	"EmuEngine.MayorModCP_UIMenu.MeetingEducation": "Access to educational resources.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingBusPunctuality": "Public transport punctuality",
 	"EmuEngine.MayorModCP_UIMenu.MeetingRiverCleanup": "Clean river initiative.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingTownRoads": "Road infrastructure improvement.",
 
 	//Config menu
 	"EmuEngine.MayorModCP_UIMenu.VotingOptions": "Voting Options",
@@ -283,6 +284,18 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingSaloonHours_4A1": "I don't think this is a good idea.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingSaloonHours_5": "O good. The saloon will be open from 10am-1.30am from tomorrow on.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoSaloonHours_0": "O that's a pity but I suppose I understand your concerns.",
+
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_0": "Today's agenda includes a discussion about enhancing the town's roads.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_1": "A lot of the roads are still dirt. It's time we pave them properly and modernize.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_2": "If we consider using more durable materials this time it can also reduce long-term costs.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_3": "Some people feel that the natural pathways are part of what gives our town its charm. Do we really want to lose that?",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_4": "We can still pave them in a nice way that fits in with the towns current aesthetic.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_5": "Also if we keep delaying doing this then the maintenance costs from erosion and washouts will just pile up anyway.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_6Q": "Mayor, do you support moving forward with paving, or would you like to keep things the way they are for now?",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_6A0": "Yes, we badly need to invest in infrastructure.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_6A1": "No, I don't this this is a priority right now.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_7": "Great! If we coordinate with the county, we might even qualify for matching funds on the resurfacing project.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingNoRoads_0": "Well the current roads do have their charm.",
 
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_0": "Hello everyone. I've been waiting for this meeting for quite some time. We are here to discuss the town's security.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_1": "For the past while there have been incidents of monsters sneaking out of the mines at night. Most of the time this just results in anybody foolish enough to be out past 2am having their belongings stolen by the more sneaky monsters. I am worried though that the nastier ones will really hurt someone one of these days.",

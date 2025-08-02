@@ -7,7 +7,6 @@ using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
-using StardewValley.GameData.Characters;
 using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;

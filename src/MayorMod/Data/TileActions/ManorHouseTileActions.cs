@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using MayorMod.Data.Models;
 using StardewModdingAPI;
 using MayorMod.Data.Handlers;
+using System.Linq;
 
 namespace MayorMod.Data.TileActions;
 
@@ -68,6 +69,10 @@ public static partial class ManorHouseTileActions
             if (ModProgressHandler.HasProgressFlag(CouncilMeetingKeys.HeldPrefix + CouncilMeetingKeys.MeetingTownCleanup))
             {
                 meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingRiverCleanup), CouncilMeetingKeys.MeetingRiverCleanup));
+            }
+            if (!Game1.MasterPlayer.eventsSeen.Contains("5553210")) //SVE event for Mayor Morris
+            {
+                meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownRoads), CouncilMeetingKeys.MeetingTownRoads));
             }
         }
 

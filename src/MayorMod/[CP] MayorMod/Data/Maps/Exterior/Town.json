@@ -1,0 +1,73 @@
+{
+    "Changes": [
+        {
+            "LogName": "Patching Maps/Town to update Saloon door opening hours",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "Overlay",
+            "FromFile": "Assets/Maps/MapPatches/SaloonDoorEarlyLate.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 1,
+                "Height": 3
+            },
+            "ToArea": {
+                "X": 45,
+                "Y": 69,
+                "Width": 1,
+                "Height": 3
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_SaloonHoursEarlyLate": true
+            }
+        },
+        {
+            "LogName": "Patching Maps/Town roads",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "ReplaceByLayer",
+            "FromFile": "Assets/Maps/MapPatches/Town_Roads.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 130,
+                "Height": 110
+            },
+            "ToArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 130,
+                "Height": 110
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_TownRoads": true,
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": false
+            }
+        },
+        {
+            "LogName": "Patching Maps/Town roads",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "ReplaceByLayer",
+            "FromFile": "Assets/Maps/MapPatches/Town_Roads_SVE.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 130,
+                "Height": 110
+            },
+            "ToArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 130,
+                "Height": 110
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_TownRoads": true,
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true,
+                "HasSeenEvent: hostPlayer|contains=5553210": false
+            }
+        }
+    ]
+}
