@@ -617,6 +617,7 @@
 	//////////////////////
 	//Mayor asset updates
 	//////////////////////
+	//Vanilla
 	"EmuEngine.MayorModCP_AssetUpdates.MarriageDialogueSam.Outdoor_0": "Maybe I should get some off-road wheels for my skateboard.$h",
 	"EmuEngine.MayorModCP_AssetUpdates.Sam.eventSeen_45": "I better lay low for a while.",
 	"EmuEngine.MayorModCP_AssetUpdates.Sam.eventSeen_45_memory_oneweek": "Wouldn't it be cool if the town had a skate park, though?$s",
@@ -630,10 +631,43 @@
 	"EmuEngine.MayorModCP_AssetUpdates.Schedules.Lewis.3.000": "Marnie has been so kind to give me a place to stay.",
 	"EmuEngine.MayorModCP_AssetUpdates.Schedules.Lewis.6.001": "The library is one of Pelican Town's greatest features.",
 
-	//Substring replacements
+	//Vanilla substring replacements
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.MayorLewis": "Mayor Lewis",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.Lewis": "Lewis",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.Mayor": "Mayor",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.Governor": "Governor",
-	"EmuEngine.MayorModCP_AssetUpdates.SubString.TownCouncil": "Pelican Town Council"
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.TownCouncil": "Pelican Town Council",
+
+	//SVE
+	//"EmuEngine.MayorModCP_AssetUpdates.Sophia.7hearts1.11": "That evening, there were knocks on the front door...$2#$b#I was greeted by Lewis and Gus, with tears in their eyes...$6",
+	"EmuEngine.MayorModCP_AssetUpdates.luau.Olivia.1": "The governor has honored us with his presence, @!$1#$b#I may try speaking with him after Lewis has finished his conversation. Perhaps he enjoys vintage wine?$3",
+	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.036": "Hmm, that's what I thought. Mayor Lewis told me.$6#$b#From office job to farmer to mayor - what an incredible career change! I work as a stock trader in my free time, maybe 15 hours a week.$1#$b#I'm happy you found your passion, sweetie.$1",
+	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.082": "That was a horrible blast last night. Did that wake you up too, @?$0#$e#It sounded like an avalanche. You need to look into it Mayor.$2",
+	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.089": "When Lewis was mayor the Egg Festival was 5,000g.$2#$b#I contributed my own money to ensure we could still host the festival.$0#$e#In return, he allowed me to use more community kegs next to the community center.$3#$e#We should all try to give back to the community when we can. Together, we're what makes this town special, dear.$3",
+	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.102": "I received a hefty amount of junk mail this morning. What are you going to do about it Mayor?$2#$e#Most of the mail I get are advertisements and scams.$5",
+	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.103": "I have a number of proposals for the town that I’m looking forward to discussing with you soon, Mayor.$3#$e#I love how much this place is beginning to feel like home, sweetie.$3",
+	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.118": "Mayor, I think you need to consider funding some dock repairs. The wood is quite old.$0",
+	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.152": "Winter in Pelican Town is beautiful. All of the colorful decorations alongside the bright white snow makes every day feel so festive.$3#$e#Gus, Pierre, and Lewis do a wonderful and tasteful job with their decorating.$1#$e#This is such a wonderful place to make a home, isn't it, @? I'm glad you settled here too.$3",
+	"EmuEngine.MayorModCP_AssetUpdates.Olivia.funReturn.Fall_1": "Mayor, I think you need to consider funding some dock repairs. The wood is quite old.$0",
+	"EmuEngine.MayorModCP_AssetUpdates.Olivia.funReturn.Winter_5": "Winter in Pelican Town is beautiful. All of the colorful decorations alongside the bright white snow makes every day feel so festive.$3#$e#Gus, Pierre, and Lewis do a wonderful and tasteful job with their decorating.$3",
+	"EmuEngine.MayorModCP_AssetUpdates.luau.Olivia.1":"The governor has honored us with his presence, @!$1#$b#I may try speaking with him after Lewis has finished his conversation. Perhaps he enjoys vintage wine?$3",
+	"EmuEngine.MayorModCP_AssetUpdates.Morris.CharacterDialogue.013": "The Joja side of town is always roped off during festivals.$3#$e#No. I will not participate in the egg hunt.$3",
+	"EmuEngine.MayorModCP_AssetUpdates.Andy.CharacterDialogue.054": "Lewis and I had a disagreement yesterday. I have a strong feelin' he doesn't like me right now.$2#$e#What was it about? None of your Yoba darn business.$2",
+	"EmuEngine.MayorModCP_AssetUpdates.Andy.CharacterDialogue.089": "Only people I get along with well in Pelican Town are George and Pam. Not many people understand me. Maybe it's the age difference.$0#$e#What about Lewis? That man is a Yoba darn fool if I've ever seen one. Him and I don't meet eye to eye.$2",
+	"EmuEngine.MayorModCP_AssetUpdates.Andy.CharacterDialogue.110": "Tried to chat with Lewis today and he pretended he didn't even hear me.$2",
+	"EmuEngine.MayorModCP_AssetUpdates.Andy.Luau": "Lewis has been chattin' up the governor this entire festival. What are those two talkin' about?$2#$e#I hope they're not talkin' bout me. He's probably got nothin' good to say.$2",
+	"EmuEngine.MayorModCP_AssetUpdates.Susan.CharacterDialogue.058": "You looked so stressed yesterday.$2#$e#You have been working so hard for us as mayor ... I hope you take care of yourself and get proper rest.$0",
+	"EmuEngine.MayorModCP_AssetUpdates.Susan.CharacterDialogue.067": "Spirit's Eve is tomorrow, sweetie.$1#$b#I heard from Lewis that Marlon and a friend from Castle Village are capturing monsters for us.$0#$e#We'll be able to look at them through steel cages. So scary!$4",
+	"EmuEngine.MayorModCP_AssetUpdates.Susan.Luau.1": "It's nice to have the governor in the valley. Everybody worked so hard to make the Luau perfect.$0#$e#I wonder if that slow roast ham Linus is making is almost ready.$1",
+	"EmuEngine.MayorModCP_AssetUpdates.Marlon.CharacterDialogue.011": "Hmm? What's that?$0#$e#Yes, I'm aware the flower festival is tomorrow.$0",
+	"EmuEngine.MayorModCP_AssetUpdates.Marlon.CharacterDialogue.049": "There's many tourists visiting Pelican Town tomorrow for the festival.$0#$e#I get nervous around large crowds.$2",
+	"EmuEngine.MayorModCP_AssetUpdates.Gunther.CharacterDialogue.015": "Lost relics of the past are buried under the very earth we walk upon...$5#$e#I heard you have been digging up artifacts around town.$5",
+	"EmuEngine.MayorModCP_AssetUpdates.Gunther.CharacterDialogue.035": "I hear some couple dozen tourists are partaking in the festivities tomorrow.$5",
+	
+	//SVE substring replacements
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.LetMayorLewisKnow": " I'll let Mayor Lewis know.",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.Pierre": "Pierre",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.FromMayorLewis": " from Mayor Lewis",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.TheGovernor": "the Governor"
+ 
 }

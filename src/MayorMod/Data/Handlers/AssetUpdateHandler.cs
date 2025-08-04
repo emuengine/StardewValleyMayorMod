@@ -26,8 +26,12 @@ public class AssetUpdateHandler
             _monitor.Log($"Error: File not found {stringPatchLocation}", LogLevel.Error);
         }
         var stringPatchFile = File.ReadAllText(stringPatchLocation);
-        _mayorStringReplacements = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<StringPatch>>>>(stringPatchFile) ?? [];
 
+        _mayorStringReplacements = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<StringPatch>>>>(stringPatchFile, new JsonSerializerOptions
+        {
+            ReadCommentHandling = JsonCommentHandling.Skip,
+            AllowTrailingCommas = true
+        }) ?? [];
     }
 
     /// <summary>

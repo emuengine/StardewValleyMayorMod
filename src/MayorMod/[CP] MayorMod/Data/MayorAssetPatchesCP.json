@@ -42,7 +42,10 @@
             "Priority": "Late",
             "Entries": {
                 "Pierre": "{{i18n:{{ModId}}_AssetUpdates.Festivals.summer11.Pierre}}",
-                "Penny": "{{i18n:{{ModId}}_AssetUpdates.Festivals.summer11.Penny}}"
+                "Penny": "{{i18n:{{ModId}}_AssetUpdates.Festivals.summer11.Penny}}",
+                //SVE
+                "Olivia": "{{i18n:{{ModId}}_AssetUpdates.luau.Olivia.1}}",
+                "Andy": "{{i18n:{{ModId}}_AssetUpdates.Andy.Luau}}" 
             },
             "When": {
                 "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
@@ -88,8 +91,8 @@
                 "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
             }
         },
-        { //SVE Update
-            "LogName": "Update lewis schedule for when farmer becomes mayor",
+        //SVE compat fix
+        {
             "Action": "EditData",
             "Priority": "Late",
             "Target": "Characters/schedules/JosephineK",
@@ -101,6 +104,82 @@
                 "HasSeenEvent": "57873000",
                 "HasSeenEvent |contains=57873005": "false"
             }
-        }
+        },
+        {
+            "Action": "EditData",
+            "Priority": "Late",
+            "Target": "Characters/Dialogue/Victor",
+            "Entries": {
+                "give_pendant": "{{i18n:{{ModId}}_AssetUpdates.Dialogue.Victor.CharacterDialogue.012}}"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+            }
+        },
+		{
+			"Action": "EditData",
+			"Target": "Characters/Dialogue/Olivia",
+			"Entries": {
+				"joja_yes": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.036}}",
+				"summer_3_1": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.082}}",
+				"summer_Tue6": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.089}}",				
+				"summer_Sat": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.102}}",
+				"summer_Sat4": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.103}}",
+				"fall_Tue": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.118}}",
+				"winter_Wed8": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.152}}"
+			}
+		},
+		{
+		    "Action": "EditData",
+			"Target": "Characters/Dialogue/MorrisTod",
+			"Entries": {
+				"spring_12": "{{i18n:{{ModId}}_AssetUpdates.Morris.CharacterDialogue.013}}",
+			}
+		},
+		{
+			"Action": "EditData",
+			"Target": "Characters/Dialogue/Andy",
+			"Entries": {
+				"summer_Tue2": "{{i18n:{{ModId}}_AssetUpdates.Andy.CharacterDialogue.054}}",
+				"fall_Sun": "{{i18n:{{ModId}}_AssetUpdates.Andy.CharacterDialogue.089}}",
+				"winter_Sat4": "{{i18n:{{ModId}}_AssetUpdates.Andy.CharacterDialogue.110}}"			
+			}
+		},
+		{
+			"Action": "EditData",
+			"Target": "Characters/Dialogue/Susan",
+			"Entries": 
+			{				
+			  "summer_Sat": "{{i18n:{{ModId}}_AssetUpdates.Susan.CharacterDialogue.058}}", 
+			  "fall_26": "{{i18n:{{ModId}}_AssetUpdates.Susan.CharacterDialogue.067}}"
+			}		
+		},
+		{
+			"Action": "EditData",
+			"Target": "data/festivals/summer11",
+			"When": {
+				"HasSeenEvent |contains=6665293": false
+			},
+			"Entries": {
+				"Susan": "{{i18n:{{ModId}}_AssetUpdates.Susan.Luau.1}}",
+			}
+		},
+		{
+			"Action": "EditData",
+			"Target": "Characters/Dialogue/MarlonFay",
+			"Entries": 
+			{
+				"spring_23": "{{i18n:{{ModId}}_AssetUpdates.Marlon.CharacterDialogue.011}}",  
+				"fall_15": "{{i18n:{{ModId}}_AssetUpdates.Marlon.CharacterDialogue.049}}"  
+			}
+		},
+		{
+			"Action": "EditData",
+			"Target": "Characters/Dialogue/GuntherSilvian",
+			"Entries": {
+				"Tue": "{{i18n:{{ModId}}_AssetUpdates.Gunther.CharacterDialogue.015}}",
+				"fall_15": "{{i18n:{{ModId}}_AssetUpdates.Gunther.CharacterDialogue.035}}"
+			}
+		}		
     ]
 }
