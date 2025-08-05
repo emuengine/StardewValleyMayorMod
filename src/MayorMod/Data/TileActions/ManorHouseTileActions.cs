@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using MayorMod.Data.Models;
 using StardewModdingAPI;
 using MayorMod.Data.Handlers;
-using System.Linq;
 
 namespace MayorMod.Data.TileActions;
 
@@ -15,7 +14,7 @@ public static partial class ManorHouseTileActions
     /// Handles actions for the the mayor desk
     /// </summary>
     /// <param name="farmer"></param>
-    public static void MayorDeskAction(IModHelper helper, Farmer farmer)
+    public static void MayorDeskAction(IModHelper helper, Farmer farmer, MayorModConfig modConfig)
     {
         //Sit at the desk
         var seat = MapSeat.FromData("2/1/down/custom 0.5 0.1 0/-1/-1/false", 19, 5);
@@ -23,7 +22,8 @@ public static partial class ManorHouseTileActions
 
         if (IsCouncilMeetingPlannded())
         {
-            Game1.drawObjectDialogue(Game1.content.LoadString(DialogueKeys.CouncilMeeting.AlreadyPlanned));
+            string dayPlanned = ModUtils.GetNextCouncilMeetingDay(helper, modConfig);
+            Game1.drawObjectDialogue(Game1.content.LoadString(DialogueKeys.CouncilMeeting.AlreadyPlanned) + dayPlanned + '.');
             return;
         }
 

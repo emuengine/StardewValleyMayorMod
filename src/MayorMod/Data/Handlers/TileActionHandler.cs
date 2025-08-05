@@ -1,4 +1,5 @@
-﻿using MayorMod.Data.TileActions;
+﻿using MayorMod.Data.Models;
+using MayorMod.Data.TileActions;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewValley;
@@ -13,6 +14,7 @@ internal static class TileActionHandler
 {
     private static IModHelper _helper = null!;
     private static IMonitor _monitor = null!;
+    private static MayorModConfig _modConfig = null!;
 
     public const string MayorModActionType = "MayorModAction";
     public const string MayorDeskActionType = "MayorDesk";
@@ -27,10 +29,11 @@ internal static class TileActionHandler
     public const string Resign = "Resign";
 
 
-    public static void Init(IModHelper helper, IMonitor monitor)
+    public static void Init(IModHelper helper, IMonitor monitor, MayorModConfig modConfig)
     {
         _helper = helper;
         _monitor = monitor;
+        _modConfig = modConfig;
         GameLocation.RegisterTileAction(MayorModActionType, HandleMayorModTileAction);
     }
 
@@ -56,7 +59,7 @@ internal static class TileActionHandler
             case DivorceBookActionType: Game1.getLocationFromName(nameof(ManorHouse)).performAction(DivorceBookActionType, Game1.player, new xTile.Dimensions.Location(point.X, point.Y)); break;
             case LedgerBookActionType: Game1.getLocationFromName(nameof(ManorHouse)).performAction(LedgerBookActionType, Game1.player, new xTile.Dimensions.Location(point.X, point.Y)); break;
             case MayorFridgeActionType: Game1.getLocationFromName(nameof(ManorHouse)).performAction(MayorFridgeActionType, Game1.player, new xTile.Dimensions.Location(point.X, point.Y)); break;
-            case MayorDeskActionType: ManorHouseTileActions.MayorDeskAction(_helper, farmer); break;
+            case MayorDeskActionType: ManorHouseTileActions.MayorDeskAction(_helper, farmer, _modConfig); break;
             case DeskActionType: VotingTileActions.VotingDeskAction(farmer); break;
             case VotingBoothActionType: VotingTileActions.VotingBoothAction(_helper, farmer, arg2); break;
             case BallotBoxActionType: VotingTileActions.BallotBoxAction(farmer); break;

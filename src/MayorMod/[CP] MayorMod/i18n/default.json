@@ -85,7 +85,7 @@
 	"EmuEngine.MayorModCP_UIMenu.MeetingPlanned": "Council meeting has been planned.",
 	"EmuEngine.MayorModCP_UIMenu.HoldCouncilMeeting": "Council Meeting",
 	"EmuEngine.MayorModCP_UIMenu.AgendaQuestion": "Choose the agenda:",
-	"EmuEngine.MayorModCP_UIMenu.AlreadyPlanned": "You have already planned a council meeting.",
+	"EmuEngine.MayorModCP_UIMenu.AlreadyPlanned": "The agenda has already been set for the next council meeting on ",
 	"EmuEngine.MayorModCP_UIMenu.NoNewMeetings": "There are no new issues for the city council.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingIntro": "Introductory Council Meeting.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingSaloonHours": "Saloon licencing.",
@@ -106,6 +106,16 @@
 	"EmuEngine.MayorModCP_UIMenu.VoterPercentageNeeded.Tooltip": "The percentage of elegable voters needed to win the election.",
 	"EmuEngine.MayorModCP_UIMenu.NumberOfCampaignDays": "Campaigning Days",
 	"EmuEngine.MayorModCP_UIMenu.NumberOfCampaignDays.Tooltip": "The number of days for election campaigning. Note: Once the voting date is set this wont update it.",
+	"EmuEngine.MayorModCP_UIMenu.CouncilMeetingDays": "Council Meeting Days",
+	"EmuEngine.MayorModCP_UIMenu.CouncilMeetingDays.Tooltip": "Select the days that council meetings run on.",
+	"EmuEngine.MayorModCP_UIMenu.Monday": "Monday",
+	"EmuEngine.MayorModCP_UIMenu.Tuesday": "Tuesday",
+	"EmuEngine.MayorModCP_UIMenu.Wednesday": "Wednesday",
+	"EmuEngine.MayorModCP_UIMenu.Thursday": "Thursday",
+	"EmuEngine.MayorModCP_UIMenu.Friday": "Friday",
+	"EmuEngine.MayorModCP_UIMenu.Saturday": "Saturday",
+	"EmuEngine.MayorModCP_UIMenu.Sunday": "Sunday",
+	"EmuEngine.MayorModCP_UIMenu.And": "and",
 
 	//Mayor machines
 	"EmuEngine.MayorModCP_UIMenu.ManorHouse_MayorFridge_Initial": "It's a mini fridge. It's mostly full of cans of cola and iced tea.",
@@ -261,7 +271,7 @@
 	"EmuEngine.MayorModCP_Events.ManorHouseIntro_2": "I've been talking with the Gus, Maru, and Penny and they are very excited to start the council meetings again.",
 	"EmuEngine.MayorModCP_Events.ManorHouseIntro_3": "Of course as mayor you are the one who will get to choose when that happens. If you'll follow me ...",
 	"EmuEngine.MayorModCP_Events.ManorHouseIntro_4": "Welcome to your new office Mayor @!",
-	"EmuEngine.MayorModCP_Events.ManorHouseIntro_5": "At the desk you can decide when the next council meetings will take place. It will take a day or so to set them up once you pick the meeting agenda.",
+	"EmuEngine.MayorModCP_Events.ManorHouseIntro_5": "At the desk you can decide on the agenda for the next council meeting. Council meetings will take place on",
 	"EmuEngine.MayorModCP_Events.ManorHouseIntro_6": "Well I will leave you to get settled in. Once again congratulations! I'm looking forward to working with you.",
 
 	"EmuEngine.MayorModCP_Events.TreePlanting.ThankYou": "Thank you Mayor",
@@ -650,7 +660,7 @@
 	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.152": "Winter in Pelican Town is beautiful. All of the colorful decorations alongside the bright white snow makes every day feel so festive.$3#$e#Gus, Pierre, and Lewis do a wonderful and tasteful job with their decorating.$1#$e#This is such a wonderful place to make a home, isn't it, @? I'm glad you settled here too.$3",
 	"EmuEngine.MayorModCP_AssetUpdates.Olivia.funReturn.Fall_1": "Mayor, I think you need to consider funding some dock repairs. The wood is quite old.$0",
 	"EmuEngine.MayorModCP_AssetUpdates.Olivia.funReturn.Winter_5": "Winter in Pelican Town is beautiful. All of the colorful decorations alongside the bright white snow makes every day feel so festive.$3#$e#Gus, Pierre, and Lewis do a wonderful and tasteful job with their decorating.$3",
-	"EmuEngine.MayorModCP_AssetUpdates.luau.Olivia.1":"The governor has honored us with his presence, @!$1#$b#I may try speaking with him after Lewis has finished his conversation. Perhaps he enjoys vintage wine?$3",
+	"EmuEngine.MayorModCP_AssetUpdates.luau.Olivia.1": "The governor has honored us with his presence, @!$1#$b#I may try speaking with him after Lewis has finished his conversation. Perhaps he enjoys vintage wine?$3",
 	"EmuEngine.MayorModCP_AssetUpdates.Morris.CharacterDialogue.013": "The Joja side of town is always roped off during festivals.$3#$e#No. I will not participate in the egg hunt.$3",
 	"EmuEngine.MayorModCP_AssetUpdates.Andy.CharacterDialogue.054": "Lewis and I had a disagreement yesterday. I have a strong feelin' he doesn't like me right now.$2#$e#What was it about? None of your Yoba darn business.$2",
 	"EmuEngine.MayorModCP_AssetUpdates.Andy.CharacterDialogue.089": "Only people I get along with well in Pelican Town are George and Pam. Not many people understand me. Maybe it's the age difference.$0#$e#What about Lewis? That man is a Yoba darn fool if I've ever seen one. Him and I don't meet eye to eye.$2",
@@ -663,11 +673,11 @@
 	"EmuEngine.MayorModCP_AssetUpdates.Marlon.CharacterDialogue.049": "There's many tourists visiting Pelican Town tomorrow for the festival.$0#$e#I get nervous around large crowds.$2",
 	"EmuEngine.MayorModCP_AssetUpdates.Gunther.CharacterDialogue.015": "Lost relics of the past are buried under the very earth we walk upon...$5#$e#I heard you have been digging up artifacts around town.$5",
 	"EmuEngine.MayorModCP_AssetUpdates.Gunther.CharacterDialogue.035": "I hear some couple dozen tourists are partaking in the festivities tomorrow.$5",
-	
+
 	//SVE substring replacements
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.LetMayorLewisKnow": " I'll let Mayor Lewis know.",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.Pierre": "Pierre",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.FromMayorLewis": " from Mayor Lewis",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.TheGovernor": "the Governor"
- 
+
 }

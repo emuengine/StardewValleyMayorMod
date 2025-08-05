@@ -6,5 +6,11 @@
     "UniqueID": "EmuEngine.MayorMod",
     "EntryDll": "MayorMod.dll",
     "MinimumApiVersion": "4.0.0",
-    "UpdateKeys": [ "Nexus:33104" ]
+    "UpdateKeys": [ "Nexus:33104" ],
+    "Dependencies": [
+        {
+            "UniqueID": "Pathoschild.ContentPatcher",
+            "IsRequired": false
+        }
+    ]
 }

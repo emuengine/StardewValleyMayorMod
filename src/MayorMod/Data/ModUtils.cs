@@ -1,5 +1,6 @@
 ﻿using MayorMod.Constants;
 using MayorMod.Data.Handlers;
+using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Utilities;
@@ -15,6 +16,8 @@ namespace MayorMod.Data;
 public static class ModUtils
 {
     public static Random RNG { get; } = new();
+
+    public static string[] DayNames { get; } = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     private static NPC? _marlonNPC;
     /// <summary>
@@ -262,5 +265,33 @@ public static class ModUtils
                                                                 farmer.currentLocation.createYesNoResponses(), 
                                                                 doubleCheckResign);
         }
+    }
+    
+    public static string GetNextCouncilMeetingDay(IModHelper helper, MayorModConfig modConfig)
+    {
+        var today = (int)WorldDate.GetDayOfWeekFor(Game1.dayOfMonth);
+
+        int nextMeetingDay = Enumerable.Range(0, 7)
+            .Select(offset => (today + offset) % 7)
+            .FirstOrDefault(i => modConfig.MeetingDays[i]);
+
+        return ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.{DayNames[nextMeetingDay]}");
+    }
+
+
+    public static string GetFormattedMeetingDays(IModHelper helper, MayorModConfig modConfig)
+    {
+        var activeDays = DayNames.Select( dt => ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.{dt}"))
+            .Where((day, index) => modConfig.MeetingDays[index])
+            .ToList();
+        var and = ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.And");
+
+        return activeDays.Count switch
+        {
+            0 => string.Empty,
+            1 => activeDays[0],
+            2 => $"{activeDays[0]} {and} {activeDays[1]}",
+            _ => string.Join(", ", activeDays.Take(activeDays.Count - 1)) + $", {and} " + activeDays.Last(),
+        };
     }
 }

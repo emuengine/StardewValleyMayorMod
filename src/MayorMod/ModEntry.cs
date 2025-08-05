@@ -1,6 +1,7 @@
 ﻿using MayorMod.Constants;
 using MayorMod.Data;
 using MayorMod.Data.Handlers;
+using MayorMod.Data.Interfaces;
 using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
@@ -35,7 +36,7 @@ internal sealed class ModEntry : Mod
         _assetUpdateHandler = new AssetUpdateHandler(Helper, Monitor);
         _assetInvalidationHandler = new AssetInvalidationHandler(Helper);
 
-        TileActionHandler.Init(Helper, Monitor);
+        TileActionHandler.Init(Helper, Monitor, _configHandler.ModConfig);
         Phone.PhoneHandlers.Add(new PollingDataHandler(Helper, _configHandler.ModConfig));
         EventCommandHandler.AddExtraEventCommands(Monitor);
 
@@ -58,6 +59,19 @@ internal sealed class ModEntry : Mod
     private void OnGameLaunched(object? sender, GameLaunchedEventArgs e)
     {
         _configHandler.InitGMCM();
+
+        var api = this.Helper.ModRegistry.GetApi<IContentPatcherAPI>("Pathoschild.ContentPatcher");
+        api?.RegisterToken(this.ModManifest, "CoucilMeetingDays", () =>
+        {
+            // save is loaded
+            if (Context.IsWorldReady)
+            {
+                return [ModUtils.GetFormattedMeetingDays(Helper, _configHandler.ModConfig)];
+            }
+
+            // no save loaded (e.g. on the title screen)
+            return null;
+        });
     }
 
     /// <summary>
@@ -106,17 +120,28 @@ internal sealed class ModEntry : Mod
 
         _assetInvalidationHandler.InvalidateModDataIfNeeded();
 
-        //Town cleanup
-        if (ModProgressHandler.HasProgressFlag(ProgressFlags.TownCleanup) && 
-            !NetWorldState.checkAnywhereForWorldStateID(ProgressFlags.CompleteTrashBearWorldState))
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
-            NetWorldState.addWorldStateIDEverywhere(ProgressFlags.CompleteTrashBearWorldState);
-        }
+            //Set if council day
+            var day = (int)WorldDate.GetDayOfWeekFor(Game1.dayOfMonth);
+            ModProgressHandler.RemoveProgressFlag(ProgressFlags.IsCouncilDay);
+            if (_configHandler.ModConfig.MeetingDays[day])
+            {
+                ModProgressHandler.AddProgressFlag(ProgressFlags.IsCouncilDay);
+            }
 
-        //Security guard so no money loss on passout
-        if (ModProgressHandler.HasProgressFlag(ProgressFlags.SecurityOnGuard))
-        {
-            LocationContexts.Default.MaxPassOutCost = 0;
+            //Town cleanup
+            if (ModProgressHandler.HasProgressFlag(ProgressFlags.TownCleanup) &&
+                !NetWorldState.checkAnywhereForWorldStateID(ProgressFlags.CompleteTrashBearWorldState))
+            {
+                NetWorldState.addWorldStateIDEverywhere(ProgressFlags.CompleteTrashBearWorldState);
+            }
+
+            //Security guard so no money loss on passout
+            if (ModProgressHandler.HasProgressFlag(ProgressFlags.SecurityOnGuard))
+            {
+                LocationContexts.Default.MaxPassOutCost = 0;
+            }
         }
     }
 

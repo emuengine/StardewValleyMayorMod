@@ -1,5 +1,5 @@
 ﻿using MayorMod.Constants;
-using MayorMod.Data.Configuration;
+using MayorMod.Data.Interfaces;
 using MayorMod.Data.Models;
 using StardewModdingAPI;
 
@@ -74,6 +74,55 @@ public class ModConfigHandler
             min: 0,
             max: 100,
             interval: 1
+        );
+
+
+        configMenu.AddSectionTitle(
+            mod: _modManifest,
+            text: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.CouncilMeetingDays"),
+            tooltip: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.CouncilMeetingDays.Tooltip")
+        );
+        configMenu.AddBoolOption(
+             mod: _modManifest,
+             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Monday"),
+             getValue: () => ModConfig.MeetingDays[1],
+             setValue: value => ModConfig.MeetingDays[1] = value
+        );
+        configMenu.AddBoolOption(
+             mod: _modManifest,
+             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Tuesday"),
+             getValue: () => ModConfig.MeetingDays[2],
+             setValue: value => ModConfig.MeetingDays[2] = value
+        );
+        configMenu.AddBoolOption(
+             mod: _modManifest,
+             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Wednesday"),
+             getValue: () => ModConfig.MeetingDays[3],
+             setValue: value => ModConfig.MeetingDays[3] = value
+        );
+        configMenu.AddBoolOption(
+             mod: _modManifest,
+             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Thursday"),
+             getValue: () => ModConfig.MeetingDays[4],
+             setValue: value => ModConfig.MeetingDays[4] = value
+        );
+        configMenu.AddBoolOption(
+             mod: _modManifest,
+             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Friday"),
+             getValue: () => ModConfig.MeetingDays[5],
+             setValue: value => ModConfig.MeetingDays[5] = value
+        );
+        configMenu.AddBoolOption(
+             mod: _modManifest,
+             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Saturday"),
+             getValue: () => ModConfig.MeetingDays[6],
+             setValue: value => ModConfig.MeetingDays[6] = value
+        );
+        configMenu.AddBoolOption(
+             mod: _modManifest,
+             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Sunday"),
+             getValue: () => ModConfig.MeetingDays[0],
+             setValue: value => ModConfig.MeetingDays[0] = value
         );
     }
 }
