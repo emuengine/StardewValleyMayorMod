@@ -26,7 +26,7 @@
             "LogName": "Patching Maps/Town roads",
             "Action": "EditMap",
             "Target": "Maps/Town",
-            "PatchMode": "ReplaceByLayer",
+            "PatchMode": "Overlay",
             "FromFile": "Assets/Maps/MapPatches/Town_Roads.tmx",
             "FromArea": {
                 "X": 0,
@@ -49,7 +49,7 @@
             "LogName": "Patching Maps/Town roads",
             "Action": "EditMap",
             "Target": "Maps/Town",
-            "PatchMode": "ReplaceByLayer",
+            "PatchMode": "Overlay",
             "FromFile": "Assets/Maps/MapPatches/Town_Roads_SVE.tmx",
             "FromArea": {
                 "X": 0,

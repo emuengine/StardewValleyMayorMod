@@ -23,7 +23,7 @@ public static partial class ManorHouseTileActions
         if (IsCouncilMeetingPlannded())
         {
             string dayPlanned = ModUtils.GetNextCouncilMeetingDay(helper, modConfig);
-            Game1.drawObjectDialogue(Game1.content.LoadString(DialogueKeys.CouncilMeeting.AlreadyPlanned) + dayPlanned + '.');
+            Game1.drawObjectDialogue(Game1.content.LoadString(DialogueKeys.CouncilMeeting.AlreadyPlanned) + $" {dayPlanned}.");
             return;
         }
 
