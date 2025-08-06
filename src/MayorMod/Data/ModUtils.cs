@@ -271,7 +271,7 @@ public static class ModUtils
     {
         var today = (int)WorldDate.GetDayOfWeekFor(Game1.dayOfMonth);
 
-        int nextMeetingDay = Enumerable.Range(0, 7)
+        int nextMeetingDay = Enumerable.Range(1, 7)
             .Select(offset => (today + offset) % 7)
             .FirstOrDefault(i => modConfig.MeetingDays[i]);
 

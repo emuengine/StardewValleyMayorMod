@@ -19,12 +19,11 @@
 		"fall_9": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
 		"fall_15": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
 		"fall_26": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
-		"winter_7": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
+		"winter_7": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true },					  
+					  { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],//SVE
 		"summer_3_1": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
 		"summer_21_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
-		"winter_24": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
-		//SVE
-		"winter_7": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ]
+		"winter_24": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ]
     },
 	"Data/Quests": {
         "102": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
@@ -48,14 +47,14 @@
             { "SearchKey": "Lewis", "ReplaceKey": "Governor_NewMayorEvent", "IsTranslationKey": false },
             { "SearchKey": "broadcastEvent/", "ReplaceKey": "broadcastEvent/addTemporaryActor Governor_NewMayorEvent 16 32 52 33 0 true Character/", "IsTranslationKey": false },
             { "SearchKey": "Governor_NewMayorEvent 52 33 0", "ReplaceKey": "Governor 1000 1000 0", "IsTranslationKey": false },
-            { "SearchKey": "speak Governor_NewMayorEvent", "ReplaceKey": "speak Governor", "IsTranslationKey": false },
+            { "SearchKey": "speak Governor_NewMayorEvent", "ReplaceKey": "speak Governor", "IsTranslationKey": false }
         ],
 		//SVE
         "4000002": [ { "SearchKey": "AssetUpdates.SubString.FromMayorLewis", "ReplaceKey": "EMPTY", "IsTranslationKey": true } ],
-		"4000002_MakesWine": [ { "SearchKey": "AssetUpdates.SubString.FromMayorLewis", "ReplaceKey": "EMPTY", "IsTranslationKey": true } ], 
-		"4000002_MakesWine": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Pierre", "IsTranslationKey": true } ],
-		"6665290_JojaWarehouse": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TheGovernor", "IsTranslationKey": true } ],
-		"6665290_JojaWarehouse": [ { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
+		"4000002_MakesWine": [ { "SearchKey": "AssetUpdates.SubString.FromMayorLewis", "ReplaceKey": "EMPTY", "IsTranslationKey": true }, 
+		                       { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Pierre", "IsTranslationKey": true } ],
+		"6665290_JojaWarehouse": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TheGovernor", "IsTranslationKey": true },
+                                   { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
 		"528013": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
     "Data/Events/CommunityCenter": {
