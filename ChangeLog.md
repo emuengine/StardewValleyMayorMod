@@ -1,4 +1,26 @@
 # Changelog
+## v1.1.4
+
+### Features
+- Added town roads upgrade council event.
+- Added River cleaning council event.
+- Added Marie/Lewis living together event.
+- No money is taken on passout when town has security.
+- Add ability to resign/reset mayor.
+- Council meetings are now held on specific days.
+
+### Bug fixes
+- Update tree planting event dialogue.
+- Small update to polling menu UI.
+- Community center compatibility updates.
+- Remove truck from town hall when mayor.
+- Fix basement map with stairs.
+- Update for mail/location invalidation logic when mayor.
+- Account for Lewis being in jail (L&O schedule updates).
+- Fix for Lewis' SVE schedule.
+- Fix for lots more SVE mayor dialogue.
+- Fix JosephineK (SVE) schedule for ManorHouse change.
+
 
 ## v1.0.7
 
