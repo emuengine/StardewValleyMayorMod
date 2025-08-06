@@ -339,7 +339,7 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_6Q": "What do you think?",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_6A0": "I think more security for the town would be good. We should hire someone to guard the mine.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_6A1": "I don't think this is a big issue. Let's do nothing for now and see.",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_7": "Excellent! I'll look after it ASAP. We will have a guard posted by the mine every night.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_7": "Excellent! I'll look after it ASAP. We will have a guard posted at the mine every evening after 6pm.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoSecurity_0": "This is very disappointing. I suppose the Adventure Guild can keep an eye out for the moment.",
 
 	"EmuEngine.MayorModCP_Events.CouncilMeetingCleanup_0": "Hello everyone. Today's agenda is to discuss what to do about the trash problem in the town.",
@@ -649,7 +649,6 @@
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.TownCouncil": "Pelican Town Council",
 
 	//SVE
-	//"EmuEngine.MayorModCP_AssetUpdates.Sophia.7hearts1.11": "That evening, there were knocks on the front door...$2#$b#I was greeted by Lewis and Gus, with tears in their eyes...$6",
 	"EmuEngine.MayorModCP_AssetUpdates.luau.Olivia.1": "The governor has honored us with his presence, @!$1#$b#I may try speaking with him after Lewis has finished his conversation. Perhaps he enjoys vintage wine?$3",
 	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.036": "Hmm, that's what I thought. Mayor Lewis told me.$6#$b#From office job to farmer to mayor - what an incredible career change! I work as a stock trader in my free time, maybe 15 hours a week.$1#$b#I'm happy you found your passion, sweetie.$1",
 	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.082": "That was a horrible blast last night. Did that wake you up too, @?$0#$e#It sounded like an avalanche. You need to look into it Mayor.$2",
@@ -660,7 +659,6 @@
 	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.152": "Winter in Pelican Town is beautiful. All of the colorful decorations alongside the bright white snow makes every day feel so festive.$3#$e#Gus, Pierre, and Lewis do a wonderful and tasteful job with their decorating.$1#$e#This is such a wonderful place to make a home, isn't it, @? I'm glad you settled here too.$3",
 	"EmuEngine.MayorModCP_AssetUpdates.Olivia.funReturn.Fall_1": "Mayor, I think you need to consider funding some dock repairs. The wood is quite old.$0",
 	"EmuEngine.MayorModCP_AssetUpdates.Olivia.funReturn.Winter_5": "Winter in Pelican Town is beautiful. All of the colorful decorations alongside the bright white snow makes every day feel so festive.$3#$e#Gus, Pierre, and Lewis do a wonderful and tasteful job with their decorating.$3",
-	"EmuEngine.MayorModCP_AssetUpdates.luau.Olivia.1": "The governor has honored us with his presence, @!$1#$b#I may try speaking with him after Lewis has finished his conversation. Perhaps he enjoys vintage wine?$3",
 	"EmuEngine.MayorModCP_AssetUpdates.Morris.CharacterDialogue.013": "The Joja side of town is always roped off during festivals.$3#$e#No. I will not participate in the egg hunt.$3",
 	"EmuEngine.MayorModCP_AssetUpdates.Andy.CharacterDialogue.054": "Lewis and I had a disagreement yesterday. I have a strong feelin' he doesn't like me right now.$2#$e#What was it about? None of your Yoba darn business.$2",
 	"EmuEngine.MayorModCP_AssetUpdates.Andy.CharacterDialogue.089": "Only people I get along with well in Pelican Town are George and Pam. Not many people understand me. Maybe it's the age difference.$0#$e#What about Lewis? That man is a Yoba darn fool if I've ever seen one. Him and I don't meet eye to eye.$2",
