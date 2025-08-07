@@ -297,6 +297,16 @@
 	"EmuEngine.MayorModCP_Events.TreePlanting_16": "What if we vote on a new name we both like?",
 	"EmuEngine.MayorModCP_Events.TreePlanting_17": "Alright kids, that sounds like democracy in action. How about we get this little tree into the ground first and while you're doing that the mayor can teach you all about how to write campaign speeches for your tree naming referendum.",
 
+	"EmuEngine.MayorModCP_Events.MarnieLewisLivingEvent_0": "Hey...",
+	"EmuEngine.MayorModCP_Events.MarnieLewisLivingEvent_1": "Good Morning...",
+	"EmuEngine.MayorModCP_Events.MarnieLewisLivingEvent_2": "I guess.",
+	"EmuEngine.MayorModCP_Events.MarnieLewisLivingEvent_3": "I know you're upset about your job but...",
+	"EmuEngine.MayorModCP_Events.MarnieLewisLivingEvent_4": "I'm fine. I'm just going to go out for a walk.",
+	"EmuEngine.MayorModCP_Events.MarnieLewisLivingEvent_5": "I'll see you later.",
+	"EmuEngine.MayorModCP_Events.MarnieLewisLivingEvent_6": "O Mayor @ ... ",
+	"EmuEngine.MayorModCP_Events.MarnieLewisLivingEvent_7": "Hi, what can I do for you today?",
+
+
 	// Council meetings
 	"EmuEngine.MayorModCP_Events.CouncilMeetingIntro_0": "Welcome everyone to the first council meeting of the new term. Maybe we can go around the table and talk about our roles.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingIntro_1": "My role is primarily to focus on town safety. I already have some ideas that I was trying to get Lewis to look at. Hopefully you'll consider them for the next meeting.",

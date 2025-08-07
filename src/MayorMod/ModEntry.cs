@@ -8,6 +8,7 @@ using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
+using StardewValley.Extensions;
 using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
@@ -262,8 +263,12 @@ internal sealed class ModEntry : Mod
         Game1.MasterPlayer.mailbox.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
         Game1.MasterPlayer.mailForTomorrow.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
         Game1.MasterPlayer.eventsSeen.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
-        Game1.MasterPlayer.activeDialogueEvents.RemoveWhere((m) => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
-        Game1.MasterPlayer.previousActiveDialogueEvents.RemoveWhere((m) => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.MasterPlayer.activeDialogueEvents.RemoveWhere(m => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.MasterPlayer.previousActiveDialogueEvents.RemoveWhere(m => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
+        foreach (var item in Game1.MasterPlayer.giftedItems)
+        {
+            item.Value.RemoveWhere(g => g.Key.Contains(ModKeys.MAYOR_MOD_CPID));
+        }
 
         Helper.GameContent.InvalidateCache(XNBPathKeys.MAIL);
         Helper.GameContent.InvalidateCache(XNBPathKeys.PASSIVE_FESTIVALS);

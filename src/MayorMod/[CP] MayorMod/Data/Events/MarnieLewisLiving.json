@@ -5,8 +5,8 @@
             "Action": "EditData",
             "Target": "Data/Events/AnimalShop",
             "Entries": {
-                "{{ModId}}_MarnieLewisLivingEvent/HostMail {{ModId}}_CouncilMeetingHeldIntro": "continue/15 15/farmer -1000 -1000 0 Lewis 13 5 2 Marnie 12 14 2/skippable/pause 1000/move Lewis 2 0 2/move Lewis 0 6 3/doAction 15 12/move Lewis 0 3 3/speak Lewis \"Hey...$s\"/speak Marnie \"Good Morning...\"/emote Lewis 40/speak Lewis \"I guess.$s\"/emote Marnie 40/speak Marnie \"I know you're upset about your job but ...$s\"/speak Lewis \"I'm fine. I'm just going to go out for a walk.$s\"/move Lewis 0 3 2/move Lewis -2 0 2/speak Lewis \"I'll see you later.$s\"/move Lewis 0 2 2/warp Lewis -1000 -1000/emote Marnie 40/emote Marnie 28/warp farmer 13 19/speak Marnie \"O Mayor @ ... $s\"/speak Marnie \"Hi, what can I do for you today?\"/globalFade/viewport 1000 1000/end"
-            }
-        }
+                "{{ModId}}_MarnieLewisLivingEvent/HostMail {{ModId}}_CouncilMeetingHeldIntro": "continue/15 15/farmer -1000 -1000 0 Lewis 13 5 2 Marnie 12 14 2/skippable/pause 1000/move Lewis 2 0 2/move Lewis 0 6 3/doAction 15 12/move Lewis 0 3 3/speak Lewis \"{{i18n:{{ModId}}_Events.MarnieLewisLivingEvent_0}}$s\"/speak Marnie \"{{i18n:{{ModId}}_Events.MarnieLewisLivingEvent_1}}\"/emote Lewis 40/speak Lewis \"{{i18n:{{ModId}}_Events.MarnieLewisLivingEvent_2}}$s\"/emote Marnie 40/speak Marnie \"{{i18n:{{ModId}}_Events.MarnieLewisLivingEvent_3}}$s\"/speak Lewis \"{{i18n:{{ModId}}_Events.MarnieLewisLivingEvent_4}}$s\"/move Lewis 0 3 2/move Lewis -2 0 2/speak Lewis \"{{i18n:{{ModId}}_Events.MarnieLewisLivingEvent_5}}$s\"/move Lewis 0 2 2/warp Lewis -1000 -1000/emote Marnie 40/emote Marnie 28/warp farmer 13 19/speak Marnie \"{{i18n:{{ModId}}_Events.MarnieLewisLivingEvent_6}}$s\"/speak Marnie \"{{i18n:{{ModId}}_Events.MarnieLewisLivingEvent_7}}\"/globalFade/viewport 1000 1000/end"           
+			}
+		}
     ]
 }
