@@ -1,28 +1,43 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <LangVersion>latest</LangVersion>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <Version>1.1.6</Version>
-  </PropertyGroup>
-    
+    <PropertyGroup>
+        <LangVersion>latest</LangVersion>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Version>1.1.6</Version>
+        <SMAPIVersion>4.3.2</SMAPIVersion>
+        <ContentPatcherVersion>2.7.5</ContentPatcherVersion>
+    </PropertyGroup>
+
     <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
-  </ItemGroup>
+        <PackageReference Include="JsonPoke" Version="1.2.0" />
+        <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ContentPacks Include="[CP] MayorMod" Version="$(Version)" />
-  </ItemGroup>
+    <ItemGroup>
+        <ContentPacks Include="[CP] MayorMod" Version="$(Version)" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Update="manifest.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="MayorAssetPatches.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <None Update="manifest.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="MayorAssetPatches.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="[CP] MayorMod\manifest.json">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
 
+    <Target Name="UpdateManifestJson" BeforeTargets="BeforeBuild">
+        <JsonPoke ContentPath="$(MSBuildProjectDirectory)\[CP] MayorMod\manifest.json" Query="$.Version" Value="$(Version)" />
+        <JsonPoke ContentPath="$(MSBuildProjectDirectory)\[CP] MayorMod\manifest.json" Query="$.MinimumApiVersion" Value="$(SMAPIVersion)" />
+        <JsonPoke ContentPath="$(MSBuildProjectDirectory)\[CP] MayorMod\manifest.json" Query="$.Dependencies[0].MinimumVersion" Value="$(ContentPatcherVersion)" />
+        <JsonPoke ContentPath="$(MSBuildProjectDirectory)\[CP] MayorMod\manifest.json" Query="$.Dependencies[1].MinimumVersion" Value="$(Version)" />
+        <JsonPoke ContentPath="$(MSBuildProjectDirectory)\manifest.json" Query="$.Version" Value="$(Version)" />
+        <JsonPoke ContentPath="$(MSBuildProjectDirectory)\manifest.json" Query="$.MinimumApiVersion" Value="$(SMAPIVersion)" />
+        <JsonPoke ContentPath="$(MSBuildProjectDirectory)\manifest.json" Query="$.Dependencies[0].MinimumVersion" Value="$(ContentPatcherVersion)" />
+    </Target>
 </Project>
