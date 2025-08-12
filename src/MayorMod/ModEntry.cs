@@ -53,26 +53,14 @@ internal sealed class ModEntry : Mod
     }
 
     /// <summary>
-    /// Runs on game launched. Mainly used for adding the Generic Mod Menu
+    /// Runs on game launched. Adds GMCM config and registers tokens.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e">event args</param>
     private void OnGameLaunched(object? sender, GameLaunchedEventArgs e)
     {
         _configHandler.InitGMCM();
-
-        var api = this.Helper.ModRegistry.GetApi<IContentPatcherAPI>("Pathoschild.ContentPatcher");
-        api?.RegisterToken(this.ModManifest, "CoucilMeetingDays", () =>
-        {
-            // save is loaded
-            if (Context.IsWorldReady)
-            {
-                return [ModUtils.GetFormattedMeetingDays(Helper, _configHandler.ModConfig)];
-            }
-
-            // no save loaded (e.g. on the title screen)
-            return null;
-        });
+        RegisterTokens();
     }
 
     /// <summary>
@@ -249,7 +237,10 @@ internal sealed class ModEntry : Mod
 
         if (_saveData is not null && ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
-            _assetUpdateHandler.RunningForMayorAssetUpdates(e, _saveData);
+            if (e.NameWithoutLocale.StartsWith(XNBPathKeys.DIALOGUE))
+            {
+                _assetUpdateHandler.AssetUpdatesForLeafletDialogue(e);
+            }
         }
     }
 
@@ -274,5 +265,25 @@ internal sealed class ModEntry : Mod
         Helper.GameContent.InvalidateCache(XNBPathKeys.PASSIVE_FESTIVALS);
         Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
         Helper.GameContent.InvalidateCache(XNBPathKeys.CHARACTERS);
+    }
+
+    /// <summary>
+    /// Registers tokens for content patcher
+    /// </summary>
+    private void RegisterTokens()
+    {
+        var api = this.Helper.ModRegistry.GetApi<IContentPatcherAPI>("Pathoschild.ContentPatcher");
+        api?.RegisterToken(this.ModManifest, ModKeys.MEETING_DAYS_TOKEN, () =>
+        {
+            return Context.IsWorldReady ? [ModUtils.GetFormattedMeetingDays(Helper, _configHandler.ModConfig)] : null;
+        });
+        api?.RegisterToken(this.ModManifest, ModKeys.VOTING_SEASON_TOKEN, () =>
+        {
+            return _saveData is not null ? [$"{_saveData.VotingDate.Season}"] : null;
+        });
+        api?.RegisterToken(this.ModManifest, ModKeys.VOTING_DAY_TOKEN, () =>
+        {
+            return _saveData is not null ? [$"{_saveData.VotingDate.Day}"] : null;
+        });
     }
 }

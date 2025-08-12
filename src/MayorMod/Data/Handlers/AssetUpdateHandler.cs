@@ -2,10 +2,8 @@
 using StardewModdingAPI.Events;
 using StardewModdingAPI;
 using StardewValley.GameData.Locations;
-using StardewValley.GameData;
 using System.Text.Json;
 using MayorMod.Data.Models;
-using StardewModdingAPI.Utilities;
 
 namespace MayorMod.Data.Handlers;
 
@@ -44,6 +42,7 @@ public class AssetUpdateHandler
         {
             if (e.NameWithoutLocale is not null &&
                 e.NameWithoutLocale.BaseName is not null &&
+                //_mayorStringReplacements.Keys.Any(sr => e.NameWithoutLocale.IsEquivalentTo(sr)))
                 _mayorStringReplacements.ContainsKey(e.NameWithoutLocale.BaseName))
             {
                 e.Edit((asset) =>
@@ -81,67 +80,9 @@ public class AssetUpdateHandler
     }
 
     /// <summary>
-    /// Runs updates to assets when runnign for mayor.
-    /// </summary>
-    /// <param name="e"></param>
-    /// <param name="saveData"></param>
-    public void RunningForMayorAssetUpdates(AssetRequestedEventArgs e, MayorModData saveData)
-    {
-        if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.MAIL))
-        {
-            AssetUpdatesForMail(e, saveData.VotingDate);
-        }
-        else if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.PASSIVE_FESTIVALS))
-        {
-            AssetUpdatesForPassiveFestivals(e, saveData.VotingDate);
-        }
-        else if (e.NameWithoutLocale.StartsWith(XNBPathKeys.DIALOGUE))
-        {
-            AssetUpdatesForDialogue(e);
-        }
-    }
-
-    /// <summary>
-    /// Updates mail assets that depend on voting day
-    /// </summary>
-    private void AssetUpdatesForMail(AssetRequestedEventArgs e, SDate votingDate)
-    {
-        e.Edit((mails) =>
-        {
-            var data = mails.AsDictionary<string, string>().Data;
-            var title = ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.RegistrationMail.Title");
-            var body = ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.RegistrationMail.Body");
-            body = string.Format(body, $"{votingDate.Season} {votingDate.Day}");
-            data[$"{ModKeys.MAYOR_MOD_CPID}_RegisteredForElectionMail"] = $"{body}[#]{title}";
-        });
-    }
-
-    /// <summary>
-    /// Updates Passive Festivals assets that depend on voting day
-    /// </summary>
-    private void AssetUpdatesForPassiveFestivals(AssetRequestedEventArgs e, SDate votingDate)
-    {
-        e.Edit(festivals =>
-        {
-            var data = festivals.AsDictionary<string, PassiveFestivalData>().Data;
-            var votingDay = new PassiveFestivalData()
-            {
-                DisplayName = ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Name"),
-                StartMessage = ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Message"),
-                Season = votingDate.Season,
-                StartDay = votingDate.Day,
-                EndDay = votingDate.Day,
-                StartTime = 610,
-                ShowOnCalendar = true,
-            };
-            data[$"{ModKeys.MAYOR_MOD_CPID}_VotingDayPassiveFestival"] = votingDay;
-        });
-    }
-
-    /// <summary>
     /// Updates dialogue so that all characters not specifically designated will reject election leaflets
     /// </summary>
-    private void AssetUpdatesForDialogue(AssetRequestedEventArgs e)
+    public void AssetUpdatesForLeafletDialogue(AssetRequestedEventArgs e)
     {
         e.Edit(dialogues =>
         {

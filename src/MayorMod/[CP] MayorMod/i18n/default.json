@@ -29,7 +29,8 @@
 	//Mail
 	//////////////////////
 	"EmuEngine.MayorModCP_Mail.RegistrationMail.Title": "Registration for Mayoral Election",
-	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body": "^^Dear @,^^Re: Registration for Mayoral Election^^ We are pleased to acknowledge your registration as a candidate in the upcoming mayoral election. Your interest in serving our community in this esteemed position is commendable. The election will take place on {0} so get campaigning. ^^If you have any questions or^concerns regarding the election^process, please do not hesitate^to contact us. We are more than^happy to assist you throughout this campaign.^^Sincerely,^Angela,^Chair of S.V. Election Committee[letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black]",
+	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body": "^^Dear @,^^Re: Registration for Mayoral Election^^ We are pleased to acknowledge your registration as a candidate in the upcoming mayoral election. Your interest in serving our community in this esteemed position is commendable. The election will take place on",
+	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body2": "so get campaigning. ^^If you have any questions or^concerns regarding the election^process, please do not hesitate^to contact us. We are more than^happy to assist you throughout this campaign.^^Sincerely,^Angela,^Chair of S.V. Election Committee[letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black]",
 
 	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Title": "Talk with voters",
 	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^We need to communicate the vision you have for mayor to the town. As your campaign manager, I suggest that you make time for talking to the villagers. The more people like you, the more likely they are to vote for you. I'll track the campaign with regular polling so you can call me for results. I've also printed out policy leaflets that we can hand out.^-Marlon",

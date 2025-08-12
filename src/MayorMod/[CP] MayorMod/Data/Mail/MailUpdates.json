@@ -13,6 +13,7 @@
             "Action": "EditData",
             "Target": "Data/Mail",
             "Entries": {
+                "{{ModId}}_RegisteredForElectionMail": "{{i18n:{{ModId}}_Mail.RegistrationMail.Body}} {{EmuEngine.MayorMod/VotingDaySeason}} {{EmuEngine.MayorMod/VotingDayDay}} {{i18n:{{ModId}}_Mail.RegistrationMail.Body2}}[#]{{i18n:{{ModId}}_Mail.RegistrationMail.Title}}",
                 "{{ModId}}_TalkingToVotersMail": "{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Body}} %item object EmuEngine.MayorModCP_Leaflet 20%%[#]{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Title}}",
                 "{{ModId}}_CampaignMail": "{{i18n:{{ModId}}_Mail.CampaignMail.Body}} %item bigobject EmuEngine.MayorModCP_ElectionSign%%[#]{{i18n:{{ModId}}_Mail.CampaignMail.Title}}",
                 "{{ModId}}_TownCouncilMail": "{{i18n:{{ModId}}_Mail.TownCouncilMail.Body}} [#]{{i18n:{{ModId}}_Mail.TownCouncilMail.Title}}",
