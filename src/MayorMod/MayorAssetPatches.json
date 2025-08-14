@@ -1,15 +1,15 @@
 {	
 	//Vanilla Patches
-    "Characters/Dialogue/LeoMainland": {
+    "characters/dialogue/leomainland": {
         "Wed": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
-	"Characters/Dialogue/Marnie": {
+	"characters/dialogue/marnie": {
         "Fair_Judged_PlayerLost_PurpleShorts": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
-	"Characters/Dialogue/Willy": {
+	"characters/dialogue/willy": {
         "Fair_Judged": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
-	"Data/mail": {
+	"data/mail": {
         "foundLostTools": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
         "winter_18": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
         "ccBulletinThankYou": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
@@ -25,23 +25,23 @@
 		"summer_21_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
 		"winter_24": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ]
     },
-	"Data/Quests": {
+	"data/quests": {
         "102": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
 		"120": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true },
 				 { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } 
 			   ]
 	},	
-	"Data/SecretNotes": {
+	"data/secretNotes": {
         "6": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
 	},	
-    "Data/Events/HaleyHouse": {
+    "data/events/haleyhouse": {
         "195019": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },	
-    "Data/Events/Railroad": {
+    "data/events/railroad": {
         "528052": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
 		"afraid": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },	
-    "Data/Events/Town": {
+    "data/events/town": {
         "6184644": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
         "191393": [
             { "SearchKey": "Lewis", "ReplaceKey": "Governor_NewMayorEvent", "IsTranslationKey": false },
@@ -55,46 +55,62 @@
 		                       { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Pierre", "IsTranslationKey": true } ],
 		"6665290_JojaWarehouse": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TheGovernor", "IsTranslationKey": true },
                                    { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
-		"528013": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+		"528013": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+		"6663410": [ 
+            { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true },
+            { "SearchKey": "Lewis", "ReplaceKey": "Governor_NewMayorEvent", "IsTranslationKey": false } ,
+            { "SearchKey": "skippable/", "ReplaceKey": "skippable/addTemporaryActor Governor_NewMayorEvent 16 32 87 53 1 true Character/", "IsTranslationKey": false },
+            { "SearchKey": "Governor_NewMayorEvent 87 53 1", "ReplaceKey": "Governor 1000 1000 0", "IsTranslationKey": false },
+            { "SearchKey": "speak Governor_NewMayorEvent", "ReplaceKey": "speak Governor", "IsTranslationKey": false },
+            { "SearchKey": "/end\\ dialogue.*", "ReplaceKey": "/end", "IsTranslationKey": false, "IsRegEx": true },
+            { "SearchKey": "$3", "ReplaceKey": "$2", "IsTranslationKey": false }
+        ],
+        "6663501": [ 
+            { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true },
+            { "SearchKey": "Lewis", "ReplaceKey": "Governor_NewMayorEvent", "IsTranslationKey": false } ,
+            { "SearchKey": "skippable/", "ReplaceKey": "skippable/addTemporaryActor Governor_NewMayorEvent 16 32 31 56 2 true Character/", "IsTranslationKey": false },
+            { "SearchKey": "Governor_NewMayorEvent 31 56 2", "ReplaceKey": "Governor 1000 1000 0", "IsTranslationKey": false },
+            { "SearchKey": "speak Governor_NewMayorEvent", "ReplaceKey": "speak Governor", "IsTranslationKey": false }
+        ]
     },
-    "Data/Events/CommunityCenter": {
+    "data/events/communitycenter": {
         "Punch": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ]
     },
-    "Data/Festivals/fall16": {
+    "data/festivals/fall16": {
         "Jodi": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
 		"Gus": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ]
     },	
 	"Data/Festivals/spring13": {
         "Sebastian": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },	
-	"Strings/MovieReactions": {
+	"strings/moviereactions": {
         "Lewis_summer_movie_0_DuringMovie_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
-    "Strings/StringsFromCSFiles": {
+    "strings/stringsfromcsfiles": {
         "Event.cs.1584": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
 	
 	//SVE Patches
-    "Characters/Dialogue/Victor": {
+    "characters/dialogue/victor": {
         "give_pendant": [ { "SearchKey": "AssetUpdates.SubString.LetMayorLewisKnow", "ReplaceKey": "EMPTY", "IsTranslationKey": true } ],
         "fall_Mon": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
-    "Data/Events/Custom_SophiaHouse": {
+    "data/events/custom_sophiahouse": {
         "8185297": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
-	"Data/Festivals/summer11": {
+	"data/festivals/summer11": {
         "Event.cs.1584": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
-	"Data/Events/Forest": {
+	"data/events/forest": {
 		"5000003": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
 	},
-	"Strings/StringsFromMaps":  {
+	"strings/stringsfrommaps":  {
 		"PelicanTown.11": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
 		"PelicanTown.51": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
 	},
-	
+    	
 	//Bear Family
-	"Characters/schedules/MadDog.HashtagBearFam.Sondra": {
+	"characters/schedules/maddog.hashtagbearfam.sondra": {
         "Wed": [ { "SearchKey": " ManorHouse ", "ReplaceKey": " EmuEngine.MayorModCP_ManorHouse ", "IsTranslationKey": false } ]
     }
 }

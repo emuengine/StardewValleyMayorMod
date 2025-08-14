@@ -24,7 +24,7 @@ internal sealed class ModEntry : Mod
     private ModConfigHandler _configHandler = null!;
     private AssetUpdateHandler _assetUpdateHandler = null!;
     private AssetInvalidationHandler _assetInvalidationHandler = null!;
-    private bool riverCleanUpRunOnce = true;
+    private bool _riverCleanUpRunOnce = true;
     
 
     /// <summary>
@@ -82,7 +82,7 @@ internal sealed class ModEntry : Mod
 
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
         {
-            riverCleanUpRunOnce = false;
+            _riverCleanUpRunOnce = false;
         }
 
         _assetInvalidationHandler.UpdateAssetInvalidations();
@@ -180,9 +180,9 @@ internal sealed class ModEntry : Mod
 
             ModUtils.ForceCouncilMailDelivery();
             
-            if (riverCleanUpRunOnce && ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
+            if (_riverCleanUpRunOnce && ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
             {
-                riverCleanUpRunOnce = false;
+                _riverCleanUpRunOnce = false;
                 _assetInvalidationHandler.LocationCacheInvalidate = true;
             }
         }
@@ -243,7 +243,6 @@ internal sealed class ModEntry : Mod
             }
         }
     }
-
 
     /// <summary>
     /// Reset the mod to factory settings.

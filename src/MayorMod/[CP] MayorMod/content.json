@@ -47,7 +47,10 @@
 		//Mayor Asset Patches
 		{
 			"Action": "Include",
-			"FromFile": "Data/MayorAssetPatchesCP.json"
+			"FromFile": "Data/MayorAssetPatchesCP.json",
+			"When": {
+				"HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+			}
 		}
 	]
 }

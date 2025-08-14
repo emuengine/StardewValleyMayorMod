@@ -43,11 +43,11 @@ public class AssetUpdateHandler
             if (e.NameWithoutLocale is not null &&
                 e.NameWithoutLocale.BaseName is not null &&
                 //_mayorStringReplacements.Keys.Any(sr => e.NameWithoutLocale.IsEquivalentTo(sr)))
-                _mayorStringReplacements.ContainsKey(e.NameWithoutLocale.BaseName))
+                _mayorStringReplacements.ContainsKey(e.NameWithoutLocale.BaseName.ToLower()))
             {
                 e.Edit((asset) =>
                 {
-                    var updates = _mayorStringReplacements[e.NameWithoutLocale.BaseName];
+                    var updates = _mayorStringReplacements[e.NameWithoutLocale.BaseName.ToLower()];
                     if (e.NameWithoutLocale.BaseName.Equals(XNBPathKeys.SECRET_NOTES, StringComparison.InvariantCultureIgnoreCase))
                     {
                         var data = asset.AsDictionary<int, string>().Data;
