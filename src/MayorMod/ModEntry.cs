@@ -212,6 +212,21 @@ internal sealed class ModEntry : Mod
             //TODO Look into if this is better to use
             //Utility.clearObjectsInArea(bounds, gameLocation);
         }
+
+        if (e.NewLocation.NameOrUniqueName == "AnimalShop" && ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
+        {
+            if (e.NewLocation.farmers.Count == 0)
+            {
+                e.NewLocation.characters.Clear();
+            }
+            Vector2 shortsTile = new(11f, 7f);
+            e.NewLocation.overlayObjects.Remove(shortsTile);
+            var o = ItemRegistry.Create<StardewValley.Object>("(O)789");
+            o.questItem.Value = true;
+            o.TileLocation = shortsTile;
+            o.IsSpawnedObject = true;
+            e.NewLocation.overlayObjects.Add(shortsTile, o);
+        }
     }
 
     /// <summary>
