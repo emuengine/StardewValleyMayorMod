@@ -173,12 +173,8 @@ internal sealed class ModEntry : Mod
         // Complete day as mayor
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
-            if (ModProgressHandler.HasProgressFlag(ProgressFlags.WonMayorElection))
-            {
-                ModProgressHandler.RemoveProgressFlag(ProgressFlags.WonMayorElection);
-            }
-
-            ModUtils.ForceCouncilMailDelivery();
+            ModProgressHandler.RemoveProgressFlag(ProgressFlags.WonMayorElection);
+            ModProgressHandler.RemoveProgressFlag(CouncilMeetingKeys.NotToday);
             
             if (_riverCleanUpRunOnce && ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
             {

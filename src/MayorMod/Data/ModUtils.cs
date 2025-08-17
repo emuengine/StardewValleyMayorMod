@@ -5,11 +5,7 @@ using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Utilities;
 using StardewValley;
-using StardewValley.Extensions;
 using StardewValley.GameData;
-using StardewValley.Locations;
-using StardewValley.Menus;
-using System.Text.RegularExpressions;
 using static StardewValley.GameLocation;
 
 namespace MayorMod.Data;
@@ -161,7 +157,7 @@ public static class ModUtils
     }
 
     /// <summary>
-    /// Adds an item to the current players inventory
+    /// Adds an item to the current players inventory.
     /// </summary>
     /// <param name="itemId">Item to add</param>
     public static void AddItemToInventory(string itemId)
@@ -171,65 +167,10 @@ public static class ModUtils
     }
 
     /// <summary>
-    /// Force planned council meeting mails to be added to the mailReceived list
+    /// Creates a dialogue which allows you to resign as mayor and reset the mod.
     /// </summary>
-    public static void ForceCouncilMailDelivery()
-    {
-        //TODO: look into why I seem to have to do this
-        var meetingTomorrow = Game1.MasterPlayer.mailForTomorrow.FirstOrDefault(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix));
-        if (meetingTomorrow is not null)
-        {
-            Game1.MasterPlayer.mailForTomorrow.Remove(meetingTomorrow);
-            Game1.MasterPlayer.mailReceived.Add(meetingTomorrow);
-        }
-    }
-
-    public static void DrawDialogueCharacterString(string location, params string[] stringFormatParam)
-    {
-        var haveVotingCardDialogue = Game1.content.LoadString($"Strings\\Characters:{location}");
-        haveVotingCardDialogue = string.Format(haveVotingCardDialogue, stringFormatParam);
-        Game1.drawObjectDialogue(haveVotingCardDialogue);
-    }
-
-    /// <summary>
-    /// Checks if the base name of an asset name starts with a specified string (case-insensitive).
-    /// </summary>
-    /// <param name="assetName">The asset name to check.</param>
-    /// <param name="startsWith">The string that should start the asset name (case-insensitive).</param>
-    /// <returns>True if the base name of the asset starts with the specified string, false otherwise.</returns>
-    public static bool AssetNameStartsWith(IAssetName assetName, string startsWith)
-    {
-        var assetNameClean = Regex.Replace(assetName.BaseName, "[^a-zA-Z0-9]", "");
-        var startsWithClean = Regex.Replace(startsWith, "[^a-zA-Z0-9]", "");
-        return assetNameClean.StartsWithIgnoreCase(startsWithClean);
-    }
-
-    /// <summary>
-    /// Retrieves the NPC that is currently interacting with the player.
-    /// </summary>
-    /// <returns>The interacting NPC, or null if no interaction is occurring.</returns>
-    public static NPC? GetNPCForPlayerInteraction()
-    {
-        if (Utility.checkForCharacterInteractionAtTile(Game1.player.GetGrabTile(), Game1.GetPlayer(Game1.player.UniqueMultiplayerID)))
-        {
-            return Game1.currentLocation.isCharacterAtTile(Game1.player.GetGrabTile());
-        }
-        return null;
-    }
-
-    /// <summary>
-    /// Code to try Remove Travelling Cart. Doesn't work but might neeed it in the future.
-    /// </summary>
-    private static void RemoveTravellingCart()
-    {
-        //need to edit the passive festivals too
-        var f = Game1.locationData["Forest"];
-        Forest forest = (Forest)Game1.getLocationFromName("Forest");
-        forest.travelingMerchantBounds.Clear();
-        forest.travelingMerchantDay = false;
-        ((Forest)Game1.getLocationFromName(nameof(Forest))).ShouldTravelingMerchantVisitToday();
-    }
-
+    /// <param name="helper"></param>
+    /// <param name="farmer"></param>
     public static void OpenResignationDialogue(IModHelper helper, Farmer farmer)
     {
         if (farmer.userID != Game1.MasterPlayer.userID)
@@ -266,7 +207,14 @@ public static class ModUtils
                                                                 doubleCheckResign);
         }
     }
-    
+
+    /// <summary>
+    /// Determines and returns the next upcoming day (from today) that a council meeting is scheduled,
+    /// formatted as a localized day name.
+    /// </summary>
+    /// <param name="helper">The mod helper used for translation.</param>
+    /// <param name="modConfig">The config object containing the active meeting days.</param>
+    /// <returns>A localized string representing the next scheduled meeting day.</returns>
     public static string GetNextCouncilMeetingDay(IModHelper helper, MayorModConfig modConfig)
     {
         var today = (int)WorldDate.GetDayOfWeekFor(Game1.dayOfMonth);
@@ -278,7 +226,13 @@ public static class ModUtils
         return ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.{DayNames[nextMeetingDay]}");
     }
 
-
+    /// <summary>
+    /// Returns a human-readable, localized string representing the days of the week
+    /// when the mayor has scheduled meetings, formatted with commas and an "and" before the last item.
+    /// </summary>
+    /// <param name="helper">The mod helper used for translations.</param>
+    /// <param name="modConfig">The config object that contains which days meetings are held.</param>
+    /// <returns>A formatted, localized string of meeting days (e.g., "Monday and Wednesday").</returns>
     public static string GetFormattedMeetingDays(IModHelper helper, MayorModConfig modConfig)
     {
         var activeDays = DayNames.Select( dt => ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.{dt}"))

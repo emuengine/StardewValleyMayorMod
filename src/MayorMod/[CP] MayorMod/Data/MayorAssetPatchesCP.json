@@ -228,13 +228,24 @@
             }
         },
         {
+            //Morris' Schedule
             "Action": "EditData",
             "Priority": "Late",
             "Target": "Characters/schedules/MorrisTod",
-            "FromFile": "assets/CharacterFiles/Schedules/Morris/Schedule.json",
             "When": {
                 "HasSeenEvent |contains=5553210": true,
                 "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            },
+            "Entries": {
+                "spring": "610 Town 88 51 2/940 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+                "Mon": "610 Town 88 51 2/940 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+                "Tue": "610 Town 100 60 2/900 Town 86 63 3/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+                "Wed": "610 Town 43 59 1 Morris_Coupon/900 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+                "Thu": "610 Town 72 54 2/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+                "Fri": "610 Town 93 52 2/940 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+                "Sat": "610 Town 97 63 1/900 Town 88 51 2/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+                "Sun": "610 Town 76 54 2/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+                "rain": "610 Town 92 44 3/630 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0"
             }
         },
         // East Scarp

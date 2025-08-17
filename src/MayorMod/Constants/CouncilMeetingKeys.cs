@@ -3,6 +3,7 @@
 public class CouncilMeetingKeys
 {
     public static readonly string PlannedPrefix = $"{ModKeys.MAYOR_MOD_CPID}_CouncilMeetingPlanned";
+    public static readonly string NotToday = $"{ModKeys.MAYOR_MOD_CPID}_CouncilMeetingNotToday";
     public static readonly string HeldPrefix = $"{ModKeys.MAYOR_MOD_CPID}_CouncilMeetingHeld";
 
     //Meetings

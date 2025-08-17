@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Locations;
+using xTile.Dimensions;
 
 namespace MayorMod.Data.Handlers;
 
@@ -37,6 +38,14 @@ internal static class TileActionHandler
         GameLocation.RegisterTileAction(MayorModActionType, HandleMayorModTileAction);
     }
 
+    public class TestManorHouse : ManorHouse
+    {
+        public override bool answerDialogue(Response answer)
+        {
+            return base.answerDialogue(answer);
+        }
+    }
+
     /// <summary>
     /// Handle mayor tile action
     /// </summary>
@@ -52,13 +61,13 @@ internal static class TileActionHandler
             _monitor.Log("MayorModAction is missing parameters", LogLevel.Error);
             return false;
         }
-        
+
         switch (arg2[1])
         {
-            case LostAndFoundActionType: Game1.getLocationFromName(nameof(ManorHouse)).performAction(LostAndFoundActionType, Game1.player, new xTile.Dimensions.Location(point.X,point.Y)); break;
-            case DivorceBookActionType: Game1.getLocationFromName(nameof(ManorHouse)).performAction(DivorceBookActionType, Game1.player, new xTile.Dimensions.Location(point.X, point.Y)); break;
-            case LedgerBookActionType: Game1.getLocationFromName(nameof(ManorHouse)).performAction(LedgerBookActionType, Game1.player, new xTile.Dimensions.Location(point.X, point.Y)); break;
-            case MayorFridgeActionType: Game1.getLocationFromName(nameof(ManorHouse)).performAction(MayorFridgeActionType, Game1.player, new xTile.Dimensions.Location(point.X, point.Y)); break;
+            case LostAndFoundActionType: { MayorMachines.CheckLostAndFound(); } break;
+            case DivorceBookActionType: { MayorMachines.DivorceBook(); } break;
+            case LedgerBookActionType: { MayorMachines.ReadLedgerBook(); } break;
+            case MayorFridgeActionType: { MayorMachines.MayorFridge(point); } break;
             case MayorDeskActionType: ManorHouseTileActions.MayorDeskAction(_helper, farmer, _modConfig); break;
             case DeskActionType: VotingTileActions.VotingDeskAction(farmer); break;
             case VotingBoothActionType: VotingTileActions.VotingBoothAction(_helper, farmer, arg2); break;
@@ -72,4 +81,5 @@ internal static class TileActionHandler
         }
         return true;
     }
+
 }

@@ -2,7 +2,6 @@
 using MayorMod.Data.Models;
 using StardewModdingAPI;
 using StardewValley;
-using StardewValley.Tools;
 using System.Text.RegularExpressions;
 
 namespace MayorMod.Data;
@@ -22,7 +21,7 @@ public static class Extentions
 
     public static string PatchString(this StringPatch stringPatch,IModHelper helper, string input)
     {
-        var searchKey = string.Empty;
+        string searchKey;
         if (stringPatch.IsRegEx)
         {
             var regex = new Regex(stringPatch.SearchKey);

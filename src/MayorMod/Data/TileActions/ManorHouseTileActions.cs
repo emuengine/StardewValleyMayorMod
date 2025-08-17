@@ -59,14 +59,14 @@ public static partial class ManorHouseTileActions
         IList<CouncilMeetingData> meetings = [
             new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingIntro), CouncilMeetingKeys.MeetingIntro),
         ];
-        if (ModProgressHandler.HasProgressFlag(CouncilMeetingKeys.HeldPrefix + CouncilMeetingKeys.MeetingIntro))
+        if (CouncilMeetingData.HasMeetingHappened(CouncilMeetingKeys.MeetingIntro))
         {
             meetings = [
                 new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownSecurity), CouncilMeetingKeys.MeetingTownSecurity),
                 new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingSaloonHours), CouncilMeetingKeys.MeetingSaloonHours),
                 new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownCleanup), CouncilMeetingKeys.MeetingTownCleanup),
              ];
-            if (ModProgressHandler.HasProgressFlag(CouncilMeetingKeys.HeldPrefix + CouncilMeetingKeys.MeetingTownCleanup))
+            if (CouncilMeetingData.HasMeetingHappened(CouncilMeetingKeys.MeetingTownCleanup))
             {
                 meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingRiverCleanup), CouncilMeetingKeys.MeetingRiverCleanup));
             }
@@ -85,15 +85,30 @@ public static partial class ManorHouseTileActions
     /// <param name="selectedMeeting">council meeting to plan</param>
     private static void OnCoucilMeetingSelected(CouncilMeetingData selectedMeeting )
     {
-        var meetingMailId = CouncilMeetingKeys.PlannedPrefix + selectedMeeting.EventMailId;
-        Game1.MasterPlayer.mailForTomorrow.Add(meetingMailId);
+        ModProgressHandler.AddProgressFlag(CouncilMeetingKeys.PlannedPrefix + selectedMeeting.EventMailId);
+        ModProgressHandler.AddProgressFlag(CouncilMeetingKeys.NotToday);
         Game1.exitActiveMenu();
         Game1.drawObjectDialogue(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingPlanned));
     }
 
+    /// <summary>
+    /// Check if council meeting is planned
+    /// </summary>
     private static bool IsCouncilMeetingPlannded()
     {
-        return Game1.MasterPlayer.mailReceived.Any(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix)) ||
-               Game1.MasterPlayer.mailForTomorrow.Any(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix));
+        CheckForCouncilPlanningIssues();
+        return Game1.MasterPlayer.mailReceived.Any(p => p.StartsWith(CouncilMeetingKeys.PlannedPrefix));
+    }
+
+    /// <summary>
+    /// Remove events seen where planned event key exists
+    /// </summary>
+    private static void CheckForCouncilPlanningIssues()
+    {
+        var planned = Game1.MasterPlayer.mailReceived
+                                        .Where(plannedMail => plannedMail.StartsWith(CouncilMeetingKeys.PlannedPrefix))
+                                        .Select(mail => $"{ModKeys.MAYOR_MOD_CPID}_CouncilMeeting{mail[CouncilMeetingKeys.PlannedPrefix.Length..]}Event")
+                                        .ToHashSet();
+        Game1.MasterPlayer.eventsSeen.RemoveWhere(e => planned.Contains(e));
     }
 }
