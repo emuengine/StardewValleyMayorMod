@@ -11,7 +11,7 @@ public class AssetUpdateHandler
 {
     private readonly IModHelper _helper;
     private readonly IMonitor _monitor;
-    private Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements = new Dictionary<string, Dictionary<string, List<StringPatch>>>();
+    private Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements = new();
 
     public AssetUpdateHandler(IModHelper helper, IMonitor monitor)
     {

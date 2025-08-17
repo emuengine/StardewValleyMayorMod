@@ -5,6 +5,9 @@ using StardewValley;
 
 namespace MayorMod.Data.Handlers;
 
+/// <summary>
+/// Handles voting logic for the mayor mod.
+/// </summary>
 public class VotingHandler
 {
     public const int PointsPerHeart = 250;
@@ -24,12 +27,22 @@ public class VotingHandler
 
     public bool IsVotingRNG { get; set; } = true;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="VotingHandler"/> class.
+    /// </summary>
+    /// <param name="farmer">The current farmer instance.</param>
+    /// <param name="mayorModConfig">The current mayor mod config instance.</param>
     public VotingHandler(Farmer farmer, MayorModConfig mayorModConfig)
     {
         _farmer = farmer;
         _mayorModConfig = mayorModConfig;
     }
 
+    /// <summary>
+    /// Gets the number of hearts an NPC has.
+    /// </summary>
+    /// <param name="name">The name of the NPC.</param>
+    /// <returns>The number of hearts the NPC has.</returns>
     public int GetNPCHearts(string name)
     {
         int hearts = 0;
@@ -40,11 +53,21 @@ public class VotingHandler
         return hearts;
     }
 
+    /// <summary>
+    /// Checks whether an NPC has been canvassed.
+    /// </summary>
+    /// <param name="name">The name of the NPC.</param>
+    /// <returns>True if the NPC has been canvassed, false otherwise.</returns>
     public bool HasNPCBeenCanvassed(string name)
     {
         return _farmer.mailReceived.Any(m => m.Trim().Equals($"{name}_{TalkingToVotersTopic}" ,StringComparison.InvariantCultureIgnoreCase));
     }
 
+    /// <summary>
+    /// Checks whether an NPC has received a leaflet.
+    /// </summary>
+    /// <param name="name">The name of the NPC.</param>
+    /// <returns>True if the NPC has received a leaflet, false otherwise.</returns>
     public bool HasNPCGotLeaflet(string name)
     {
         bool hasLeaflet = false;
@@ -55,11 +78,19 @@ public class VotingHandler
         return hasLeaflet;
     }
 
+    /// <summary>
+    /// Checks whether the player has won the debate event.
+    /// </summary>
+    /// <returns>True if the player has won the debate event, false otherwise.</returns>
     public bool HasWonDebate()
     {
         return _farmer.eventsSeen.Any(e => e.Equals(MayorDebateEvent));
     }
 
+    /// <summary>
+    /// Calculates the number of votes the player has cast.
+    /// </summary>
+    /// <returns>The number of votes the player has cast.</returns>
     public int CalculatePlayerVotes()
     {
         var votes = 0;
@@ -75,6 +106,11 @@ public class VotingHandler
         return votes;
     }
 
+    /// <summary>
+    /// Checks whether an NPC is voting for the player.
+    /// </summary>
+    /// <param name="name">The name of the NPC.</param>
+    /// <returns>True if the NPC is voting for the player, false otherwise.</returns>
     public bool VotingForFarmer(string name)
     {
         if (name.Equals(ModNPCKeys.MarlonId, StringComparison.InvariantCultureIgnoreCase))
@@ -106,12 +142,22 @@ public class VotingHandler
         }
     }
 
+    /// <summary>
+    /// Calculates the total number of leaflets received by voters.
+    /// </summary>
+    /// <param name="helper">The mod helper instance.</param>
+    /// <returns>The total number of leaflets received by voters.</returns>
     public int CalculateTotalLeaflets(IModHelper helper)
     {
         var voters = GetVotingVillagers(helper);
         return voters.Sum(v => HasNPCGotLeaflet(v) ? 1 : 0);
     }
 
+    /// <summary>
+    /// Gets all eligible voters.
+    /// </summary>
+    /// <param name="helper">The mod helper instance.</param>
+    /// <returns>A list of all eligible voters.</returns>
     public static List<string> GetVotingVillagers(IModHelper helper)
     {
         var villagers = Voters.ToList();
@@ -122,6 +168,11 @@ public class VotingHandler
         return villagers;
     }
 
+    /// <summary>
+    /// Calculates the total number of votes cast by voters.
+    /// </summary>
+    /// <param name="helper">The mod helper instance.</param>
+    /// <returns>The total number of votes cast by voters.</returns>
     public int CalculateTotalVotes(IModHelper helper)
     {
         var voters = GetVotingVillagers(helper);
@@ -130,6 +181,11 @@ public class VotingHandler
         return votes;
     }
 
+    /// <summary>
+    /// Checks whether the player has won the election.
+    /// </summary>
+    /// <param name="helper">The mod helper instance.</param>
+    /// <returns>True if the player has won the election, false otherwise.</returns>
     public bool HasWonElection(IModHelper helper)
     {
         var voters = GetVotingVillagers(helper);

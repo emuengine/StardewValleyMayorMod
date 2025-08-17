@@ -118,6 +118,10 @@ public partial class MayorModMenu : IClickableMenu
         CustomSnapBehavior(direction == 2 || direction == 1 ? 1 : -1);
     }
 
+    /// <summary>
+    /// Snap behavior for gamepad.
+    /// </summary>
+    /// <param name="direction"></param>
     private void CustomSnapBehavior(int direction)
     {
         var cursorButtons = MenuItems.Where(mi => mi is IClickableMenuItem)
@@ -131,21 +135,21 @@ public partial class MayorModMenu : IClickableMenu
         if (_selectedCursorItem is null)
         {
             _selectedCursorItem = new CursorSnapMenuItem(cursorButtons[0], 0);
-            _selectedCursorItem.menuItem.UpdateCursor(_selectedCursorItem.index);
+            _selectedCursorItem.MenuItem.UpdateCursor(_selectedCursorItem.Index);
         }
         else 
         {
-            var updated = _selectedCursorItem.menuItem.UpdateCursor(_selectedCursorItem.index + direction);
+            var updated = _selectedCursorItem.MenuItem.UpdateCursor(_selectedCursorItem.Index + direction);
             if (updated != -1)
             {
-                _selectedCursorItem = new CursorSnapMenuItem(_selectedCursorItem.menuItem, updated);
+                _selectedCursorItem = new CursorSnapMenuItem(_selectedCursorItem.MenuItem, updated);
             }
             else
             {
-                var index = cursorButtons.FindIndex(c => c == _selectedCursorItem.menuItem);
+                var index = cursorButtons.FindIndex(c => c == _selectedCursorItem.MenuItem);
                 var update = Math.Clamp(index + direction, 0, cursorButtons.Count - 1); 
                 _selectedCursorItem = new CursorSnapMenuItem(cursorButtons[update], 0);
-                _selectedCursorItem.menuItem.UpdateCursor(_selectedCursorItem.index);
+                _selectedCursorItem.MenuItem.UpdateCursor(_selectedCursorItem.Index);
             }
         }
     }

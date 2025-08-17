@@ -13,7 +13,7 @@ namespace MayorMod.Data;
 /// </summary>
 public class MayorMachines
 {
-    private static Dictionary<string, Farmer> MoneyToSend = new Dictionary<string, Farmer>();
+    private static Dictionary<string, Farmer> MoneyToSend = new();
 
     private const string QuestionKey_DivorceCancel = "divorceCancel"; 
     private const string QuestionKey_Divorce = "divorce"; 

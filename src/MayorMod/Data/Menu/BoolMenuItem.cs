@@ -71,6 +71,9 @@ public class BoolMenuItem : IMenuItem
         }
     }
 
+    /// <summary>
+    /// Handles window resize events for this text menu item. No update needed.
+    /// </summary>
     public void OnWindowResize(Rectangle oldBounds, Rectangle newBounds)
     {
     }

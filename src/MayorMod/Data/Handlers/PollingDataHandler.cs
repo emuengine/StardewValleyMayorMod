@@ -9,6 +9,9 @@ using static StardewValley.Game1;
 
 namespace MayorMod.Data.Handlers;
 
+/// <summary>
+/// This class handles incoming and outgoing phone calls related to polling data
+/// </summary>
 internal class PollingDataHandler : IPhoneHandler
 {
     private const string PollingDataKey = "PollingData";
@@ -21,6 +24,9 @@ internal class PollingDataHandler : IPhoneHandler
         _mayorModConfig = mayorModConfig;
     }
 
+    /// <summary>
+    /// Checks if there is an incoming call from a random source.
+    /// </summary>
     public string CheckForIncomingCall(Random random)
     {
 #pragma warning disable CS8603
@@ -28,6 +34,9 @@ internal class PollingDataHandler : IPhoneHandler
 #pragma warning restore CS8603
     }
 
+    /// <summary>
+    /// Tries to handle an incoming call.
+    /// </summary>
     public bool TryHandleIncomingCall(string callId, out Action showDialogue)
     {
 #pragma warning disable CS8625
@@ -36,6 +45,9 @@ internal class PollingDataHandler : IPhoneHandler
         return false;
     }
 
+    /// <summary>
+    /// Returns a list of outgoing phone numbers.
+    /// </summary>
     public IEnumerable<KeyValuePair<string, string>> GetOutgoingNumbers()
     {
         var numbers = new List<KeyValuePair<string, string>>();
@@ -47,6 +59,9 @@ internal class PollingDataHandler : IPhoneHandler
         return numbers;
     }
 
+    /// <summary>
+    /// Tries to handle an outgoing call.
+    /// </summary>
     public bool TryHandleOutgoingCall(string callId)
     {
         switch (callId)
@@ -56,6 +71,9 @@ internal class PollingDataHandler : IPhoneHandler
         }
     }
 
+    /// <summary>
+    /// Handles a phone call related to polling data.
+    /// </summary>
     private bool CallPollingData()
     {
         int ringTime = 4950;
@@ -87,6 +105,9 @@ internal class PollingDataHandler : IPhoneHandler
         return true;
     }
 
+    /// <summary>
+    /// Gets the polling data menu.
+    /// </summary>
     private MayorModMenu GetPollingDataMenu()
     {
         var voters = VotingHandler.GetVotingVillagers(_helper);

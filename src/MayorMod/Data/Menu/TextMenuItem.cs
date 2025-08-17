@@ -21,6 +21,12 @@ public class TextMenuItem : IMenuItem
         Center
     }
 
+    /// <summary>
+    /// Initializes a new instance of the TextMenuItem class.
+    /// </summary>
+    /// <param name="parent">The parent menu that this text menu item belongs to.</param>
+    /// <param name="text">The initial text to display for this menu item.</param>
+    /// <param name="margin">The margin of the text within its bounds.</param>
     public TextMenuItem(MayorModMenu parent, string text, Margin margin)
     {
         _parent = parent;
@@ -28,6 +34,10 @@ public class TextMenuItem : IMenuItem
         TextMargin = margin;
     }
 
+    /// <summary>
+    /// Draws the text menu item on the screen.
+    /// </summary>
+    /// <param name="spriteBatch">The SpriteBatch to draw with.</param>
     public void Draw(SpriteBatch spriteBatch)
     {
         int xVal;
@@ -57,6 +67,9 @@ public class TextMenuItem : IMenuItem
         }
     }
 
+    /// <summary>
+    /// Handles window resize events for this text menu item. No update needed.
+    /// </summary>
     public void OnWindowResize(Rectangle oldBounds, Rectangle newBounds)
     {
     }

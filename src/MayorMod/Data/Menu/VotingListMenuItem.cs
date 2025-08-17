@@ -29,6 +29,9 @@ internal partial class VotingListMenuItem : IClickableMenuItem
         Init();
     }
 
+    /// <summary>
+    /// Initializes the voting list menu item's properties.
+    /// </summary>
     private void Init()
     {
         _boundingBox = new Rectangle(_parent.MenuRect.X + _margin.Left,
@@ -52,6 +55,10 @@ internal partial class VotingListMenuItem : IClickableMenuItem
         }
     }
 
+    /// <summary>
+    /// Draws the voting list menu item on the screen.
+    /// </summary>
+    /// <param name="spriteBatch">The SpriteBatch to draw with.</param>
     public void Draw(SpriteBatch spriteBatch)
     {
         for (int i = 0; i < _buttons.Count; i++)
@@ -88,6 +95,11 @@ internal partial class VotingListMenuItem : IClickableMenuItem
         }
     }
 
+    /// <summary>
+    /// Handles hover events for the voting list menu item.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the mouse position.</param>
+    /// <param name="y">The y-coordinate of the mouse position.</param>
     public void OnHover(int x, int y)
     {
         for (int i = 0; i < _buttons.Count; i++)
@@ -99,6 +111,11 @@ internal partial class VotingListMenuItem : IClickableMenuItem
         }
     }
 
+    /// <summary>
+    /// Handles left-click events for the voting list menu item.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the mouse position.</param>
+    /// <param name="y">The y-coordinate of the mouse position.</param>
     public void OnLeftClick(int x, int y)
     {
         if(_closing)
@@ -121,11 +138,20 @@ internal partial class VotingListMenuItem : IClickableMenuItem
         }
     }
 
+    /// <summary>
+    /// Handles window resize events for the voting list menu item.
+    /// </summary>
+    /// <param name="oldBounds">The old bounds of the window.</param>
+    /// <param name="newBounds">The new bounds of the window.</param>
     public void OnWindowResize(Rectangle oldBounds, Rectangle newBounds)
     {
         Init();
     }
 
+    /// <summary>
+    /// Updates the cursor position for the voting list menu item.
+    /// </summary>
+    /// <param name="index">The index of the button to update the cursor position for.</returns>
     public int UpdateCursor(int index)
     {
         var cursorData = _buttons.Select(b => new Point(b.ButtonRect.X + (b.ButtonRect.Width / 2), b.ButtonRect.Y + (b.ButtonRect.Height / 2))).ToList();

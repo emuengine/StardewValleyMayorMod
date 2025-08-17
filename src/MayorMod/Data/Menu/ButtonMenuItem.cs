@@ -48,6 +48,12 @@ public class ButtonMenuItem : IClickableMenuItem
         Cancel = 47
     }
 
+    /// <summary>
+    /// Creates a new button item with given properties.
+    /// </summary>
+    /// <param name="parent">The parent menu.</param>
+    /// <param name="location">The location of the button on the screen.</param>
+    /// <param name="action">The action to be invoked when the button is clicked.</param>
     public ButtonMenuItem(MayorModMenu parent, Vector2 location, Action action)
     {
         _parent = parent;
@@ -59,6 +65,9 @@ public class ButtonMenuItem : IClickableMenuItem
         _id++;
     }
 
+    /// <summary>
+    /// Updates and refreshes the button's component with new bounds and properties.
+    /// </summary>
     private void UpdateButtonComponent()
     {
         var bounds = new Rectangle((int)(Location.X>0?
@@ -85,11 +94,20 @@ public class ButtonMenuItem : IClickableMenuItem
         _parent.allClickableComponents.Add(ButtonComponent);
     }
 
+    /// <summary>
+    /// Draws the button's visuals using a SpriteBatch.
+    /// </summary>
+    /// <param name="spriteBatch">The SpriteBatch to use for drawing.</param>
     public void Draw(SpriteBatch spriteBatch)
     {
         ButtonComponent?.draw(spriteBatch);
     }
 
+    /// <summary>
+    /// Invokes the button's action and handles left-click on the button.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the click point.</param>
+    /// <param name="y">The y-coordinate of the click point.</param>
     public void OnLeftClick(int x, int y)
     {
         if (ButtonComponent is not null && ButtonComponent.containsPoint(x, y) && ButtonAction is not null)
@@ -98,16 +116,31 @@ public class ButtonMenuItem : IClickableMenuItem
         }
     }
 
+    /// <summary>
+    /// Attempts to hover over the button if the given point is within its bounds.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the point to check.</param>
+    /// <param name="y">The y-coordinate of the point to check.</param>
     public void OnHover(int x, int y)
     {
         ButtonComponent?.tryHover(x, y);
     }
 
+    /// <summary>
+    /// Handles the ressizing of the window
+    /// </summary>
+    /// <param name="oldBounds">Old bounds of the window</param>
+    /// <param name="newBounds">New bounds of the window</param>
     public void OnWindowResize(Rectangle oldBounds, Rectangle newBounds)
     {
         UpdateButtonComponent();
     }
 
+    /// <summary>
+    /// Updates the cursor position to be on top of the button if it is selected.
+    /// </summary>
+    /// <param name="index">The current index (not used in this method).</param>
+    /// <returns>The updated index, which is usually 0 or -1.</returns>
     public int UpdateCursor(int index)
     {
         if (index == 0 && ButtonComponent is not null)

@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Locations;
-using xTile.Dimensions;
 
 namespace MayorMod.Data.Handlers;
 
