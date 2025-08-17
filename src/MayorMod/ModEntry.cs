@@ -285,15 +285,15 @@ internal sealed class ModEntry : Mod
         var api = this.Helper.ModRegistry.GetApi<IContentPatcherAPI>("Pathoschild.ContentPatcher");
         api?.RegisterToken(this.ModManifest, ModKeys.MEETING_DAYS_TOKEN, () =>
         {
-            return Context.IsWorldReady ? [ModUtils.GetFormattedMeetingDays(Helper, _configHandler.ModConfig)] : null;
+            return Context.IsWorldReady ? new List<string>() { ModUtils.GetFormattedMeetingDays(Helper, _configHandler.ModConfig) } : null;
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_SEASON_TOKEN, () =>
         {
-            return _saveData is not null ? [$"{_saveData.VotingDate.Season}"] : null;
+            return _saveData is not null ? new List<string>() { $"{_saveData.VotingDate.Season}" } : null;
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_DAY_TOKEN, () =>
         {
-            return _saveData is not null ? [$"{_saveData.VotingDate.Day}"] : null;
+            return _saveData is not null ? new List<string>() { $"{_saveData.VotingDate.Day}" } : null;
         });
     }
 }

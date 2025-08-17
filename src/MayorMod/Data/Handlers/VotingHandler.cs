@@ -11,12 +11,14 @@ public class VotingHandler
     public static readonly string TalkingToVotersTopic = $"{ModKeys.MAYOR_MOD_CPID}_TalkingToVotersTopic";
     public static readonly string MayorDebateEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorDebateEvent";
     public static readonly string LeafletItem = $"{ModKeys.MAYOR_MOD_CPID}_Leaflet";
-    private static readonly IList<string> Voters = ["Alex","Elliott","Harvey","Sam","Sebastian","Shane",
+    private static readonly IList<string> Voters = 
+                                new List<string>(){"Alex","Elliott","Harvey","Sam","Sebastian","Shane",
                                                    "Abigail","Emily","Haley","Leah","Maru","Penny","Caroline",
                                                    "Clint","Demetrius","Evelyn","George","Gus","Jodi","Kent",
-                                                   "Lewis","Linus","Marnie","Pam","Pierre","Robin","Willy","Wizard"];
-    private static readonly IList<string> SVEVoters = ["Claire", "Lance", "Olivia", "Sophia", "Victor", "Andy", 
-                                                      "Gunther", "Marlon", "Morris", "Susan"];
+                                                   "Lewis","Linus","Marnie","Pam","Pierre","Robin","Willy","Wizard" };
+    private static readonly IList<string> SVEVoters =
+                                new List<string>(){"Claire", "Lance", "Olivia", "Sophia", "Victor", "Andy",
+                                                      "Gunther", "Marlon", "Morris", "Susan"};
     private readonly Farmer _farmer;
     private readonly MayorModConfig _mayorModConfig;
 
@@ -85,7 +87,7 @@ public class VotingHandler
         {
             return true;
         }
-        IList<string> easyVotes = [ModNPCKeys.GusId, ModNPCKeys.PennyId, ModNPCKeys.MaruId];
+        var easyVotes = new List<string> { ModNPCKeys.GusId, ModNPCKeys.PennyId, ModNPCKeys.MaruId };
 
         var hearts = GetNPCHearts(name);
         hearts += HasNPCBeenCanvassed(name) ? 1 : 0;

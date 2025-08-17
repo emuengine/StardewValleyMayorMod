@@ -15,7 +15,7 @@ public static class EventCommandHandler
     /// <summary>
     /// Stores full tile object. This allows restoring of animated tiles.
     /// </summary>
-    public static Dictionary<string, Tile> TileStorage { get; set; } = [];
+    public static Dictionary<string, Tile> TileStorage { get; set; } = new Dictionary<string, Tile>();
 
 
     /// <summary>

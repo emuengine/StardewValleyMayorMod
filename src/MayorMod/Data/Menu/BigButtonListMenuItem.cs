@@ -23,7 +23,7 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
     private int _scrollBarEnd;
     private Rectangle _boundingBox;
     private IList<string> _buttonText;
-    private IList<ButtonData> _buttonData = [];
+    private IList<ButtonData> _buttonData = new List<ButtonData>();
     private ClickableTextureComponent _upArrow;
     private ClickableTextureComponent _downArrow;
     private ClickableTextureComponent _scrollBar;
@@ -75,7 +75,7 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
                                      _parent.MenuRect.Y + _margin.Top,
                                      _parent.MenuRect.Width - _margin.Right,
                                      _parent.MenuRect.Height - _margin.Bottom);
-        _buttonData = [];
+        _buttonData = new List<ButtonData>();
         var scrollBarMargin = 40;
         var totalPadding = ButtonPadding * (NumberOfButtons - 1);
         var menuItemHeight = ((_boundingBox.Height - totalPadding) / NumberOfButtons);

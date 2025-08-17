@@ -13,7 +13,7 @@ namespace MayorMod.Data;
 /// </summary>
 public class MayorMachines
 {
-    private static Dictionary<string, Farmer> MoneyToSend = [];
+    private static Dictionary<string, Farmer> MoneyToSend = new Dictionary<string, Farmer>();
 
     private const string QuestionKey_DivorceCancel = "divorceCancel"; 
     private const string QuestionKey_Divorce = "divorce"; 
@@ -77,7 +77,7 @@ public class MayorMachines
         {
             string answer = questionAndAnswer.Split('_')[1];
             var method = typeof(ManorHouse).GetMethod("beginSendMoney", BindingFlags.NonPublic | BindingFlags.Instance);
-            method?.Invoke(man, [MoneyToSend[answer]]);
+            method?.Invoke(man, new object[] { MoneyToSend[answer] });
             MoneyToSend.Clear();
         }
         else
@@ -134,7 +134,7 @@ public class MayorMachines
             ? Game1.content.LoadString("Strings\\Locations:ManorHouse_LAF_Check_OrdersUnlocked")
             : Game1.content.LoadString("Strings\\Locations:ManorHouse_LAF_Check");
 
-        List<Response> choices = [];
+        var choices = new List<Response>();
         if (playerTeam.returnedDonations.Count > 0 && !playerTeam.returnedDonationsMutex.IsLocked())
         {
             choices.Add(new Response(ResponseKey_CheckDonations, Game1.content.LoadString("Strings\\Locations:ManorHouse_LAF_DonationItems")));
@@ -146,7 +146,7 @@ public class MayorMachines
         if (choices.Count > 0)
         {
             choices.Add(new Response(ResponseKey_Cancel, Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_TransferCancel")));
-            QuestionDialogueDelegateAnswer(question, [.. choices], QuestionKey_LostAndFound);
+            QuestionDialogueDelegateAnswer(question, choices.ToArray(), QuestionKey_LostAndFound);
         }
         else
         {
@@ -163,17 +163,17 @@ public class MayorMachines
         {
             if (Game1.IsMasterGame)
             {
-                List<Response> choices =
-                [
+                List<Response> choices = new List<Response>()
+                {
                     new(ResponseKey_SendMoney, Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_SendMoney")),
-                    Game1.player.changeWalletTypeTonight.Value ? 
-                            new Response(ResponseKey_CancelMerge, Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_CancelMerge")) : 
+                    Game1.player.changeWalletTypeTonight.Value ?
+                            new Response(ResponseKey_CancelMerge, Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_CancelMerge")) :
                             new Response(ResponseKey_MergeWallets, Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_MergeWallets")),
-                    new Response(ResponseKey_Leave, Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_Leave")),
-                ];
+                    new Response(ResponseKey_Leave, Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_Leave"))
+                };
 
                 var question = Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_SeparateWallets_HostQuestion");
-                QuestionDialogueDelegateAnswer(question, [.. choices], QuestionKey_LedgerOptions);
+                QuestionDialogueDelegateAnswer(question, choices.ToArray(), QuestionKey_LedgerOptions);
             }
             else
             {
@@ -208,7 +208,7 @@ public class MayorMachines
     public static void ChooseLedgerRecipient()
     {
         MoneyToSend.Clear();
-        List<Response> responses = [];
+        var responses = new List<Response>();
 
         foreach (Farmer farmer in Game1.getAllFarmers())
         {
@@ -231,6 +231,6 @@ public class MayorMachines
         responses.Sort((x, y) => string.Compare(x.responseKey, y.responseKey, StringComparison.Ordinal));
         responses.Add(new Response(ResponseKey_Cancel, Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_TransferCancel")));
         var question = Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_SeparateWallets_TransferQuestion");
-        QuestionDialogueDelegateAnswer(question, [.. responses], QuestionKey_ChooseRecipient);
+        QuestionDialogueDelegateAnswer(question, responses.ToArray(), QuestionKey_ChooseRecipient);
     }
 }

@@ -13,7 +13,7 @@ public static class ModUtils
 {
     public static Random RNG { get; } = new();
 
-    public static string[] DayNames { get; } = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    public static string[] DayNames { get; } = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 
     private static NPC? _marlonNPC;
     /// <summary>
@@ -141,18 +141,18 @@ public static class ModUtils
         var rngSeeded = Utility.CreateRandom(date.Year * 11, Game1.uniqueIDForThisGame, date.SeasonIndex);
         int[] possible_days = Game1.season switch
         {
-            Season.Spring => [11, 12, 21, 22, 25],
-            Season.Summer => [9, 12, 18, 25, 27],
-            Season.Fall => [4, 7, 8, 9, 12, 19, 22, 25],
-            Season.Winter => [5, 11, 12, 19, 22, 24],
-            _ => [],
+            Season.Spring => new int[] { 11, 12, 21, 22, 25 },
+            Season.Summer => new int[] { 9, 12, 18, 25, 27 },
+            Season.Fall => new int[] { 4, 7, 8, 9, 12, 19, 22, 25 },
+            Season.Winter => new int[] { 5, 11, 12, 19, 22, 24 },
+            _ => Array.Empty<int>(),
         };
         var randomDate = rngSeeded.Next(possible_days.Length);
-        IList<int> days = 
-        [
+        var days = new List<int>()
+        {
             possible_days[randomDate],
             possible_days[(randomDate + possible_days.Length / 2) % possible_days.Length]
-        ];
+        };
         return days.Contains(date.Day);
     }
 

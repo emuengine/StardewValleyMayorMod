@@ -3,12 +3,18 @@ using StardewValley;
 
 namespace MayorMod.Data.Models;
 
-public class CouncilMeetingData(string name, string eventMailId)
+public class CouncilMeetingData
 {
-    public string Name { get; set; } = name;
-    public string EventMailId { get; set; } = eventMailId;
+    public string Name { get; set; }
+    public string EventMailId { get; set; }
 
-    public bool EventHasHappened => HasMeetingHappened(eventMailId);
+    public bool EventHasHappened => HasMeetingHappened(EventMailId);
+
+    public CouncilMeetingData(string name, string eventMailId)
+    {
+        Name = name;
+        EventMailId = eventMailId;
+    }
 
     public static bool HasMeetingHappened(string eventMailId)
     {

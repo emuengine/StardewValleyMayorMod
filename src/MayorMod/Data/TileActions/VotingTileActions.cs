@@ -10,7 +10,7 @@ namespace MayorMod.Data.TileActions;
 
 public static class VotingTileActions
 {
-    public static IList<string> Candidates { get; set; } = ["Lewis", Game1.MasterPlayer.Name];
+    public static IList<string> Candidates { get; set; } = new List<string>() { "Lewis", Game1.MasterPlayer.Name };
 
     /// <summary>
     /// Tile action for the security desk in the voting area. Officer mike should give the farmer a voting ballot.
@@ -83,8 +83,8 @@ public static class VotingTileActions
         var menu = new MayorModMenu(helper, 0.4f, 0.9f);
 
         menu.BackgoundColour = Color.White;
-        menu.MenuItems =
-        [
+        menu.MenuItems = new List<IMenuItem>()
+        {
             new MenuBorder(menu),
             new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.VotingBooth.VotingBallotTitle), new Margin(0, 30, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
             new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.VotingBooth.VotingBallotDescription), new Margin(15, 100, 0, 0)),
@@ -93,7 +93,7 @@ public static class VotingTileActions
             {
                 ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
             },
-        ];
+        };
         return menu;
     }
 

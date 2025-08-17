@@ -32,7 +32,7 @@ public partial class MayorModMenu : IClickableMenu
         }
     }
     public IModHelper Helper { get; private set; }
-    public IList<IMenuItem> MenuItems { get; set; } = [];
+    public IList<IMenuItem> MenuItems { get; set; } = new List<IMenuItem>();
     public Rectangle MenuRect { get; set; }
     public Color BackgoundColour { get; set; } = Color.Transparent;
 
@@ -42,7 +42,7 @@ public partial class MayorModMenu : IClickableMenu
         Helper = helper;
         MarginHeightPercent = marginHeightPercent;
         MarginWidthPercent = marginWidthPercent;
-        allClickableComponents = [];
+        allClickableComponents = new List<ClickableComponent>();
     }
 #pragma warning restore CS8618
 

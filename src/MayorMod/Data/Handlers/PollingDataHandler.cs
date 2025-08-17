@@ -38,7 +38,7 @@ internal class PollingDataHandler : IPhoneHandler
 
     public IEnumerable<KeyValuePair<string, string>> GetOutgoingNumbers()
     {
-        List<KeyValuePair<string, string>> numbers = [];
+        var numbers = new List<KeyValuePair<string, string>>();
 
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
@@ -102,11 +102,11 @@ internal class PollingDataHandler : IPhoneHandler
         var polls = polling.CalculateTotalVotes(_helper);
 
         var menu = new MayorModMenu(_helper, 0.4f, 0.5f);
-        menu.MenuItems =
-        [
+        menu.MenuItems = new List<IMenuItem>()
+        {
             new MenuBorder(menu),
-            new TextMenuItem(menu, content.LoadString(DialogueKeys.PollingData.PollingDataTitle), new Margin(0, 30, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
-            new BoolMenuItem(menu, content.LoadString(DialogueKeys.PollingData.HadDebate),debated, new Margin(15, 100, 0, 0)),
+            new TextMenuItem(menu, content.LoadString(DialogueKeys.PollingData.PollingDataTitle), new Margin(0, 30, 0, 0)) { IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
+            new BoolMenuItem(menu, content.LoadString(DialogueKeys.PollingData.HadDebate), debated, new Margin(15, 100, 0, 0)),
             new TextMenuItem(menu, $"{content.LoadString(DialogueKeys.PollingData.Leaflets)} {leaflets}/{totalVoters}", new Margin(15, 150, 0, 0)),
             new TextMenuItem(menu, $"{content.LoadString(DialogueKeys.PollingData.VotersCanvassed)} {canvassed}/{totalVoters}", new Margin(15, 200, 0, 0)),
             new TextMenuItem(menu, $"{content.LoadString(DialogueKeys.PollingData.VotingForYou)} {polls}/{totalVoters}", new Margin(15, 250, 0, 0)),
@@ -115,7 +115,7 @@ internal class PollingDataHandler : IPhoneHandler
             {
                 ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
             },
-        ];
+        };
         return menu;
     }
 }

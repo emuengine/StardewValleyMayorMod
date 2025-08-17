@@ -11,7 +11,7 @@ public class AssetUpdateHandler
 {
     private readonly IModHelper _helper;
     private readonly IMonitor _monitor;
-    private Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements = [];
+    private Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements = new Dictionary<string, Dictionary<string, List<StringPatch>>>();
 
     public AssetUpdateHandler(IModHelper helper, IMonitor monitor)
     {
@@ -29,7 +29,7 @@ public class AssetUpdateHandler
         {
             ReadCommentHandling = JsonCommentHandling.Skip,
             AllowTrailingCommas = true
-        }) ?? [];
+        }) ?? new Dictionary<string, Dictionary<string, List<StringPatch>>>();
     }
 
     /// <summary>

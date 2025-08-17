@@ -15,7 +15,7 @@ internal partial class VotingListMenuItem : IClickableMenuItem
     private bool _closing;
     private Rectangle _boundingBox;
     //public int Padding { get; set; } = 5;
-    private IList<VotingButtonData> _buttons = [];
+    private IList<VotingButtonData> _buttons = new List<VotingButtonData>();
     public Action<int> ButtonAction { get; set; }
 
     internal VotingListMenuItem(MayorModMenu parent, Margin margin, IList<string> candidates, Action<int> action)
