@@ -178,7 +178,7 @@
 	//////////////////////
 	//Events
 	//////////////////////
-	"EmuEngine.MayorModCP_Events.NeedMayor_0": "You really need to take this more seriously. These monsters could become a real danger if not monitored properly. We need funding so we can actually pay people to make sure these attacks don't become a bigger problem to the town.",
+	"EmuEngine.MayorModCP_Events.NeedMayor_0": "You really need to take this more seriously. These monsters could become a real danger if not monitored properly. We need funding to hire security and make sure these attacks don't become a bigger problem.",
 	"EmuEngine.MayorModCP_Events.NeedMayor_1": "I don't want to talk about this any more. I've done all I can. I'm leaving now, I have more important things to deal with Marlon. Goodbye.",
 	"EmuEngine.MayorModCP_Events.NeedMayor_2": "Hi @, it's nice to see you. I'm sorry I can't talk right now. I am very busy today.",
 	"EmuEngine.MayorModCP_Events.NeedMayor_3": "There was a monster attack last night. We need more security at night for the town.",
@@ -192,12 +192,17 @@
 	"EmuEngine.MayorModCP_Events.NeedMayor_9": "That's the spirit!",
 	"EmuEngine.MayorModCP_Events.NeedMayor_10": "That's a great idea! I may not have the confidence to run myself any more but I can definitely help you with your campaign. I have the forms around here somewhere for registration. I'll fill them out and post them to the election commission for you. This might actually turn out great!",
 	"EmuEngine.MayorModCP_Events.NotMayor_0": "That's a pity. Looks like Lewis will run uncontested again. Maybe you can think about it and we can try next year.",
+	"EmuEngine.MayorModCP_Events.NeedMayorMorris_0": "You really need to take this more seriously. Lewis didn't listen either and it's only gotten worse. We need funding to hire security and make sure these attacks don't become a bigger problem.",
+	"EmuEngine.MayorModCP_Events.NeedMayorMorris_4": "The mayor disagrees it seems. Morris isn't any better suited for the job than Lewis was. We really need someone who will be more proactive as mayor.",
+	"EmuEngine.MayorModCP_Events.NeedMayorMorris_5": "It's coming up to election time but we can't let him run uncontested like Lewis did for years. #Sigh, I don't think I'm up to the job. The guild takes up too much of my time.",
+	"EmuEngine.MayorModCP_Events.NeedMayorMorris_10": "That's a great idea! I can definitely help you with your campaign. I have the forms around here somewhere for registration. I'll fill them out and post them to the election commission for you. This might actually turn out great!",
+	"EmuEngine.MayorModCP_Events.NotMayorMorris_0": "That's a pity. Looks like Morris will run uncontested. Maybe you can think about it and we can try next year.",
 
-	"EmuEngine.MayorModCP_Events.NeedMayorRetry_0": "Another year with Lewis as mayor. You've done so much for the town this year. We could try and push for an election against Lewis again. It might be the right time.",
+	"EmuEngine.MayorModCP_Events.NeedMayorRetry_0": "Another year with our ever underwhelming mayor. You've done so much for the town this year. We could try and push for an election again. It might be the right time.",
 	"EmuEngine.MayorModCP_Events.NeedMayorRetry_1Q": "Have reconsidered running for office?",
 	"EmuEngine.MayorModCP_Events.NeedMayorRetry_1A0": "I have and I think now is the time to run.",
 	"EmuEngine.MayorModCP_Events.NeedMayorRetry_1A1": "No I haven't and I'm not interested.",
-
+	
 	"EmuEngine.MayorModCP_Events.WorriedLewis_0": "I don't know what I'm gonna do. @ is very popular in the town. I think I may be losing this one.",
 	"EmuEngine.MayorModCP_Events.WorriedLewis_1": "Don't worry people still like you too. You haven't been mayor for such a long time for no reason. Also ... It might even be a good thing if you don't have so much of this responsibility taking up all of your time. We could spend more time together.",
 	"EmuEngine.MayorModCP_Events.WorriedLewis_2": "Yeah but if @ wins I'll lose my job and my house. Where would I go? This is who I am! I have to do something about ...",
@@ -215,7 +220,7 @@
 	"EmuEngine.MayorModCP_Events.MayorDebate_5A2": "to do what's best for Pelican Town and not just myself.",
 	"EmuEngine.MayorModCP_Events.MayorDebate_6": "Very interesting.",
 	"EmuEngine.MayorModCP_Events.MayorDebate_7": "Mayor Lewis. You have been the mayor for many years now.",
-	"EmuEngine.MayorModCP_Events.MayorDebate_8": "That's correct. Ive always done everything I can to serve this town to the best of my abilities.",
+	"EmuEngine.MayorModCP_Events.MayorDebate_8": "That's correct. I've always done everything I can to serve this town to the best of my abilities.",
 	"EmuEngine.MayorModCP_Events.MayorDebate_9": "What would you say are your primary achievements over these many years?",
 	"EmuEngine.MayorModCP_Events.MayorDebate_10": "Well I would say that I have made numerous contributions to the town's growth and consistently delivered high quality outcomes. My track record over the years speaks for itself.",
 	"EmuEngine.MayorModCP_Events.MayorDebate_11": "Ok ok.",
@@ -260,7 +265,7 @@
 	"EmuEngine.MayorModCP_Events.MayorSpeech_7": "Come on, lets get this finished today. Pierre said he has more boxes in the shop we can use for packing.",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_8": "Ok thanks Marnie. You're probably right. Lets get it over with.",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_9": "Hello Mayor @. Congratulations by the way!",
-	"EmuEngine.MayorModCP_Events.MayorSpeech_10": "Lewis is so depressed since he lost. We all felt bad for him so myself and the other council members told him he could still run the festivals for the moment. It gives us more time to begin putting your campaign promises into action.",
+	"EmuEngine.MayorModCP_Events.MayorSpeech_10": "Lewis is so depressed since he lost. We told him that he could still be the event coordinator for festivals though. This gives us more time to begin putting your campaign promises into action if Lewis takes care of them.",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_11": "I also have a surprise for you. While those two are packing up lewis' stuff, I have the decorators in here fixing up the place for your new term of office. Come back tomorrow when the decorating is done and we can get your new term underway.",
 
 	"EmuEngine.MayorModCP_Events.LostMayorElection_0": "Thank you all for coming. I am now happy to introduce to you Mayor Lewis!",
