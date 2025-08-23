@@ -1,4 +1,20 @@
 # Changelog
+
+## v1.1.7
+
+### Features
+- Moved to the latest SMAPI and Content Patcher versions
+- Added story compatibility for SVE.
+- Added mayors purple shorts to animal shop.
+
+### Bug fixes
+- Fix for bundling CP files twice. This could have caused all sorts of errors.
+- Fix for Lewis' SVE schedule.
+- Another fix for LostAndFound, DivorceBook, LedgerBook and MayorFridge actions (hopefully fixed for good this time).
+- Refactor for vote date patching.
+- Refactor for council meeting trigger.
+
+
 ## v1.1.5
 
 ### Features
