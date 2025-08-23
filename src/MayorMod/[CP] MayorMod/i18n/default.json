@@ -202,12 +202,15 @@
 	"EmuEngine.MayorModCP_Events.NeedMayorRetry_1Q": "Have reconsidered running for office?",
 	"EmuEngine.MayorModCP_Events.NeedMayorRetry_1A0": "I have and I think now is the time to run.",
 	"EmuEngine.MayorModCP_Events.NeedMayorRetry_1A1": "No I haven't and I'm not interested.",
-	
+
 	"EmuEngine.MayorModCP_Events.WorriedLewis_0": "I don't know what I'm gonna do. @ is very popular in the town. I think I may be losing this one.",
 	"EmuEngine.MayorModCP_Events.WorriedLewis_1": "Don't worry people still like you too. You haven't been mayor for such a long time for no reason. Also ... It might even be a good thing if you don't have so much of this responsibility taking up all of your time. We could spend more time together.",
 	"EmuEngine.MayorModCP_Events.WorriedLewis_2": "Yeah but if @ wins I'll lose my job and my house. Where would I go? This is who I am! I have to do something about ...",
 	"EmuEngine.MayorModCP_Events.WorriedLewis_3": "Don't worry it's going to be ok. I'm sorry but I have to get back to the shop. We can talk about this later.",
 	"EmuEngine.MayorModCP_Events.WorriedLewis_4": "O hi @",
+	"EmuEngine.MayorModCP_Events.WorriedLewisMorris_0": "I don't know what I'm gonna do. The Ferngill Republic Ministry of Land and Resources contacted me and Im going to have to move out since I'm no longer a public servant. They want to turn the place back to a Town Hall.",
+	"EmuEngine.MayorModCP_Events.WorriedLewisMorris_1": "Don't worry we will work something out. This might even be a good thing. We could finally officially move in together and spend more time together.",
+	"EmuEngine.MayorModCP_Events.WorriedLewisMorris_2": "Yeah I suppose but I feel like I am losing my independance.",
 
 	"EmuEngine.MayorModCP_Events.MayorDebate_0": "Ladies and Gentleman, welcome to the mayoral debate!",
 	"EmuEngine.MayorModCP_Events.MayorDebate_1": "Let's meet our candidates. We have Mayor Lewis who is a seasoned leader and has been serving as mayor of Pelican Town for many years now.",
@@ -246,6 +249,19 @@
 	"EmuEngine.MayorModCP_Events.MayorDebate_25": "I see...",
 	"EmuEngine.MayorModCP_Events.MayorDebate_26": "Well I would like to thank both of you for taking time out to talk to us today.",
 	"EmuEngine.MayorModCP_Events.MayorDebate_27": "Thank you all for coming to this debate today. I hope this has helped with your decision if the upcoming election.",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_1": "Let's meet our candidates. We have Mayor Morris. After many years as the manager of JojaMart, he changed career in order to serve the community of Pelican Town as Mayor.",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_2": "Can we also give a big welcome to @ who is a resident of Pelican Town and is challenging Mayor Morris for the top spot.",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_7": "Mayor Morris. You were manager of Joja mart for many years prior to becoming mayor.",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_8": "That's correct. I have worked very hard to make Joja the success it is today. I bring that same dedication to supporting and serving this community.",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_9": "What would you say are your primary achievements as mayor so far?",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_10": "I would say that I have made numerous contributions to the town's growth and ran the Community Development Pilot Program which has made numerous contributions.",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_15": "Mayor Morris. If you're elected again what would you like to do in your next term?",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_16": "I'm dedicated to continuing improvements in the town. I will boost the local economy by empowering and supporting local businesses.",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_17": "Ok that's interesting.",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_21": "Mayor Morris. We all know there was a significant lack of budgetary transparency in the past. Do you think this has improved much under your administration?",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_22": "I have cleaned up the budgetary situation significantly and now money is flowing into the public works you see throughout the town.",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_23": "There has been speculation that a lot of the money for those changes came from the Joja corporation in return for favourable contracts to the towns mineral resources?",
+	"EmuEngine.MayorModCP_Events.MayorDebateMorris_24": "These are just baseless rumours.",
 
 	"EmuEngine.MayorModCP_Events.MayorSpeech_0": "Thank you all for coming. Today marks an exciting new chapter for our town. I’m honoured to introduce someone who brings passion, dedication, and a clear vision for the future. Please give a round of applause for the new Mayor of Pelican town ... Mayor @ !",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_1Q": "What will you start your speech with?",
@@ -267,8 +283,10 @@
 	"EmuEngine.MayorModCP_Events.MayorSpeech_9": "Hello Mayor @. Congratulations by the way!",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_10": "Lewis is so depressed since he lost. We told him that he could still be the event coordinator for festivals though. This gives us more time to begin putting your campaign promises into action if Lewis takes care of them.",
 	"EmuEngine.MayorModCP_Events.MayorSpeech_11": "I also have a surprise for you. While those two are packing up lewis' stuff, I have the decorators in here fixing up the place for your new term of office. Come back tomorrow when the decorating is done and we can get your new term underway.",
+	"EmuEngine.MayorModCP_Events.MayorSpeechMorris_10": "Lewis has moved out and we can begin turning this place back into a town hall. I have the decorators in here fixing up the place for your new term of office.",
+	"EmuEngine.MayorModCP_Events.MayorSpeechMorris_11": "Come back tomorrow when the decorating is done and we can get your new term underway.",
 
-	"EmuEngine.MayorModCP_Events.LostMayorElection_0": "Thank you all for coming. I am now happy to introduce to you Mayor Lewis!",
+	"EmuEngine.MayorModCP_Events.LostMayorElection_0": "Thank you all for coming. I am now happy to introduce your Mayor!",
 	"EmuEngine.MayorModCP_Events.LostMayorElection_1": "Thank you Governor. Thank you everybody! I'd particularly like to thank my opponent for a good race.",
 	"EmuEngine.MayorModCP_Events.LostMayorElection_2": "Today is a great day! You have all made the right choice once again. I will continue to run this town with the honesty and integrity that you have all come to expect from me.",
 
