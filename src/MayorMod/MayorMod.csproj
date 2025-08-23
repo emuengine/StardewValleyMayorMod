@@ -25,9 +25,6 @@
         <None Update="MayorAssetPatches.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
-        <None Update="[CP] MayorMod\manifest.json">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
     </ItemGroup>
 
     <Target Name="UpdateManifestJson" BeforeTargets="BeforeBuild">
