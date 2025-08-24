@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Version>1.1.8</Version>
-        <SMAPIVersion>4.3.2</SMAPIVersion>
+        <SMAPIVersion>4.1.0</SMAPIVersion>
         <ContentPatcherVersion>2.7.5</ContentPatcherVersion>
     </PropertyGroup>
 

@@ -5,7 +5,7 @@
   "Description": "Bring democracy back to Stardew Valley",
   "UniqueID": "EmuEngine.MayorMod",
   "EntryDll": "MayorMod.dll",
-  "MinimumApiVersion": "4.3.2",
+  "MinimumApiVersion": "4.1.0",
   "UpdateKeys": [
     "Nexus:33104"
   ],
