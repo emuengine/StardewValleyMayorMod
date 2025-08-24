@@ -252,6 +252,10 @@ internal sealed class ModEntry : Mod
             {
                 _assetUpdateHandler.AssetUpdatesForLeafletDialogue(e);
             }
+            else if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.PASSIVE_FESTIVALS))
+            {
+                _assetUpdateHandler.AssetUpdatesForPassiveFestivals(e, _saveData.VotingDate);
+            }
         }
     }
 

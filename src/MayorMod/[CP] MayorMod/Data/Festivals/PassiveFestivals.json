@@ -1,22 +1,23 @@
-{
-    "Changes": [
-        {
-            "Action": "EditData",
-            "Target": "Data/PassiveFestivals",
-            "When": {
-                "HasFlag: hostPlayer | contains={{ModId}}_RunningForMayor": true
-            },
-            "Entries": {
-                "{{ModId}}_VotingDayPassiveFestival": {
-                    "DisplayName": "{{i18n:{{ModId}}_Festival.VotingDay.Name}}",
-                    "StartMessage": "{{i18n:{{ModId}}_Festival.VotingDay.Message}}",
-                    "Season": "{{EmuEngine.MayorMod/VotingDaySeason}}",
-                    "StartDay": "{{EmuEngine.MayorMod/VotingDayDay}}",
-                    "EndDay": "{{EmuEngine.MayorMod/VotingDayDay}}",
-                    "StartTime": 610,
-                    "ShowOnCalendar": true
-                }
-            }
-        }
-    ]
-}
+//TODO: Doesn't work on voting day.
+//{
+//    "Changes": [
+//        {
+//            "Action": "EditData",
+//            "Target": "Data/PassiveFestivals",
+//            "When": {
+//                "HasFlag: hostPlayer | contains={{ModId}}_RunningForMayor": true
+//            },
+//            "Entries": {
+//                "{{ModId}}_VotingDayPassiveFestival": {
+//                    "DisplayName": "{{i18n:{{ModId}}_Festival.VotingDay.Name}}",
+//                    "StartMessage": "{{i18n:{{ModId}}_Festival.VotingDay.Message}}",
+//                    "Season": "{{EmuEngine.MayorMod/VotingDaySeason}}",
+//                    "StartDay": "{{EmuEngine.MayorMod/VotingDayDay}}",
+//                    "EndDay": "{{EmuEngine.MayorMod/VotingDayDay}}",
+//                    "StartTime": 610,
+//                    "ShowOnCalendar": true
+//                }
+//            }
+//        }
+//    ]
+//}

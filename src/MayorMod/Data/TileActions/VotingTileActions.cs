@@ -10,7 +10,10 @@ namespace MayorMod.Data.TileActions;
 
 public static class VotingTileActions
 {
-    public static IList<string> Candidates { get; set; } = new List<string>() { "Lewis", Game1.MasterPlayer.Name };
+    public static IList<string> Candidates { get; set; } = new List<string>() { Game1.MasterPlayer.eventsSeen.Contains("6665293")? 
+                                                                                        ModNPCKeys.MorrisId: 
+                                                                                        ModNPCKeys.LewisId, 
+                                                                                Game1.MasterPlayer.Name };
 
     /// <summary>
     /// Tile action for the security desk in the voting area. Officer mike should give the farmer a voting ballot.

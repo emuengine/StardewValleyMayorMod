@@ -192,7 +192,9 @@
                 "6665293/w sunny/t 800 1700/H": null,
                 "6665294/w sunny/t 1100 1600/H": null,
                 "5553213/e 6665293/t 600 1830/w sunny/H": null,
-                "5553213/e 6665293/t 600 1830/w rainy/H": null
+                "5553213/e 6665293/t 600 1830/w rainy/H": null,
+                //Andy
+                "5000001/f Andy 500/z winter/t 1000 1600/w sunny": null
             },
             "When": {
                 "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true

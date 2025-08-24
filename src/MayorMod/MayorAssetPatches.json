@@ -20,7 +20,8 @@
 		"fall_15": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
 		"fall_26": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
 		"winter_7": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true },					  
-					  { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],//SVE
+					  { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
+		//SVE
 		"summer_3_1": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
 		"summer_21_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
 		"winter_24": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ]

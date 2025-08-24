@@ -1,7 +1,7 @@
 {
   "Name": "[CP] MayorMod",
   "Author": "EmuEngine",
-  "Version": "1.1.7",
+  "Version": "1.1.8",
   "Description": "Bring democracy back to Stardew Valley",
   "UniqueID": "EmuEngine.MayorModCP",
   "MinimumApiVersion": "4.3.2",
@@ -19,7 +19,7 @@
     },
     {
       "UniqueID": "EmuEngine.MayorMod",
-      "MinimumVersion": "1.1.7",
+      "MinimumVersion": "1.1.8",
       "IsRequired": true
     }
   ]

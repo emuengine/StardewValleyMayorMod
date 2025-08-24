@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.1.7
+## v1.1.8
 
 ### Features
 - Moved to the latest SMAPI and Content Patcher versions

@@ -21,7 +21,7 @@ public class VotingHandler
                                                    "Lewis","Linus","Marnie","Pam","Pierre","Robin","Willy","Wizard" };
     private static readonly IList<string> SVEVoters =
                                 new List<string>(){"Claire", "Lance", "Olivia", "Sophia", "Victor", "Andy",
-                                                      "Gunther", "Marlon", "Morris", "Susan"};
+                                                   "Gunther", "Marlon", "Morris", "Susan"};
     private readonly Farmer _farmer;
     private readonly MayorModConfig _mayorModConfig;
 

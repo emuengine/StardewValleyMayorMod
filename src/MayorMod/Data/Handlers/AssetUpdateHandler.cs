@@ -4,6 +4,8 @@ using StardewModdingAPI;
 using StardewValley.GameData.Locations;
 using System.Text.Json;
 using MayorMod.Data.Models;
+using StardewModdingAPI.Utilities;
+using StardewValley.GameData;
 
 namespace MayorMod.Data.Handlers;
 
@@ -108,6 +110,29 @@ public class AssetUpdateHandler
             {
                 rubbish.Chance = 0.01f;
             }
+        });
+    }
+
+
+    /// <summary>
+    /// Updates Passive Festivals assets that depend on voting day
+    /// </summary>
+    public void AssetUpdatesForPassiveFestivals(AssetRequestedEventArgs e, SDate votingDate)
+    {
+        e.Edit(festivals =>
+        {
+            var data = festivals.AsDictionary<string, PassiveFestivalData>().Data;
+            var votingDay = new PassiveFestivalData()
+            {
+                DisplayName = ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Name"),
+                StartMessage = ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Message"),
+                Season = votingDate.Season,
+                StartDay = votingDate.Day,
+                EndDay = votingDate.Day,
+                StartTime = 610,
+                ShowOnCalendar = true,
+            };
+            data[$"{ModKeys.MAYOR_MOD_CPID}_VotingDayPassiveFestival"] = votingDay;
         });
     }
 }
