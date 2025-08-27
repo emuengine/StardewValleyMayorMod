@@ -70,6 +70,16 @@
                 "ManorHouse_LedgerBook_SeparateWallets_HostQuestion": "{{i18n:{{ModId}}_UIMenu.ManorHouse_LedgerBook_SeparateWallets_HostQuestion}}"
             }
         },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Evelyn",
+            "Priority": "Late",
+            "Entries": {
+                "Wed": "{{i18n:{{ModId}}_AssetUpdates.Evelyn.Wed}}",
+                "summer_Wed": "{{i18n:{{ModId}}_AssetUpdates.Evelyn.summer_Wed}}",
+                "fall_Wed": "{{i18n:{{ModId}}_AssetUpdates.Evelyn.fall_Wed}}"
+            }
+        },
         //SVE compat fix
         {
             "Action": "EditData",

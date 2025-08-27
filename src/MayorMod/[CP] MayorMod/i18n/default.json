@@ -665,8 +665,8 @@
 	"EmuEngine.MayorModCP_AssetUpdates.MarriageDialogueSam.Outdoor_0": "Maybe I should get some off-road wheels for my skateboard.$h",
 	"EmuEngine.MayorModCP_AssetUpdates.Sam.eventSeen_45": "I better lay low for a while.",
 	"EmuEngine.MayorModCP_AssetUpdates.Sam.eventSeen_45_memory_oneweek": "Wouldn't it be cool if the town had a skate park, though?$s",
-	"EmuEngine.MayorModCP_AssetUpdates.Quests.3": "Basic/The Mysterious Qi/You've found another note written by 'Mr. Qi'. The request is even more unusual this time./Place 10 beets inside the mayors' mini fridge./null/-1/0/-1/false",
-	"EmuEngine.MayorModCP_AssetUpdates.Quests.4": "Basic/The Mysterious Qi/You've found yet another strange note within the fridge. This time, the instructions are more cryptic./\"Give the sand dragon his final meal.\"/null/-1/0/-1/false",
+	"EmuEngine.MayorModCP_AssetUpdates.Quests.3": "Basic/The Mysterious Qi/You've found another note written by 'Mr. Qi'. The request is even more unusual this time./Place 10 beets inside the Town Hall's mini fridge in the basement./null/-1/0/-1/false",
+	"EmuEngine.MayorModCP_AssetUpdates.Quests.4": "Basic/The Mysterious Qi/You've found yet another strange note within the mini fridge. This time, the instructions are more cryptic./\"Give the sand dragon his final meal.\"/null/-1/0/-1/false",
 	"EmuEngine.MayorModCP_AssetUpdates.Festivals.summer11.Pierre": "Hmm... maybe if I get on the governor's good side he'll give my business a tax break...#$b#I wonder if he likes aged whiskey?",
 	"EmuEngine.MayorModCP_AssetUpdates.Festivals.summer11.Penny": "We do this festival every year to give the governor a taste of everything the valley has to offer.",
 	"EmuEngine.MayorModCP_AssetUpdates.ExtraDialogue.SummitEvent_Dialogue1_Lewis": "You know, @... I was mayor of Pelican Town for a long time. I really do miss it sometimes.#$b#People have come and gone. We've lived through times of hardship, and times of plenty.",
@@ -674,6 +674,9 @@
 	"EmuEngine.MayorModCP_AssetUpdates.Schedules.Lewis.6.000": "I used to come here as mayor to collect tax but now I just miss talking to Clint, so I still drop by.",
 	"EmuEngine.MayorModCP_AssetUpdates.Schedules.Lewis.3.000": "Marnie has been so kind to give me a place to stay.",
 	"EmuEngine.MayorModCP_AssetUpdates.Schedules.Lewis.6.001": "The library is one of Pelican Town's greatest features.",
+	"EmuEngine.MayorModCP_AssetUpdates.Evelyn.Wed": "#$1 evelynGarden1#I saw the most beautiful family of butterflies sunning themselves in the town garden yesterday.$k#$e#I was put in charge of the town's public gardens.#$e#I've been working on the town flower beds for weeks, so don't step on them!",
+	"EmuEngine.MayorModCP_AssetUpdates.Evelyn.summer_Wed": "I was put in charge of the town's public gardens.#$e#I've been working on the town flower beds for months, so don't step on them!",
+	"EmuEngine.MayorModCP_AssetUpdates.Evelyn.fall_Wed": "I was put in charge of the town's public gardens.#$e#The fall flowers are delicate, so don't go stomping on them! I know how you kids like to do.",
 
 	//Vanilla substring replacements
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.MayorLewis": "Mayor Lewis",
@@ -684,7 +687,7 @@
 
 	//SVE
 	"EmuEngine.MayorModCP_AssetUpdates.luau.Olivia.1": "The governor has honored us with his presence, @!$1#$b#I may try speaking with him after Lewis has finished his conversation. Perhaps he enjoys vintage wine?$3",
-	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.036": "Hmm, that's what I thought. Mayor Lewis told me.$6#$b#From office job to farmer to mayor - what an incredible career change! I work as a stock trader in my free time, maybe 15 hours a week.$1#$b#I'm happy you found your passion, sweetie.$1",
+	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.036": "Hmm, that's what I thought. Lewis told me.$6#$b#From office job to farmer to mayor - what an incredible career change! I work as a stock trader in my free time, maybe 15 hours a week.$1#$b#I'm happy you found your passion, sweetie.$1",
 	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.082": "That was a horrible blast last night. Did that wake you up too, @?$0#$e#It sounded like an avalanche. You need to look into it Mayor.$2",
 	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.089": "When Lewis was mayor the Egg Festival was 5,000g.$2#$b#I contributed my own money to ensure we could still host the festival.$0#$e#In return, he allowed me to use more community kegs next to the community center.$3#$e#We should all try to give back to the community when we can. Together, we're what makes this town special, dear.$3",
 	"EmuEngine.MayorModCP_AssetUpdates.Olivia.CharacterDialogue.102": "I received a hefty amount of junk mail this morning. What are you going to do about it Mayor?$2#$e#Most of the mail I get are advertisements and scams.$5",
