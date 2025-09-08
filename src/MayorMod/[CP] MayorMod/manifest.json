@@ -1,4 +1,5 @@
 {
+  "$schema": "https://smapi.io/schemas/manifest.json",
   "Name": "[CP] MayorMod",
   "Author": "EmuEngine",
   "Version": "1.1.8",

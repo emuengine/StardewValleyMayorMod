@@ -15,6 +15,11 @@
             "Action": "Load",
             "Target": "Maps/{{ModId}}_Characters_Tilesheet",
             "FromFile": "Assets/Maps/TileSheets/{{ModId}}_Characters_Tilesheet.png"
-        }
+        }//,
+        //{
+        //    "Action": "Load",
+        //    "Target": "Maps/{{ModId}}_Floors",
+        //    "FromFile": "Assets/Maps/TileSheets/{{ModId}}_Floors.png"
+        //}
     ]
 }

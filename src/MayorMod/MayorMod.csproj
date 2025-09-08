@@ -7,8 +7,14 @@
         <Version>1.1.8</Version>
         <SMAPIVersion>4.1.0</SMAPIVersion>
         <ContentPatcherVersion>2.7.5</ContentPatcherVersion>
+        <EnableHarmony>true</EnableHarmony>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    </PropertyGroup>
+    
     <ItemGroup>
         <PackageReference Include="JsonPoke" Version="1.2.0" />
         <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
