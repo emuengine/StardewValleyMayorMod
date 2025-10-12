@@ -260,6 +260,26 @@
                 "rain": "610 Town 92 44 3/630 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0"
             }
         },
+        // Ridgeside
+        {
+            "Action": "EditData",
+            "Priority": "Late",
+            "Target": "data/festivals/fall20",
+            "Entries": {
+                "Vincent": "{{i18n:{{ModId}}_AssetUpdates.GatheringDialogue.Vincent}}"
+            },
+            "When": {
+                "HasMod | contains=Rafseazz.RSVCP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Priority": "Late",
+            "Target": "Characters/Dialogue/Richard",
+            "Entries": {
+                "Sun2": "{{i18n:{{ModId}}_AssetUpdates.Richard.Dialogue.Sun2}}"
+            }
+        },
         // East Scarp
         {
             "Action": "EditData",

@@ -79,7 +79,9 @@
     },
     "data/festivals/fall16": {
         "Jodi": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
-		"Gus": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ]
+		"Gus": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
+		// Ridgeside
+        "Kenneth": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },	
 	"Data/Festivals/spring13": {
         "Sebastian": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
@@ -88,7 +90,10 @@
         "Lewis_summer_movie_0_DuringMovie_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
     "strings/stringsfromcsfiles": {
-        "Event.cs.1584": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+        "Event.cs.1584": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+		// Ridgeside
+        "Utility.cs.5371": [ { "SearchKey": "AssetUpdates.SubString.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.FemaleWeddingFix-rep", "IsTranslationKey": true } ],
+		"Utility.cs.5377": [ { "SearchKey": "AssetUpdates.SubString.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.FemaleWeddingFix-rep", "IsTranslationKey": true } ]
     },
 	
 	//SVE Patches
@@ -100,7 +105,9 @@
         "8185297": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
 	"data/festivals/summer11": {
-        "Event.cs.1584": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+        "Event.cs.1584": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+		// Ridgeside
+        "Sean": [ { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ]
     },
 	"data/events/forest": {
 		"5000003": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
@@ -113,5 +120,43 @@
 	//Bear Family
 	"characters/schedules/maddog.hashtagbearfam.sondra": {
         "Wed": [ { "SearchKey": " ManorHouse ", "ReplaceKey": " EmuEngine.MayorModCP_ManorHouse ", "IsTranslationKey": false } ]
+    },	
+		
+	// Ridgeside
+	"characters/dialogue/marriagedialogueian": {
+        "spring_12": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+	"characters/dialogue/marriagedialoguejeric": {
+        "Good_1": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TheGovernor", "IsTranslationKey": true } ]
+    },
+	"characters/dialogue/marriagedialoguekenneth": {
+        "summer_27": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+	"characters/dialogue/sean": {
+        "fall_26": [ { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ]
+    },
+	"characters/dialogue/sonny": {
+        "fall_26": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+	"data/events/farm": {
+        "75160250/H/t 600 900/e 75160249": [ { "SearchKey": "AssetUpdates.SubString.event-75160250.02", "ReplaceKey": "AssetUpdates.SubString.event-75160250.02-rep", "IsTranslationKey": true } ]
+    },
+	"data/events/custom_ridgeside_lennyhouse": {
+        "75160284/e 75160283/e 75160087/f Torts 1750/t 1400 1800": [ { "SearchKey": "AssetUpdates.SubString.event-75160284.06", "ReplaceKey": "AssetUpdates.SubString.event-75160284.06-rep", "IsTranslationKey": true } ]
+    },
+	"data/events/custom_ridgeside_ridgesidevillage": {
+        "75160330/e 75160329/w sunny/f Kimpoi 1000/t 2000 2500": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+	"data/events/custom_ridgeside_rsvcliff": {
+        "75160346/e 75160345/f Naomi 1000/t 1200 1600/w sunny": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+	"Characters/Dialogue/MarriageDialoguePaula": {
+        "spring_12": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+	"Data/Festivals/winter8": {
+        "Kiarra": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
+		"Kiarra_spouse": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
+		"Faye": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
+		"Faye_spouse": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ]
     }
 }

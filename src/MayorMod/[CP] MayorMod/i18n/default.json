@@ -713,6 +713,18 @@
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.LetMayorLewisKnow": " I'll let Mayor Lewis know.",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.Pierre": "Pierre",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.FromMayorLewis": " from Mayor Lewis",
-	"EmuEngine.MayorModCP_AssetUpdates.SubString.TheGovernor": "the Governor"
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.TheGovernor": "the Governor",
 
+
+	//Ridgeside
+	"EmuEngine.MayorModCP_AssetUpdates.GatheringDialogue.Vincent": "Hey! Check it out!#$b#Keahi and I found all this stuff in the lost-and-found bin.#$b#Now we're selling it!$h",
+	"EmuEngine.MayorModCP_AssetUpdates.Richard.Dialogue.Sun2": "Lewis and I go way back.",
+
+	//Ridgeside substring replacements
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.Romance.FemaleWeddingFix": "As the mayor of Pelican Town, and regional bearer of the matrimonial seal",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.Romance.FemaleWeddingFix-rep": "As the regional bearer of the matrimonial seal",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.event-75160250.02": "As this town's mayor, Lewis, has stated;",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.event-75160250.02-rep": "As the town council has stated;",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.event-75160284.06": "Man, I needed a break! Ridgeside Village may technically be a bureau of Pelican Town, but we've grown so large that sometimes it feels like I should be the mayor and Lewis should be the administrator.$1#$b#No no, I'm just kidding! Kind of. But it is true that our little village has grown a lot these past few years.",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.event-75160284.06-rep": "Man, I needed a break! I have been so very busy lately.$1#$b#Our little village has grown a lot these past few years."
 }
