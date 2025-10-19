@@ -726,5 +726,14 @@
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.event-75160250.02": "As this town's mayor, Lewis, has stated;",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.event-75160250.02-rep": "As the town council has stated;",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.event-75160284.06": "Man, I needed a break! Ridgeside Village may technically be a bureau of Pelican Town, but we've grown so large that sometimes it feels like I should be the mayor and Lewis should be the administrator.$1#$b#No no, I'm just kidding! Kind of. But it is true that our little village has grown a lot these past few years.",
-	"EmuEngine.MayorModCP_AssetUpdates.SubString.event-75160284.06-rep": "Man, I needed a break! I have been so very busy lately.$1#$b#Our little village has grown a lot these past few years."
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.event-75160284.06-rep": "Man, I needed a break! I have been so very busy lately.$1#$b#Our little village has grown a lot these past few years.",
+
+	//East Scarp
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.Eyvinder_Fri6": "So, Lewis is still Mayor, huh?#$b#",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.TheMayor": "the Mayor",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.TheFarmer": "the farmer",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.MorrisIs": "Morris is",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.YoureThe": "you're the",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.Name": "@",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.MayorName": "Mayor @"
 }

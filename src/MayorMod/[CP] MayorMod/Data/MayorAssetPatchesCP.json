@@ -204,7 +204,11 @@
                 "5553213/e 6665293/t 600 1830/w sunny/H": null,
                 "5553213/e 6665293/t 600 1830/w rainy/H": null,
                 //Andy
-                "5000001/f Andy 500/z winter/t 1000 1600/w sunny": null
+                "5000001/f Andy 500/z winter/t 1000 1600/w sunny": null,
+                //East Scarp
+                //Event where Aideen asks Lewis to update the garden. Probably need to rewrite it. 
+                //For now just remove the event.
+                "57871014/f Aideen 3500/e 191393/O Aideen/w sunny/t 1100 1700/z winter": null
             },
             "When": {
                 "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
@@ -292,6 +296,17 @@
                 "HasSeenEvent": "57873000",
                 "HasSeenEvent |contains=57873005": "false",
                 "HasMod | contains=Lemurkat.EastScarpNPCs.CP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Priority": "Late",
+            "Target": "Data/Events/Farm",
+            "Entries": {
+                // Event where lewis runs a dinner party with the Governor. Maybe we can think of a clever update to 
+                // do in future but probably just need to rewrite it completely becuase there are a lot of referneces 
+                // to him as mayor. For now just remove the event.
+                "57873049/f JosephineK 2500/f OliverK 2000/z winter/e 57873021/e 57872021/A Oliver_Jacob_Help": null
             }
         }
     ]

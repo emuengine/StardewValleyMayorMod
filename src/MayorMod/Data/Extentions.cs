@@ -21,15 +21,15 @@ public static class Extentions
 
     public static string PatchString(this StringPatch stringPatch,IModHelper helper, string input)
     {
-        string searchKey;
+        var searchKeys = new List<string>();
         if (stringPatch.IsRegEx)
         {
             var regex = new Regex(stringPatch.SearchKey);
-            searchKey = regex.Match(input).ToString();
+            searchKeys = regex.Matches(input).Select(m =>m.Value).ToList();
         }
         else
         {
-            searchKey = stringPatch.IsTranslationKey ? ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_{stringPatch.SearchKey}") : stringPatch.SearchKey;
+            searchKeys.Add(stringPatch.IsTranslationKey ? ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_{stringPatch.SearchKey}") : stringPatch.SearchKey);
         }
 
         var replaceKey = string.Empty;
@@ -37,6 +37,7 @@ public static class Extentions
         {
             replaceKey = stringPatch.IsTranslationKey ? ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_{stringPatch.ReplaceKey}") : stringPatch.ReplaceKey;
         }
-        return input.Replace(searchKey, replaceKey);
+
+        return searchKeys.Aggregate(input, (current, key) => current.Replace(key, replaceKey));
     }
 }

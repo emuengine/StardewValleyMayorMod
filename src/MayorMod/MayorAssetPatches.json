@@ -72,7 +72,11 @@
             { "SearchKey": "skippable/", "ReplaceKey": "skippable/addTemporaryActor Governor_NewMayorEvent 16 32 31 56 2 true Character/", "IsTranslationKey": false },
             { "SearchKey": "Governor_NewMayorEvent 31 56 2", "ReplaceKey": "Governor 1000 1000 0", "IsTranslationKey": false },
             { "SearchKey": "speak Governor_NewMayorEvent", "ReplaceKey": "speak Governor", "IsTranslationKey": false }
-        ]
+        ],
+		"57873014/e 57873000/f JosephineK 250/w sunny/t 900 1600": [ 
+			{ "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true }, 
+			{ "SearchKey": "AssetUpdates.SubString.TheMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } 
+		]
     },
     "data/events/communitycenter": {
         "Punch": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ]
@@ -84,14 +88,16 @@
         "Kenneth": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },	
 	"Data/Festivals/spring13": {
-        "Sebastian": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+        "Sebastian": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+		// East Scarp
+        "Aideen": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },	
 	"strings/moviereactions": {
         "Lewis_summer_movie_0_DuringMovie_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
     "strings/stringsfromcsfiles": {
         "Event.cs.1584": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
-		// Ridgeside
+		// Ridgeside & East Scarp
         "Utility.cs.5371": [ { "SearchKey": "AssetUpdates.SubString.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.FemaleWeddingFix-rep", "IsTranslationKey": true } ],
 		"Utility.cs.5377": [ { "SearchKey": "AssetUpdates.SubString.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.FemaleWeddingFix-rep", "IsTranslationKey": true } ]
     },
@@ -139,8 +145,11 @@
         "fall_26": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
 	"data/events/farm": {
-        "75160250/H/t 600 900/e 75160249": [ { "SearchKey": "AssetUpdates.SubString.event-75160250.02", "ReplaceKey": "AssetUpdates.SubString.event-75160250.02-rep", "IsTranslationKey": true } ]
-    },
+        "75160250/H/t 600 900/e 75160249": [ { "SearchKey": "AssetUpdates.SubString.event-75160250.02", "ReplaceKey": "AssetUpdates.SubString.event-75160250.02-rep", "IsTranslationKey": true } ],
+		// East Scarp
+		//TDOO LEWIS COMES FOR DINNER OR SOME SHIT SO THIS IS MORE EFFORT
+		"57873049/f JosephineK 2500/f OliverK 2000/z winter/e 57873021/e 57872021/A Oliver_Jacob_Help": [ { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ]
+	},
 	"data/events/custom_ridgeside_lennyhouse": {
         "75160284/e 75160283/e 75160087/f Torts 1750/t 1400 1800": [ { "SearchKey": "AssetUpdates.SubString.event-75160284.06", "ReplaceKey": "AssetUpdates.SubString.event-75160284.06-rep", "IsTranslationKey": true } ]
     },
@@ -150,13 +159,71 @@
 	"data/events/custom_ridgeside_rsvcliff": {
         "75160346/e 75160345/f Naomi 1000/t 1200 1600/w sunny": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
-	"Characters/Dialogue/MarriageDialoguePaula": {
+	"characters/dialogue/marriagedialoguepaula": {
         "spring_12": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
-	"Data/Festivals/winter8": {
+	"data/festivals/winter8": {
         "Kiarra": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
 		"Kiarra_spouse": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
 		"Faye": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
 		"Faye_spouse": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ]
+    },
+	
+	// East Scarp
+	"data/festivals/winter25": {
+        "JosephineK": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+	"data/events/busstop": {
+        "57873001/e 57873000/t 600 1200": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+		"57873005/e 57873048/A JosephineLeaving/F/t 1000 1500/w sunny": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+	},
+	"data/events/archaeologyhouse": {
+        "57873004/f JosephineK 750/w sunny/t 1000 1600": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },	
+	"characters/dialogue/jacob": {
+		"Fri4": [ { "SearchKey": "AssetUpdates.SubString.TheMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+	"characters/dialogue/eyvinder": {
+		"Fri6": [ { "SearchKey": "AssetUpdates.SubString.Eyvinder_Fri6", "ReplaceKey": "EMPTY", "IsTranslationKey": true } ]
+    },
+	"characters/dialogue/josephinek": {
+		"Tue8": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+	"characters/dialogue/katarynalk": {
+		"fall_Sat": [ { "SearchKey": "AssetUpdates.SubString.TheMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+	"characters/dialogue/oliverK": {
+		"Josephine_Arrives": [ { "SearchKey": "AssetUpdates.SubString.TheFarmer", "ReplaceKey": "AssetUpdates.SubString.TheMayor", "IsTranslationKey": true } ],
+		"summer_10_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+		"spring_23_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+		"election": [ { "SearchKey": "AssetUpdates.SubString.MorrisIs", "ReplaceKey": "AssetUpdates.SubString.YoureThe", "IsTranslationKey": true } ],
+    },
+	"characters/dialogue/rosa": {
+		"CherryOrchard_Rosa": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+	"characters/dialogue/torilk": {
+		"summer_10": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+		"winter_24": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+    },
+	"data/events/eastscarp_orchard": {
+		//"57876032/k 57876033/f KatarynaLK 2250/o KatarynaLK/A AbyssRoosterGrow/t 1800 2200": [ 
+		//	{ "SearchKey": "farmer 0 18 1 Lewis", "ReplaceKey": "farmer", "IsTranslationKey": false }, 
+		//	{ "SearchKey": "/move farmer 2 0 1", "ReplaceKey": "EMPTY", "IsTranslationKey": false },
+		//	{ "SearchKey": "/jump farmer 5", "ReplaceKey": "EMPTY", "IsTranslationKey": false },
+		//	{ "SearchKey": "/warp farmer 31 17", "ReplaceKey": "EMPTY", "IsTranslationKey": false },
+		//	{ "SearchKey": "/faceDirection farmer 2", "ReplaceKey": "EMPTY", "IsTranslationKey": false },
+		//	{ "SearchKey": "#$b#", "ReplaceKey": "EMPTY", "IsTranslationKey": false },
+		//	{ "SearchKey": "\\$\\d", "ReplaceKey": "EMPTY", "IsTranslationKey": false, "IsRegEx": true },
+		//	{ "SearchKey": "speak Lewis.*?faceDirection Lewis", "ReplaceKey": "message", "IsTranslationKey": false, "IsRegEx": true },
+		//	{ "SearchKey": "speak Lewis", "ReplaceKey": "message", "IsTranslationKey": false },
+		//	{ "SearchKey": "Lewis", "ReplaceKey": "farmer", "IsTranslationKey": false },
+		//]
+		"57876032/k 57876033/f KatarynaLK 2250/o KatarynaLK/A AbyssRoosterGrow/t 1800 2200": [ 
+			{ "SearchKey": "AssetUpdates.SubString.Name", "ReplaceKey": "AssetUpdates.SubString.MayorName", "IsTranslationKey": true },
+			{ "SearchKey": "Lewis", "ReplaceKey": "Governor_NewMayorEvent", "IsTranslationKey": false },
+            { "SearchKey": "skippable/", "ReplaceKey": "skippable/addTemporaryActor Governor_NewMayorEvent 16 32 3 18 0 true Character/", "IsTranslationKey": false },
+            { "SearchKey": "Governor_NewMayorEvent 3 18 0", "ReplaceKey": "Governor 1000 1000 0", "IsTranslationKey": false },
+            { "SearchKey": "speak Governor_NewMayorEvent", "ReplaceKey": "speak Governor", "IsTranslationKey": false }
+		]
     }
 }
