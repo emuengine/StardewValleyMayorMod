@@ -123,6 +123,10 @@
 	"EmuEngine.MayorModCP_UIMenu.ManorHouse_LedgerBook_Singleplayer": "Pelican Town Ledger Book... It can be used to keep track of finances.",
 	"EmuEngine.MayorModCP_UIMenu.ManorHouse_LedgerBook_SharedWallets_Client": "Pelican Town Ledger Book... The owner of the farm can request to split the funds of the farmhands.",
 	"EmuEngine.MayorModCP_UIMenu.ManorHouse_LedgerBook_SeparateWallets_HostQuestion": "It's the ledger book. What would you like to do?",
+	"EmuEngine.MayorModCP_UIMenu.ManorHouse_DeedBook": "A government issued record of all property deeds within the town limits.",
+	"EmuEngine.MayorModCP_UIMenu.ManorHouse_DeedBookQuestion": "You look though the deeds for the town and find that the land is available for purchase. It is roughly one acre, which would cost 250,000g. Do you want to purchase the land?",
+	"EmuEngine.MayorModCP_UIMenu.ManorHouse_BoughtDeed": "You sign the property deed. It will be tranfered into your name by tomorrow.",
+	"EmuEngine.MayorModCP_UIMenu.ManorHouse_NotEnoughMoney": "You do not have enough money to purchase the land.",
 
 	//Resignation Dialogue
 	"EmuEngine.MayorModCP_UIMenu.Resign_Question": "These photos remind you of a simpler time on your farm before the pressures of being mayor took over. Maybe you'd like to resign as mayor?",
@@ -329,6 +333,20 @@
 	"EmuEngine.MayorModCP_Events.MarnieLewisLivingEvent_5": "I'll see you later.",
 	"EmuEngine.MayorModCP_Events.MarnieLewisLivingEvent_6": "O Mayor @ ... ",
 	"EmuEngine.MayorModCP_Events.MarnieLewisLivingEvent_7": "Hi, what can I do for you today?",
+
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_0": "Someone's knocking on the front door.",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_1": "Mayor, there's a cat stuck up in a tree, and we can’t get her down!",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_2": "It's in the tree on that scruffy land beside your farm. Quick come help!",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_3": "It was stuck up there! I don't see it!",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_4": "meow",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_5": "Oooo there is it. I guess it got down by itself.",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_6": "Thanks for trying to help.",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_7": "Hey come back! We have to play tea party!",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_8": "Hmm, I wonder who owns this land. I could check the deeds in the town hall records... it might be up for sale.",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_9A0": "Expand the farm.",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_9A1": "Don't expand the farm.",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_10_No": "All right. I'm not purchasing more land.",
+	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_10_Yes": "All right, I should go check the red book of deeds at the town hall to see if it can be purchased.",
 
 
 	// Council meetings

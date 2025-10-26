@@ -5,6 +5,9 @@ using xTile.Dimensions;
 using Microsoft.Xna.Framework;
 using MayorMod.Data.Handlers;
 using System.Reflection;
+using MayorMod.Constants;
+using static StardewValley.GameLocation;
+using StardewModdingAPI;
 
 namespace MayorMod.Data;
 
@@ -232,5 +235,46 @@ public class MayorMachines
         responses.Add(new Response(ResponseKey_Cancel, Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_TransferCancel")));
         var question = Game1.content.LoadString("Strings\\Locations:ManorHouse_LedgerBook_SeparateWallets_TransferQuestion");
         QuestionDialogueDelegateAnswer(question, responses.ToArray(), QuestionKey_ChooseRecipient);
+    }
+
+    /// <summary>
+    /// Expand Grandpas Farm with SVE
+    /// </summary>
+    /// <exception cref="NotImplementedException"></exception>
+    public static void DeedsBook(IModHelper helper, Farmer farmer)
+    {
+        afterQuestionBehavior buyDeed = (Farmer who, string whichAnswer) =>
+        {
+            if (whichAnswer == "Yes")
+            {
+                DelayedAction.functionAfterDelay(() =>
+                {
+                    if (farmer.Money > ModKeys.DEED_COST)
+                    {
+                        farmer.Money -= ModKeys.DEED_COST;
+                        ModProgressHandler.AddProgressFlag(CompatibilityKeys.DeedOfLand);
+                        Game1.MasterPlayer.eventsSeen.Add(CompatibilityKeys.LewisSpecialOrderEventID);
+                        Game1.drawObjectDialogue(ModUtils.GetTranslationForKey(helper, DialogueKeys.TownHall.BoughtDeed));
+                    }
+                    else
+                    {
+                        Game1.drawObjectDialogue(ModUtils.GetTranslationForKey(helper, DialogueKeys.TownHall.NotEnoughMoney));
+                    }
+                }, 1);
+            }
+        };
+
+        if (ModProgressHandler.HasProgressFlag(CompatibilityKeys.PlayerWillExpandFarm) &&
+            !ModProgressHandler.HasProgressFlag(CompatibilityKeys.DeedOfLand) &&
+            helper.ModRegistry.IsLoaded(CompatibilityKeys.SVE_MOD_ID))
+        {
+            Game1.player.currentLocation.createQuestionDialogue(ModUtils.GetTranslationForKey(helper, DialogueKeys.TownHall.DeedsQuestion),
+                                                                farmer.currentLocation.createYesNoResponses(),
+                                                                buyDeed);
+        }
+        else
+        {
+            Game1.drawObjectDialogue(ModUtils.GetTranslationForKey(helper, DialogueKeys.TownHall.DeedBook));
+        }
     }
 }

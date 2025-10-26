@@ -11,4 +11,5 @@ public static partial class ModKeys
     public const string MEETING_DAYS_TOKEN = "CouncilMeetingDays";
     public const string VOTING_SEASON_TOKEN = "VotingDaySeason";
     public const string VOTING_DAY_TOKEN = "VotingDayDay";
+    public const int DEED_COST = 250000;
 }

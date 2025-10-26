@@ -264,6 +264,52 @@
                 "rain": "610 Town 92 44 3/630 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0"
             }
         },
+        {
+            //Replaced by ExpandGrandpasFarmEvent
+            "Action": "EditData",
+            "Priority": "Late",
+            "Target": "data/events/farmhouse",
+            "Entries": {
+                "8033858/t 600 2200/j 268/w sunny/H": null,
+                "8033858/t 600 2200/w sunny/H": null
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Priority": "Late",
+            "Target": "data/events/farm",
+            "Entries": {
+                "8033861/t 600 1100/H": null
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Priority": "Late",
+            "Target": "data/events/ManorHouse",
+            "Entries": {
+                "8033859/e 8033758/H": null
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            }
+        },
+        {
+            "Action": "EditData",
+            "Priority": "Late",
+            "Target": "data/events/JojaMart",
+            "Entries": {
+                "9033859/e 8033758/H": null
+            },
+            "When": {
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+            }
+        },
         // Ridgeside
         {
             "Action": "EditData",

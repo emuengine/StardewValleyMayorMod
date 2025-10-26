@@ -32,24 +32,6 @@
             }
         },
         //{
-        //    "Action": "EditData",
-        //    "Target": "Data/AdditionalWallpaperFlooring",
-        //    "Entries": {
-        //        //"{{ModId}}_Walls": {
-        //        //    "ID": "Lumisteria.MtVapiusWalls",
-        //        //    "Texture": "Maps/lumisteria_mtvapius_walls",
-        //        //    "IsFlooring": false,
-        //        //    "Count": 18
-        //        //},
-        //        "{{ModId}}_Floors": {
-        //            "ID": "emuengine_mayormod_floors",
-        //            "Texture": "Maps/EmuEngine.MayorModCP_Floors",
-        //            "IsFlooring": true,
-        //            "Count": 1
-        //        }
-        //    }
-        //},
-        //{
         //    "LogName": "Updated Data/ChairTiles with Mayor Chair",
         //    "Action": "EditData",
         //    "Target": "Data/ChairTiles",

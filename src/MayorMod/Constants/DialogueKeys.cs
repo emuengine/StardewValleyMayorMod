@@ -53,5 +53,11 @@ public static class DialogueKeys
         public static readonly string DoubleCheck = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Resign_DoubleCheck";
         public static readonly string ResignText = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Resign_ResignText";
     }
+    public static class TownHall
+    {
+        public static readonly string DeedBook = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.ManorHouse_DeedBook";
+        public static readonly string DeedsQuestion = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.ManorHouse_DeedBookQuestion";
+        public static readonly string BoughtDeed = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.ManorHouse_BoughtDeed";
+        public static readonly string NotEnoughMoney = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.ManorHouse_NotEnoughMoney";
+    }
 }
-

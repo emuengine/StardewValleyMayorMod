@@ -22,6 +22,7 @@ internal static class TileActionHandler
     public const string DeskRegisterActionType = "DeskRegister";
     public const string VotingBoothActionType = "VotingBooth";
     public const string BallotBoxActionType = "BallotBox";
+    public const string DeedsBookType = "DeedsBook";
     public const string LostAndFoundActionType = "LostAndFound";
     public const string DivorceBookActionType = "DivorceBook";
     public const string LedgerBookActionType = "LedgerBook";
@@ -63,6 +64,7 @@ internal static class TileActionHandler
 
         switch (arg2[1])
         {
+            case DeedsBookType: { MayorMachines.DeedsBook(_helper, farmer); } break;
             case LostAndFoundActionType: { MayorMachines.CheckLostAndFound(); } break;
             case DivorceBookActionType: { MayorMachines.DivorceBook(); } break;
             case LedgerBookActionType: { MayorMachines.ReadLedgerBook(); } break;

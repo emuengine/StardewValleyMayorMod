@@ -2,7 +2,7 @@
   "$schema": "https://smapi.io/schemas/manifest.json",
   "Name": "MayorMod",
   "Author": "EmuEngine",
-  "Version": "1.1.11",
+  "Version": "1.1.12",
   "Description": "Bring democracy back to Stardew Valley",
   "UniqueID": "EmuEngine.MayorMod",
   "EntryDll": "MayorMod.dll",
