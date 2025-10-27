@@ -49,6 +49,31 @@
                 "IsCommunityCenterComplete": true,
                 "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
             }
+        },
+        {
+            "LogName": "Patching CommunityCenter to add voting booths for SVE",
+            "Action": "EditMap",
+            "Priority": "Late",
+            "Target": "Maps/CommunityCenterPride",
+            "PatchMode": "Replace",
+            "FromFile": "Assets/Maps/MapPatches/CommunityCenterVotingDay.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 10,
+                "Height": 8
+            },
+            "ToArea": {
+                "X": 21,
+                "Y": 4,
+                "Width": 10,
+                "Height": 8
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
+                "IsCommunityCenterComplete": true,
+                "HasMod | contains=sapphicsaph_pitv": true
+            }
         }
     ]
 }

@@ -7,7 +7,8 @@
             "When": {
                 "HasMod": "flashshifter.GrandpasFarm",
                 "FarmType": "Standard",
-                "HasSeenEvent |contains=191393": true
+                "HasSeenEvent |contains=191393": true,
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
             }, //= Summer 17th year 3 minimum, Grandpa's Farm is being played on
             "Entries": {
                 "{{ModId}}_ExpandGrandpasFarmEvent/t 600 2200/j 268/w sunny/H": "continue/-500 -500/farmer 95 49 2 Jas 95 51 0/pause 1000/playSound stoneStep/pause 300/playSound stoneStep/pause 300/playSound stoneStep/pause 300/playSound stoneStep/pause 300/pause 800/message \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_0}}\"/changeLocation farm/pause 500/playSound doorOpen/pause 500/positionOffset farmer 0 -20/positionOffset Jas 10 -25/viewport 64 15 clamp true/pause 1000/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_1}}$3\"/pause 650/emote farmer 8 true/pause 1500/faceDirection Jas 1 true/pause 500/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_2}}$2\"/pause 600/faceDirection farmer 1 true/pause 500/globalFade/viewport -1000 -1000/addTemporaryActor cat4 32 32 93 21 3 false Animal StuckCat/faceDirection farmer 1 true/faceDirection Jas 3 true/warp farmer 89 23/warp Jas 91 23/pause 500/viewport 89 22 clamp true/pause 1400/jump Jas/pause 1000/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_3}}$3\"/pause 1200/faceDirection Jas 2 true/pause 1000/faceDirection Jas 3 true/pause 300/faceDirection Jas 0 true/move StuckCat  -2 0 1/textAboveHead StuckCat \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_4}}\"/pause 1000/faceDirection Jas 3 true/pause 400/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_5}}\"/pause 600/emote farmer 40/textAboveHead StuckCat \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_4}}\"/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_6}}\"/move StuckCat  15 0 1 true/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_7}}\"/move Jas  15 0 1 true/pause 600/globalFade/viewport -1000 -1000/warp Jas -50 -50/viewport 89 22 clamp true/pause 1700/faceDirection farmer 2 true/pause 1250/message \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_8}}\"/pause 800/question fork0 \"#{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_9A0}}#{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_9A1}}\"/fork {{ModId}}_ExpandFarm/pause 750/message \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_10_No}}\"/pause 500/end"
@@ -24,7 +25,8 @@
                 "HasFlag |contains=ccMovieTheater": true,
                 "HasSeenEvent |contains=8050109": true,
                 "HasFlag |contains=Island_Resort": true,
-                "HasSeenEvent |contains={{ModId}}_ExpandGrandpasFarmEvent": false
+                "HasSeenEvent |contains={{ModId}}_ExpandGrandpasFarmEvent": false,
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
             }, //=Player has completed community center, theater, island resort, and cleared railroad boulder
             "Entries": {
                 "{{ModId}}_ExpandGrandpasFarmEvent/t 600 2200/w sunny/H": "continue/-500 -500/farmer 95 49 2 Jas 95 51 0/pause 1000/playSound stoneStep/pause 300/playSound stoneStep/pause 300/playSound stoneStep/pause 300/playSound stoneStep/pause 300/pause 800/message \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_0}}\"/changeLocation farm/pause 500/playSound doorOpen/pause 500/positionOffset farmer 0 -20/positionOffset Jas 10 -25/viewport 64 15 clamp true/pause 1000/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_1}}$3\"/pause 650/emote farmer 8 true/pause 1500/faceDirection Jas 1 true/pause 500/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_2}}$2\"/pause 600/faceDirection farmer 1 true/pause 500/globalFade/viewport -1000 -1000/addTemporaryActor cat4 32 32 93 21 3 false Animal StuckCat/faceDirection farmer 1 true/faceDirection Jas 3 true/warp farmer 89 23/warp Jas 91 23/pause 500/viewport 89 22 clamp true/pause 1400/jump Jas/pause 1000/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_3}}$3\"/pause 1200/faceDirection Jas 2 true/pause 1000/faceDirection Jas 3 true/pause 300/faceDirection Jas 0 true/move StuckCat  -2 0 1/textAboveHead StuckCat \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_4}}\"/pause 1000/faceDirection Jas 3 true/pause 400/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_5}}\"/pause 600/emote farmer 40/textAboveHead StuckCat \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_4}}\"/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_6}}\"/move StuckCat  15 0 1 true/speak Jas \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_7}}\"/move Jas  15 0 1 true/pause 600/globalFade/viewport -1000 -1000/warp Jas -50 -50/viewport 89 22 clamp true/pause 1700/faceDirection farmer 2 true/pause 1250/message \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_8}}\"/pause 800/question fork0 \"#{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_9A0}}#{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_9A1}}\"/fork {{ModId}}_ExpandFarm/pause 750/message \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_10_No}}\"/pause 500/end"
@@ -37,7 +39,8 @@
             "When": {
                 "HasMod": "flashshifter.GrandpasFarm",
                 "FarmType": "Standard",
-                "HasSeenEvent |contains=191393": true
+                "HasSeenEvent |contains=191393": true,
+                "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
             },
             "Entries": {
                 "{{ModId}}_ExpandFarm": "pause 400/addMailReceived PlayerWillExpandFarm/pause 100/message \"{{i18n:{{ModId}}_Events.ExpandGrandpasFarmEvent_10_Yes}}\"/pause 500/end"

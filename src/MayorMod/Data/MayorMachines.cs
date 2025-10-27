@@ -249,7 +249,7 @@ public class MayorMachines
             {
                 DelayedAction.functionAfterDelay(() =>
                 {
-                    if (farmer.Money > ModKeys.DEED_COST)
+                    if (farmer.Money >= ModKeys.DEED_COST)
                     {
                         farmer.Money -= ModKeys.DEED_COST;
                         ModProgressHandler.AddProgressFlag(CompatibilityKeys.DeedOfLand);
