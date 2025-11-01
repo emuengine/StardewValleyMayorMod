@@ -1,5 +1,19 @@
 # Changelog
 
+## v1.1.13
+
+## Features
+- Update Town Hall to be DecoratableLocation.
+- Add compatibility for Grandpa's Farm upgrade in SVE.
+- Add compatibility for Ridgeside village.
+- Add compatibility for East Scarp.
+- Add compatibility for Pride in the valley.
+
+## Bug fixes
+- Dialogue tweaks
+- Lower SMAPI minimum version for android compatibility.
+- Vanilla dialogue updates.
+
 ## v1.1.8
 
 ### Features
