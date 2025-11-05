@@ -12,6 +12,7 @@ using StardewValley.Extensions;
 using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
+using System.Xml.Linq;
 
 namespace MayorMod;
 
@@ -51,6 +52,7 @@ internal sealed class ModEntry : Mod
         {
             Helper.Events.Player.Warped += Player_Warped;
         }
+        Helper.ConsoleCommands.Add(ModKeys.RESET_COMMAND, ModKeys.RESET_COMMAND_HELP_TEXT, (arg1, arg2) => ResignAndReset());
     }
 
     /// <summary>
@@ -71,13 +73,13 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
     {
-
         if (Helper is not null && Helper.Data is not null)
         {
             var saveData = Helper.Data.ReadSaveData<MayorModData>(ModKeys.SAVE_KEY);
             if (saveData is not null)
             {
                 _saveData = saveData;
+                HarmonyHandler.MMData = _saveData;
             }
         }
 
@@ -92,7 +94,7 @@ internal sealed class ModEntry : Mod
     /// <summary>
     /// Sets the flag for VotingDay and invalidates the cache if needed
     /// </summary>
-    /// <param name="sender"></param>
+    /// <param name="sender"></param> 
     /// <param name="e">event args</param>
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
@@ -263,11 +265,22 @@ internal sealed class ModEntry : Mod
     /// <summary>
     /// Reset the mod to factory settings.
     /// </summary>
-    void ResignAndReset()
+    private void ResignAndReset()
     {
+        if (!Context.IsWorldReady)
+        {
+            Monitor.Log("Can't reset in while not in game.", LogLevel.Info);
+            return;
+        }
+
+        Monitor.Log("Reseting mod to fresh install.", LogLevel.Info);
+
+        Monitor.Log("Removing mayor mod flags.", LogLevel.Info);
         Game1.MasterPlayer.mailReceived.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID)); 
         Game1.MasterPlayer.mailbox.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
         Game1.MasterPlayer.mailForTomorrow.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
+
+        Monitor.Log("Removing mayor mod from events seen.", LogLevel.Info);
         Game1.MasterPlayer.eventsSeen.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
         Game1.MasterPlayer.activeDialogueEvents.RemoveWhere(m => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
         Game1.MasterPlayer.previousActiveDialogueEvents.RemoveWhere(m => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
@@ -276,10 +289,21 @@ internal sealed class ModEntry : Mod
             item.Value.RemoveWhere(g => g.Key.Contains(ModKeys.MAYOR_MOD_CPID));
         }
 
+        if(_saveData is not null)
+        {
+            Monitor.Log("Clearing voting day data.", LogLevel.Info);
+            _saveData.VotingDate = new SDate(1, Season.Spring);
+            Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, _saveData);
+        }
+
+        Monitor.Log("Invalidating cache for patched assets.", LogLevel.Info);
         Helper.GameContent.InvalidateCache(XNBPathKeys.MAIL);
         Helper.GameContent.InvalidateCache(XNBPathKeys.PASSIVE_FESTIVALS);
         Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
         Helper.GameContent.InvalidateCache(XNBPathKeys.CHARACTERS);
+
+        Monitor.Log("Done.", LogLevel.Info);
+        Monitor.Log("Please go to sleep and save and the mod should be reset.", LogLevel.Info);
     }
 
     /// <summary>

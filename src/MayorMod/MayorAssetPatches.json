@@ -87,7 +87,7 @@
 		// Ridgeside
         "Kenneth": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },	
-	"Data/Festivals/spring13": {
+	"data/festivals/spring13": {
         "Sebastian": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
 		// East Scarp
         "Aideen": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
@@ -147,7 +147,6 @@
 	"data/events/farm": {
         "75160250/H/t 600 900/e 75160249": [ { "SearchKey": "AssetUpdates.SubString.event-75160250.02", "ReplaceKey": "AssetUpdates.SubString.event-75160250.02-rep", "IsTranslationKey": true } ],
 		// East Scarp
-		//TDOO LEWIS COMES FOR DINNER OR SOME SHIT SO THIS IS MORE EFFORT
 		"57873049/f JosephineK 2500/f OliverK 2000/z winter/e 57873021/e 57872021/A Oliver_Jacob_Help": [ { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ]
 	},
 	"data/events/custom_ridgeside_lennyhouse": {
