@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using MayorMod.Constants;
+using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewValley.Locations;
@@ -17,6 +18,8 @@ public class HarmonyHandler
     public const string FLOOR_ID = "FloorID";
     public const string INIT_ID = "512";
     public const string WALL_FLOOR_PREFIX = "MayorMod_";
+
+    public static MayorModData MMData { get; set; }
 
     public static void Init(IManifest manifest)
     {
