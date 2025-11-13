@@ -153,11 +153,11 @@
 	//////////////////////
 
 	//OfficerMike
-	"EmuEngine.MayorModCP_Dialogue.OfficerMike.CheckId": "Hello sir. May I check your ID? .....",
-	"EmuEngine.MayorModCP_Dialogue.OfficerMike.GetBallot": "Hello sir. May I check your ID? .....Thank you very much. Here is your ballot. You can make your vote at the desk over there. After you have filled in you're vote you can put your ballot in the box.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.CheckId": "May I check your ID? .....",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.GetBallot": "May I check your ID? .....Thank you very much. Here is your ballot. You can make your vote at the desk over there. After you have filled in you're vote you can put your ballot in the box.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedToFillBallot": "You can make your vote at the desk over there. When you're done, put your ballot in the box.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.HaveVoted": "You should be proud that you have done your civic duty.",
-	"EmuEngine.MayorModCP_Dialogue.OfficerMike.CantCarryBallot": "Sorry sir. I can't give you your ballot. You're carrying too much stuff.",
+	"EmuEngine.MayorModCP_Dialogue.OfficerMike.CantCarryBallot": "Sorry. I can't give you your ballot. You're carrying too much stuff.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedBallot": "Come over to the desk to pick up your ballot.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.NeedToVote": "Now that you've voted you can put your ballot in the ballot box.",
 	"EmuEngine.MayorModCP_Dialogue.OfficerMike.Random.0": "O hello @, how are you doing today?",
