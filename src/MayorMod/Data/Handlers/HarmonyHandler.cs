@@ -3,6 +3,8 @@ using MayorMod.Constants;
 using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
+using StardewModdingAPI.Utilities;
+using StardewValley;
 using StardewValley.Locations;
 using System.Reflection;
 
@@ -18,6 +20,7 @@ public class HarmonyHandler
     public const string FLOOR_ID = "FloorID";
     public const string INIT_ID = "512";
     public const string WALL_FLOOR_PREFIX = "MayorMod_";
+    public const string VOTING_DAY_SCHEDULE_KEY = "VotingDay";
 
     public static MayorModData MMData { get; set; }
 
@@ -34,9 +37,27 @@ public class HarmonyHandler
         );
 
         harmony.Patch(
-           original: typeof(DecoratableLocation).GetMethod("ReadWallpaperAndFloorTileData"),
+           original: AccessTools.Method(typeof(DecoratableLocation), nameof(DecoratableLocation.ReadWallpaperAndFloorTileData)),
            postfix: new HarmonyMethod(typeof(HarmonyHandler), nameof(DecoratableLocation_ReadWallpaperAndFloorTileData_Postfix))
         );
+
+        harmony.Patch(
+            original: AccessTools.Method(typeof(NPC), nameof(NPC.TryLoadSchedule)), 
+            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(HarmonyHandler.TryLoadSchedule_Prefix))
+        );
+      
+    }
+
+    public static bool TryLoadSchedule_Prefix(NPC __instance, ref bool __result)
+    {
+        if (MMData is not null &&
+            MMData.VotingDate is not null &&
+            MMData.VotingDate == SDate.Now())
+        {
+            __result = __instance.TryLoadSchedule(VOTING_DAY_SCHEDULE_KEY);
+            return false;
+        }
+        return true;
     }
 
     /// <summary>

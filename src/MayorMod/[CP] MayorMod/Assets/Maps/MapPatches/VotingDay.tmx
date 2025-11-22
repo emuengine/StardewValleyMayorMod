@@ -3404,7 +3404,7 @@
  <objectgroup id="17" name="Buildings">
   <object id="45" name="TileData" x="64" y="64" width="16" height="16">
    <properties>
-    <property name="Action" value="LockedDoorWarp 7 9 EmuEngine.MayorModCP_VotingOffice 600 1800"/>
+    <property name="Action" value="LockedDoorWarp 7 9 EmuEngine.MayorModCP_VotingOffice 600 2330"/>
    </properties>
   </object>
  </objectgroup>

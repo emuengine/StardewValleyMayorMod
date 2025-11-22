@@ -79,6 +79,7 @@ internal sealed class ModEntry : Mod
             {
                 _saveData = saveData;
                 HarmonyHandler.MMData = _saveData;
+                _assetInvalidationHandler.InvalidationNPCSchedules();
             }
         }
 

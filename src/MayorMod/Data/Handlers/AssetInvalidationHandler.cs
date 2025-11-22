@@ -1,5 +1,6 @@
 ﻿using MayorMod.Constants;
 using StardewModdingAPI;
+using StardewModdingAPI.Utilities;
 using StardewValley;
 
 namespace MayorMod.Data.Handlers;
@@ -55,6 +56,14 @@ public class AssetInvalidationHandler
             ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
         {
             LocationCacheInvalidate = true;
+        }
+    }
+
+    public void InvalidationNPCSchedules()
+    {
+        foreach (var npc in Utility.getAllVillagers())
+        {
+            npc.resetForNewDay(SDate.Now().Day);
         }
     }
 }

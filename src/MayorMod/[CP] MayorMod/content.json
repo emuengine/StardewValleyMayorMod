@@ -39,6 +39,20 @@
 			"Action": "Include",
 			"FromFile": "Data/NPCs/Gil.json, Data/NPCs/Governor.json, Data/NPCs/Marlon.json, Data/NPCs/OfficerMike.json, Data/NPCs/Lewis.json, Data/NPCs/Gus.json"
 		},
+		{
+			"Action": "Include",
+			"FromFile": "Data/NPCs/Schedules/Schedule.json",
+			"When": {
+				"IsCommunityCenterComplete": false
+			}
+		},
+		{
+			"Action": "Include",
+			"FromFile": "Data/NPCs/Schedules/CCSchedule.json",
+			"When": {
+				"IsCommunityCenterComplete": true
+			}
+		},
 		//Powers
 		{
 			"Action": "Include",

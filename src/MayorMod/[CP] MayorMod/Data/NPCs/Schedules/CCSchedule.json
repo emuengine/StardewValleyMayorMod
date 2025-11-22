@@ -1,0 +1,220 @@
+{
+  "Changes": [
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Sebastian",
+      "Entries": {
+        "VotingDay": "1030 SebastianRoom 9 4 3 sebastian_computer/1500 CommunityCenter 26 9 0/1640 CommunityCenter 30 9 0/1650 SebastianRoom 9 4 3 sebastian_computer/1830 Mountain 58 35 1 sebastian_smoking/2130 SebastianRoom 11 9 1 sebastian_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Leah",
+      "Entries": {
+        "VotingDay": "900 LeahHouse 3 7 3 leah_sculpt/1200 Forest 68 50 2/1500 CommunityCenter 26 9 0/1750 CommunityCenter 29 9 0/1800 Forest 33 25 2 leah_draw/1900 Forest 21 29 1/1930 LeahHouse 8 5 0/2200 LeahHouse 13 10 2/2400 LeahHouse 2 4 3 leah_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Kent",
+      "Entries": {
+        "VotingDay": "700 Town 42 102 2/1030 CommunityCenter 26 9 0/1210 CommunityCenter 30 9 0/1220 SamHouse 8 12 2/1400 Town 6 72 1/1700 SamHouse 2 21 0/1900 SamHouse 8 5 3/2100 Town 6 89 2/2300 SamHouse 21 5 3 kent_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Haley",
+      "Entries": {
+        "VotingDay": "900 HaleyHouse 6 5 0/950 HaleyHouse 8 7 1/1100 CommunityCenter 26 9 0/1300 CommunityCenter 29 9 0/1310 Town 23 22 2/1630 HaleyHouse 19 16 0 square_5_1_0/2000 HaleyHouse 5 7 0 square_5_5/2230 HaleyHouse 1 5 3 haley_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Sam",
+      "Entries": {
+        "VotingDay": "1000 SamHouse 15 13 0/1040 SamHouse 17 15 2 sam_guitar/1340 CommunityCenter 26 9 0/1540 CommunityCenter 29 9 0/1550 Town 71 99 2/1830 SamHouse 22 16 1/2100 SamHouse 22 13 1 sam_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Penny",
+      "Entries": {
+        "VotingDay": "800 Town 35 89 2 penny_read/1230 CommunityCenter 27 9 0/1400 CommunityCenter 29 9 0/1410 Trailer 12 6 0 penny_dishes/1600 Town 44 77 2 penny_sit_down/1840 Trailer 4 9 1 penny_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Lewis",
+      "Entries": {
+        "VotingDay": "800 ManorHouse 8 5 0/900 Town 62 88 0/940 Town 65 86 3 lewis_garden/1040 CommunityCenter 55 6 0/1400 CommunityCenter 47 5 0/1440 CommunityCenter 51 4 2/1600 CommunityCenter 47 13 0/1700 CommunityCenter 33 9 0/1830 CommunityCenter 26 9 0/1840 CommunityCenter 29 9 0/1850 ManorHouse 3 6 0/2300 ManorHouse 22 4 1 lewis_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Demetrius",
+      "Entries": {
+        "VotingDay": "750 ScienceHouse 29 9 0/1100 ScienceHouse 22 20 1 demetrius_notes/1430 Mountain 15 26 1/1540 CommunityCenter 23 9 0/1700 CommunityCenter 27 9 0/1710 CommunityCenter 30 9 0/1720 Mountain 30 36 2/1900 ScienceHouse 27 9 0/2040 ScienceHouse 28 9 0/2100 ScienceHouse 15 4 0/2230 ScienceHouse 19 4 11 demetrius_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Jodi",
+      "Entries": {
+        "VotingDay": "800 SamHouse 6 5 0 jodi_dishes/940 SamHouse 5 5 0/1000 SamHouse 7 5 0/1020 SamHouse 4 5 0/1040 SamHouse 6 5 0 jodi_dishes/1130 SamHouse 4 12 2 jodi_sit_down/1330 Town 22 72 1/1610 CommunityCenter 26 9 0/1730 CommunityCenter 29 9 0/1740 SamHouse 5 5 0/1900 SamHouse 6 5 0 jodi_dishes/1930 SamHouse 8 13 1/2100 SamHouse 10 22 3 \"Strings\\schedules\\Jodi:spring.000\"/2200 SamHouse 22 5 1 jodi_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Caroline",
+      "Entries": {
+        "VotingDay": "800 SeedShop 37 6 3/1000 Sunroom 5 7 1/1200 SeedShop 15 23 0/1330 Town 23 71 2/1530 CommunityCenter 27 9 0/1650 CommunityCenter 29 9 0/1700 SeedShop 25 18 2 square_9_9/2100 SeedShop 25 4 1 caroline_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Evelyn",
+      "Entries": {
+        "VotingDay": "800 JoshHouse 3 17 0 square_3_1_0/1040 JoshHouse 17 22 3/1210 JoshHouse 3 19 2/1300 CommunityCenter 25 17 0/1420 CommunityCenter 26 9 0/1430 CommunityCenter 29 9 0/1440 Town 20 62 3 evelyn_garden/1630 JoshHouse 4 17 0 square_3_1_0/1900 JoshHouse 17 17 0/2130 JoshHouse 2 5 1"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Shane",
+      "Entries": {
+        "VotingDay": "700 JojaMart 9 17 2 shane_work/1230 JojaMart 5 13 2 shane_work/1330 JojaMart 21 16 2 shane_work/1430 JojaMart 25 12 2 shane_work/1530 JojaMart 17 12 2 shane_work/1630 JojaMart 7 25 1/1700 CommunityCenter 26 9 0/1810 CommunityCenter 29 9 0/1820 Saloon 21 17 2 shane_drink/2300 AnimalShop 27 4 1 shane_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Elliott",
+      "Entries": {
+        "VotingDay": "800 ElliottHouse 1 5 0/1000 ElliottHouse 6 4 0/1100 ElliottHouse 1 5 0/1200 Beach 49 19 2/1330 ElliottHouse 1 5 0/1500 Town 55 104 1/1800 ElliottHouse 7 7 2/2000 CommunityCenter 27 9 0/2200 CommunityCenter 29 9 0/2210 ElliottHouse 1 5 0/2400 ElliottHouse 13 4 1 elliott_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Clint",
+      "Entries": {
+        "VotingDay": "850 Blacksmith 3 13 2/1700 CommunityCenter 27 9 0/1850 CommunityCenter 29 9 0/1900 Saloon 19 23 3/2400 Blacksmith 10 4 1 clint_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Pam",
+      "Entries": {
+        "VotingDay": "800 Trailer 15 4 2 pam_sit_down/1200 JojaMart 6 19 1/1600 CommunityCenter 26 9 0/1700 CommunityCenter 29 9 0/1710 Saloon 7 18 1/2400 Trailer 15 4 2 pam_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Linus",
+      "Entries": {
+        "VotingDay": "630 Mountain 25 5 1/700 Mountain 28 9 1/930 Mountain 45 19 1/1400 CommunityCenter 27 9 0/1550 CommunityCenter 29 9 0/1600 Mountain 28 9 1/1900 Tent 3 2 1/2100 Tent 1 3 2/2300 Tent 4 4 2 linus_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Abigail",
+      "Entries": {
+        "VotingDay": "900 SeedShop 39 5 0/1030 SeedShop 2 20 3/1300 CommunityCenter 26 9 0/1410 CommunityCenter 29 9 0/1420 Town 73 54 2/1630 SeedShop 3 6 0 abigail_videogames/1930 SeedShop 1 9 3 abigail_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Marnie",
+      "Entries": {
+        "VotingDay": "830 AnimalShop 17 5 0/850 CommunityCenter 26 9 0/1110 CommunityCenter 29 9 0/1120 AnimalShop 12 14 2/1600 AnimalShop 24 15 0/1800 AnimalShop 17 8 1/2100 AnimalShop 12 5 3 marnie_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Emily",
+      "Entries": {
+        "VotingDay": "900 HaleyHouse 16 5 2/1200 HaleyHouse 3 16 0/1530 CommunityCenter 26 9 0/1720 CommunityCenter 29 9 0/1730 Saloon 15 17 0 square_5_1_0/2430 HaleyHouse 21 4 1 emily_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Robin",
+      "Entries": {
+        "VotingDay": "800 ScienceHouse 8 18 2/1700 CommunityCenter 26 9 0/1830 CommunityCenter 29 9 0/1840 Mountain 29 36 2/1930 ScienceHouse 16 5 0/2100 ScienceHouse 21 4 1 robin_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Maru",
+      "Entries": {
+        "VotingDay": "800 ScienceHouse 5 6 1 maru_tinker/1000 CommunityCenter 27 9 0/1140 CommunityCenter 29 9 0/1150 ScienceHouse 19 18 0/1400 Town 63 15 2 maru_sit_down/1800 ScienceHouse 5 6 1 maru_tinker/2200 ScienceHouse 2 4 3 maru_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Gus",
+      "Entries": {
+        "VotingDay": "800 Saloon 16 4 2 gus_sit_down/1200 CommunityCenter 26 9 0/1340 CommunityCenter 29 9 0/1350 Saloon 14 18 2 gus_clean/1830 Saloon 12 18 0/1850 Saloon 10 18 2/1940 Saloon 12 18 0/1950 Saloon 10 18 2/2030 Saloon 12 18 0/2040 Saloon 10 18 2/2400 Saloon 23 4 1 gus_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Pierre",
+      "Entries": {
+        "VotingDay": "700 SeedShop 10 20 0/830 CommunityCenter 27 9 0/920 CommunityCenter 29 9 0/930 SeedShop 4 17 2/1700 SeedShop 11 20 0/1900 SeedShop 37 5 0/2100 SeedShop 20 5 0/2300 SeedShop 24 4 1 pierre_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Willy",
+      "Entries": {
+        "VotingDay": "610 Beach 38 36 2 dick_fish/850 CommunityCenter 26 9 0/1110 CommunityCenter 29 9 0/1120 FishShop 5 4 2/1700 Beach 25 36 2 dick_fish/2200 FishShop 5 4 2"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Harvey",
+      "Entries": {
+        "VotingDay": "700 HarveyRoom 21 7 0/830 Hospital 6 15 2/1200 CommunityCenter 27 9 0/1320 CommunityCenter 29 9 0/1330 Town 10 64 2 square_5_5/1730 Hospital 9 15 3/1840 HarveyRoom 11 5 3 harvey_read/2200 HarveyRoom 13 4 1 harvey_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/Alex",
+      "Entries": {
+        "VotingDay": "800 Town 64 64 2 alex_football/1300 CommunityCenter 27 9 0/1420 CommunityCenter 30 9 0/1430 JoshHouse 14 5 2 alex_lift_weights/1600 Town 50 68 1/1830 JoshHouse 8 19 2/2000 JoshHouse 17 5 0/2200 JoshHouse 21 4 1 alex_sleep"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Schedules/George",
+      "Entries": {
+        "VotingDay": "630 JoshHouse 16 22 0/1200 CommunityCenter 26 9 0/1310 CommunityCenter 29 9 0/1320 JoshHouse 5 21 3/1500 JoshHouse 16 22 0/2000 JoshHouse 3 5 0 george_sleep"
+      }
+    }
+  ]
+}
