@@ -17,6 +17,9 @@
 	"EmuEngine.MayorModCP_Item.MayorShirt.Name": "Mayor Suit Jacket",
 	"EmuEngine.MayorModCP_Item.MayorShirt.Description": "Suit jacket with mayoral chain",
 
+	"EmuEngine.MayorModCP_Item.GoldStatue.Name": "Gold Mayor Statue",
+	"EmuEngine.MayorModCP_Item.GoldStatue.Description": "Because you're worth it!",
+
 
 	//////////////////////
 	//Powers

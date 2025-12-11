@@ -22,7 +22,7 @@
 		//Items
 		{
 			"Action": "Include",
-			"FromFile": "Data/Items/ElectionSign.json, Data/Items/Ballot.json, Data/Items/Leaflet.json, Data/Items/Lecturn.json, Data/Items/DebateModeratorFurniture.json, Data/Items/MayorShirt.json, Data/Items/ShovelHole.json, Data/Items/OakSapling.json"
+			"FromFile": "Data/Items/ElectionSign.json, Data/Items/Ballot.json, Data/Items/Leaflet.json, Data/Items/Lecturn.json, Data/Items/DebateModeratorFurniture.json, Data/Items/MayorShirt.json, Data/Items/ShovelHole.json, Data/Items/OakSapling.json, Data/Items/GoldStatue.json"
 		},
 		//Mail
 		{

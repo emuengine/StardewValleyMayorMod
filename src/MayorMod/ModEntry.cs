@@ -40,7 +40,7 @@ internal sealed class ModEntry : Mod
         TileActionHandler.Init(Helper, Monitor, _configHandler.ModConfig);
         Phone.PhoneHandlers.Add(new PollingDataHandler(Helper, _configHandler.ModConfig));
         EventCommandHandler.AddExtraEventCommands(Monitor);
-        HarmonyHandler.Init(ModManifest);
+        HarmonyHandler.Init(Helper, ModManifest);
 
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
