@@ -20,7 +20,7 @@ namespace MayorMod;
 /// </summary>
 internal sealed class ModEntry : Mod
 {
-    private MayorModData _saveData = new();
+    //public static MayorModData? SaveData;
     private ModConfigHandler _configHandler = null!;
     private AssetUpdateHandler _assetUpdateHandler = null!;
     private AssetInvalidationHandler _assetInvalidationHandler = null!;
@@ -37,10 +37,11 @@ internal sealed class ModEntry : Mod
         _assetUpdateHandler = new AssetUpdateHandler(Helper, Monitor);
         _assetInvalidationHandler = new AssetInvalidationHandler(Helper);
 
+        SaveHandler.Init(Helper, Monitor, ModManifest);
         TileActionHandler.Init(Helper, Monitor, _configHandler.ModConfig);
         Phone.PhoneHandlers.Add(new PollingDataHandler(Helper, _configHandler.ModConfig));
         EventCommandHandler.AddExtraEventCommands(Monitor);
-        HarmonyHandler.Init(Helper, ModManifest);
+        HarmonyHandler.Init(ModManifest, Monitor);
 
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
@@ -72,16 +73,8 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
     {
-        if (Helper is not null && Helper.Data is not null)
-        {
-            var saveData = Helper.Data.ReadSaveData<MayorModData>(ModKeys.SAVE_KEY);
-            if (saveData is not null)
-            {
-                _saveData = saveData;
-                HarmonyHandler.MMData = _saveData;
-                _assetInvalidationHandler.InvalidationNPCSchedules();
-            }
-        }
+        SaveHandler.LoadSaveData();
+        _assetInvalidationHandler.InvalidationNPCSchedules();
 
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
         {
@@ -98,13 +91,15 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
-        if (_saveData is not null && ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
+        if (SaveHandler.SaveData is not null &&
+            SaveHandler.SaveData.VotingDate is not null &&
+            ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
-            if (_saveData.VotingDate == SDate.Now())
+            if (SaveHandler.SaveData.VotingDate == SDate.Now())
             {
                 ModProgressHandler.AddProgressFlag(ProgressFlags.IsVotingDay);
             }
-            else if (_saveData.VotingDate.AddDays(-1) == SDate.Now())
+            else if (SaveHandler.SaveData.VotingDate.AddDays(-1) == SDate.Now())
             {
                 Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_VoteTomorrowMail");
             }
@@ -145,20 +140,19 @@ internal sealed class ModEntry : Mod
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
         //Set voting date
-        if (ModProgressHandler.HasProgressFlag(ProgressFlags.RegisterVotingDate))
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.RegisterVotingDate) && SaveHandler.SaveData is not null)
         {
-            _saveData = new MayorModData()
-            {
-                VotingDate = ModUtils.GetDateWithoutFestival(_configHandler.ModConfig.NumberOfCampaignDays)
-            };
-            Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, _saveData);
+            SaveHandler.UpdateVotingDate(ModUtils.GetDateWithoutFestival(_configHandler.ModConfig.NumberOfCampaignDays));
             ModProgressHandler.RemoveProgressFlag(ProgressFlags.RegisterVotingDate);
             _assetInvalidationHandler.UpdateAssetInvalidations();
         }
 
         //Complete voting day
-        if (_saveData is not null && _saveData.VotingDate == SDate.Now() && ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
+        if (SaveHandler.SaveData is not null &&
+            SaveHandler.SaveData.VotingDate == SDate.Now() && 
+            ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
+            SaveHandler.UpdateVotingDate(null);
             var voteManager = new VotingHandler(Game1.MasterPlayer, _configHandler.ModConfig);
             ModProgressHandler.RemoveAllModFlags();
             if (voteManager.HasWonElection(Helper))
@@ -216,6 +210,7 @@ internal sealed class ModEntry : Mod
             //Utility.clearObjectsInArea(bounds, gameLocation);
         }
 
+        //Add shorts to animal shop if mayor
         if (e.NewLocation.NameOrUniqueName == "AnimalShop" && ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
             if (e.NewLocation.farmers.Count == 0)
@@ -249,7 +244,9 @@ internal sealed class ModEntry : Mod
             }
         }
 
-        if (_saveData is not null && ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
+        if (SaveHandler.SaveData is not null &&
+            SaveHandler.SaveData.VotingDate is not null && 
+            ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
             if (e.NameWithoutLocale.StartsWith(XNBPathKeys.DIALOGUE))
             {
@@ -257,7 +254,7 @@ internal sealed class ModEntry : Mod
             }
             else if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.PASSIVE_FESTIVALS))
             {
-                _assetUpdateHandler.AssetUpdatesForPassiveFestivals(e, _saveData.VotingDate);
+                _assetUpdateHandler.AssetUpdatesForPassiveFestivals(e, SaveHandler.SaveData.VotingDate);
             }
         }
     }
@@ -290,12 +287,8 @@ internal sealed class ModEntry : Mod
             item.Value.RemoveWhere(g => g.Key.Contains(ModKeys.MAYOR_MOD_CPID));
         }
 
-        if(_saveData is not null)
-        {
-            Monitor.Log("Clearing voting day data.", LogLevel.Info);
-            _saveData.VotingDate = new SDate(1, Season.Spring);
-            Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, _saveData);
-        }
+        Monitor.Log("Clearing save data.", LogLevel.Info);
+        SaveHandler.ResetSave();
 
         Monitor.Log("Invalidating cache for patched assets.", LogLevel.Info);
         Helper.GameContent.InvalidateCache(XNBPathKeys.MAIL);
@@ -319,11 +312,11 @@ internal sealed class ModEntry : Mod
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_SEASON_TOKEN, () =>
         {
-            return _saveData is not null ? new List<string>() { $"{_saveData.VotingDate.Season}" } : null;
+            return SaveHandler.SaveData is not null && SaveHandler.SaveData.VotingDate is not null ? new List<string>() { $"{SaveHandler.SaveData.VotingDate.Season}" } : null;
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_DAY_TOKEN, () =>
         {
-            return _saveData is not null ? new List<string>() { $"{_saveData.VotingDate.Day}" } : null;
+            return SaveHandler.SaveData is not null && SaveHandler.SaveData.VotingDate is not null ? new List<string>() { $"{SaveHandler.SaveData.VotingDate.Day}" } : null;
         });
     }
 }

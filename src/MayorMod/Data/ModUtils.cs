@@ -251,14 +251,14 @@ public static class ModUtils
         };
     }
 
-
+    /// <summary>
+    /// Creates a new texture by applying a gold color palette to the specified source texture.
+    /// </summary>
+    /// texture.</remarks>
+    /// <param name="sourceTexture">The original texture to be transformed. Cannot be null.</param>
+    /// <returns>A new Texture2D instance with the gold color effect applied, or null if the source texture is null.</returns>
     public static Texture2D GoldifyTexture(Texture2D sourceTexture)
     {
-        if (sourceTexture == null)
-        {
-            return null;
-        }
-
         var device = Game1.graphics.GraphicsDevice;
         var goldTexture = new Texture2D(device, sourceTexture.Width, sourceTexture.Height);
 
@@ -294,17 +294,37 @@ public static class ModUtils
         return goldTexture;
     }
 
+    /// <summary>
+    /// Calculates the perceived brightness of a color using a weighted average of its red, green, and blue components.
+    /// </summary>
+    /// <param name="pixel">The color whose brightness is to be calculated.</param>
+    /// <returns>A floating-point value between 0 and 1 representing the perceived brightness of the color, where 0 is black and
+    /// 1 is white.</returns>
     public static float CalculateBrightness(Color pixel)
     {
         return (pixel.R * 0.299f + pixel.G * 0.587f + pixel.B * 0.114f) / 255f;
     }
 
+    /// <summary>
+    /// Adjusts the specified brightness value by applying the given contrast factor.
+    /// </summary>
+    /// <param name="brightness">The original brightness value to adjust. Must be between 0.0 and 1.0, where 0.0 represents black and 1.0
+    /// represents white.</param>
+    /// <param name="contrast">The contrast factor to apply. Values greater than 1.0 increase contrast; values between 0.0 and 1.0 decrease
+    /// contrast.</param>
+    /// <returns>The adjusted brightness value after applying the contrast factor, clamped to the range 0.0 to 1.0.</returns>
     public static float ApplyContrast(float brightness, float contrast)
     {
         brightness = (brightness - 0.5f) * contrast + 0.5f;
         return Math.Clamp(brightness, 0f, 1f);
     }
 
+    /// <summary>
+    /// Maps a brightness value to a corresponding color by interpolating between colors in a gold-themed palette.
+    /// <param name="brightness">The brightness value to map.</param>
+    /// <param name="palette">An array of threshold and color pairs that define the palette. Each tuple specifies a threshold value and its
+    /// associated color, ordered by increasing threshold.</param>
+    /// <returns>A color interpolated from the palette that corresponds to the specified brightness value.</returns>
     private static Color MapBrightnessToGold(float brightness, (float threshold, Color color)[] palette)
     {
         for (int i = 0; i < palette.Length - 1; i++)
@@ -320,13 +340,16 @@ public static class ModUtils
         return palette[^1].color;
     }
 
+    /// <summary>
+    /// The method uses alpha blending to combine the textures, and the original textures are not modified.
+    /// The returned texture has the same dimensions as the base texture.
+    /// </summary>
+    /// <param name="baseTexture">The base texture onto which the gold texture will be drawn. Must not be null.</param>
+    /// <param name="goldTexture">The texture to overlay on top of the base texture. If null, the method returns null.</param>
+    /// <returns>A new Texture2D containing the result of drawing the gold texture over the base texture. Returns null if
+    /// goldTexture is null.</returns>
     public static Texture2D MergeTextures(Texture2D baseTexture, Texture2D goldTexture)
     {
-        if (goldTexture == null)
-        {
-            return null;
-        }
-
         var renderTarget = new RenderTarget2D(
             Game1.graphics.GraphicsDevice,
             baseTexture.Width,
@@ -354,6 +377,12 @@ public static class ModUtils
         return renderTarget;
     }
 
+    /// <summary>
+    /// Renders and returns a texture representing the current player's standing pose, suitable for use in user
+    /// interface elements or previews.
+    /// </summary>
+    /// <returns>A <see cref="Texture2D"/> containing the rendered image of the player's standing sprite, including hair and
+    /// accessories.</returns>
     public static Texture2D GetFarmerStandingTexture()
     {
         var farmerWidth = 16;
@@ -397,6 +426,19 @@ public static class ModUtils
         return retFarmerTexture;
     }
 
+    /// <summary>
+    /// Draws the hair, hat, and accessories for a specified farmer character at the given position and orientation.
+    /// </summary>
+    /// <param name="b">The sprite batch used to draw the hair and accessories.</param>
+    /// <param name="facingDirection">The direction the character is facing.</param>
+    /// <param name="who">The farmer to be drawn.</param>
+    /// <param name="position">The on-screen position at which to draw the character's features, in pixels.</param>
+    /// <param name="origin">The origin point for rotation and scaling, relative to the drawn features.</param>
+    /// <param name="scale">The scale factor.</param>
+    /// <param name="currentFrame">The current animation frame index, used to determine feature offsets and special cases.</param>
+    /// <param name="rotation">The rotation, in radians, to apply to the drawn features.</param>
+    /// <param name="overrideColor">The color to use when drawing the features.</param>
+    /// <param name="layerDepth">The draw layer depth.</param>
     public static void DrawHairAndAccesories(SpriteBatch b, int facingDirection, Farmer who, Vector2 position, Vector2 origin, float scale, int currentFrame, float rotation, Color overrideColor, float layerDepth)
     {
         var renderer = Game1.MasterPlayer.FarmerRenderer;
@@ -536,5 +578,78 @@ public static class ModUtils
                 b.Draw(hatTexture, hatPosition, renderer.hatSourceRect, hatColor, rotation, origin, drawScale, SpriteEffects.None, GetLayerDepth(layerDepth, FarmerSpriteLayers.Hat));
             }
         }
+    }
+
+    /// <summary>
+    /// Decodes a Base64-encoded string into a Texture2D object.
+    /// </summary>
+    /// <param name="monitor">The monitor for logging errors.</param>
+    /// <param name="goldStaueBase64Image">The Base64-encoded string representation of the texture, or null.</param>
+    /// <returns>A Texture2D object if decoding is successful, otherwise null.</returns>
+    public static Texture2D? DecodeTextureFromBase64String(IMonitor monitor, string? goldStaueBase64Image)
+    {
+        if (string.IsNullOrEmpty(goldStaueBase64Image))
+        {
+            return null;
+        }
+
+        try
+        {
+            var imageBytes = Convert.FromBase64String(goldStaueBase64Image);
+            
+            using var memoryStream = new MemoryStream(imageBytes);
+            var texture = Texture2D.FromStream(Game1.graphics.GraphicsDevice, memoryStream);
+            
+            return texture;
+        }
+        catch (Exception ex)
+        {
+            monitor.Log($"Failed to decode gold statue texture from Base64 string: {ex.Message}", LogLevel.Error);
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Converts a Texture2D object to a Base64-encoded PNG string for storage.
+    /// </summary>
+    /// <param name="monitor">The monitor for logging errors.</param>
+    /// <param name="goldStatueTexture">The texture to convert, or null.</param>
+    /// <returns>A Base64-encoded string representation of the texture if conversion is successful, otherwise null.</returns>
+    public static string? ConvertTextureToBase64String(IMonitor monitor, Texture2D? goldStatueTexture)
+    {
+        if (goldStatueTexture is null)
+        {
+            return null;
+        }
+
+        try
+        {
+            using var memoryStream = new MemoryStream();
+            goldStatueTexture.SaveAsPng(memoryStream, goldStatueTexture.Width, goldStatueTexture.Height);
+            
+            var imageBytes = memoryStream.ToArray();
+            return Convert.ToBase64String(imageBytes);
+        }
+        catch (Exception ex)
+        {
+            monitor.Log($"Failed to convert gold statue texture to Base64 string: {ex.Message}", LogLevel.Error);
+            return null;
+        }
+    }
+
+
+    /// <summary>
+    /// Initializes and returns the gold statue texture by loading the base statue texture, rendering the player's character,
+    /// applying a gold color effect, and merging them together. The resulting texture is saved to the save data.
+    /// </summary>
+    /// <returns>A Texture2D containing the merged gold statue with the player's character.</returns>
+    public static Texture2D InitGoldStatueTexture()
+    {
+        var statueBaseTexture = Game1.content.Load<Texture2D>(ModItemKeys.StatueBaseTexturePath);
+        var farmerTexture = GetFarmerStandingTexture();
+        var goldFarmerTexture = GoldifyTexture(farmerTexture);
+        var mergedTexture = MergeTextures(statueBaseTexture, goldFarmerTexture);
+        SaveHandler.UpdateGoldStatueTexture(mergedTexture);
+        return mergedTexture;
     }
 }

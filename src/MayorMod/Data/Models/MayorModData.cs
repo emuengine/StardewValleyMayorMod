@@ -1,6 +1,6 @@
 ﻿
+using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI.Utilities;
-using StardewValley;
 
 namespace MayorMod.Data.Models;
 
@@ -9,5 +9,7 @@ namespace MayorMod.Data.Models;
 /// </summary>
 public sealed class MayorModData
 {
-    public SDate VotingDate { get; set; } = new SDate(1, Season.Spring);
+    public Version? SaveVersion { get; set; }
+    public SDate? VotingDate { get; set; }
+    public string? GoldStaueBase64Image { get; set; }
 }

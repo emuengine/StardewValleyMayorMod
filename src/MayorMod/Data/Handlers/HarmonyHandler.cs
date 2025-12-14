@@ -1,6 +1,5 @@
 using HarmonyLib;
 using MayorMod.Constants;
-using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
@@ -8,11 +7,12 @@ using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.ItemTypeDefinitions;
 using StardewValley.Locations;
+using StardewValley.Objects;
 using System.Reflection;
 
 namespace MayorMod.Data.Handlers;
 
-public class HarmonyHandler
+public static class HarmonyHandler
 {
     public const string TILESHEET_MISC = "z_MayorMod_Misc_Tilesheet";
     public const string TILESHEET_WALLS_FLOORS = "walls_and_floors";
@@ -24,14 +24,14 @@ public class HarmonyHandler
     public const string WALL_FLOOR_PREFIX = "MayorMod_";
     public const string VOTING_DAY_SCHEDULE_KEY = "VotingDay";
 
-    public static MayorModData MMData { get; set; }
-    private static IModHelper _helper = null!;
-    private static Texture2D _statueBaseTexture = null!;
+    private static IMonitor _monitor = null!;
+    private static Texture2D? _cachedGoldStatueTexture;
 
-    public static void Init(IModHelper helper, IManifest manifest)
+    public static void Init(IManifest manifest, IMonitor monitor)
     {
-        _helper = helper;
+        _monitor = monitor;
 
+        // DecoratableLocation patches
         var methodInfo = typeof(DecoratableLocation)
         .GetMethods(BindingFlags.NonPublic | BindingFlags.Instance)
         .FirstOrDefault(x => x.Name.Contains("IsFloorableOrWallpaperableTile") && x.GetParameters().Length == 4);
@@ -47,36 +47,68 @@ public class HarmonyHandler
            postfix: new HarmonyMethod(typeof(HarmonyHandler), nameof(DecoratableLocation_ReadWallpaperAndFloorTileData_Postfix))
         );
 
+        //NPC Schedule patching for voting day
         harmony.Patch(
             original: AccessTools.Method(typeof(NPC), nameof(NPC.TryLoadSchedule)),
-            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(HarmonyHandler.TryLoadSchedule_Prefix))
+            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(TryLoadSchedule_Prefix))
         );
 
         //Gold Statue patching
-        _statueBaseTexture = _helper.ModContent.Load<Texture2D>("assets/statueBase.png");
         harmony.Patch(
             original: AccessTools.Method(typeof(ParsedItemData), nameof(ParsedItemData.GetTexture)),
-            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(HarmonyHandler.GetTexture_Prefix))
+            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(GetTexture_Prefix))
+        );
+
+        harmony.Patch(
+            original: AccessTools.Method(typeof(Furniture), nameof(Furniture.checkForAction)),
+            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(checkForAction_Prefix))
         );
     }
 
+    /// <summary>
+    /// Intercepts texture retrieval for a ParsedItemData instance and provides a custom texture for the Gold Statue
+    /// item if applicable.
+    /// </summary>
     public static bool GetTexture_Prefix(ParsedItemData __instance, ref Texture2D __result)
     {
-        if (__instance.QualifiedItemId == $"(F){ModKeys.MAYOR_MOD_CPID}_GoldStatue")
+        if (__instance.QualifiedItemId == $"(F){ModItemKeys.GoldStatue}" && SaveHandler.SaveData is not null)
         {
-            //TODO more caching
-            var farmerTexture = ModUtils.GetFarmerStandingTexture();
-            var goldFarmerTexture = ModUtils.GoldifyTexture(farmerTexture);
-            var fullStatueTexture = ModUtils.MergeTextures(_statueBaseTexture, goldFarmerTexture);
-
-            if (fullStatueTexture is not null)
+            if (!string.IsNullOrEmpty(SaveHandler.SaveData.GoldStaueBase64Image))
             {
-                __result = fullStatueTexture;
+                _cachedGoldStatueTexture = ModUtils.DecodeTextureFromBase64String(_monitor, SaveHandler.SaveData.GoldStaueBase64Image);
+            }
+
+            _cachedGoldStatueTexture ??= ModUtils.InitGoldStatueTexture();
+
+            if (_cachedGoldStatueTexture is not null)
+            {
+                __result = _cachedGoldStatueTexture;
                 return false;
             }
         }
         return true;
     }
+
+
+    /// <summary>
+    /// Adds a Harmony pre patch to intercept interaction with the Gold Statue furniture item
+    /// </summary>
+    /// <param name="__instance"></param>
+    /// <param name="who"></param>
+    /// <param name="justCheckingForActivity"></param>
+    /// <param name="__result"></param>
+    /// <returns></returns>
+    public static bool checkForAction_Prefix(Furniture __instance, Farmer who, bool justCheckingForActivity, ref bool __result)
+    {
+        if (__instance.QualifiedItemId == $"(F){ModItemKeys.GoldStatue}")
+        {
+            _cachedGoldStatueTexture = ModUtils.InitGoldStatueTexture();
+
+            return false;
+        }
+        return true;
+    }
+
 
     /// <summary>
     /// Adds a Harmony pre patch to load custom schedule key for voting day
@@ -86,9 +118,9 @@ public class HarmonyHandler
     /// <returns></returns>
     public static bool TryLoadSchedule_Prefix(NPC __instance, ref bool __result)
     {
-        if (MMData is not null &&
-            MMData.VotingDate is not null &&
-            MMData.VotingDate == SDate.Now())
+        if (SaveHandler.SaveData is not null &&
+            SaveHandler.SaveData.VotingDate is not null &&
+            SaveHandler.SaveData.VotingDate == SDate.Now())
         {
             __result = __instance.TryLoadSchedule(VOTING_DAY_SCHEDULE_KEY);
             return false;

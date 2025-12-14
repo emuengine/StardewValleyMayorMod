@@ -7,4 +7,6 @@ public static class ModItemKeys
     public static readonly string BallotUsed = $"{ModKeys.MAYOR_MOD_CPID}_BallotUsed";
     public static readonly string ElectionSign = $"{ModKeys.MAYOR_MOD_CPID}_ElectionSign";
     public static readonly string Leaflet = $"{ModKeys.MAYOR_MOD_CPID}_Leaflet";
+    public static readonly string GoldStatue = $"{ModKeys.MAYOR_MOD_CPID}_GoldStatue";
+    public static readonly string StatueBaseTexturePath = $"Mods/{ModKeys.MAYOR_MOD_CPID}/StatueBase";
 }
