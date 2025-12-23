@@ -81,6 +81,14 @@
         "fall_Wed": "{{i18n:{{ModId}}_AssetUpdates.Evelyn.fall_Wed}}"
       }
     },
+    {
+      "Action": "EditData",
+      "Target": "Data/mail",
+      "Priority": "Late",
+      "Entries": {
+        "Lewis": null //TODO: Add in quest later to distribute Stardew Valley Agricultural Fund
+      }
+    },
     //SVE compat fix
     {
       "Action": "EditData",
