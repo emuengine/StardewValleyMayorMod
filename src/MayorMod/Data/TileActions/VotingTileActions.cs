@@ -10,7 +10,7 @@ namespace MayorMod.Data.TileActions;
 
 public static class VotingTileActions
 {
-    public static IList<string> Candidates { get; set; } = new List<string>() { Game1.MasterPlayer.eventsSeen.Contains("6665293")? 
+    public static IList<string> Candidates { get; set; } = new List<string>() { Game1.MasterPlayer.eventsSeen.Contains(CompatibilityKeys.MorrisIsMayorEventID)? 
                                                                                         ModNPCKeys.MorrisId: 
                                                                                         ModNPCKeys.LewisId, 
                                                                                 Game1.MasterPlayer.Name };

@@ -1,69 +1,71 @@
 ﻿{
-    "Changes": [
-        // Mail backgrounds
-        {
-            "LogName": "Load new image for Mail background",
-            "Action": "Load",
-            "Target": "Mods/{{ModId}}/ElectionLetterBG",
-            "FromFile": "Assets/Mail/LetterBackground.png"
+  "Changes": [
+    // Mail backgrounds
+    {
+      "LogName": "Load new image for Mail background",
+      "Action": "Load",
+      "Target": "Mods/{{ModId}}/ElectionLetterBG",
+      "FromFile": "Assets/Mail/LetterBackground.png"
+    },
+    // Mails
+    {
+      "LogName": "Loading Mails",
+      "Action": "EditData",
+      "Target": "Data/Mail",
+      "Entries": {
+        "{{ModId}}_RegisteredForElectionMail": "{{i18n:{{ModId}}_Mail.RegistrationMail.Body}} {{EmuEngine.MayorMod/VotingDaySeason}} {{EmuEngine.MayorMod/VotingDayDay}} {{i18n:{{ModId}}_Mail.RegistrationMail.Body2}}[#]{{i18n:{{ModId}}_Mail.RegistrationMail.Title}}",
+        "{{ModId}}_TalkingToVotersMail": "{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Body}} %item object EmuEngine.MayorModCP_Leaflet 20%%[#]{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Title}}",
+        "{{ModId}}_CampaignMail": "{{i18n:{{ModId}}_Mail.CampaignMail.Body}} %item bigobject EmuEngine.MayorModCP_ElectionSign%%[#]{{i18n:{{ModId}}_Mail.CampaignMail.Title}}",
+        "{{ModId}}_TownCouncilMail": "{{i18n:{{ModId}}_Mail.TownCouncilMail.Body}}[#]{{i18n:{{ModId}}_Mail.TownCouncilMail.Title}}",
+        "{{ModId}}_WonElectionMail": "{{i18n:{{ModId}}_Mail.WonElectionMail.Body}} %item object EmuEngine.MayorModCP_MayorSuitJacket 1%%[#]{{i18n:{{ModId}}_Mail.WonElectionMail.Title}}",
+        "{{ModId}}_WonOfficialElectionMail": "{{i18n:{{ModId}}_Mail.WonOfficialElectionMail.Body}}^{{EmuEngine.MayorMod/VotingResultText}}^{{i18n:{{ModId}}_Mail.OfficialElectionMail.Body2}} [letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black][#]{{i18n:{{ModId}}_Mail.WonOfficialElectionMail.Title}}",
+        "{{ModId}}_LoseOfficialElectionMail": "{{i18n:{{ModId}}_Mail.LoseOfficialElectionMail.Body}}^{{EmuEngine.MayorMod/VotingResultText}}^{{i18n:{{ModId}}_Mail.OfficialElectionMail.Body2}} [letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black][#]{{i18n:{{ModId}}_Mail.LoseOfficialElectionMail.Title}}",
+        "{{ModId}}_VoteTomorrowMail": "{{i18n:{{ModId}}_Mail.VoteTomorrowMail.Body}} [#]{{i18n:{{ModId}}_Mail.VoteTomorrowMail.Title}}"
+      }
+    },
+    //Send mail
+    {
+      "Action": "EditData",
+      "Target": "Data/TriggerActions",
+      "Entries": {
+        "{{ModId}}_TalkingToVotersMailTrigger": {
+          "Id": "{{ModId}}_TalkingToVotersMailTrigger",
+          "Trigger": "DayStarted",
+          "HostOnly": "true",
+          "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic",
+          "Actions": [
+            "AddMail Current {{ModId}}_TalkingToVotersMail",
+            "AddConversationTopic {{ModId}}_TalkingToVotersTopic 8"
+          ]
         },
-        // Mails
-        {
-            "LogName": "Loading Mails",
-            "Action": "EditData",
-            "Target": "Data/Mail",
-            "Entries": {
-                "{{ModId}}_RegisteredForElectionMail": "{{i18n:{{ModId}}_Mail.RegistrationMail.Body}} {{EmuEngine.MayorMod/VotingDaySeason}} {{EmuEngine.MayorMod/VotingDayDay}} {{i18n:{{ModId}}_Mail.RegistrationMail.Body2}}[#]{{i18n:{{ModId}}_Mail.RegistrationMail.Title}}",
-                "{{ModId}}_TalkingToVotersMail": "{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Body}} %item object EmuEngine.MayorModCP_Leaflet 20%%[#]{{i18n:{{ModId}}_Mail.TalkingToVotersMail.Title}}",
-                "{{ModId}}_CampaignMail": "{{i18n:{{ModId}}_Mail.CampaignMail.Body}} %item bigobject EmuEngine.MayorModCP_ElectionSign%%[#]{{i18n:{{ModId}}_Mail.CampaignMail.Title}}",
-                "{{ModId}}_TownCouncilMail": "{{i18n:{{ModId}}_Mail.TownCouncilMail.Body}} [#]{{i18n:{{ModId}}_Mail.TownCouncilMail.Title}}",
-                "{{ModId}}_WonElectionMail": "{{i18n:{{ModId}}_Mail.WonElectionMail.Body}} %item object EmuEngine.MayorModCP_MayorSuitJacket 1%%[#]{{i18n:{{ModId}}_Mail.WonElectionMail.Title}}",
-                "{{ModId}}_VoteTomorrowMail": "{{i18n:{{ModId}}_Mail.VoteTomorrowMail.Body}} [#]{{i18n:{{ModId}}_Mail.VoteTomorrowMail.Title}}"
-            }
+        "{{ModId}}_TownCouncilMailTrigger": {
+          "Id": "{{ModId}}_TownCouncilMailTrigger",
+          "Trigger": "DayEnding",
+          "HostOnly": "true",
+          "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_CouncilMailTopic",
+          "Actions": [
+            "AddMail Current {{ModId}}_TownCouncilMail"
+          ]
         },
-        //Send mail
-        {
-            "Action": "EditData",
-            "Target": "Data/TriggerActions",
-            "Entries": {
-                "{{ModId}}_TalkingToVotersMailTrigger": {
-                    "Id": "{{ModId}}_TalkingToVotersMailTrigger",
-                    "Trigger": "DayStarted",
-                    "HostOnly": "true",
-                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_RegisteredForBallotTopic",
-                    "Actions": [
-                        "AddMail Current {{ModId}}_TalkingToVotersMail",
-                        "AddConversationTopic {{ModId}}_TalkingToVotersTopic 8"
-                    ]
-                },
-                "{{ModId}}_TownCouncilMailTrigger": {
-                    "Id": "{{ModId}}_TownCouncilMailTrigger",
-                    "Trigger": "DayEnding",
-                    "HostOnly": "true",
-                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received,!PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_CouncilMailTopic",
-                    "Actions": [
-                        "AddMail Current {{ModId}}_TownCouncilMail"
-                    ]
-                },
-                "{{ModId}}_MayorDebateTrigger": {
-                    "Id": "{{ModId}}_MayorDebateTrigger",
-                    "Trigger": "DayStarted",
-                    "HostOnly": "true",
-                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received, !PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_MayorDebateTopic",
-                    "Actions": [
-                        "AddMail Current {{ModId}}_MayorDebateMail received"
-                    ]
-                },
-                "{{ModId}}_PutUpPostersMailTrigger": {
-                    "Id": "{{ModId}}_PutUpPostersMailTrigger",
-                    "Trigger": "DayStarted",
-                    "HostOnly": "true",
-                    "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received, !PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_PutUpPostersTopic",
-                    "Actions": [
-                        "AddMail Current {{ModId}}_CampaignMail"
-                    ]
-                }
-            }
+        "{{ModId}}_MayorDebateTrigger": {
+          "Id": "{{ModId}}_MayorDebateTrigger",
+          "Trigger": "DayStarted",
+          "HostOnly": "true",
+          "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received, !PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_MayorDebateTopic",
+          "Actions": [
+            "AddMail Current {{ModId}}_MayorDebateMail received"
+          ]
+        },
+        "{{ModId}}_PutUpPostersMailTrigger": {
+          "Id": "{{ModId}}_PutUpPostersMailTrigger",
+          "Trigger": "DayStarted",
+          "HostOnly": "true",
+          "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_RunningForMayor Received, !PLAYER_HAS_CONVERSATION_TOPIC Current {{ModId}}_PutUpPostersTopic",
+          "Actions": [
+            "AddMail Current {{ModId}}_CampaignMail"
+          ]
         }
-    ]
+      }
+    }
+  ]
 }

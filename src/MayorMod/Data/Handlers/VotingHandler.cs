@@ -14,7 +14,7 @@ public class VotingHandler
     public static readonly string TalkingToVotersTopic = $"{ModKeys.MAYOR_MOD_CPID}_TalkingToVotersTopic";
     public static readonly string MayorDebateEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorDebateEvent";
     public static readonly string LeafletItem = $"{ModKeys.MAYOR_MOD_CPID}_Leaflet";
-    public static readonly IList<string> Voters = 
+    public static readonly IList<string> Voters =
                                 new List<string>(){"Alex","Elliott","Harvey","Sam","Sebastian","Shane",
                                                    "Abigail","Emily","Haley","Leah","Maru","Penny","Caroline",
                                                    "Clint","Demetrius","Evelyn","George","Gus","Jodi","Kent",
@@ -60,7 +60,7 @@ public class VotingHandler
     /// <returns>True if the NPC has been canvassed, false otherwise.</returns>
     public bool HasNPCBeenCanvassed(string name)
     {
-        return _farmer.mailReceived.Any(m => m.Trim().Equals($"{name}_{TalkingToVotersTopic}" ,StringComparison.InvariantCultureIgnoreCase));
+        return _farmer.mailReceived.Any(m => m.Trim().Equals($"{name}_{TalkingToVotersTopic}", StringComparison.InvariantCultureIgnoreCase));
     }
 
     /// <summary>
@@ -98,7 +98,7 @@ public class VotingHandler
         {
             //TODO: Count votes for multiplayer
         }
-        if (ModProgressHandler.HasProgressFlag(ProgressFlags.VotedForMayor)) 
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.VotedForMayor))
         {
             //If you dont for for yourself you're voting for Lewis
             votes = ModProgressHandler.HasProgressFlag(ProgressFlags.HasVotedForHostFarmer) ? 1 : -1;
@@ -189,7 +189,20 @@ public class VotingHandler
     public bool HasWonElection(IModHelper helper)
     {
         var voters = GetVotingVillagers(helper);
-        var threshold = voters.Count * (_mayorModConfig.VoterPercentageNeeded/100.0);
+        var threshold = voters.Count * (_mayorModConfig.VoterPercentageNeeded / 100.0);
         return CalculateTotalVotes(helper) > threshold;
+    }
+
+    /// <summary>
+    /// Generates a formatted text summary of the voting results for the current mayoral election.
+    /// </summary>
+    /// <returns>The formatted voting results text.</returns>
+    public string GetVotingResultText(IModHelper helper)
+    {
+        var totalVoters = GetVotingVillagers(helper).Count;
+        var votesFor = CalculateTotalVotes(helper);
+        var votesAgainst = totalVoters - votesFor;
+        var currentMayorName = ModUtils.GetCurrentMayor(helper);
+        return string.Format(ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.OfficialElectionMail.ResultText"), votesFor, currentMayorName,votesAgainst);
     }
 }

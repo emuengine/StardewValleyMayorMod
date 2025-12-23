@@ -7,6 +7,7 @@ public static class CompatibilityKeys
     public static readonly string DeedOfLand = "DeedOfLand";
     public static readonly string PlayerWillExpandFarm = "PlayerWillExpandFarm";
     public static readonly string LewisSpecialOrderEventID = "8033861";
+    public static readonly string MorrisIsMayorEventID = "6665293";
 
     //Law and Order SV Keys
     public const string LEWIS_UNDER_INVESTIGATION = "sdvhead.LawAndOrderSV_Mail_LewisNote";

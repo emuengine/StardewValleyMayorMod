@@ -158,11 +158,13 @@ internal sealed class ModEntry : Mod
             if (voteManager.HasWonElection(Helper))
             {
                 ModProgressHandler.AddProgressFlag(ProgressFlags.WonMayorElection);
+                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonOfficialElectionMail");
                 Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonElectionMail");
                 _assetInvalidationHandler.UpdateAssetInvalidations();
             }
             else
             {
+                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_LoseOfficialElectionMail");
                 ModProgressHandler.AddProgressFlag(ProgressFlags.LostMayorElection);
             }
         }
@@ -317,6 +319,11 @@ internal sealed class ModEntry : Mod
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_DAY_TOKEN, () =>
         {
             return SaveHandler.SaveData is not null && SaveHandler.SaveData.VotingDate is not null ? new List<string>() { $"{SaveHandler.SaveData.VotingDate.Day}" } : null;
+        });
+        api?.RegisterToken(this.ModManifest, ModKeys.VOTING_RESULT_TOKEN, () =>
+        {
+            var result = new VotingHandler(Game1.MasterPlayer, _configHandler.ModConfig).GetVotingResultText(Helper);
+            return !string.IsNullOrEmpty(result) ? new List<string>() { result } : null;
         });
     }
 }

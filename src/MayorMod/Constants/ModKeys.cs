@@ -11,6 +11,7 @@ public static partial class ModKeys
     public const string MEETING_DAYS_TOKEN = "CouncilMeetingDays";
     public const string VOTING_SEASON_TOKEN = "VotingDaySeason";
     public const string VOTING_DAY_TOKEN = "VotingDayDay";
+    public const string VOTING_RESULT_TOKEN = "VotingResultText";
     public const int DEED_COST = 250000;
     public const string RESET_COMMAND = "MayorModReset";
     public const string RESET_COMMAND_HELP_TEXT = "Resets the mod by removing all mail, events, and progress flags, restoring it to a fresh install state.";

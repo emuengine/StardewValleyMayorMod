@@ -652,4 +652,26 @@ public static class ModUtils
         SaveHandler.UpdateGoldStatueTexture(mergedTexture);
         return mergedTexture;
     }
+
+    /// <summary>
+    /// Gets the name of the current mayor based on the player's progress and game events.
+    /// </summary>
+    /// <returns>A string containing the name of the current mayor.</returns>
+    public static string GetCurrentMayor(IModHelper helper)
+    {
+        var morrisIsMayor = Game1.MasterPlayer.eventsSeen.Contains(CompatibilityKeys.MorrisIsMayorEventID);
+        var playerIsMayor = ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor);
+        if (playerIsMayor)
+        {
+            return Game1.MasterPlayer.Name;
+        }
+        else if (morrisIsMayor)
+        {
+            return GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_AssetUpdates.SubString.Morris");
+        }
+        else
+        {
+            return GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_AssetUpdates.SubString.Lewis");
+        }
+    }
 }

@@ -50,6 +50,15 @@
 	"EmuEngine.MayorModCP_Mail.WonElectionMail.Title": "Election Win",
 	"EmuEngine.MayorModCP_Mail.WonElectionMail.Body": "Congratulations Mayor @! ^^I think you may need this today!^^-Marlon",
 
+	"EmuEngine.MayorModCP_Mail.OfficialElectionMail.ResultText": "Voting results:  @ {0}   {1} {2}",
+	"EmuEngine.MayorModCP_Mail.OfficialElectionMail.Body2": "^Sincerely,^Angela,^Chair of S.V. Election Committee",
+
+	"EmuEngine.MayorModCP_Mail.WonOfficialElectionMail.Title": "Official Election Win",
+	"EmuEngine.MayorModCP_Mail.WonOfficialElectionMail.Body": "Dear @,^^Re: Pelican town election result^^We would like to congratulate you on your election win. The governor will swear you in as mayor today.",
+
+	"EmuEngine.MayorModCP_Mail.LoseOfficialElectionMail.Title": "Official Election Lose",
+	"EmuEngine.MayorModCP_Mail.LoseOfficialElectionMail.Body": "Dear @,^^Re: Pelican town election result^^We regret to inform you that you did not get the required number of votes to win the town election.",
+
 
 	//////////////////////
 	//Quests
@@ -733,6 +742,7 @@
 	//SVE substring replacements
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.LetMayorLewisKnow": " I'll let Mayor Lewis know.",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.Pierre": "Pierre",
+	"EmuEngine.MayorModCP_AssetUpdates.SubString.Morris": "Morris",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.FromMayorLewis": " from Mayor Lewis",
 	"EmuEngine.MayorModCP_AssetUpdates.SubString.TheGovernor": "the Governor",
 
