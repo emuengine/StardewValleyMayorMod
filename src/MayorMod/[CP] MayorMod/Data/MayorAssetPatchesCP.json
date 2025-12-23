@@ -1,359 +1,373 @@
 {
     // Update dialogue that references the mayor when farmer becomes mayor
-    "Changes": [
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/MarriageDialogueSam",
-            "Priority": "Late",
-            "Entries": {
-                "Outdoor_0": "{{i18n:{{ModId}}_AssetUpdates.MarriageDialogueSam.Outdoor_0}}"
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Sam",
-            "Priority": "Late",
-            "Entries": {
-                "eventSeen_45": "{{i18n:{{ModId}}_AssetUpdates.Sam.eventSeen_45}}",
-                "eventSeen_45_memory_oneweek": "{{i18n:{{ModId}}_AssetUpdates.Sam.eventSeen_45_memory_oneweek}}"
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Data/Quests",
-            "Priority": "Late",
-            "Entries": {
-                "3": "{{i18n:{{ModId}}_AssetUpdates.Quests.3}}",
-                "4": "{{i18n:{{ModId}}_AssetUpdates.Quests.4}}"
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Data/Festivals/summer11",
-            "Priority": "Late",
-            "Entries": {
-                "Pierre": "{{i18n:{{ModId}}_AssetUpdates.Festivals.summer11.Pierre}}",
-                "Penny": "{{i18n:{{ModId}}_AssetUpdates.Festivals.summer11.Penny}}",
-                //SVE
-                "Olivia": "{{i18n:{{ModId}}_AssetUpdates.luau.Olivia.1}}",
-                "Andy": "{{i18n:{{ModId}}_AssetUpdates.Andy.Luau}}"
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Data/ExtraDialogue",
-            "Priority": "Late",
-            "Entries": {
-                "SummitEvent_Dialogue1_Lewis": "{{i18n:{{ModId}}_AssetUpdates.ExtraDialogue.SummitEvent_Dialogue1_Lewis}}"
-            }
-        },
-        {
-            "LogName": "Update lewis schedule for when farmer becomes mayor",
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Strings/schedules/Lewis",
-            "Entries": {
-                "15.000": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.15.000}}",
-                "6.000": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.6.000}}",
-                "3.000": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.3.000}}",
-                "6.001": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.6.001}}"
-            }
-        },
-        {
-            "LogName": "Update strings for Mayor machines",
-            "Action": "EditData",
-            "Target": "Strings/Locations",
-            "Entries": {
-                "ManorHouse_MayorFridge_Initial": "{{i18n:{{ModId}}_UIMenu.ManorHouse_MayorFridge_Initial}}",
-                "ManorHouse_LedgerBook_Singleplayer": "{{i18n:{{ModId}}_UIMenu.ManorHouse_LedgerBook_Singleplayer}}",
-                "ManorHouse_LedgerBook_SharedWallets_Client": "{{i18n:{{ModId}}_UIMenu.ManorHouse_LedgerBook_SharedWallets_Client}}",
-                "ManorHouse_LedgerBook_SeparateWallets_HostQuestion": "{{i18n:{{ModId}}_UIMenu.ManorHouse_LedgerBook_SeparateWallets_HostQuestion}}"
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Evelyn",
-            "Priority": "Late",
-            "Entries": {
-                "Wed": "{{i18n:{{ModId}}_AssetUpdates.Evelyn.Wed}}",
-                "summer_Wed": "{{i18n:{{ModId}}_AssetUpdates.Evelyn.summer_Wed}}",
-                "fall_Wed": "{{i18n:{{ModId}}_AssetUpdates.Evelyn.fall_Wed}}"
-            }
-        },
-        //SVE compat fix
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Characters/Dialogue/Victor",
-            "Entries": {
-                "give_pendant": "{{i18n:{{ModId}}_AssetUpdates.Dialogue.Victor.CharacterDialogue.012}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Characters/Dialogue/Olivia",
-            "Entries": {
-                "joja_yes": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.036}}",
-                "summer_3_1": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.082}}",
-                "summer_Tue6": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.089}}",
-                "summer_Sat": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.102}}",
-                "summer_Sat4": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.103}}",
-                "fall_Tue": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.118}}",
-                "winter_Wed8": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.152}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Characters/Dialogue/MorrisTod",
-            "Entries": {
-                "spring_12": "{{i18n:{{ModId}}_AssetUpdates.Morris.CharacterDialogue.013}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Characters/Dialogue/Andy",
-            "Entries": {
-                "summer_Tue2": "{{i18n:{{ModId}}_AssetUpdates.Andy.CharacterDialogue.054}}",
-                "fall_Sun": "{{i18n:{{ModId}}_AssetUpdates.Andy.CharacterDialogue.089}}",
-                "winter_Sat4": "{{i18n:{{ModId}}_AssetUpdates.Andy.CharacterDialogue.110}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Characters/Dialogue/Susan",
-            "Entries": {
-                "summer_Sat": "{{i18n:{{ModId}}_AssetUpdates.Susan.CharacterDialogue.058}}",
-                "fall_26": "{{i18n:{{ModId}}_AssetUpdates.Susan.CharacterDialogue.067}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "data/festivals/summer11",
-            "Entries": {
-                "Susan": "{{i18n:{{ModId}}_AssetUpdates.Susan.Luau.1}}"
-            },
-            "When": {
-                "HasSeenEvent |contains=6665293": false,
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Characters/Dialogue/MarlonFay",
-            "Entries": {
-                "spring_23": "{{i18n:{{ModId}}_AssetUpdates.Marlon.CharacterDialogue.011}}",
-                "fall_15": "{{i18n:{{ModId}}_AssetUpdates.Marlon.CharacterDialogue.049}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Characters/Dialogue/GuntherSilvian",
-            "Entries": {
-                "Tue": "{{i18n:{{ModId}}_AssetUpdates.Gunther.CharacterDialogue.015}}",
-                "fall_15": "{{i18n:{{ModId}}_AssetUpdates.Gunther.CharacterDialogue.035}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "data/events/farm",
-            "Entries": {
-                "6666291/w sunny/t 600 800/k 6665291": null,
-                "6665291/f MorrisTod 2500/e 6665290/e 6663408/y 2/w sunny/H": null
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Data/Events/town",
-            "Entries": {
-                "6665292/e 6665291/w sunny/t 900 1700/H": null,
-                "6665293/w sunny/t 800 1700/H": null,
-                "6665294/w sunny/t 1100 1600/H": null,
-                "5553213/e 6665293/t 600 1830/w sunny/H": null,
-                "5553213/e 6665293/t 600 1830/w rainy/H": null,
-                //Andy
-                "5000001/f Andy 500/z winter/t 1000 1600/w sunny": null,
-                //East Scarp
-                //Event where Aideen asks Lewis to update the garden. Probably need to rewrite it. 
-                //For now just remove the event.
-                "57871014/f Aideen 3500/e 191393/O Aideen/w sunny/t 1100 1700/z winter": null
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Characters/Dialogue/MorrisTod",
-            "Entries": {
-                "Wed10": null,
-                "summer_Mon10": null,
-                "summer_Tue10": null,
-                "summer_Thu10": null,
-                "summer_Fri10": null,
-                "summer_Sun10": null,
-                "fall_Mon10": null,
-                "fall_Tue10": null,
-                "fall_Wed10": null,
-                "fall_Thu10": null,
-                "fall_Fri10": null,
-                "fall_Sat10": null,
-                "fall_Sun10": null,
-                "winter_Tue10": null,
-                "winter_Thu10": null,
-                "winter_Fri10": null,
-                "winter_Sat10": null,
-                "winter_Sun10": null
-            },
-            "When": {
-                "HasSeenEvent": "6665293",
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            //Morris' Schedule
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Characters/schedules/MorrisTod",
-            "When": {
-                "HasSeenEvent |contains=5553210": true,
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            },
-            "Entries": {
-                "spring": "610 Town 88 51 2/940 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
-                "Mon": "610 Town 88 51 2/940 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
-                "Tue": "610 Town 100 60 2/900 Town 86 63 3/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
-                "Wed": "610 Town 43 59 1 Morris_Coupon/900 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
-                "Thu": "610 Town 72 54 2/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
-                "Fri": "610 Town 93 52 2/940 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
-                "Sat": "610 Town 97 63 1/900 Town 88 51 2/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
-                "Sun": "610 Town 76 54 2/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
-                "rain": "610 Town 92 44 3/630 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0"
-            }
-        },
-        {
-            //Replaced by ExpandGrandpasFarmEvent
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "data/events/farmhouse",
-            "Entries": {
-                "8033858/t 600 2200/j 268/w sunny/H": null,
-                "8033858/t 600 2200/w sunny/H": null
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "data/events/farm",
-            "Entries": {
-                "8033861/t 600 1100/H": null
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "data/events/ManorHouse",
-            "Entries": {
-                "8033859/e 8033758/H": null
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "data/events/JojaMart",
-            "Entries": {
-                "9033859/e 8033758/H": null
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        // Ridgeside
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "data/festivals/fall20",
-            "Entries": {
-                "Vincent": "{{i18n:{{ModId}}_AssetUpdates.GatheringDialogue.Vincent}}"
-            },
-            "When": {
-                "HasMod | contains=Rafseazz.RSVCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Characters/Dialogue/Richard",
-            "Entries": {
-                "Sun2": "{{i18n:{{ModId}}_AssetUpdates.Richard.Dialogue.Sun2}}"
-            }
-        },
-        // East Scarp
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Characters/schedules/JosephineK",
-            "Entries": {
-                "Sun": "GOTO Fri"
-            },
-            "When": {
-                "HasSeenEvent": "57873000",
-                "HasSeenEvent |contains=57873005": "false",
-                "HasMod | contains=Lemurkat.EastScarpNPCs.CP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Priority": "Late",
-            "Target": "Data/Events/Farm",
-            "Entries": {
-                // Event where lewis runs a dinner party with the Governor. Maybe we can think of a clever update to 
-                // do in future but probably just need to rewrite it completely becuase there are a lot of referneces 
-                // to him as mayor. For now just remove the event.
-                "57873049/f JosephineK 2500/f OliverK 2000/z winter/e 57873021/e 57872021/A Oliver_Jacob_Help": null
-            }
-        }
-    ]
+  "Changes": [
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/MarriageDialogueSam",
+      "Priority": "Late",
+      "Entries": {
+        "Outdoor_0": "{{i18n:{{ModId}}_AssetUpdates.MarriageDialogueSam.Outdoor_0}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Sam",
+      "Priority": "Late",
+      "Entries": {
+        "eventSeen_45": "{{i18n:{{ModId}}_AssetUpdates.Sam.eventSeen_45}}",
+        "eventSeen_45_memory_oneweek": "{{i18n:{{ModId}}_AssetUpdates.Sam.eventSeen_45_memory_oneweek}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Quests",
+      "Priority": "Late",
+      "Entries": {
+        "3": "{{i18n:{{ModId}}_AssetUpdates.Quests.3}}",
+        "4": "{{i18n:{{ModId}}_AssetUpdates.Quests.4}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Festivals/summer11",
+      "Priority": "Late",
+      "Entries": {
+        "Pierre": "{{i18n:{{ModId}}_AssetUpdates.Festivals.summer11.Pierre}}",
+        "Penny": "{{i18n:{{ModId}}_AssetUpdates.Festivals.summer11.Penny}}",
+        //SVE
+        "Olivia": "{{i18n:{{ModId}}_AssetUpdates.luau.Olivia.1}}",
+        "Andy": "{{i18n:{{ModId}}_AssetUpdates.Andy.Luau}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/ExtraDialogue",
+      "Priority": "Late",
+      "Entries": {
+        "SummitEvent_Dialogue1_Lewis": "{{i18n:{{ModId}}_AssetUpdates.ExtraDialogue.SummitEvent_Dialogue1_Lewis}}"
+      }
+    },
+    {
+      "LogName": "Update lewis schedule for when farmer becomes mayor",
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Strings/schedules/Lewis",
+      "Entries": {
+        "15.000": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.15.000}}",
+        "6.000": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.6.000}}",
+        "3.000": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.3.000}}",
+        "6.001": "{{i18n:{{ModId}}_AssetUpdates.Schedules.Lewis.6.001}}",
+        "CommunityDay_Lewis": "{{i18n:{{ModId}}_AssetUpdates.CommunityDay.Dialogue.01}}"
+      }
+    },
+    {
+      "LogName": "Update strings for Mayor machines",
+      "Action": "EditData",
+      "Target": "Strings/Locations",
+      "Entries": {
+        "ManorHouse_MayorFridge_Initial": "{{i18n:{{ModId}}_UIMenu.ManorHouse_MayorFridge_Initial}}",
+        "ManorHouse_LedgerBook_Singleplayer": "{{i18n:{{ModId}}_UIMenu.ManorHouse_LedgerBook_Singleplayer}}",
+        "ManorHouse_LedgerBook_SharedWallets_Client": "{{i18n:{{ModId}}_UIMenu.ManorHouse_LedgerBook_SharedWallets_Client}}",
+        "ManorHouse_LedgerBook_SeparateWallets_HostQuestion": "{{i18n:{{ModId}}_UIMenu.ManorHouse_LedgerBook_SeparateWallets_HostQuestion}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Evelyn",
+      "Priority": "Late",
+      "Entries": {
+        "Wed": "{{i18n:{{ModId}}_AssetUpdates.Evelyn.Wed}}",
+        "summer_Wed": "{{i18n:{{ModId}}_AssetUpdates.Evelyn.summer_Wed}}",
+        "fall_Wed": "{{i18n:{{ModId}}_AssetUpdates.Evelyn.fall_Wed}}"
+      }
+    },
+    //SVE compat fix
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Dialogue/Victor",
+      "Entries": {
+        "give_pendant": "{{i18n:{{ModId}}_AssetUpdates.Dialogue.Victor.CharacterDialogue.012}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Dialogue/Olivia",
+      "Entries": {
+        "joja_yes": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.036}}",
+        "summer_3_1": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.082}}",
+        "summer_Tue6": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.089}}",
+        "summer_Sat": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.102}}",
+        "summer_Sat4": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.103}}",
+        "fall_Tue": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.118}}",
+        "winter_Wed8": "{{i18n:{{ModId}}_AssetUpdates.Olivia.CharacterDialogue.152}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Dialogue/MorrisTod",
+      "Entries": {
+        "spring_12": "{{i18n:{{ModId}}_AssetUpdates.Morris.CharacterDialogue.013}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Dialogue/Andy",
+      "Entries": {
+        "summer_Tue2": "{{i18n:{{ModId}}_AssetUpdates.Andy.CharacterDialogue.054}}",
+        "fall_Sun": "{{i18n:{{ModId}}_AssetUpdates.Andy.CharacterDialogue.089}}",
+        "winter_Sat4": "{{i18n:{{ModId}}_AssetUpdates.Andy.CharacterDialogue.110}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Dialogue/Susan",
+      "Entries": {
+        "summer_Sat": "{{i18n:{{ModId}}_AssetUpdates.Susan.CharacterDialogue.058}}",
+        "fall_26": "{{i18n:{{ModId}}_AssetUpdates.Susan.CharacterDialogue.067}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "data/festivals/summer11",
+      "Entries": {
+        "Susan": "{{i18n:{{ModId}}_AssetUpdates.Susan.Luau.1}}",
+        "Susan_y2": "{{i18n:{{ModId}}_AssetUpdates.Susan.Luau.2}}"
+      },
+      "When": {
+        "HasSeenEvent |contains=6665293": false,
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "data/festivals/summer11",
+      "Entries": {
+        "Susan": "{{i18n:{{ModId}}_AssetUpdates.Susan.Luau.2}}",
+        "Susan_y2": "{{i18n:{{ModId}}_AssetUpdates.Susan.Luau.2}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Dialogue/MarlonFay",
+      "Entries": {
+        "spring_23": "{{i18n:{{ModId}}_AssetUpdates.Marlon.CharacterDialogue.011}}",
+        "fall_15": "{{i18n:{{ModId}}_AssetUpdates.Marlon.CharacterDialogue.049}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Dialogue/GuntherSilvian",
+      "Entries": {
+        "Tue": "{{i18n:{{ModId}}_AssetUpdates.Gunther.CharacterDialogue.015}}",
+        "fall_15": "{{i18n:{{ModId}}_AssetUpdates.Gunther.CharacterDialogue.035}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "data/events/farm",
+      "Entries": {
+        "6666291/w sunny/t 600 800/k 6665291": null,
+        "6665291/f MorrisTod 2500/e 6665290/e 6663408/y 2/w sunny/H": null
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Data/Events/town",
+      "Entries": {
+        "6665292/e 6665291/w sunny/t 900 1700/H": null,
+        "6665293/w sunny/t 800 1700/H": null,
+        "6665294/w sunny/t 1100 1600/H": null,
+        "5553213/e 6665293/t 600 1830/w sunny/H": null,
+        "5553213/e 6665293/t 600 1830/w rainy/H": null,
+        //Andy
+        "5000001/f Andy 500/z winter/t 1000 1600/w sunny": null,
+        //East Scarp
+        //Event where Aideen asks Lewis to update the garden. Probably need to rewrite it. 
+        //For now just remove the event.
+        "57871014/f Aideen 3500/e 191393/O Aideen/w sunny/t 1100 1700/z winter": null
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Dialogue/MorrisTod",
+      "Entries": {
+        "Wed10": null,
+        "summer_Mon10": null,
+        "summer_Tue10": null,
+        "summer_Thu10": null,
+        "summer_Fri10": null,
+        "summer_Sun10": null,
+        "fall_Mon10": null,
+        "fall_Tue10": null,
+        "fall_Wed10": null,
+        "fall_Thu10": null,
+        "fall_Fri10": null,
+        "fall_Sat10": null,
+        "fall_Sun10": null,
+        "winter_Tue10": null,
+        "winter_Thu10": null,
+        "winter_Fri10": null,
+        "winter_Sat10": null,
+        "winter_Sun10": null
+      },
+      "When": {
+        "HasSeenEvent": "6665293",
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      //Morris' Schedule
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/schedules/MorrisTod",
+      "When": {
+        "HasSeenEvent |contains=5553210": true,
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      },
+      "Entries": {
+        "spring": "610 Town 88 51 2/940 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+        "Mon": "610 Town 88 51 2/940 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+        "Tue": "610 Town 100 60 2/900 Town 86 63 3/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+        "Wed": "610 Town 43 59 1 Morris_Coupon/900 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+        "Thu": "610 Town 72 54 2/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+        "Fri": "610 Town 93 52 2/940 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+        "Sat": "610 Town 97 63 1/900 Town 88 51 2/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+        "Sun": "610 Town 76 54 2/930 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0",
+        "rain": "610 Town 92 44 3/630 JojaMart 24 26 3/2300 BusStop 22 8 0/2510 BusStop 22 9 0/2520 Custom_DayEnd_WarpRoom 3 3 0"
+      }
+    },
+    {
+      //Replaced by ExpandGrandpasFarmEvent
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "data/events/farmhouse",
+      "Entries": {
+        "8033858/t 600 2200/j 268/w sunny/H": null,
+        "8033858/t 600 2200/w sunny/H": null
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "data/events/farm",
+      "Entries": {
+        "8033861/t 600 1100/H": null
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "data/events/ManorHouse",
+      "Entries": {
+        "8033859/e 8033758/H": null
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "data/events/JojaMart",
+      "Entries": {
+        "9033859/e 8033758/H": null
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    // Ridgeside
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "data/festivals/fall20",
+      "Entries": {
+        "Vincent": "{{i18n:{{ModId}}_AssetUpdates.GatheringDialogue.Vincent}}"
+      },
+      "When": {
+        "HasMod | contains=Rafseazz.RSVCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/Dialogue/Richard",
+      "Entries": {
+        "Sun2": "{{i18n:{{ModId}}_AssetUpdates.Richard.Dialogue.Sun2}}"
+      }
+    },
+    // East Scarp
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Characters/schedules/JosephineK",
+      "Entries": {
+        "Sun": "GOTO Fri"
+      },
+      "When": {
+        "HasSeenEvent": "57873000",
+        "HasSeenEvent |contains=57873005": "false",
+        "HasMod | contains=Lemurkat.EastScarpNPCs.CP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Priority": "Late",
+      "Target": "Data/Events/Farm",
+      "Entries": {
+        // Event where lewis runs a dinner party with the Governor. Maybe we can think of a clever update to 
+        // do in future but probably just need to rewrite it completely becuase there are a lot of referneces 
+        // to him as mayor. For now just remove the event.
+        "57873049/f JosephineK 2500/f OliverK 2000/z winter/e 57873021/e 57872021/A Oliver_Jacob_Help": null
+      }
+    }
+  ]
 }
