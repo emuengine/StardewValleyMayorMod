@@ -6,7 +6,7 @@ using StardewModdingAPI;
 using StardewValley;
 using static StardewValley.FarmerRenderer;
 
-namespace MayorMod.Data
+namespace MayorMod.Data.Utilities
 {
     internal static class TextureUtils
     {

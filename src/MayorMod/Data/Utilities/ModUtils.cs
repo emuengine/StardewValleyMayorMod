@@ -8,7 +8,7 @@ using StardewValley;
 using StardewValley.GameData;
 using static StardewValley.GameLocation;
 
-namespace MayorMod.Data;
+namespace MayorMod.Data.Utilities;
 public static class ModUtils
 {
     public static Random RNG { get; } = new();
