@@ -1,5 +1,6 @@
 ﻿using MayorMod.Constants;
 using MayorMod.Data.Models;
+using MayorMod.Data.Utilities;
 using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewModdingAPI.Utilities;
@@ -50,7 +51,7 @@ public static class SaveHandler
         //this needs to be saved somewhere else
         if (SaveData is not null)
         {
-            SaveData.GoldStaueBase64Image = ModUtils.ConvertTextureToBase64String(_monitor, goldStatueTexture);
+            SaveData.GoldStaueBase64Image = TextureUtils.ConvertTextureToBase64String(_monitor, goldStatueTexture);
             _helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
         }
     }

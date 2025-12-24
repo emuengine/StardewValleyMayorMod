@@ -1,5 +1,6 @@
 using HarmonyLib;
 using MayorMod.Constants;
+using MayorMod.Data.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
@@ -75,10 +76,10 @@ public static class HarmonyHandler
         {
             if (!string.IsNullOrEmpty(SaveHandler.SaveData.GoldStaueBase64Image))
             {
-                _cachedGoldStatueTexture = ModUtils.DecodeTextureFromBase64String(_monitor, SaveHandler.SaveData.GoldStaueBase64Image);
+                _cachedGoldStatueTexture = TextureUtils.DecodeTextureFromBase64String(_monitor, SaveHandler.SaveData.GoldStaueBase64Image);
             }
 
-            _cachedGoldStatueTexture ??= ModUtils.InitGoldStatueTexture();
+            _cachedGoldStatueTexture ??= TextureUtils.InitGoldStatueTexture();
 
             if (_cachedGoldStatueTexture is not null)
             {
@@ -102,7 +103,7 @@ public static class HarmonyHandler
     {
         if (__instance.QualifiedItemId == $"(F){ModItemKeys.GoldStatue}")
         {
-            _cachedGoldStatueTexture = ModUtils.InitGoldStatueTexture();
+            _cachedGoldStatueTexture = TextureUtils.InitGoldStatueTexture();
 
             return false;
         }

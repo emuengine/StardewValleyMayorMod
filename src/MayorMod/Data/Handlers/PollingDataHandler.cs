@@ -1,6 +1,7 @@
 ﻿using MayorMod.Constants;
 using MayorMod.Data.Menu;
 using MayorMod.Data.Models;
+using MayorMod.Data.Utilities;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewValley;

@@ -6,6 +6,7 @@ using System.Text.Json;
 using MayorMod.Data.Models;
 using StardewModdingAPI.Utilities;
 using StardewValley.GameData;
+using MayorMod.Data.Utilities;
 
 namespace MayorMod.Data.Handlers;
 

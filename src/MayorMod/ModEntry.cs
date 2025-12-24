@@ -1,8 +1,8 @@
 ﻿using MayorMod.Constants;
-using MayorMod.Data;
 using MayorMod.Data.Handlers;
 using MayorMod.Data.Interfaces;
 using MayorMod.Data.Models;
+using MayorMod.Data.Utilities;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;

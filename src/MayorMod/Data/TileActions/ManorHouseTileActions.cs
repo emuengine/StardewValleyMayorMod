@@ -72,7 +72,7 @@ public static partial class ManorHouseTileActions
             {
                 meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingRiverCleanup), CouncilMeetingKeys.MeetingRiverCleanup));
             }
-            if (!Game1.MasterPlayer.eventsSeen.Contains("5553210")) //SVE event for Mayor Morris
+            if (!Game1.MasterPlayer.eventsSeen.Contains(CompatibilityKeys.MorrisIsCampaigningForMayorEventID)) //SVE event for Mayor Morris
             {
                 meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownRoads), CouncilMeetingKeys.MeetingTownRoads));
             }
