@@ -13,4 +13,5 @@ public class CouncilMeetingKeys
     public static readonly string MeetingTownCleanup = "TownCleanup";
     public static readonly string MeetingRiverCleanup = "RiverCleanup";
     public static readonly string MeetingTownRoads = "TownRoads";
+    public static readonly string MeetingStrategicReserve = "StrategicReserve";
 }

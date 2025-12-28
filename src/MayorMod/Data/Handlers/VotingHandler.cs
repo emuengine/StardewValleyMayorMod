@@ -12,7 +12,6 @@ namespace MayorMod.Data.Handlers;
 public class VotingHandler
 {
     public const int PointsPerHeart = 250;
-    public static readonly string TalkingToVotersTopic = $"{ModKeys.MAYOR_MOD_CPID}_TalkingToVotersTopic";
     public static readonly string MayorDebateEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorDebateEvent";
     public static readonly string LeafletItem = $"{ModKeys.MAYOR_MOD_CPID}_Leaflet";
     public static readonly IList<string> Voters =
@@ -61,7 +60,7 @@ public class VotingHandler
     /// <returns>True if the NPC has been canvassed, false otherwise.</returns>
     public bool HasNPCBeenCanvassed(string name)
     {
-        return _farmer.mailReceived.Any(m => m.Trim().Equals($"{name}_{TalkingToVotersTopic}", StringComparison.InvariantCultureIgnoreCase));
+        return _farmer.mailReceived.Any(m => m.Trim().Equals($"{name}_{DialogueKeys.ConversationTopics.TalkingToVotersTopic}", StringComparison.InvariantCultureIgnoreCase));
     }
 
     /// <summary>

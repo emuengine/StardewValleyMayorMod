@@ -93,6 +93,12 @@
 	"EmuEngine.MayorModCP_UIMenu.PollingDataVotingDayWinning": "Hi @. We have been doing exit polls all day and it's looking really good. Hopefully I can call you Mayor @ really soon!",
 	"EmuEngine.MayorModCP_UIMenu.PollingDataVotingDayLosing": "Hi @. I don't have the best news I'm afraid. I'm sorry to say that the exit polls are not looking good at the moment.",
 
+	//Mayor Desk
+	"EmuEngine.MayorModCP_UIMenu.MayorDeskTitle": "Mayor Desk",
+	"EmuEngine.MayorModCP_UIMenu.MayorDeskDescription": "What do you want to do?",
+	"EmuEngine.MayorModCP_UIMenu.SelectCouncilMeeting": "Select next council meeting",
+	"EmuEngine.MayorModCP_UIMenu.TownTreasury": "Town treasury",
+
 	//Council meetings
 	"EmuEngine.MayorModCP_MapStrings.ManorHouseClosed": "Renovation is ongoing. Come back tomorrow.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingPlanned": "Council meeting has been planned.",
@@ -109,6 +115,7 @@
 	"EmuEngine.MayorModCP_UIMenu.MeetingBusPunctuality": "Public transport punctuality",
 	"EmuEngine.MayorModCP_UIMenu.MeetingRiverCleanup": "Clean river initiative.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingTownRoads": "Road infrastructure improvement.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingStrategicReserve": "Strategic supply reserve.",
 
 	//Config menu
 	"EmuEngine.MayorModCP_UIMenu.VotingOptions": "Voting Options",
@@ -432,6 +439,24 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingRiverCleanup_8": "I'll reach out to the company today and we can get the river restoration process started.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoRiverCleanup_0": "Well maybe we can think about it again in the future when the budget is in better shape.",
 
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_0": "Did you hear about the floods in Lilly Valley?",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_1": "I seen the pictures in the news and the whole town looks destroyed.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_2": "Yeah its a miracle that no one was seriously hurt. Thank Yoba.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_3": "I think it might be wise for Pelican Town to take additional steps to prepare for possible disasters.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_4Q": "Hmmm....",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_4A0": "What are you thinking?",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_4A1": "I think we could be more prepared too.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_4A2": "I think we are already pretty prepared.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_5": "Well what if we just set up a strategic reserve of food and supplies so we are ready in case of a disaster.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_6": "Ohh that would be good. We would be prepared if something happens then.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_7": "Yeah i think thats a really good idea ...",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_8Q": "What do you think mayor?",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_8A0": "Yeah, I think this is a good idea.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_8A1": "No, I don't think this is needed.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_9": "Ok I’ll create a list of required emergency supplies, and we can begin collecting and storing them.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingNoStrategicReserve_0": "Hmm I suppose we might be overreacting a little bit because of the news.",
+
+
 	// Vanilla event updates
 	"EmuEngine.MayorModCP_Events.ClothingTherapy_0": "Welcome to clothing therapy!",
 	"EmuEngine.MayorModCP_Events.ClothingTherapy_1": "You're probably wondering... what is clothing therapy?#$b#I'll try to explain.",
@@ -687,6 +712,15 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Susan.ElectedMayor": "Congratulations! You've got a kind heart. I think the town is in good hands.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Martin.ElectedMayor": "Are you excited to be running the town?",
 
+	"EmuEngine.MayorModCP_ConverstaionTopic.Clint.PayingTax": "Ok then. Taxes do keep things running smoothly.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Gus.PayingTax": "Hope the budget is looking good for our community this year!",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Marnie.PayingTax": "I don’t mind paying tax because I want this town to thrive.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Pierre.PayingTax": "Ah, Mayor! I’ve got my receipts in order for you. I can throw in a discount on the next bag of seeds!",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Pierre.PayingTax": "Hello Mayor. Its been a good month this month. Here is the tax money.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Robin.PayingTax": "Tax time again? Ok well here you go.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Willy.PayingTax": "I'd rather pay my dues to the sea than the mayor’s office.",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Willy.PayingTax": "Can I pay in fish next time?",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Morris.PayingTax": "I've made my contribution, as always. A pleasure doing business with you!",
 
 	//////////////////////
 	//Mayor asset updates

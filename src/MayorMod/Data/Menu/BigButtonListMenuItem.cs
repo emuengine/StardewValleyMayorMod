@@ -50,6 +50,8 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
     public int TextPadding { get; set; } = 30;
     public Action<int> ButtonAction { get; set; }
 
+    public bool ScrollBarEnabled {get; set; }
+
     public BigButtonListMenuItem(MayorModMenu parent, Margin margin, IList<string> buttonText, Action<int> action)
     {
         _parent = parent;
@@ -145,7 +147,10 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
                                                    button.BoundingBox.Y + (button.BoundingBox.Height / 2) - _fontHeight),
                                        Game1.textColor);
         }
-        DrawScrollBar(spriteBatch);
+        if (ScrollBarEnabled)
+        {
+            DrawScrollBar(spriteBatch);
+        }
     }
 
     /// <summary>

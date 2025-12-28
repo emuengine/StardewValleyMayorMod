@@ -20,13 +20,12 @@ namespace MayorMod;
 /// </summary>
 internal sealed class ModEntry : Mod
 {
-    //public static MayorModData? SaveData;
     private ModConfigHandler _configHandler = null!;
     private AssetUpdateHandler _assetUpdateHandler = null!;
     private AssetInvalidationHandler _assetInvalidationHandler = null!;
+    private TaxHandler _taxHandler = null!;
     private bool _riverCleanUpRunOnce = true;
     
-
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
     /// </summary>
@@ -36,6 +35,7 @@ internal sealed class ModEntry : Mod
         _configHandler = new ModConfigHandler(Helper, ModManifest, Helper.ReadConfig<MayorModConfig>());
         _assetUpdateHandler = new AssetUpdateHandler(Helper, Monitor);
         _assetInvalidationHandler = new AssetInvalidationHandler(Helper);
+        _taxHandler = new TaxHandler();
 
         SaveHandler.Init(Helper, Monitor, ModManifest);
         TileActionHandler.Init(Helper, Monitor, _configHandler.ModConfig);
@@ -180,6 +180,15 @@ internal sealed class ModEntry : Mod
                 _riverCleanUpRunOnce = false;
                 _assetInvalidationHandler.LocationCacheInvalidate = true;
             }
+
+            if (SDate.Now().Day >= 21 && !ModUtils.HasConverstaionTopic(DialogueKeys.ConversationTopics.PayingTax))
+            {
+                ModUtils.AddConversationTopic(DialogueKeys.ConversationTopics.PayingTax, 7);
+            }
+            else if(SDate.Now().Day < 21 && ModUtils.HasConverstaionTopic(DialogueKeys.ConversationTopics.PayingTax))
+            {
+                ModUtils.RemoveConversationTopic(DialogueKeys.ConversationTopics.PayingTax);
+            }
         }
 
         //Allow NeedMayorRetryEvent to repeat
@@ -188,7 +197,7 @@ internal sealed class ModEntry : Mod
             Game1.player.eventsSeen.Remove(ProgressFlags.NeedMayorRetryEvent);
         }
 
-        //Allow NeedMayorRetryEvent to repeat
+        //Reset mod if flagged
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.ModNeedsReset))
         {
             ResignAndReset();

@@ -2,6 +2,12 @@
 
 public static class DialogueKeys
 {
+    public static class ConversationTopics
+    {
+        public static readonly string PayingTax = $"{ModKeys.MAYOR_MOD_CPID}_PayingTaxTopic";
+        public static readonly string TalkingToVotersTopic = $"{ModKeys.MAYOR_MOD_CPID}_TalkingToVotersTopic";
+    }
+
     public static class VotingBooth
     {
         public static readonly string VotingBallotTitle = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_VotingBallotTitle";
@@ -20,6 +26,12 @@ public static class DialogueKeys
         public static readonly string PollingDataVotingDayLosing = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_PollingDataVotingDayLosing";
     }
 
+    public static class MayorDesk
+    {
+        public static readonly string Title = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MayorDeskTitle";
+        public static readonly string Description = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MayorDeskDescription";
+    }
+
     public static class CouncilMeeting
     {
         public static readonly string MeetingPlanned = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingPlanned";
@@ -33,6 +45,7 @@ public static class DialogueKeys
         public static readonly string MeetingTownCleanup = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingTownCleanup";
         public static readonly string MeetingRiverCleanup = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingRiverCleanup";
         public static readonly string MeetingTownRoads = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingTownRoads";
+        public static readonly string MeetingStrategicReserve = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingStrategicReserve";
     }
 
     public static class OfficerMike

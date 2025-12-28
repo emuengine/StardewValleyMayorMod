@@ -21,6 +21,46 @@ public static partial class ManorHouseTileActions
         var seat = MapSeat.FromData("2/1/down/custom 0.5 0.1 0/-1/-1/false", 19, 5);
         farmer.BeginSitting(seat);
 
+        var menuItems = new string[]{
+            ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.SelectCouncilMeeting"),
+            ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.TownTreasury")
+        };
+
+        //Show menu
+        //var menu = new MayorModMenu(helper, 0.8f, 0.8f);
+        //menu.MenuItems = new List<IMenuItem>()
+        //{
+        //    new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.MayorDesk.Title), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
+        //    new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.MayorDesk.Description), new Margin(20, 60, 0, 0)),
+        //    new BigButtonListMenuItem(menu, new Margin(30, 110, 60, 130), menuItems, (i)  => OnMayorMenuItemSelected(helper, modConfig, i)),
+        //    new ButtonMenuItem(menu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
+        //    {
+        //        ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
+        //    }
+        //};
+        //Game1.activeClickableMenu = menu;
+        ShowCouncilMeetingMenu(helper, modConfig);
+    }
+
+    /// <summary>
+    /// Handles the selection of a mayor menu items and displays the selected menu.
+    /// </summary>
+    /// <param name="selectedIndex">The index of the selected menu item.</param>
+    private static void OnMayorMenuItemSelected(IModHelper helper, MayorModConfig modConfig, int selectedIndex)
+    {
+        switch (selectedIndex)
+        {
+            case 0:
+                ShowCouncilMeetingMenu(helper, modConfig);
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Show the council meeting planning menu
+    /// </summary>
+    public static void ShowCouncilMeetingMenu(IModHelper helper, MayorModConfig modConfig)
+    {
         if (IsCouncilMeetingPlannded())
         {
             string dayPlanned = ModUtils.GetNextCouncilMeetingDay(helper, modConfig);
@@ -36,19 +76,19 @@ public static partial class ManorHouseTileActions
             return;
         }
 
-        //Show council meeting menu
-        var menu = new MayorModMenu(helper, 0.8f, 0.8f);
-        menu.MenuItems = new List<IMenuItem>()
+        //Show council menu
+        var councilMenu = new MayorModMenu(helper, 0.8f, 0.8f);
+        councilMenu.MenuItems = new List<IMenuItem>()
         {
-            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.HoldCouncilMeeting), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
-            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.AgendaQuestion), new Margin(20, 60, 0, 0)),
-            new BigButtonListMenuItem(menu, new Margin(30, 110, 60, 130), meetings.Select((cm, index) => $"{index + 1}. " + cm.Name).ToList(), (i)  => OnCoucilMeetingSelected(meetings[i])),
-            new ButtonMenuItem(menu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
+            new TextMenuItem(councilMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.HoldCouncilMeeting), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
+            new TextMenuItem(councilMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.AgendaQuestion), new Margin(20, 60, 0, 0)),
+            new BigButtonListMenuItem(councilMenu, new Margin(30, 110, 60, 130), meetings.Select((cm, index) => $"{index + 1}. " + cm.Name).ToList(), (i)  => OnCoucilMeetingSelected(meetings[i])){ ScrollBarEnabled = true },
+            new ButtonMenuItem(councilMenu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
             {
                 ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
             }
         };
-        Game1.activeClickableMenu = menu;
+        Game1.activeClickableMenu = councilMenu;
     }
 
     /// <summary>
@@ -68,6 +108,7 @@ public static partial class ManorHouseTileActions
                 new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownSecurity), CouncilMeetingKeys.MeetingTownSecurity),
                 new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingSaloonHours), CouncilMeetingKeys.MeetingSaloonHours),
                 new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownCleanup), CouncilMeetingKeys.MeetingTownCleanup),
+                new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingStrategicReserve), CouncilMeetingKeys.MeetingStrategicReserve),
             };
             if (CouncilMeetingData.HasMeetingHappened(CouncilMeetingKeys.MeetingTownCleanup))
             {

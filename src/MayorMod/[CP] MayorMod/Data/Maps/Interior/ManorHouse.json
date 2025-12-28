@@ -1,61 +1,64 @@
 {
-    "Changes": [
-        {
-            "LogName": "Loading {{ModId}}_ManorHouse into assets",
-            "Action": "Load",
-            "Target": "Maps/{{ModId}}_ManorHouse",
-            "FromFile": "Assets/Maps/Interior/ManorHouse.tmx"
-        },
-        {
-            "LogName": "Updating Data/Locations to add {{ModId}}_ManorHouse",
-            "Action": "EditData",
-            "Target": "Data/Locations",
-            "Entries": {
-                "{{ModId}}_ManorHouse": {
-                    "CreateOnLoad": {
-                        "MapPath": "Maps/{{ModId}}_ManorHouse",
-                        "AlwaysActive": true,
-                        "Type": "StardewValley.Locations.DecoratableLocation"
-                    },
-                    "DisplayName": "{{i18n:{{ModId}}_Locations.ManorHouse}}",
-                    "DefaultArrivalTile": {
-                        "X": 7,
-                        "Y": 9
-                    },
-                    "ExcludeFromNpcPathfinding": false,
-                    "ArtifactSpots": [],
-                    "FishAreas": {},
-                    "Fish": [],
-                    "Forage": [],
-                    "MusicContext": "Default"
-                }
-            }
-        },
-        //{
-        //    "LogName": "Updated Data/ChairTiles with Mayor Chair",
-        //    "Action": "EditData",
-        //    "Target": "Data/ChairTiles",
-        //    "Entries": {
-        //        "{{ModId}}_Misc_Tilesheet/18/1": "1/1/down/couch/-1/-1/false"
-        //    }
-        //},
-        {
-            "LogName": "Loading strings for CouncilMeeting",
-            "Action": "EditData",
-            "Target": "Strings/UI",
-            "Entries": {
-                "{{ModId}}_HoldCouncilMeeting": "{{i18n:{{ModId}}_UIMenu.HoldCouncilMeeting}}",
-                "{{ModId}}_AgendaQuestion": "{{i18n:{{ModId}}_UIMenu.AgendaQuestion}}",
-                "{{ModId}}_MeetingPlanned": "{{i18n:{{ModId}}_UIMenu.MeetingPlanned}}",
-                "{{ModId}}_AlreadyPlanned": "{{i18n:{{ModId}}_UIMenu.AlreadyPlanned}}",
-                "{{ModId}}_NoNewMeetings": "{{i18n:{{ModId}}_UIMenu.NoNewMeetings}}",
-                "{{ModId}}_MeetingIntro": "{{i18n:{{ModId}}_UIMenu.MeetingIntro}}",
-                "{{ModId}}_MeetingSaloonHours": "{{i18n:{{ModId}}_UIMenu.MeetingSaloonHours}}",
-                "{{ModId}}_MeetingTownSecurity": "{{i18n:{{ModId}}_UIMenu.MeetingTownSecurity}}",
-                "{{ModId}}_MeetingTownCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingTownCleanup}}",
-                "{{ModId}}_MeetingRiverCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingRiverCleanup}}",
-                "{{ModId}}_MeetingTownRoads": "{{i18n:{{ModId}}_UIMenu.MeetingTownRoads}}"
-            }
+  "Changes": [
+    {
+      "LogName": "Loading {{ModId}}_ManorHouse into assets",
+      "Action": "Load",
+      "Target": "Maps/{{ModId}}_ManorHouse",
+      "FromFile": "Assets/Maps/Interior/ManorHouse.tmx"
+    },
+    {
+      "LogName": "Updating Data/Locations to add {{ModId}}_ManorHouse",
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "{{ModId}}_ManorHouse": {
+          "CreateOnLoad": {
+            "MapPath": "Maps/{{ModId}}_ManorHouse",
+            "AlwaysActive": true,
+            "Type": "StardewValley.Locations.DecoratableLocation"
+          },
+          "DisplayName": "{{i18n:{{ModId}}_Locations.ManorHouse}}",
+          "DefaultArrivalTile": {
+            "X": 7,
+            "Y": 9
+          },
+          "ExcludeFromNpcPathfinding": false,
+          "ArtifactSpots": [],
+          "FishAreas": {},
+          "Fish": [],
+          "Forage": [],
+          "MusicContext": "Default"
         }
-    ]
+      }
+    },
+    //{
+    //    "LogName": "Updated Data/ChairTiles with Mayor Chair",
+    //    "Action": "EditData",
+    //    "Target": "Data/ChairTiles",
+    //    "Entries": {
+    //        "{{ModId}}_Misc_Tilesheet/18/1": "1/1/down/couch/-1/-1/false"
+    //    }
+    //},
+    {
+      "LogName": "Loading strings for CouncilMeeting",
+      "Action": "EditData",
+      "Target": "Strings/UI",
+      "Entries": {
+        "{{ModId}}_MayorDeskTitle": "{{i18n:{{ModId}}_UIMenu.MayorDeskTitle}}",
+        "{{ModId}}_MayorDeskDescription": "{{i18n:{{ModId}}_UIMenu.MayorDeskDescription}}",
+        "{{ModId}}_HoldCouncilMeeting": "{{i18n:{{ModId}}_UIMenu.HoldCouncilMeeting}}",
+        "{{ModId}}_AgendaQuestion": "{{i18n:{{ModId}}_UIMenu.AgendaQuestion}}",
+        "{{ModId}}_MeetingPlanned": "{{i18n:{{ModId}}_UIMenu.MeetingPlanned}}",
+        "{{ModId}}_AlreadyPlanned": "{{i18n:{{ModId}}_UIMenu.AlreadyPlanned}}",
+        "{{ModId}}_NoNewMeetings": "{{i18n:{{ModId}}_UIMenu.NoNewMeetings}}",
+        "{{ModId}}_MeetingIntro": "{{i18n:{{ModId}}_UIMenu.MeetingIntro}}",
+        "{{ModId}}_MeetingSaloonHours": "{{i18n:{{ModId}}_UIMenu.MeetingSaloonHours}}",
+        "{{ModId}}_MeetingTownSecurity": "{{i18n:{{ModId}}_UIMenu.MeetingTownSecurity}}",
+        "{{ModId}}_MeetingTownCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingTownCleanup}}",
+        "{{ModId}}_MeetingRiverCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingRiverCleanup}}",
+        "{{ModId}}_MeetingTownRoads": "{{i18n:{{ModId}}_UIMenu.MeetingTownRoads}}",
+        "{{ModId}}_MeetingStrategicReserve": "{{i18n:{{ModId}}_UIMenu.MeetingStrategicReserve}}"
+      }
+    }
+  ]
 }

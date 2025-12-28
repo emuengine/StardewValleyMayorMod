@@ -270,4 +270,20 @@ public static class ModUtils
             return GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_AssetUpdates.SubString.Lewis");
         }
     }
+
+    public static void AddConversationTopic(string topicId, int daysDuration)
+    {
+        Game1.player.activeDialogueEvents[topicId] = daysDuration;
+    }
+
+    public static void RemoveConversationTopic(string topicId)
+    {
+        Game1.MasterPlayer.previousActiveDialogueEvents.RemoveWhere(m => m.Key == topicId);
+        Game1.MasterPlayer.activeDialogueEvents.RemoveWhere(m => m.Key == topicId);
+        //look at HasNPCBeenCanvassed
+    }
+    public static bool HasConverstaionTopic(string topicId)
+    {
+        return Game1.player.activeDialogueEvents.ContainsKey(topicId) && Game1.player.activeDialogueEvents[topicId] > 0;
+    }
 }

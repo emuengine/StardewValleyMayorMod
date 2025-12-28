@@ -1,6 +1,4 @@
-﻿
-using Microsoft.Xna.Framework.Graphics;
-using StardewModdingAPI.Utilities;
+﻿using StardewModdingAPI.Utilities;
 
 namespace MayorMod.Data.Models;
 
@@ -12,4 +10,5 @@ public sealed class MayorModData
     public Version? SaveVersion { get; set; }
     public SDate? VotingDate { get; set; }
     public string? GoldStaueBase64Image { get; set; }
+    public int TownTreasury { get; set; } = 0;
 }
