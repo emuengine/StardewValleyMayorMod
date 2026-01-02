@@ -36,7 +36,7 @@
 	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body2": "so get campaigning. ^^If you have any questions or^concerns regarding the election^process, please do not hesitate^to contact us. We are more than^happy to assist you throughout this campaign.^^Sincerely,^Angela,^Chair of S.V. Election Committee[letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black]",
 
 	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Title": "Talk with voters",
-	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^We need to communicate the vision you have for mayor to the town. As your campaign manager, I suggest that you make time for talking to the villagers. The more people like you, the more likely they are to vote for you. I'll track the campaign with regular polling so you can call me for results. I've also printed out policy leaflets that we can hand out.^-Marlon",
+	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^We need to communicate the vision you have for mayor to the town. As your campaign manager, I suggest that you make time for talking to the villagers. The more people like you, the more likely they are to vote for you. I'll track the campaign with regular polling so you can call me with the telephone for results. I've also printed out policy leaflets that we can hand out.^-Marlon",
 
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Title": "Good News",
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Body": "Hey @,^^Good news! I have been talking with Gus and I think I've convinced him to vote for you. I've also printed up a poster that you can put up in the town. ^^-Marlon",
@@ -54,11 +54,13 @@
 	"EmuEngine.MayorModCP_Mail.OfficialElectionMail.Body2": "^Sincerely,^Angela,^Chair of S.V. Election Committee",
 
 	"EmuEngine.MayorModCP_Mail.WonOfficialElectionMail.Title": "Official Election Win",
-	"EmuEngine.MayorModCP_Mail.WonOfficialElectionMail.Body": "Dear @,^^Re: Pelican town election result^^We would like to congratulate you on your election win. The governor will swear you in as mayor today.",
+	"EmuEngine.MayorModCP_Mail.WonOfficialElectionMail.Body": "Dear Mayor @,^^Re: Pelican town election result^^We would like to congratulate you on your election win. The governor will swear you in as mayor today.",
 
 	"EmuEngine.MayorModCP_Mail.LoseOfficialElectionMail.Title": "Official Election Lose",
 	"EmuEngine.MayorModCP_Mail.LoseOfficialElectionMail.Body": "Dear @,^^Re: Pelican town election result^^We regret to inform you that you did not get the required number of votes to win the town election.",
 
+	"EmuEngine.MayorModCP_Mail.StrategicReserveMail.Title": "Pelican Town Strategic Reserve",
+	"EmuEngine.MayorModCP_Mail.StrategicReserveMail.Body": "Dear Mayor @,^^I'm very impressed by the emergency supplies reserve you've established for Pelican town. This is a really good idea and I will be contacting the other mayors about doing the same. Properly preparing for an emergency is an important step toward keeping everyone safe and ready for the unexpected. Keep up the good work.^^With gratitude and respect, the Governor.",
 
 	//////////////////////
 	//Quests
@@ -66,6 +68,16 @@
 	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Title": "Quest Title",
 	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Description": "Quest Description",
 	"EmuEngine.MayorModCP_Quest.CampaignWithLeafletsQuest.Task": "Give out leaflets",
+
+	//Special Orders
+	"EmuEngine.MayorModCP_SpecialOrders.StrategicReserve.Title": "Build Strategic Reserve",
+	"EmuEngine.MayorModCP_SpecialOrders.StrategicReserve.Description": "You decided to set up storage for the town's emergency supplies.",
+	"EmuEngine.MayorModCP_SpecialOrders.StrategicReserve.Task0": "Donate vegetables",
+	"EmuEngine.MayorModCP_SpecialOrders.StrategicReserve.Task1": "Donate hardwood",
+	"EmuEngine.MayorModCP_SpecialOrders.StrategicReserve.Task2": "Donate torches",
+	"EmuEngine.MayorModCP_SpecialOrders.StrategicReserve.Task3": "Donate stone",
+	"EmuEngine.MayorModCP_SpecialOrders.StrategicReserve.Task4": "Donate copper bar",
+	"EmuEngine.MayorModCP_SpecialOrders.StrategicReserve.Task5": "Donate life elixir",
 
 
 	//////////////////////
@@ -453,7 +465,7 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_8Q": "What do you think mayor?",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_8A0": "Yeah, I think this is a good idea.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_8A1": "No, I don't think this is needed.",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_9": "Ok I’ll create a list of required emergency supplies, and we can begin collecting and storing them.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingStrategicReserve_9": "Ok great. I'll create a list of required emergency supplies and clean the downstairs storage room. Once that's done, you can put the collected supplies in there.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoStrategicReserve_0": "Hmm I suppose we might be overreacting a little bit because of the news.",
 
 

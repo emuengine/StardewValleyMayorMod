@@ -1,4 +1,5 @@
 ﻿{
+  "$schema": "https://smapi.io/schemas/manifest.json",
   "Changes": [
     // Mail backgrounds
     {
@@ -20,7 +21,8 @@
         "{{ModId}}_WonElectionMail": "{{i18n:{{ModId}}_Mail.WonElectionMail.Body}} %item object EmuEngine.MayorModCP_MayorSuitJacket 1%%[#]{{i18n:{{ModId}}_Mail.WonElectionMail.Title}}",
         "{{ModId}}_WonOfficialElectionMail": "{{i18n:{{ModId}}_Mail.WonOfficialElectionMail.Body}}^{{EmuEngine.MayorMod/VotingResultText}}^{{i18n:{{ModId}}_Mail.OfficialElectionMail.Body2}} [letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black][#]{{i18n:{{ModId}}_Mail.WonOfficialElectionMail.Title}}",
         "{{ModId}}_LoseOfficialElectionMail": "{{i18n:{{ModId}}_Mail.LoseOfficialElectionMail.Body}}^{{EmuEngine.MayorMod/VotingResultText}}^{{i18n:{{ModId}}_Mail.OfficialElectionMail.Body2}} [letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black][#]{{i18n:{{ModId}}_Mail.LoseOfficialElectionMail.Title}}",
-        "{{ModId}}_VoteTomorrowMail": "{{i18n:{{ModId}}_Mail.VoteTomorrowMail.Body}} [#]{{i18n:{{ModId}}_Mail.VoteTomorrowMail.Title}}"
+        "{{ModId}}_VoteTomorrowMail": "{{i18n:{{ModId}}_Mail.VoteTomorrowMail.Body}} [#]{{i18n:{{ModId}}_Mail.VoteTomorrowMail.Title}}",
+        "{{ModId}}_StrategicReserveMail": "{{i18n:{{ModId}}_Mail.StrategicReserveMail.Body}} [#]{{i18n:{{ModId}}_Mail.StrategicReserveMail.Title}}"
       }
     },
     //Send mail

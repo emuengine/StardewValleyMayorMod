@@ -1,0 +1,100 @@
+{
+  "Changes": [
+    {
+      "Action": "EditData",
+      "Target": "Data/SpecialOrders",
+      "Entries": {
+        "{{ModId}}_StrategicReserveSpecialOrder": {
+          "Name": "{{i18n:{{ModId}}_SpecialOrders.StrategicReserve.Title}}",
+          "Requester": "Maru",
+          "Duration": "twoweeks",
+          "Repeatable": "false",
+          "RequiredTags": "",
+          "OrderType": "",
+          "SpecialRule": "",
+          "Text": "{{i18n:{{ModId}}_SpecialOrders.StrategicReserve.Description}}",
+          "ItemToRemoveOnEnd": null,
+          "MailToRemoveOnEnd": null,
+          "RandomizedElements": null,
+          "Objectives": [
+            {
+              "Type": "Donate",
+              "Text": "{{i18n:{{ModId}}_SpecialOrders.StrategicReserve.Task0}}",
+              "RequiredCount": "100",
+              "Data": {
+                "DropBox": "MayorBasementBox",
+                "DropBoxGameLocation": "{{ModId}}_ManorHouseBasement",
+                "DropBoxIndicatorLocation": "14 21",
+                "AcceptedContextTags": "category_vegetable"
+              }
+            },
+            {
+              "Type": "Donate",
+              "Text": "{{i18n:{{ModId}}_SpecialOrders.StrategicReserve.Task1}}",
+              "RequiredCount": "200",
+              "Data": {
+                "DropBox": "MayorBasementBox",
+                "DropBoxGameLocation": "{{ModId}}_ManorHouseBasement",
+                "DropBoxIndicatorLocation": "15 21",
+                "AcceptedContextTags": "item_hardwood"
+              }
+            },
+            {
+              "Type": "Donate",
+              "Text": "{{i18n:{{ModId}}_SpecialOrders.StrategicReserve.Task2}}",
+              "RequiredCount": "50",
+              "Data": {
+                "DropBox": "MayorBasementBox",
+                "DropBoxGameLocation": "{{ModId}}_ManorHouseBasement",
+                "DropBoxIndicatorLocation": "14 21",
+                "AcceptedContextTags": "item_torch"
+              }
+            }
+            //{
+            //  "Type": "Donate",
+            //  "Text": "{{i18n:{{ModId}}_SpecialOrders.StrategicReserve.Task3}}",
+            //  "RequiredCount": "500",
+            //  "Data": {
+            //    "DropBox": "MayorBasementBox",
+            //    "DropBoxGameLocation": "{{ModId}}_ManorHouseBasement",
+            //    "DropBoxIndicatorLocation": "14 21",
+            //    "AcceptedContextTags": "item_stone"
+            //  }
+            //},
+            //{
+            //  "Type": "Donate",
+            //  "Text": "{{i18n:{{ModId}}_SpecialOrders.StrategicReserve.Task4}}",
+            //  "RequiredCount": "50",
+            //  "Data": {
+            //    "DropBox": "MayorBasementBox",
+            //    "DropBoxGameLocation": "{{ModId}}_ManorHouseBasement",
+            //    "DropBoxIndicatorLocation": "14 21",
+            //    "AcceptedContextTags": "item_copper_bar"
+            //  }
+            //},
+            //{
+            //  "Type": "Donate",
+            //  "Text": "{{i18n:{{ModId}}_SpecialOrders.StrategicReserve.Task5}}",
+            //  "RequiredCount": "5",
+            //  "Data": {
+            //    "DropBox": "MayorBasementBox",
+            //    "DropBoxGameLocation": "{{ModId}}_ManorHouseBasement",
+            //    "DropBoxIndicatorLocation": "14 21",
+            //    "AcceptedContextTags": "item_life_elixir"
+            //  }
+            //}
+          ],
+          "Rewards": [
+            {
+              "Type": "Mail",
+              "Data": {
+                "MailReceived": "{{ModId}}_StrategicReserveMail",
+                "NoLetter": "false"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

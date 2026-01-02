@@ -91,20 +91,6 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
-        if (SaveHandler.SaveData is not null &&
-            SaveHandler.SaveData.VotingDate is not null &&
-            ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
-        {
-            if (SaveHandler.SaveData.VotingDate == SDate.Now())
-            {
-                ModProgressHandler.AddProgressFlag(ProgressFlags.IsVotingDay);
-            }
-            else if (SaveHandler.SaveData.VotingDate.AddDays(-1) == SDate.Now())
-            {
-                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_VoteTomorrowMail");
-            }
-        }
-
         _assetInvalidationHandler.InvalidateModDataIfNeeded();
 
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
@@ -147,25 +133,36 @@ internal sealed class ModEntry : Mod
             _assetInvalidationHandler.UpdateAssetInvalidations();
         }
 
-        //Complete voting day
-        if (SaveHandler.SaveData is not null &&
-            SaveHandler.SaveData.VotingDate == SDate.Now() && 
+        if (SaveHandler.SaveData is not null && 
+            SaveHandler.SaveData.VotingDate is not null && 
             ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
         {
-            SaveHandler.UpdateVotingDate(null);
-            var voteManager = new VotingHandler(Game1.MasterPlayer, _configHandler.ModConfig);
-            ModProgressHandler.RemoveAllModFlags();
-            if (voteManager.HasWonElection(Helper))
+            if (SaveHandler.SaveData.VotingDate.AddDays(-2) == SDate.Now())
             {
-                ModProgressHandler.AddProgressFlag(ProgressFlags.WonMayorElection);
-                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonOfficialElectionMail");
-                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonElectionMail");
-                _assetInvalidationHandler.UpdateAssetInvalidations();
+                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_VoteTomorrowMail");
             }
-            else
+            if (SaveHandler.SaveData.VotingDate.AddDays(-1) == SDate.Now())
             {
-                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_LoseOfficialElectionMail");
-                ModProgressHandler.AddProgressFlag(ProgressFlags.LostMayorElection);
+                ModProgressHandler.AddProgressFlag(ProgressFlags.IsVotingDay);
+            }
+            //Complete voting day
+            if (SaveHandler.SaveData.VotingDate == SDate.Now())
+            {
+                SaveHandler.UpdateVotingDate(null);
+                var voteManager = new VotingHandler(Game1.MasterPlayer, _configHandler.ModConfig);
+                ModProgressHandler.RemoveAllModFlags();
+                if (voteManager.HasWonElection(Helper))
+                {
+                    ModProgressHandler.AddProgressFlag(ProgressFlags.WonMayorElection);
+                    Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonOfficialElectionMail");
+                    Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonElectionMail");
+                    _assetInvalidationHandler.UpdateAssetInvalidations();
+                }
+                else
+                {
+                    Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_LoseOfficialElectionMail");
+                    ModProgressHandler.AddProgressFlag(ProgressFlags.LostMayorElection);
+                }
             }
         }
 
@@ -181,14 +178,15 @@ internal sealed class ModEntry : Mod
                 _assetInvalidationHandler.LocationCacheInvalidate = true;
             }
 
-            if (SDate.Now().Day >= 21 && !ModUtils.HasConverstaionTopic(DialogueKeys.ConversationTopics.PayingTax))
-            {
-                ModUtils.AddConversationTopic(DialogueKeys.ConversationTopics.PayingTax, 7);
-            }
-            else if(SDate.Now().Day < 21 && ModUtils.HasConverstaionTopic(DialogueKeys.ConversationTopics.PayingTax))
-            {
-                ModUtils.RemoveConversationTopic(DialogueKeys.ConversationTopics.PayingTax);
-            }
+            // Tax stuff
+            //if (SDate.Now().Day >= 21 && !ModUtils.HasConverstaionTopic(DialogueKeys.ConversationTopics.PayingTax))
+            //{
+            //    ModUtils.AddConversationTopic(DialogueKeys.ConversationTopics.PayingTax, 7);
+            //}
+            //else if(SDate.Now().Day < 21 && ModUtils.HasConverstaionTopic(DialogueKeys.ConversationTopics.PayingTax))
+            //{
+            //    ModUtils.RemoveConversationTopic(DialogueKeys.ConversationTopics.PayingTax);
+            //}
         }
 
         //Allow NeedMayorRetryEvent to repeat
@@ -323,11 +321,11 @@ internal sealed class ModEntry : Mod
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_SEASON_TOKEN, () =>
         {
-            return SaveHandler.SaveData is not null && SaveHandler.SaveData.VotingDate is not null ? new List<string>() { $"{SaveHandler.SaveData.VotingDate.Season}" } : null;
+            return SaveHandler.SaveData is not null && SaveHandler.SaveData.VotingDate is not null ? new List<string>() { $"{SaveHandler.SaveData.VotingDate.Season}" } : new List<string>() { "NOT LOADED" };
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_DAY_TOKEN, () =>
         {
-            return SaveHandler.SaveData is not null && SaveHandler.SaveData.VotingDate is not null ? new List<string>() { $"{SaveHandler.SaveData.VotingDate.Day}" } : null;
+            return SaveHandler.SaveData is not null && SaveHandler.SaveData.VotingDate is not null ? new List<string>() { $"{SaveHandler.SaveData.VotingDate.Day}" } : new List<string>() { "NOT LOADED" };
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_RESULT_TOKEN, () =>
         {

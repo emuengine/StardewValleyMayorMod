@@ -1,33 +1,56 @@
 {
-    "Changes": [
-        {
-            "LogName": "Loading {{ModId}}_ManorHouseBasement into assets",
-            "Action": "Load",
-            "Target": "Maps/{{ModId}}_ManorHouseBasement",
-            "FromFile": "Assets/Maps/Interior/ManorHouseBasement.tmx"
-        },
-        {
-            "LogName": "Updating Data/Locations to add {{ModId}}_ManorHouseBasement",
-            "Action": "EditData",
-            "Target": "Data/Locations",
-            "Entries": {
-                "{{ModId}}_ManorHouseBasement": {
-                    "CreateOnLoad": {
-                        "MapPath": "Maps/{{ModId}}_ManorHouseBasement"
-                    },
-                    "DisplayName": "{{i18n:{{ModId}}_Locations.ManorHouseBasement}}",
-                    "DefaultArrivalTile": {
-                        "X": 4,
-                        "Y": 4
-                    },
-                    "ExcludeFromNpcPathfinding": false,
-                    "ArtifactSpots": [],
-                    "FishAreas": {},
-                    "Fish": [],
-                    "Forage": [],
-                    "MusicContext": "Default"
-                }
-            }
+  "Changes": [
+    {
+      "LogName": "Loading {{ModId}}_ManorHouseBasement into assets",
+      "Action": "Load",
+      "Target": "Maps/{{ModId}}_ManorHouseBasement",
+      "FromFile": "Assets/Maps/Interior/ManorHouseBasement.tmx"
+    },
+    {
+      "LogName": "Updating Data/Locations to add {{ModId}}_ManorHouseBasement",
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "{{ModId}}_ManorHouseBasement": {
+          "CreateOnLoad": {
+            "MapPath": "Maps/{{ModId}}_ManorHouseBasement"
+          },
+          "DisplayName": "{{i18n:{{ModId}}_Locations.ManorHouseBasement}}",
+          "DefaultArrivalTile": {
+            "X": 4,
+            "Y": 4
+          },
+          "ExcludeFromNpcPathfinding": false,
+          "ArtifactSpots": [],
+          "FishAreas": {},
+          "Fish": [],
+          "Forage": [],
+          "MusicContext": "Default"
         }
-    ]
+      }
+    },
+    {
+      "LogName": "Patching ManorHouseBasement to add extra room",
+      "Action": "EditMap",
+      "Priority": "Late",
+      "Target": "Maps/{{ModId}}_ManorHouseBasement",
+      "PatchMode": "Replace",
+      "FromFile": "Assets/Maps/MapPatches/ManorHouseBasementExtended.tmx",
+      "FromArea": {
+        "X": 0,
+        "Y": 0,
+        "Width": 20,
+        "Height": 11
+      },
+      "ToArea": {
+        "X": 0,
+        "Y": 17,
+        "Width": 20,
+        "Height": 11
+      },
+      "When": {
+        "HasFlag: hostPlayer | contains={{ModId}}_StrategicReserve": true
+      }
+    }
+  ]
 }

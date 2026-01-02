@@ -8,6 +8,22 @@
                 "{{ModId}}_ManorHouseClosed": "{{i18n:{{ModId}}_MapStrings.ManorHouseClosed}}"
             }
         },
+        {   
+            // Fix for spacecore throwing "Scheduler could not find route while honoring Gender" errors
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "TextOperations": [
+                {
+                    "Operation": "Append",
+                    "Target": [
+                        "MapProperties",
+                        "NPCWarp"
+                    ],
+                    "Value": "59 85 EmuEngine.MayorModCP_ManorHouse 4 11",
+                    "Delimiter": " "
+                }
+            ]
+        },
         {
             "LogName": "Patching Maps/Town to update ManorHouse door location when mayor",
             "Action": "EditMap",

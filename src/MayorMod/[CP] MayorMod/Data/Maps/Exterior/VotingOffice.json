@@ -3,6 +3,7 @@
         {
             "LogName": "Patching Maps/Town to add {{ModId}}_VotingOfficeExterior",
             "Action": "EditMap",
+            "Priority": "Early",
             "Target": "Maps/Town",
             "PatchMode": "Overlay",
             "FromFile": "Assets/Maps/MapPatches/VotingDay.tmx",
@@ -22,6 +23,22 @@
                 "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
                 "IsCommunityCenterComplete": false
             }
+        },
+        {   
+            // Fix for spacecore throwing "Scheduler could not find route while honoring Gender" errors
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "TextOperations": [
+                {
+                    "Operation": "Append",
+                    "Target": [
+                        "MapProperties",
+                        "NPCWarp"
+                    ],
+                    "Value": "34 35 EmuEngine.MayorModCP_VotingOffice 7 9",
+                    "Delimiter": " "
+                }
+            ]
         },
         {
             "LogName": "Patching Maps/Town to add voting sign",

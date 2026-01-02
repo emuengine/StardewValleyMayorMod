@@ -1,6 +1,5 @@
 {
-	// It turns out the patch number for the Format is actually ignored but it's no harm
-	"Format": "2.7.5",
+	"Format": "2.7.0", // It turns out the patch number for the Format is actually ignored
 	"Changes": [
 		//Dialogue
 		{
@@ -58,6 +57,11 @@
 		{
 			"Action": "Include",
 			"FromFile": "Data/Powers/Powers.json"
+		},
+		//Quests`
+		{
+			"Action": "Include",
+			"FromFile": "Data/SpecialOrders/StrategicReserve.json"
 		},
 		//Mayor Asset Patches
 		{
