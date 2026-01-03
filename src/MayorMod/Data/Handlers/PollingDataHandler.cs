@@ -16,13 +16,11 @@ namespace MayorMod.Data.Handlers;
 internal class PollingDataHandler : IPhoneHandler
 {
     private const string PollingDataKey = "PollingData";
-    private readonly IModHelper _helper;
-    private readonly MayorModConfig _mayorModConfig;
+    private readonly IMod _mod;
 
-    public PollingDataHandler(IModHelper helper, MayorModConfig mayorModConfig)
+    public PollingDataHandler(IMod mod)
     {
-        _helper = helper;
-        _mayorModConfig = mayorModConfig;
+        _mod = mod;
     }
 
     /// <summary>
@@ -85,12 +83,12 @@ internal class PollingDataHandler : IPhoneHandler
             playSound("bigSelect", null);
             if (ModProgressHandler.HasProgressFlag(ProgressFlags.IsVotingDay))
             {
-                var polling = new VotingHandler(player, _mayorModConfig)
+                var polling = new VotingHandler(player, ModConfigHandler.ModConfig)
                 {
                     IsVotingRNG = false,
                 };
                 DrawDialogue(ModUtils.MarlonNPC, 
-                             polling.HasWonElection(_helper) ? DialogueKeys.PollingData.PollingDataVotingDayWinning :
+                             polling.HasWonElection(_mod.Helper) ? DialogueKeys.PollingData.PollingDataVotingDayWinning :
                                                                DialogueKeys.PollingData.PollingDataVotingDayLosing);
             }
             else
@@ -111,9 +109,9 @@ internal class PollingDataHandler : IPhoneHandler
     /// </summary>
     private MayorModMenu GetPollingDataMenu()
     {
-        var voters = VotingHandler.GetVotingVillagers(_helper);
+        var voters = VotingHandler.GetVotingVillagers(_mod.Helper);
 
-        var polling = new VotingHandler(player, _mayorModConfig)
+        var polling = new VotingHandler(player, ModConfigHandler.ModConfig)
         {
             IsVotingRNG = false,
         };
@@ -121,9 +119,9 @@ internal class PollingDataHandler : IPhoneHandler
         var debated = polling.HasWonDebate();
         var leaflets = voters.Sum(v => polling.HasNPCGotLeaflet(v) ? 1 : 0);
         var canvassed = voters.Sum(v => polling.HasNPCBeenCanvassed(v) ? 1 : 0);
-        var polls = polling.CalculateTotalVotes(_helper);
+        var polls = polling.CalculateTotalVotes(_mod.Helper);
 
-        var menu = new MayorModMenu(_helper, 0.4f, 0.5f);
+        var menu = new MayorModMenu(_mod.Helper, 0.4f, 0.5f);
         menu.MenuItems = new List<IMenuItem>()
         {
             new MenuBorder(menu),

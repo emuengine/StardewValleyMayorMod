@@ -10,21 +10,19 @@ using MayorMod.Data.Utilities;
 
 namespace MayorMod.Data.Handlers;
 
-public class AssetUpdateHandler
+public static class AssetUpdateHandler
 {
-    private readonly IModHelper _helper;
-    private readonly IMonitor _monitor;
-    private Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements = new();
+    private static IMod _mod = null!;
+    private static Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements = new();
 
-    public AssetUpdateHandler(IModHelper helper, IMonitor monitor)
+    public static void Init(IMod mod)
     {
-        _helper = helper;
-        _monitor= monitor;
+        _mod = mod;
 
-        var stringPatchLocation = Path.Join(_helper.DirectoryPath, ModKeys.REPLACEMENT_STRING_CONFIG);
+        var stringPatchLocation = Path.Join(_mod.Helper.DirectoryPath, ModKeys.REPLACEMENT_STRING_CONFIG);
         if (!File.Exists(stringPatchLocation))
         {
-            _monitor.Log($"Error: File not found {stringPatchLocation}", LogLevel.Error);
+            _mod.Monitor.Log($"Error: File not found {stringPatchLocation}", LogLevel.Error);
         }
         var stringPatchFile = File.ReadAllText(stringPatchLocation);
 
@@ -39,7 +37,7 @@ public class AssetUpdateHandler
     /// Replaces substrings in assets from patches loaded from json 
     /// NOTE: Can possibly be done by content patcher but I couldn't work out how.
     /// </summary>
-    public void AssetSubstringPatch(AssetRequestedEventArgs e)
+    public static void AssetSubstringPatch(AssetRequestedEventArgs e)
     {
         try
         {
@@ -58,7 +56,7 @@ public class AssetUpdateHandler
                         {
                             if (int.TryParse(key, out int KeyInt) && data.ContainsKey(KeyInt))
                             {
-                                data[KeyInt] = updates[key].Aggregate(data[KeyInt], (current, patch) => patch.PatchString(_helper, current));
+                                data[KeyInt] = updates[key].Aggregate(data[KeyInt], (current, patch) => patch.PatchString(_mod.Helper, current));
                             }
                         }
                     }
@@ -69,7 +67,7 @@ public class AssetUpdateHandler
                         {
                             if (data.Keys.FirstOrDefault(k => k.StartsWith(key)) is { } keyMatch)
                             {
-                                data[keyMatch] = updates[key].Aggregate(data[keyMatch], (current, patch) => patch.PatchString(_helper, current));
+                                data[keyMatch] = updates[key].Aggregate(data[keyMatch], (current, patch) => patch.PatchString(_mod.Helper, current));
                             }
                         }
                     }
@@ -78,14 +76,14 @@ public class AssetUpdateHandler
         }
         catch (Exception ex)
         {
-            _monitor.Log($"Failed to patch asset - {ex.Message}", LogLevel.Error);
+            _mod.Monitor.Log($"Failed to patch asset - {ex.Message}", LogLevel.Error);
         }
     }
 
     /// <summary>
     /// Updates dialogue so that all characters not specifically designated will reject election leaflets
     /// </summary>
-    public void AssetUpdatesForLeafletDialogue(AssetRequestedEventArgs e)
+    public static void AssetUpdatesForLeafletDialogue(AssetRequestedEventArgs e)
     {
         e.Edit(dialogues =>
         {
@@ -93,7 +91,7 @@ public class AssetUpdateHandler
             if (!data.ContainsKey($"AcceptGift_(O){ModItemKeys.Leaflet}") &&
                 !data.ContainsKey($"RejectItem_(O){ModItemKeys.Leaflet}"))
             {
-                data[$"RejectItem_(O){ModItemKeys.Leaflet}"] = ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_Gifting.Default.Leaflet");
+                data[$"RejectItem_(O){ModItemKeys.Leaflet}"] = ModUtils.GetTranslationForKey(_mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_Gifting.Default.Leaflet");
             }
         });
     }
@@ -101,7 +99,7 @@ public class AssetUpdateHandler
     /// <summary>
     /// Update the Locations default fish catch rate
     /// </summary>
-    public void RemoveTrashFromRivers(AssetRequestedEventArgs e)
+    public static void RemoveTrashFromRivers(AssetRequestedEventArgs e)
     {
         e.Edit((asset) =>
         {
@@ -118,15 +116,15 @@ public class AssetUpdateHandler
     /// <summary>
     /// Updates Passive Festivals assets that depend on voting day
     /// </summary>
-    public void AssetUpdatesForPassiveFestivals(AssetRequestedEventArgs e, SDate votingDate)
+    public static void AssetUpdatesForPassiveFestivals(AssetRequestedEventArgs e, SDate votingDate)
     {
         e.Edit(festivals =>
         {
             var data = festivals.AsDictionary<string, PassiveFestivalData>().Data;
             var votingDay = new PassiveFestivalData()
             {
-                DisplayName = ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Name"),
-                StartMessage = ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Message"),
+                DisplayName = ModUtils.GetTranslationForKey(_mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Name"),
+                StartMessage = ModUtils.GetTranslationForKey(_mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_Festival.VotingDay.Message"),
                 Season = votingDate.Season,
                 StartDay = votingDate.Day,
                 EndDay = votingDate.Day,

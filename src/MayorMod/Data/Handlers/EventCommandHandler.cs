@@ -17,6 +17,10 @@ public static class EventCommandHandler
     /// </summary>
     public static Dictionary<string, Tile> TileStorage { get; set; } = new Dictionary<string, Tile>();
 
+    public static void Init(IMod mod)
+    {
+        AddExtraEventCommands(mod.Monitor);
+    }
 
     /// <summary>
     /// Add custom event commands

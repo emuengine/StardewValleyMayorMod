@@ -1,548 +1,629 @@
 {
-    "Changes": [
-        //Bachelors
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Alex",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Alex.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Elliott",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Elliott.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Harvey",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Harvey.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Sam",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sam.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Sebastian",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sebastian.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Shane",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Shane.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        //Bachelorettes
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Abigail",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Abigail.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Emily",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Emily.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Haley",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Haley.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Leah",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Leah.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Maru",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Maru.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Penny",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Penny.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        //Non-marriage candidates
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Caroline",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Caroline.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Clint",
-          "Entries": {
-            "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.PayingTax}} #$action emuEngineMayorMod_payTax 50",
-            "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.RegisteredForBallot}}",
-            "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.TalkingToVoters}}",
-            "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.ElectedMayor}}",
-            "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Clint.Leaflet}}",
-            "RejectItem_(O){{ModId}}_Leaflet": null
-          }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Demetrius",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Demetrius.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Evelyn",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Evelyn.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/George",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.George.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Gus",
-            "Entries": {
-                "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.PayingTax}} #$action emuEngineMayorMod_payTax 50",
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gus.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Jodi",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Jodi.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Kent",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Kent.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Lewis",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.ElectedMayor}}",
-                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Lewis.Leaflet}}"
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Linus",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Linus.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Marnie",
-            "Entries": {
-                "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.PayingTax}} #$action emuEngineMayorMod_payTax 50",
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Marnie.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Pam",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Pam.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Pierre",
-            "Entries": {              
-                "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.PayingTax}} #$action emuEngineMayorMod_payTax 50",
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Pierre.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Robin",
-            "Entries": {
-                "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.PayingTax}} #$action emuEngineMayorMod_payTax 50",
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Robin.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Willy",
-            "Entries": {
-                "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.PayingTax}} #$action emuEngineMayorMod_payTax 50",
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Willy.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "LogName": "Update Wizard dialogue with election topics",
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Wizard",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Wizard.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        //Kids
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Jas",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.ElectedMayor}}",
-                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Jas.Leaflet}}"
-            }
-        },
-        //{
-        //    "Action": "EditData",
-        //    "Target": "Characters/Dialogue/Leo",
-        //    "Entries": {
-        //        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.RegisteredForBallot}}",
-        //        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.TalkingToVoters}}",
-        //        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.ElectedMayor}}",
-        //        "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Leo.Leaflet}}"
-        //    }
-        //},
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Vincent",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.ElectedMayor}}",
-                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Vincent.Leaflet}}"
-            }
-        },
-        //Non-giftable NPCs
-        //{
-        //    "Action": "EditData",
-        //    "Target": "Characters/Dialogue/Gil",
-        //    "Entries": {
-        //        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.RegisteredForBallot}}",
-        //        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.TalkingToVoters}}",
-        //        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.ElectedMayor}}",
-        //        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gil.Leaflet}}",
-        //        "RejectItem_(O){{ModId}}_Leaflet": null
-        //    }
-        //},
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Gunther",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gunther.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Marlon",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Marlon.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Morris",
-            "Entries": {
-                "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 50",
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Morris.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/MorrisTod",
-            "Entries": {
-                "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 50",
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Morris.Leaflet}}",
-                "RejectItem_(O){{ModId}}_Leaflet": null
-            }
-        },
-        //Non voters
-        //{
-        //    "Action": "EditData",
-        //    "Target": "Characters/Dialogue/Sandy",
-        //    "Entries": {
-        //        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.RegisteredForBallot}}",
-        //        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.TalkingToVoters}}",
-        //        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.ElectedMayor}}",
-        //        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sandy.Leaflet}}",
-        //        "RejectItem_(O){{ModId}}_Leaflet": null
-        //    }
-        //},
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Dwarf",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.ElectedMayor}}",
-                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Dwarf.Leaflet}}"
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Krobus",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.ElectedMayor}}",
-                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Krobus.Leaflet}}"
-            }
-        },
-        //Stardew Valley Expanded characters
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Claire",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Krobus.Leaflet}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Lance",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lance.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lance.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lance.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Lance.Leaflet}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Olivia",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Olivia.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Olivia.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Olivia.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Olivia.Leaflet}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Sophia",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sophia.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sophia.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sophia.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sophia.Leaflet}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Victor",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Victor.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Victor.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Victor.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Victor.Leaflet}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Andy",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Andy.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Andy.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Andy.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Andy.Leaflet}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Susan",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Susan.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Susan.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Susan.ElectedMayor}}",
-                "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Susan.Leaflet}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        },
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Martin",
-            "Entries": {
-                "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Martin.RegisteredForBallot}}",
-                "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Martin.TalkingToVoters}}",
-                "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Martin.ElectedMayor}}",
-                "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Martin.Leaflet}}"
-            },
-            "When": {
-                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
-            }
-        }
-    ]
+  "Changes": [
+    //Bachelors
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Alex",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Alex.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Alex.VotingDay}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Elliott",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Elliott.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Elliott.VotingDay}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Harvey",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Harvey.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.VotingDay}}",
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.SaloonHours}}",
+        "{{ModId}}_TownSecurityTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Harvey.TownSecurity}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Sam",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sam.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.VotingDay}}",
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.SaloonHours}}",
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.StrategicReserve}}",
+        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sam.TownRoads}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Sebastian",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sebastian.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Sebastian.VotingDay}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Shane",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Shane.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Shane.VotingDay}}"
+      }
+    },
+    //Bachelorettes
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Abigail",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Abigail.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Abigail.VotingDay}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Emily",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Emily.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.VotingDay}}",
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Emily.SaloonHours}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Haley",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Haley.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Haley.VotingDay}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Leah",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Leah.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Leah.VotingDay}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Maru",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Maru.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.VotingDay}}",
+        "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.CouncilMeetingIntro}}",
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Maru.StrategicReserve}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Penny",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Penny.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.VotingDay}}",
+        "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.CouncilMeetingIntro}}",
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Penny.SaloonHours}}"
+      }
+    },
+    //Non-marriage candidates
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Caroline",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Caroline.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.VotingDay}}",
+        "{{ModId}}_RiverCleanupTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Caroline.RiverCleanup}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Clint",
+      "Entries": {
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Clint.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.VotingDay}}",
+        "{{ModId}}_RiverCleanupTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Clint.RiverCleanup}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Demetrius",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Demetrius.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.VotingDay}}",
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Demetrius.StrategicReserve}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Evelyn",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Evelyn.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.VotingDay}}",
+        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Evelyn.TownRoads}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/George",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.George.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.George.VotingDay}}",
+        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConverstaionTopic.George.TownRoads}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Gus",
+      "Entries": {
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gus.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.VotingDay}}",
+        "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.CouncilMeetingIntro}}",
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gus.SaloonHours}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Jodi",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Jodi.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.VotingDay}}",
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jodi.StrategicReserve}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Kent",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Kent.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.VotingDay}}",
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Kent.StrategicReserve}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Lewis",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.ElectedMayor}}",
+        "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Lewis.Leaflet}}",
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.VotingDay}}",
+        "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lewis.CouncilMeetingIntro}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Linus",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Linus.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.VotingDay}}",
+        "{{ModId}}_TownCleanupTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.TownCleanup}}",
+        "{{ModId}}_TownSecurityTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Linus.TownSecurity}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Marnie",
+      "Entries": {
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Marnie.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.VotingDay}}",
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marnie.SaloonHours}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Pam",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Pam.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.VotingDay}}",
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pam.SaloonHours}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Pierre",
+      "Entries": {
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Pierre.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.VotingDay}}",
+        "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Pierre.CouncilMeetingIntro}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Robin",
+      "Entries": {
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Robin.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.VotingDay}}",
+        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Robin.TownRoads}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Willy",
+      "Entries": {
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Willy.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.VotingDay}}",
+        "{{ModId}}_RiverCleanupTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.RiverCleanup}}",
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Willy.StrategicReserve}}"
+      }
+    },
+    {
+      "LogName": "Update Wizard dialogue with election topics",
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Wizard",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Wizard.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Wizard.VotingDay}}"
+      }
+    },
+    //Kids
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Jas",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.ElectedMayor}}",
+        "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Jas.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.VotingDay}}",
+        "{{ModId}}_TownCleanupTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Jas.TownCleanup}}"
+      }
+    },
+    //{
+    //    "Action": "EditData",
+    //    "Target": "Characters/Dialogue/Leo",
+    //    "Entries": {
+    //        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.RegisteredForBallot}}",
+    //        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.TalkingToVoters}}",
+    //        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.ElectedMayor}}",
+    //        "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Leo.Leaflet}}"
+    //        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Leo.VotingDay}}",
+    //    }
+    //},
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Vincent",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.ElectedMayor}}",
+        "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Vincent.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.VotingDay}}",
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Vincent.StrategicReserve}}"
+      }
+    },
+    //Non-giftable NPCs
+    //{
+    //    "Action": "EditData",
+    //    "Target": "Characters/Dialogue/Gil",
+    //    "Entries": {
+    //        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.RegisteredForBallot}}",
+    //        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.TalkingToVoters}}",
+    //        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.ElectedMayor}}",
+    //        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gil.Leaflet}}",
+    //        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Gil.VotingDay}}",
+    //        "RejectItem_(O){{ModId}}_Leaflet": null
+    //    }
+    //},
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Gunther",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gunther.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Gunther.VotingDay}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Marlon",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Marlon.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.VotingDay}}",
+        "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.CouncilMeetingIntro}}",
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.StrategicReserve}}",
+        "{{ModId}}_TownSecurityTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Marlon.TownSecurity}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Morris",
+      "Entries": {
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Morris.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.VotingDay}}",
+        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.TownRoads}}"
+      }
+    },
+
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/MorrisTod",
+      "Entries": {
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Morris.Leaflet}}",
+        "RejectItem_(O){{ModId}}_Leaflet": null,
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Morris.VotingDay}}"
+      }
+    },
+    //Non voters
+    //{
+    //    "Action": "EditData",
+    //    "Target": "Characters/Dialogue/Sandy",
+    //    "Entries": {
+    //        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.RegisteredForBallot}}",
+    //        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.TalkingToVoters}}",
+    //        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.ElectedMayor}}",
+    //        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sandy.Leaflet}}",
+    //        "RejectItem_(O){{ModId}}_Leaflet": null
+    //        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Sandy.VotingDay}}"
+    //    }
+    //},
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Dwarf",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.ElectedMayor}}",
+        "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Dwarf.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Dwarf.VotingDay}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Krobus",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.ElectedMayor}}",
+        "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Krobus.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Krobus.VotingDay}}"
+      }
+    },
+    //Stardew Valley Expanded characters
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Claire",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Claire.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Claire.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Claire.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Claire.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Claire.VotingDay}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Lance",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lance.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lance.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Lance.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Lance.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Lance.VotingDay}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Olivia",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Olivia.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Olivia.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Olivia.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Olivia.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Olivia.VotingDay}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Sophia",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sophia.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sophia.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Sophia.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sophia.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Sophia.VotingDay}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Victor",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Victor.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Victor.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Victor.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Victor.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Victor.VotingDay}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Andy",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Andy.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Andy.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Andy.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Andy.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Andy.VotingDay}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Susan",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Susan.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Susan.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Susan.ElectedMayor}}",
+        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Susan.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Susan.VotingDay}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Martin",
+      "Entries": {
+        "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Martin.RegisteredForBallot}}",
+        "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Martin.TalkingToVoters}}",
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConverstaionTopic.Martin.ElectedMayor}}",
+        "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Martin.Leaflet}}",
+        //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConverstaionTopic.Martin.VotingDay}}"
+      },
+      "When": {
+        "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
+      }
+    }
+  ]
 }

@@ -12,9 +12,7 @@ public static class SaveHandler
 {
     public static MayorModData? SaveData { get; set; }
 
-    private static IModHelper _helper { get; set; } = null!;
-    private static IMonitor _monitor { get; set; } = null!;
-    private static IManifest _modManifest { get; set; } = null!;
+    private static IMod _mod { get; set; } = null!;
 
     /// <summary>
     /// Initializes the SaveHandler with the required SMAPI helper, monitor, and mod manifest.
@@ -22,11 +20,9 @@ public static class SaveHandler
     /// <param name="helper">The mod helper instance.</param>
     /// <param name="monitor">The monitor for logging.</param>
     /// <param name="modManifest">The mod manifest containing version information.</param>
-    public static void Init(IModHelper helper, IMonitor monitor, IManifest modManifest)
+    public static void Init(IMod mod)
     {
-        _helper = helper;
-        _monitor = monitor;
-        _modManifest = modManifest;
+        _mod = mod;
     }
 
     /// <summary>
@@ -38,7 +34,7 @@ public static class SaveHandler
         if (SaveData is not null)
         {
             SaveData.VotingDate = votingDate;
-            _helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
+            _mod.Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
         }
     }
 
@@ -51,8 +47,8 @@ public static class SaveHandler
         //this needs to be saved somewhere else
         if (SaveData is not null)
         {
-            SaveData.GoldStaueBase64Image = TextureUtils.ConvertTextureToBase64String(_monitor, goldStatueTexture);
-            _helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
+            SaveData.GoldStaueBase64Image = TextureUtils.ConvertTextureToBase64String(_mod.Monitor, goldStatueTexture);
+            _mod.Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
         }
     }
 
@@ -65,11 +61,11 @@ public static class SaveHandler
         SaveData = new MayorModData()
         {
             SaveVersion = new Version(
-                _modManifest.Version.MajorVersion,
-                _modManifest.Version.MinorVersion,
-                _modManifest.Version.PatchVersion)
+                _mod.ModManifest.Version.MajorVersion,
+                _mod.ModManifest.Version.MinorVersion,
+                _mod.ModManifest.Version.PatchVersion)
         };
-        _helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
+        _mod.Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
         return SaveData;
     }
 
@@ -78,16 +74,16 @@ public static class SaveHandler
     /// </summary>
     public static void LoadSaveData()
     {
-        SaveData = _helper.Data.ReadSaveData<MayorModData>(ModKeys.SAVE_KEY) ?? ResetSave();
+        SaveData = _mod.Helper.Data.ReadSaveData<MayorModData>(ModKeys.SAVE_KEY) ?? ResetSave();
 
-        var currentVersion = new Version(_modManifest.Version.MajorVersion,
-                                         _modManifest.Version.MinorVersion,
-                                         _modManifest.Version.PatchVersion);
+        var currentVersion = new Version(_mod.ModManifest.Version.MajorVersion,
+                                         _mod.ModManifest.Version.MinorVersion,
+                                         _mod.ModManifest.Version.PatchVersion);
         if (SaveData is not null && (SaveData.SaveVersion is null || SaveData.SaveVersion < currentVersion))
         {
             UpdateSaveDataTo1_1_16();
             UpdateSaveDataToLatest();
-            _helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
+            _mod.Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
         }
     }
 
@@ -96,14 +92,14 @@ public static class SaveHandler
     /// </summary>
     private static void UpdateSaveDataToLatest()
     {
-        var currentVersion = new Version(_modManifest.Version.MajorVersion,
-                                         _modManifest.Version.MinorVersion,
-                                         _modManifest.Version.PatchVersion);
+        var currentVersion = new Version(_mod.ModManifest.Version.MajorVersion,
+                                         _mod.ModManifest.Version.MinorVersion,
+                                         _mod.ModManifest.Version.PatchVersion);
         if (SaveData is not null && 
             (SaveData.SaveVersion is null || 
             SaveData.SaveVersion < currentVersion))
         {
-            _monitor.Log($"Updating MayorMod save data to version {currentVersion}", LogLevel.Info);
+            _mod.Monitor.Log($"Updating MayorMod save data to version {currentVersion}", LogLevel.Info);
             SaveData.SaveVersion = currentVersion;
         }
     }
@@ -118,7 +114,7 @@ public static class SaveHandler
             (SaveData.SaveVersion is null || 
             SaveData.SaveVersion < v1_1_16))
         {
-            _monitor.Log($"Updating MayorMod save data to version {v1_1_16}", LogLevel.Info);
+            _mod.Monitor.Log($"Updating MayorMod save data to version {v1_1_16}", LogLevel.Info);
             if (SaveData.VotingDate == new SDate(1, Season.Spring) || !ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
             {
                 SaveData.VotingDate = null;

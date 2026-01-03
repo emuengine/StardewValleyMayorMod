@@ -1,15 +1,10 @@
 ﻿using MayorMod.Constants;
 using MayorMod.Data.Handlers;
 using MayorMod.Data.Interfaces;
-using MayorMod.Data.Models;
 using MayorMod.Data.Utilities;
-using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
-using StardewModdingAPI.Utilities;
 using StardewValley;
-using StardewValley.Extensions;
-using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
 
@@ -19,29 +14,22 @@ namespace MayorMod;
 /// The mod entry point.
 /// </summary>
 internal sealed class ModEntry : Mod
-{
-    private ModConfigHandler _configHandler = null!;
-    private AssetUpdateHandler _assetUpdateHandler = null!;
-    private AssetInvalidationHandler _assetInvalidationHandler = null!;
-    private TaxHandler _taxHandler = null!;
-    private bool _riverCleanUpRunOnce = true;
-    
+{    
     /// <summary>
     /// The mod entry point, called after the mod is first loaded.
     /// </summary>
     /// <param name="helper">Provides simplified APIs for writing mods.</param>
     public override void Entry(IModHelper helper)
     {
-        _configHandler = new ModConfigHandler(Helper, ModManifest, Helper.ReadConfig<MayorModConfig>());
-        _assetUpdateHandler = new AssetUpdateHandler(Helper, Monitor);
-        _assetInvalidationHandler = new AssetInvalidationHandler(Helper);
-        _taxHandler = new TaxHandler();
-
-        SaveHandler.Init(Helper, Monitor, ModManifest);
-        TileActionHandler.Init(Helper, Monitor, _configHandler.ModConfig);
-        Phone.PhoneHandlers.Add(new PollingDataHandler(Helper, _configHandler.ModConfig));
-        EventCommandHandler.AddExtraEventCommands(Monitor);
-        HarmonyHandler.Init(ModManifest, Monitor);
+        AssetUpdateHandler.Init(this);
+        TaxHandler.Init();
+        SaveHandler.Init(this);
+        ModProgressHandler.Init(this);
+        AssetInvalidationHandler.Init(this);
+        TileActionHandler.Init(this);
+        Phone.PhoneHandlers.Add(new PollingDataHandler(this));
+        EventCommandHandler.Init(this);
+        HarmonyHandler.Init(this);
 
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
@@ -52,7 +40,7 @@ internal sealed class ModEntry : Mod
         {
             Helper.Events.Player.Warped += Player_Warped;
         }
-        Helper.ConsoleCommands.Add(ModKeys.RESET_COMMAND, ModKeys.RESET_COMMAND_HELP_TEXT, (arg1, arg2) => ResignAndReset());
+        Helper.ConsoleCommands.Add(ModKeys.RESET_COMMAND, ModKeys.RESET_COMMAND_HELP_TEXT, (arg1, arg2) => ModProgressHandler.ResignAndReset());
     }
 
     /// <summary>
@@ -62,7 +50,7 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void OnGameLaunched(object? sender, GameLaunchedEventArgs e)
     {
-        _configHandler.InitGMCM();
+        ModConfigHandler.Init(this);
         RegisterTokens();
     }
 
@@ -74,14 +62,14 @@ internal sealed class ModEntry : Mod
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
     {
         SaveHandler.LoadSaveData();
-        _assetInvalidationHandler.InvalidationNPCSchedules();
+        AssetInvalidationHandler.InvalidationNPCSchedules();
 
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
         {
-            _riverCleanUpRunOnce = false;
+            ModProgressHandler.RiverCleanUpRunOnce = false;
         }
 
-        _assetInvalidationHandler.UpdateAssetInvalidations();
+        AssetInvalidationHandler.UpdateAssetInvalidations();
     }
 
     /// <summary>
@@ -91,14 +79,14 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void GameLoop_DayStarted(object? sender, DayStartedEventArgs e)
     {
-        _assetInvalidationHandler.InvalidateModDataIfNeeded();
+        AssetInvalidationHandler.InvalidateModDataIfNeeded();
 
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
             //Set if council day
             var day = (int)WorldDate.GetDayOfWeekFor(Game1.dayOfMonth);
             ModProgressHandler.RemoveProgressFlag(ProgressFlags.IsCouncilDay);
-            if (_configHandler.ModConfig.MeetingDays[day])
+            if (ModConfigHandler.ModConfig.MeetingDays[day])
             {
                 ModProgressHandler.AddProgressFlag(ProgressFlags.IsCouncilDay);
             }
@@ -125,81 +113,10 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
-        //Set voting date
-        if (ModProgressHandler.HasProgressFlag(ProgressFlags.RegisterVotingDate) && SaveHandler.SaveData is not null)
-        {
-            SaveHandler.UpdateVotingDate(ModUtils.GetDateWithoutFestival(_configHandler.ModConfig.NumberOfCampaignDays));
-            ModProgressHandler.RemoveProgressFlag(ProgressFlags.RegisterVotingDate);
-            _assetInvalidationHandler.UpdateAssetInvalidations();
-        }
-
-        if (SaveHandler.SaveData is not null && 
-            SaveHandler.SaveData.VotingDate is not null && 
-            ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
-        {
-            if (SaveHandler.SaveData.VotingDate.AddDays(-2) == SDate.Now())
-            {
-                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_VoteTomorrowMail");
-            }
-            if (SaveHandler.SaveData.VotingDate.AddDays(-1) == SDate.Now())
-            {
-                ModProgressHandler.AddProgressFlag(ProgressFlags.IsVotingDay);
-            }
-            //Complete voting day
-            if (SaveHandler.SaveData.VotingDate == SDate.Now())
-            {
-                SaveHandler.UpdateVotingDate(null);
-                var voteManager = new VotingHandler(Game1.MasterPlayer, _configHandler.ModConfig);
-                ModProgressHandler.RemoveAllModFlags();
-                if (voteManager.HasWonElection(Helper))
-                {
-                    ModProgressHandler.AddProgressFlag(ProgressFlags.WonMayorElection);
-                    Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonOfficialElectionMail");
-                    Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonElectionMail");
-                    _assetInvalidationHandler.UpdateAssetInvalidations();
-                }
-                else
-                {
-                    Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_LoseOfficialElectionMail");
-                    ModProgressHandler.AddProgressFlag(ProgressFlags.LostMayorElection);
-                }
-            }
-        }
-
-        // Complete day as mayor
-        if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
-        {
-            ModProgressHandler.RemoveProgressFlag(ProgressFlags.WonMayorElection);
-            ModProgressHandler.RemoveProgressFlag(CouncilMeetingKeys.NotToday);
-            
-            if (_riverCleanUpRunOnce && ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
-            {
-                _riverCleanUpRunOnce = false;
-                _assetInvalidationHandler.LocationCacheInvalidate = true;
-            }
-
-            // Tax stuff
-            //if (SDate.Now().Day >= 21 && !ModUtils.HasConverstaionTopic(DialogueKeys.ConversationTopics.PayingTax))
-            //{
-            //    ModUtils.AddConversationTopic(DialogueKeys.ConversationTopics.PayingTax, 7);
-            //}
-            //else if(SDate.Now().Day < 21 && ModUtils.HasConverstaionTopic(DialogueKeys.ConversationTopics.PayingTax))
-            //{
-            //    ModUtils.RemoveConversationTopic(DialogueKeys.ConversationTopics.PayingTax);
-            //}
-        }
-
-        //Allow NeedMayorRetryEvent to repeat
-        if (Game1.player.eventsSeen.Contains(ProgressFlags.NeedMayorRetryEvent))
-        {
-            Game1.player.eventsSeen.Remove(ProgressFlags.NeedMayorRetryEvent);
-        }
-
-        //Reset mod if flagged
-        if (ModProgressHandler.HasProgressFlag(ProgressFlags.ModNeedsReset))
-        {
-            ResignAndReset();
-        }
+        ModProgressHandler.CampaignProgressUpdates();
+        ModProgressHandler.DayAsMayorUpdates();
+        ModProgressHandler.UpdateIfMayorRetryNeeded();
+        ModProgressHandler.HandleModResetIfNeeded();
     }
 
     /// <summary>
@@ -209,31 +126,8 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void Player_Warped(object? sender, WarpedEventArgs e)
     {
-        if (e.NewLocation.NameOrUniqueName == nameof(Town) && ModProgressHandler.HasProgressFlag(ProgressFlags.IsVotingDay))
-        {
-            //Remove bushes on SVE town map
-            e.NewLocation.terrainFeatures.RemoveWhere(tf => tf.Key.Equals(new Vector2(30, 34)));
-            e.NewLocation.terrainFeatures.RemoveWhere(tf => tf.Key.Equals(new Vector2(31, 35)));
-            
-            //TODO Look into if this is better to use
-            //Utility.clearObjectsInArea(bounds, gameLocation);
-        }
-
-        //Add shorts to animal shop if mayor
-        if (e.NewLocation.NameOrUniqueName == "AnimalShop" && ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
-        {
-            if (e.NewLocation.farmers.Count == 0)
-            {
-                e.NewLocation.characters.Clear();
-            }
-            Vector2 shortsTile = new(11f, 7f);
-            e.NewLocation.overlayObjects.Remove(shortsTile);
-            var o = ItemRegistry.Create<StardewValley.Object>("(O)789");
-            o.questItem.Value = true;
-            o.TileLocation = shortsTile;
-            o.IsSpawnedObject = true;
-            e.NewLocation.overlayObjects.Add(shortsTile, o);
-        }
+        ModProgressHandler.RemoveTownBushesOnVotingDay(e.NewLocation);
+        ModProgressHandler.AddLewisShortsToAnimalShop(e.NewLocation);
     }
 
     /// <summary>
@@ -245,10 +139,10 @@ internal sealed class ModEntry : Mod
     {
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
-            _assetUpdateHandler.AssetSubstringPatch(e);
+            AssetUpdateHandler.AssetSubstringPatch(e);
             if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.LOCATIONS) && ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
             {
-                _assetUpdateHandler.RemoveTrashFromRivers(e);
+                AssetUpdateHandler.RemoveTrashFromRivers(e);
                 return;
             }
         }
@@ -259,54 +153,13 @@ internal sealed class ModEntry : Mod
         {
             if (e.NameWithoutLocale.StartsWith(XNBPathKeys.DIALOGUE))
             {
-                _assetUpdateHandler.AssetUpdatesForLeafletDialogue(e);
+                AssetUpdateHandler.AssetUpdatesForLeafletDialogue(e);
             }
             else if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.PASSIVE_FESTIVALS))
             {
-                _assetUpdateHandler.AssetUpdatesForPassiveFestivals(e, SaveHandler.SaveData.VotingDate);
+                AssetUpdateHandler.AssetUpdatesForPassiveFestivals(e, SaveHandler.SaveData.VotingDate);
             }
         }
-    }
-
-    /// <summary>
-    /// Reset the mod to factory settings.
-    /// </summary>
-    private void ResignAndReset()
-    {
-        if (!Context.IsWorldReady)
-        {
-            Monitor.Log("Can't reset in while not in game.", LogLevel.Info);
-            return;
-        }
-
-        Monitor.Log("Reseting mod to fresh install.", LogLevel.Info);
-
-        Monitor.Log("Removing mayor mod flags.", LogLevel.Info);
-        Game1.MasterPlayer.mailReceived.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID)); 
-        Game1.MasterPlayer.mailbox.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
-        Game1.MasterPlayer.mailForTomorrow.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
-
-        Monitor.Log("Removing mayor mod from events seen.", LogLevel.Info);
-        Game1.MasterPlayer.eventsSeen.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
-        Game1.MasterPlayer.activeDialogueEvents.RemoveWhere(m => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
-        Game1.MasterPlayer.previousActiveDialogueEvents.RemoveWhere(m => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
-        Game1.MasterPlayer.triggerActionsRun.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
-        foreach (var item in Game1.MasterPlayer.giftedItems)
-        {
-            item.Value.RemoveWhere(g => g.Key.Contains(ModKeys.MAYOR_MOD_CPID));
-        }
-
-        Monitor.Log("Clearing save data.", LogLevel.Info);
-        SaveHandler.ResetSave();
-
-        Monitor.Log("Invalidating cache for patched assets.", LogLevel.Info);
-        Helper.GameContent.InvalidateCache(XNBPathKeys.MAIL);
-        Helper.GameContent.InvalidateCache(XNBPathKeys.PASSIVE_FESTIVALS);
-        Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
-        Helper.GameContent.InvalidateCache(XNBPathKeys.CHARACTERS);
-
-        Monitor.Log("Done.", LogLevel.Info);
-        Monitor.Log("Please go to sleep and save and the mod should be reset.", LogLevel.Info);
     }
 
     /// <summary>
@@ -317,20 +170,22 @@ internal sealed class ModEntry : Mod
         var api = this.Helper.ModRegistry.GetApi<IContentPatcherAPI>("Pathoschild.ContentPatcher");
         api?.RegisterToken(this.ModManifest, ModKeys.MEETING_DAYS_TOKEN, () =>
         {
-            return Context.IsWorldReady ? new List<string>() { ModUtils.GetFormattedMeetingDays(Helper, _configHandler.ModConfig) } : null;
-        });
-        api?.RegisterToken(this.ModManifest, ModKeys.VOTING_SEASON_TOKEN, () =>
-        {
-            return SaveHandler.SaveData is not null && SaveHandler.SaveData.VotingDate is not null ? new List<string>() { $"{SaveHandler.SaveData.VotingDate.Season}" } : new List<string>() { "NOT LOADED" };
+            return Context.IsWorldReady ? new List<string>() { ModUtils.GetFormattedMeetingDays(Helper, ModConfigHandler.ModConfig) } : null;
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_DAY_TOKEN, () =>
         {
-            return SaveHandler.SaveData is not null && SaveHandler.SaveData.VotingDate is not null ? new List<string>() { $"{SaveHandler.SaveData.VotingDate.Day}" } : new List<string>() { "NOT LOADED" };
+            var voteDate = SaveHandler.SaveData?.VotingDate;
+            return voteDate is not null ? new List<string>() { $"{voteDate.Day} {voteDate.Season}" } : new List<string>() { "NOT LOADED" };
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_RESULT_TOKEN, () =>
         {
-            var result = new VotingHandler(Game1.MasterPlayer, _configHandler.ModConfig).GetVotingResultText(Helper);
+            var result = new VotingHandler(Game1.MasterPlayer, ModConfigHandler.ModConfig).GetVotingResultText(Helper);
             return !string.IsNullOrEmpty(result) ? new List<string>() { result } : null;
         });
+        api?.RegisterToken(this.ModManifest, ModKeys.DEBATE_DAY_TOKEN, () =>
+        {
+            var debateDate = SaveHandler.SaveData?.VotingDate?.AddDays(-1 * ModKeys.DEBATE_DAY_OFFSET);
+            return debateDate is not null ? new List<string>() { $"{debateDate.Day} {debateDate.Season}" } : new List<string>() { "NOT LOADED" };
+        });        
     }
 }

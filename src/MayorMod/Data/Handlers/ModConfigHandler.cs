@@ -6,48 +6,44 @@ using StardewModdingAPI;
 
 namespace MayorMod.Data.Handlers;
 
-public class ModConfigHandler
+public static class ModConfigHandler
 {
-    private readonly IModHelper _helper;
-    private readonly IManifest _modManifest;
-    public MayorModConfig ModConfig { get; set; } = new();
+    public static MayorModConfig ModConfig { get; set; } = new();
 
-
-    public ModConfigHandler(IModHelper helper, IManifest modManifest, MayorModConfig modConfig) 
+    public static void Init(IMod mod)
     {
-        _helper = helper;
-        _modManifest= modManifest;
-        ModConfig = modConfig;
+        InitGMCM(mod);
     }
 
     /// <summary>
     /// Setup Generic Mod Config Menu
     /// </summary>
-    public void InitGMCM()
+    private static void InitGMCM(IMod mod)
     {
-        var configMenu = _helper.ModRegistry.GetApi<IGenericModConfigMenuApi>(ModKeys.CONFIG_MENU_ID);
+        ModConfig = mod.Helper.ReadConfig<MayorModConfig>();
+        var configMenu = mod.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>(ModKeys.CONFIG_MENU_ID);
         if (configMenu is null)
         {
             return;
         }
 
         configMenu.Register(
-            mod: _modManifest,
+            mod: mod.ModManifest,
             reset: () => ModConfig = new MayorModConfig(),
-            save: () => _helper.WriteConfig(ModConfig)
+            save: () => mod.Helper.WriteConfig(ModConfig)
         );
 
 
         configMenu.AddSectionTitle(
-            mod: _modManifest,
-            text: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VotingOptions")
+            mod: mod.ModManifest,
+            text: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VotingOptions")
         //tooltip: () => ModUtils.GetTranslationForKey(Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VotingOptions.Tooltip")
         );
 
         configMenu.AddNumberOption(
-            mod: _modManifest,
-            name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoteThreshold"),
-            tooltip: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoteThreshold.Tooltip"),
+            mod: mod.ModManifest,
+            name: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoteThreshold"),
+            tooltip: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoteThreshold.Tooltip"),
             getValue: () => ModConfig.ThresholdForVote,
             setValue: value => ModConfig.ThresholdForVote = value,
             min: 0,
@@ -56,9 +52,9 @@ public class ModConfigHandler
         );
 
         configMenu.AddNumberOption(
-            mod: _modManifest,
-            name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoterPercentageNeeded"),
-            tooltip: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoterPercentageNeeded.Tooltip"),
+            mod: mod.ModManifest,
+            name: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoterPercentageNeeded"),
+            tooltip: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.VoterPercentageNeeded.Tooltip"),
             getValue: () => ModConfig.VoterPercentageNeeded,
             setValue: value => ModConfig.VoterPercentageNeeded = value,
             min: 0,
@@ -67,9 +63,9 @@ public class ModConfigHandler
         );
 
         configMenu.AddNumberOption(
-            mod: _modManifest,
-            name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.NumberOfCampaignDays"),
-            tooltip: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.NumberOfCampaignDays.Tooltip"),
+            mod: mod.ModManifest,
+            name: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.NumberOfCampaignDays"),
+            tooltip: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.NumberOfCampaignDays.Tooltip"),
             getValue: () => ModConfig.NumberOfCampaignDays,
             setValue: value => ModConfig.NumberOfCampaignDays = value,
             min: 0,
@@ -79,49 +75,49 @@ public class ModConfigHandler
 
 
         configMenu.AddSectionTitle(
-            mod: _modManifest,
-            text: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.CouncilMeetingDays"),
-            tooltip: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.CouncilMeetingDays.Tooltip")
+            mod: mod.ModManifest,
+            text: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.CouncilMeetingDays"),
+            tooltip: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.CouncilMeetingDays.Tooltip")
         );
         configMenu.AddBoolOption(
-             mod: _modManifest,
-             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Monday"),
+             mod: mod.ModManifest,
+             name: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Monday"),
              getValue: () => ModConfig.MeetingDays[1],
              setValue: value => ModConfig.MeetingDays[1] = value
         );
         configMenu.AddBoolOption(
-             mod: _modManifest,
-             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Tuesday"),
+             mod: mod.ModManifest,
+             name: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Tuesday"),
              getValue: () => ModConfig.MeetingDays[2],
              setValue: value => ModConfig.MeetingDays[2] = value
         );
         configMenu.AddBoolOption(
-             mod: _modManifest,
-             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Wednesday"),
+             mod: mod.ModManifest,
+             name: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Wednesday"),
              getValue: () => ModConfig.MeetingDays[3],
              setValue: value => ModConfig.MeetingDays[3] = value
         );
         configMenu.AddBoolOption(
-             mod: _modManifest,
-             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Thursday"),
+             mod: mod.ModManifest,
+             name: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Thursday"),
              getValue: () => ModConfig.MeetingDays[4],
              setValue: value => ModConfig.MeetingDays[4] = value
         );
         configMenu.AddBoolOption(
-             mod: _modManifest,
-             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Friday"),
+             mod: mod.ModManifest,
+             name: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Friday"),
              getValue: () => ModConfig.MeetingDays[5],
              setValue: value => ModConfig.MeetingDays[5] = value
         );
         configMenu.AddBoolOption(
-             mod: _modManifest,
-             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Saturday"),
+             mod: mod.ModManifest,
+             name: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Saturday"),
              getValue: () => ModConfig.MeetingDays[6],
              setValue: value => ModConfig.MeetingDays[6] = value
         );
         configMenu.AddBoolOption(
-             mod: _modManifest,
-             name: () => ModUtils.GetTranslationForKey(_helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Sunday"),
+             mod: mod.ModManifest,
+             name: () => ModUtils.GetTranslationForKey(mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Sunday"),
              getValue: () => ModConfig.MeetingDays[0],
              setValue: value => ModConfig.MeetingDays[0] = value
         );

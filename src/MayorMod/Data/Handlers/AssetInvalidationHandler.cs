@@ -7,15 +7,14 @@ namespace MayorMod.Data.Handlers;
 
 public class AssetInvalidationHandler
 {
-    private readonly IModHelper _helper;
+    private static IMod _mod = null!;
+    private static bool MailCacheInvalidate {get; set;}
+    private static bool LocationCacheInvalidate { get; set; }
+    private static bool PassiveFestivalCacheInvalidate { get; set; }
 
-    public bool MailCacheInvalidate {get; set;}
-    public bool LocationCacheInvalidate { get; set; }
-    public bool PassiveFestivalCacheInvalidate { get; set; }
-
-    public AssetInvalidationHandler(IModHelper helper)
+    public static void Init(IMod mod)
     {
-        _helper = helper;
+        _mod = mod;
     }
 
     /// <summary>
@@ -24,17 +23,17 @@ public class AssetInvalidationHandler
     /// variable date passive festivals show. They also don't seem to reload between loading saves
     /// so you can have the voting day appear in other saves even though you're not running for mayor.
     /// </summary>
-    public void InvalidateModDataIfNeeded()
+    public static void InvalidateModDataIfNeeded()
     {
         if (MailCacheInvalidate)
         {
-            _helper.GameContent.InvalidateCache(XNBPathKeys.MAIL);
+            _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.MAIL);
             MailCacheInvalidate = false;
         }
 
         if (PassiveFestivalCacheInvalidate)
         {
-            _helper.GameContent.InvalidateCache(XNBPathKeys.PASSIVE_FESTIVALS);
+            _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.PASSIVE_FESTIVALS);
             Game1.PerformPassiveFestivalSetup();
             Game1.UpdatePassiveFestivalStates();
             PassiveFestivalCacheInvalidate = false;
@@ -42,13 +41,13 @@ public class AssetInvalidationHandler
 
         if (LocationCacheInvalidate)
         {
-            _helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
+            _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
             LocationCacheInvalidate = false;
         }
     }
 
 
-    public void UpdateAssetInvalidations()
+    public static void UpdateAssetInvalidations()
     {
         MailCacheInvalidate = true;
         PassiveFestivalCacheInvalidate = true;
@@ -59,11 +58,16 @@ public class AssetInvalidationHandler
         }
     }
 
-    public void InvalidationNPCSchedules()
+    public static void InvalidationNPCSchedules()
     {
         foreach (var npc in Utility.getAllVillagers())
         {
             npc.resetForNewDay(SDate.Now().Day);
         }
+    }
+
+    public static void InvalidationLocations()
+    {
+        LocationCacheInvalidate = true;
     }
 }

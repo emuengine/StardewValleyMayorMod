@@ -4,16 +4,16 @@ using StardewValley.Triggers;
 
 namespace MayorMod.Data.Handlers;
 
-public class TaxHandler
+public static class TaxHandler
 {
     public const string PAY_TAX_ACTION = "emuEngineMayorMod_payTax";
 
-    public TaxHandler()
+    public static void Init()
     {
         TriggerActionManager.RegisterAction(PAY_TAX_ACTION, PayTaxAction);
     }
     
-    public bool PayTaxAction(string[] args, TriggerActionContext context, out string error)
+    public static bool PayTaxAction(string[] args, TriggerActionContext context, out string error)
     {
         // get args
         if (!ArgUtility.TryGetInt(args, 1, out int amount, out error))

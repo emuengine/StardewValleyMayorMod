@@ -33,7 +33,7 @@
 	//////////////////////
 	"EmuEngine.MayorModCP_Mail.RegistrationMail.Title": "Registration for Mayoral Election",
 	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body": "^^Dear @,^^Re: Registration for Mayoral Election^^ We are pleased to acknowledge your registration as a candidate in the upcoming mayoral election. Your interest in serving our community in this esteemed position is commendable. The election will take place on",
-	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body2": "so get campaigning. ^^If you have any questions or^concerns regarding the election^process, please do not hesitate^to contact us. We are more than^happy to assist you throughout this campaign.^^Sincerely,^Angela,^Chair of S.V. Election Committee[letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black]",
+	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body2": "so get campaigning. ^^If you have any questions or^concerns regarding the election^process, please do not hesitate^to contact us. We are more than^happy to assist you throughout this campaign.^^Sincerely,^Angela,^Chair of S.V. Election Committee",
 
 	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Title": "Talk with voters",
 	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^We need to communicate the vision you have for mayor to the town. As your campaign manager, I suggest that you make time for talking to the villagers. The more people like you, the more likely they are to vote for you. I'll track the campaign with regular polling so you can call me with the telephone for results. I've also printed out policy leaflets that we can hand out.^-Marlon",
@@ -41,8 +41,12 @@
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Title": "Good News",
 	"EmuEngine.MayorModCP_Mail.CampaignMail.Body": "Hey @,^^Good news! I have been talking with Gus and I think I've convinced him to vote for you. I've also printed up a poster that you can put up in the town. ^^-Marlon",
 
+	"EmuEngine.MayorModCP_Mail.DebateDateMail.Title": "Mayoral debate",
+	"EmuEngine.MayorModCP_Mail.DebateDateMail.Body": "Dear @,^^Re: Pelican town election debate^^We would like to inform you that the mayoral debate will take place on",
+	"EmuEngine.MayorModCP_Mail.DebateDateMail.Body2": ". Please meet the team in town before proceeding to the debate stage.^^Sincerely,^Angela,^Chair of S.V. Election Committee",
+
 	"EmuEngine.MayorModCP_Mail.VoteTomorrowMail.Title": "Voting Tomorrow",
-	"EmuEngine.MayorModCP_Mail.VoteTomorrowMail.Body": "^Dear Citizen,^Re: Mayoral Election^^ We are writing to remind you that voting for the Mayor of Pelican Town will take place tomorrow. The voting booths will be open all day, so we encourage you to vote early to avoid the crowds.^^Sincerely,^S.V. Election Committee[letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black]",
+	"EmuEngine.MayorModCP_Mail.VoteTomorrowMail.Body": "^Dear Citizen,^Re: Mayoral Election^^ We are writing to remind you that voting for the Mayor of Pelican Town will take place tomorrow. The voting booths will be open all day, so we encourage you to vote early to avoid the crowds.^^Sincerely,^S.V. Election Committee",
 
 	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Title": "Council member vote",
 	"EmuEngine.MayorModCP_Mail.TownCouncilMail.Body": "Hey @,^^Did you know we used to have a town council? I've spoken with Gus, Maru, and Penny from the old gang. They're keen for us to revive the council meetings again. If we do they're also open to supporting your bid for mayor.^^-Marlon",
@@ -673,6 +677,57 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Susan.TalkingToVoters": "It's great that you're running! I think a lot of people around here are ready for a change.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Martin.TalkingToVoters": "I think it's good that you want to help the whole town. Not many people step up like that.",
 
+	"EmuEngine.MayorModCP_ConverstaionTopic.Alex.VotingDay": "I trust my instincts and I have my vote.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Elliott.VotingDay": "In the end the choice was obvious. I'm glad I got here in time.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Harvey.VotingDay": "I know ther is no perfect answer however this is the most responsible one.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Sam.VotingDay": "I thought about it on the walk over and this feels right.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Sebastian.VotingDay": "I'm tired of vague promises from politicians.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Shane.VotingDay": "Hmm I don't usually do this.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Abigail.VotingDay": "I wish you luck today.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Emily.VotingDay": "A good candidate understands the dreams and desires of our community.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Haley.VotingDay": "Isn't this exciting?",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Leah.VotingDay": "We shall see how this goes.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Maru.VotingDay": "Lets hope we get some real change.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Penny.VotingDay": "I hope we will get to see improvements in the community library. Knowledge builds a stronger town.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Caroline.VotingDay": "I have my mind made up.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Clint.VotingDay": "I thought about this a lot while working on some tools. That usually helps.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Demetrius.VotingDay": "I reviewed the data and considered all of the outcomes. This is the most reasonable choice.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Evelyn.VotingDay": "Are you surprised it's the big day already? Time goes by so quick.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.George.VotingDay": "A good candidates should prioritise stability and respect traditions.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Gus.VotingDay": "Don't worry, I'm voting for you today.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Jodi.VotingDay": "I took my time and I know who I choose.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Kent.VotingDay": "We need a strong leader and that is who I will vote for.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Lewis.VotingDay": "It's voting day so I am voting.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Linus.VotingDay": "It's been a while since I have done this.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Marnie.VotingDay": "I guess we will see who wins.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Pam.VotingDay": "Was this building always here?",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Pierre.VotingDay": "I'm casting my vote early becuase I have a busy day today.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Robin.VotingDay": "I helped put the voting office up. I think we did a good job.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Willy.VotingDay": "We shall see what way the winds of change blow.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Wizard.VotingDay": "I have read the signs written in ash and moonlight. They point to this choice.",
+	////Kids
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Jas.VotingDay": "",
+	////"EmuEngine.MayorModCP_ConverstaionTopic.Leo.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Vincent.VotingDay": "",
+	////Non votersmayor of stardew
+	////"EmuEngine.MayorModCP_ConverstaionTopic.Sandy.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Dwarf.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Krobus.VotingDay": "",
+	////Non-giftable NPCs
+	////"EmuEngine.MayorModCP_ConverstaionTopic.Gil.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Gunther.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Morris.VotingDay": "",
+	////Stardew Valley Expanded NPCs
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Claire.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Lance.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Olivia.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Sophia.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Victor.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Andy.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Susan.VotingDay": "",
+	//"EmuEngine.MayorModCP_ConverstaionTopic.Martin.VotingDay": "",
+
 	"EmuEngine.MayorModCP_ConverstaionTopic.Alex.ElectedMayor": "Well, would you look at that? You have got yourself a whole new job now. Let's see what changes he brings to our little valley.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Elliott.ElectedMayor": "The farmer is now a mayor, huh? I must admit, I didn't see that coming. But if anyone can shake things up around here, it's you.",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Harvey.ElectedMayor": "Oh wow, that's amazing! Mayor... @. It has a nice ring to it. I'm so happy for you!",
@@ -733,6 +788,49 @@
 	"EmuEngine.MayorModCP_ConverstaionTopic.Willy.PayingTax": "I'd rather pay my dues to the sea than the mayor’s office.",
 	//"EmuEngine.MayorModCP_ConverstaionTopic.Willy.PayingTax": "Can I pay in fish next time?",
 	"EmuEngine.MayorModCP_ConverstaionTopic.Morris.PayingTax": "I've made my contribution, as always. A pleasure doing business with you!",
+
+	//Council Meeting reactions
+	"EmuEngine.MayorModCP_ConverstaionTopic.Jas.TownCleanup}}": "I like the cleaner playground.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Linus.TownCleanup}}": "The wilderness has been cleaner. It makes a difference.",
+
+	"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.CouncilMeetingIntro}}": "I look forward to getting down to some real issues in the coucil meetings.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Gus.CouncilMeetingIntro}}": "I have a suggestion for the council agenda. I left it on your desk.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Penny.CouncilMeetingIntro}}": "I have been teaching the children about how the govenment work. Maybe you can talk to them one of the days.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Maru.CouncilMeetingIntro}}": "I think we had a good first council meeting.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Lewis.CouncilMeetingIntro}}": "I heard you started up the council meetings again. You know if you ever need advice or help with decisions#$b#I do have plenty of experience and maybe I could help out some time.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Pierre.CouncilMeetingIntro}}": "Nice to see the council is officially back. I must discuss some ideas with the council members.",
+
+	"EmuEngine.MayorModCP_ConverstaionTopic.Willy.RiverCleanup}}": "The waters are cleaner for fishin, but I can't help wonderin where all these broken glasses are comin from?",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Clint.RiverCleanup}}": "The cleaner water helps the forge work much better.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Caroline.RiverCleanup}}": "With all that trash gone, the cleaner water has really helped my plants thrive.",
+
+	"EmuEngine.MayorModCP_ConverstaionTopic.Penny.SaloonHours}}": "The saloon already features quite regularly in my mother's routine. The longer opening hours might not be ideal.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Emily.SaloonHours}}": "It's nice to be able to work a bit longer so I can get more money for cloth.#$e#Maybe if I have more time to listen to the problems of the regulars I can help them.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Gus.SaloonHours}}": "I thought I would have a bit more business. I might need to update my menu in the mornings.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Harvey.SaloonHours}}": "I hate to say this, but with the saloon open longer hours I hope I don't see an increase in incidents",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Sam.SaloonHours}}": "I hear you have let the saloon be open longer .That's great! Now I can have more time to try and get a new high score in Junimo Carts.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Pam.SaloonHours}}": "I love the longer opening hours at the saloon. It makes it even easier to enjoy the great atmosphere.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Marnie.SaloonHours}}": "While I appreciate the effort, I'm not the biggest fan of the saloon's longer opening hours.",
+
+	"EmuEngine.MayorModCP_ConverstaionTopic.Jodi.StrategicReserve}}": "Kent seems a bit more relaxed since you announced the strategic reserve.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Sam.StrategicReserve}}": "My dad seems less stressed. Maybe he’ll join us on the beach next time Vincent wants to look at the starfish.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Vincent.StrategicReserve}}": "I saw daddy smile the other day. I haven’t seen him smile since he left! Does this mean he'll play with me again?",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Kent.StrategicReserve}}": "I've been having trouble sleeping since I came back, the peacefulness of the town has felt like a mask. It's always felt wrong to be back and pretend the war was far away and not effecting the valley. This strategic reserve makes me feel a bit safer in the valley in case the war comes here.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Maru.StrategicReserve}}": "I am gald we are working to be prepared in case an emergency happens.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.StrategicReserve}}": "You've not only shaped up to be a fine adventurer but also a fine mayor. The town reserve could be used if the barrier breaks and monsters slip through. But with the town's added security and Rasmodius working on the barrier, let's hope it doesn’t come to that.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Willy.StrategicReserve}}": "I've noticing the water levels rising and fishermen from other cities talk about floods… It is nice that we are trying to be more prepared.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Demetrius.StrategicReserve}}": "It's good to be prepared in case of an earthquake. There was a chance of one happening when Joja blew up the rock blocking access to the train station. Valleys have a higher earthquake risk than bedrock areas.  The soft, thick sediments amplify seismic waves, making ground shaking much stronger and damage more severe, even for distant earthquakes. This amplification, combined with potential liquefaction and specific local fault structures increases hazards like liquefaction, landslides, and greater structural damage, making valleys significant earthquake risk zones....#$b# Oh, look at the time! I didn't mean to keep you so long! I'll let you get back to whatever errands you were running. Have a fantastic day!",
+
+	"EmuEngine.MayorModCP_ConverstaionTopic.George.TownRoads}}": "The new road improvements have significantly improved my ability to get around.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Evelyn.TownRoads}}": "The new roads have made it easier for George to get around, and it seems to have improved his mood.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Morris.TownRoads}}": "I had a similar idea regarding road improvements. I am glad we have a mayor that takes the initiative to do it.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Robin.TownRoads}}": "Improved roads make hauling construction materials much easier, and it may be worth considering adding more.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Sam.TownRoads}}": "The smoother roads are perfect for skating.",
+
+	"EmuEngine.MayorModCP_ConverstaionTopic.Marlon.TownSecurity}}": "I've been trying to get more security around here for years. It's so good to have a competent mayor.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Harvey.TownSecurity}}": "The extra security has really helped with injuries around the mines.",
+	"EmuEngine.MayorModCP_ConverstaionTopic.Linus.TownSecurity}}": " It's been nice and quiet since Officer Mike has been on guard at night.",
+
 
 	//////////////////////
 	//Mayor asset updates

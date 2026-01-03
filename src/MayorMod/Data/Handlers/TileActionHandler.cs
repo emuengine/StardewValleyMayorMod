@@ -13,9 +13,7 @@ namespace MayorMod.Data.Handlers;
 /// </summary>
 internal static class TileActionHandler
 {
-    private static IModHelper _helper = null!;
-    private static IMonitor _monitor = null!;
-    private static MayorModConfig _modConfig = null!;
+    private static IMod _mod = null!;
 
     public const string MayorModActionType = "MayorModAction";
     public const string MayorDeskActionType = "MayorDesk";
@@ -30,12 +28,9 @@ internal static class TileActionHandler
     public const string MayorFridgeActionType = "MayorFridge";
     public const string Resign = "Resign";
 
-
-    public static void Init(IModHelper helper, IMonitor monitor, MayorModConfig modConfig)
+    public static void Init(IMod mod)
     {
-        _helper = helper;
-        _monitor = monitor;
-        _modConfig = modConfig;
+        _mod = mod;
         GameLocation.RegisterTileAction(MayorModActionType, HandleMayorModTileAction);
     }
 
@@ -59,25 +54,25 @@ internal static class TileActionHandler
     {
         if (arg2.Length < 2)
         {
-            _monitor.Log("MayorModAction is missing parameters", LogLevel.Error);
+            _mod.Monitor.Log("MayorModAction is missing parameters", LogLevel.Error);
             return false;
         }
 
         switch (arg2[1])
         {
-            case DeedsBookType: { MayorMachines.DeedsBook(_helper, farmer); } break;
+            case DeedsBookType: { MayorMachines.DeedsBook(_mod.Helper, farmer); } break;
             case LostAndFoundActionType: { MayorMachines.CheckLostAndFound(); } break;
             case DivorceBookActionType: { MayorMachines.DivorceBook(); } break;
             case LedgerBookActionType: { MayorMachines.ReadLedgerBook(); } break;
             case MayorFridgeActionType: { MayorMachines.MayorFridge(point); } break;
-            case MayorDeskActionType: ManorHouseTileActions.MayorDeskAction(_helper, farmer, _modConfig); break;
+            case MayorDeskActionType: ManorHouseTileActions.MayorDeskAction(_mod.Helper, farmer, ModConfigHandler.ModConfig); break;
             case DeskActionType: VotingTileActions.VotingDeskAction(farmer); break;
-            case VotingBoothActionType: VotingTileActions.VotingBoothAction(_helper, farmer, arg2); break;
+            case VotingBoothActionType: VotingTileActions.VotingBoothAction(_mod.Helper, farmer, arg2); break;
             case BallotBoxActionType: VotingTileActions.BallotBoxAction(farmer); break;
-            case Resign: ModUtils.OpenResignationDialogue(_helper, farmer); break;
+            case Resign: ModUtils.OpenResignationDialogue(_mod.Helper, farmer); break;
             default:
             {
-                _monitor?.Log($"Unknown tile action - {arg2[1]}", LogLevel.Error);
+                _mod.Monitor?.Log($"Unknown tile action - {arg2[1]}", LogLevel.Error);
                 return false;
             }
         }

@@ -25,19 +25,20 @@ public static class HarmonyHandler
     public const string WALL_FLOOR_PREFIX = "MayorMod_";
     public const string VOTING_DAY_SCHEDULE_KEY = "VotingDay";
 
-    private static IMonitor _monitor = null!;
+    private static IMod _mod = null!;
     private static Texture2D? _cachedGoldStatueTexture;
 
-    public static void Init(IManifest manifest, IMonitor monitor)
+    public static void Init(IMod mod)
     {
-        _monitor = monitor;
+        _mod = mod;
+        //_monitor = monitor;
 
         // DecoratableLocation patches
         var methodInfo = typeof(DecoratableLocation)
         .GetMethods(BindingFlags.NonPublic | BindingFlags.Instance)
         .FirstOrDefault(x => x.Name.Contains("IsFloorableOrWallpaperableTile") && x.GetParameters().Length == 4);
 
-        var harmony = new Harmony(manifest.UniqueID);
+        var harmony = new Harmony(_mod.ModManifest.UniqueID);
         harmony.Patch(
            original: methodInfo,
            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(DecoratableLocation_IsFloorableOrWallpaperableTile_Prefix))
@@ -76,7 +77,7 @@ public static class HarmonyHandler
         {
             if (!string.IsNullOrEmpty(SaveHandler.SaveData.GoldStaueBase64Image))
             {
-                _cachedGoldStatueTexture = TextureUtils.DecodeTextureFromBase64String(_monitor, SaveHandler.SaveData.GoldStaueBase64Image);
+                _cachedGoldStatueTexture = TextureUtils.DecodeTextureFromBase64String(_mod.Monitor, SaveHandler.SaveData.GoldStaueBase64Image);
             }
 
             _cachedGoldStatueTexture ??= TextureUtils.InitGoldStatueTexture();
