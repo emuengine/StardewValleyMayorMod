@@ -310,13 +310,13 @@ namespace MayorMod.Data.Utilities
 
             var goldPalette = new[]
             {
-            (threshold: 0.15f, color: new Color(90, 36, 13)),      // Darkest gold
-            (threshold: 0.35f, color: new Color(156, 85, 8)),      // Dark gold
-            (threshold: 0.55f, color: new Color(238, 156, 44)),    // Medium gold
-            (threshold: 0.75f, color: new Color(255, 233, 79)),    // Bright gold
-            (threshold: 0.90f, color: new Color(255, 255, 168)),   // Light gold
-            (threshold: 1.00f, color: new Color(255, 255, 255))    // White
-        };
+                (threshold: 0.15f, color: new Color(90, 36, 13)),      // Darkest gold
+                (threshold: 0.35f, color: new Color(156, 85, 8)),      // Dark gold
+                (threshold: 0.55f, color: new Color(238, 156, 44)),    // Medium gold
+                (threshold: 0.75f, color: new Color(255, 233, 79)),    // Bright gold
+                (threshold: 0.90f, color: new Color(255, 255, 168)),   // Light gold
+                (threshold: 1.00f, color: new Color(255, 255, 255))    // White
+            };
 
             for (int i = 0; i < pixels.Length; i++)
             {

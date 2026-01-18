@@ -1,5 +1,24 @@
 # Changelog
 
+## v1.1.18
+
+## Features
+- Villagers now vote on voting day.
+- Added custom mayor gold statue.
+- Added voting summary mail.
+- Added mail for debate event.
+- Added emergency supplies council event.
+- Added MayorMod reset command (MayorModReset)
+
+
+## Bug fixes
+- Fix for clicking mayor desk menu.
+- Dialogue fixes.
+- Mail fixes.
+- Make voting hours longer.
+- Refactored handlers.
+- Tweaks for mod tilesheet.
+
 ## v1.1.13
 
 ## Features
