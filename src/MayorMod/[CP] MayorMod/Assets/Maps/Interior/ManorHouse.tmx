@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="22" nextobjectid="79">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="22" nextobjectid="85">
  <properties>
   <property name="FloorIDs" value="MayorMod_CouncilRoom 512, MayorMod_Office 512, MayorMod_Hall 512"/>
   <property name="WallIDs" value="MayorMod_CouncilRoom 512, MayorMod_Office 512, MayorMod_Hall 512"/>
@@ -389,22 +389,12 @@
     <property name="Action" value="MayorModAction LostAndFound"/>
    </properties>
   </object>
-  <object id="35" name="TileData" x="320" y="80" width="16" height="16">
+  <object id="35" name="TileData" x="320" y="64" width="16" height="16">
    <properties>
     <property name="Action" value="MayorModAction MayorDesk"/>
    </properties>
   </object>
-  <object id="36" name="TileData" x="304" y="80" width="16" height="16">
-   <properties>
-    <property name="Action" value="MayorModAction MayorDesk"/>
-   </properties>
-  </object>
-  <object id="34" name="TileData" x="320" y="64" width="16" height="16">
-   <properties>
-    <property name="Action" value="MayorModAction MayorDesk"/>
-   </properties>
-  </object>
-  <object id="33" name="TileData" x="304" y="64" width="16" height="16">
+  <object id="36" name="TileData" x="304" y="64" width="16" height="16">
    <properties>
     <property name="Action" value="MayorModAction MayorDesk"/>
    </properties>
@@ -412,6 +402,16 @@
   <object id="78" name="TileData" x="16" y="112" width="16" height="16">
    <properties>
     <property name="Action" value="MayorModAction DeedsBook"/>
+   </properties>
+  </object>
+  <object id="83" name="TileData" x="304" y="96" width="16" height="16">
+   <properties>
+    <property name="Action" value="MayorModAction MayorDesk"/>
+   </properties>
+  </object>
+  <object id="84" name="TileData" x="320" y="96" width="16" height="16">
+   <properties>
+    <property name="Action" value="MayorModAction MayorDesk"/>
    </properties>
   </object>
  </objectgroup>
