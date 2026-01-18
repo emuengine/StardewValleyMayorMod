@@ -31,7 +31,6 @@ public static class HarmonyHandler
     public static void Init(IMod mod)
     {
         _mod = mod;
-        //_monitor = monitor;
 
         // DecoratableLocation patches
         var methodInfo = typeof(DecoratableLocation)
@@ -52,18 +51,18 @@ public static class HarmonyHandler
         //NPC Schedule patching for voting day
         harmony.Patch(
             original: AccessTools.Method(typeof(NPC), nameof(NPC.TryLoadSchedule)),
-            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(TryLoadSchedule_Prefix))
+            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(NPC_TryLoadSchedule_Prefix))
         );
 
         //Gold Statue patching
         harmony.Patch(
             original: AccessTools.Method(typeof(ParsedItemData), nameof(ParsedItemData.GetTexture)),
-            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(GetTexture_Prefix))
+            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(ParsedItemData_GetTexture_Prefix))
         );
 
         harmony.Patch(
             original: AccessTools.Method(typeof(Furniture), nameof(Furniture.checkForAction)),
-            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(checkForAction_Prefix))
+            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(Furniture_checkForAction_Prefix))
         );
     }
 
@@ -71,7 +70,7 @@ public static class HarmonyHandler
     /// Intercepts texture retrieval for a ParsedItemData instance and provides a custom texture for the Gold Statue
     /// item if applicable.
     /// </summary>
-    public static bool GetTexture_Prefix(ParsedItemData __instance, ref Texture2D __result)
+    public static bool ParsedItemData_GetTexture_Prefix(ParsedItemData __instance, ref Texture2D __result)
     {
         if (__instance.QualifiedItemId == $"(F){ModItemKeys.GoldStatue}" && SaveHandler.SaveData is not null)
         {
@@ -100,7 +99,7 @@ public static class HarmonyHandler
     /// <param name="justCheckingForActivity"></param>
     /// <param name="__result"></param>
     /// <returns></returns>
-    public static bool checkForAction_Prefix(Furniture __instance, Farmer who, bool justCheckingForActivity, ref bool __result)
+    public static bool Furniture_checkForAction_Prefix(Furniture __instance, Farmer who, bool justCheckingForActivity, ref bool __result)
     {
         if (__instance.QualifiedItemId == $"(F){ModItemKeys.GoldStatue}")
         {
@@ -118,7 +117,7 @@ public static class HarmonyHandler
     /// <param name="__instance"></param>
     /// <param name="__result"></param>
     /// <returns></returns>
-    public static bool TryLoadSchedule_Prefix(NPC __instance, ref bool __result)
+    public static bool NPC_TryLoadSchedule_Prefix(NPC __instance, ref bool __result)
     {
         if (SaveHandler.SaveData is not null &&
             SaveHandler.SaveData.VotingDate is not null &&

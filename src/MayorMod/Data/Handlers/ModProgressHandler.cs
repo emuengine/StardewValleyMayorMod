@@ -6,7 +6,6 @@ using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.Extensions;
 using StardewValley.Locations;
-using System.Linq;
 
 namespace MayorMod.Data.Handlers;
 
