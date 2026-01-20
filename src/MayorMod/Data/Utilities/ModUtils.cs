@@ -282,7 +282,7 @@ public static class ModUtils
         Game1.MasterPlayer.activeDialogueEvents.RemoveWhere(m => m.Key == topicId);
         //look at HasNPCBeenCanvassed
     }
-    public static bool HasConverstaionTopic(string topicId)
+    public static bool HasConversationTopic(string topicId)
     {
         return Game1.player.activeDialogueEvents.ContainsKey(topicId) && Game1.player.activeDialogueEvents[topicId] > 0;
     }
