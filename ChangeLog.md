@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.19
+
+## Bug fixes
+- Fixes for broken dialogue.
+
+
 ## v1.1.18
 
 ## Features
