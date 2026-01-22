@@ -14,7 +14,7 @@
     {
       "UniqueID": "Pathoschild.ContentPatcher",
       "IsRequired": true,
-      "MinimumVersion": "2.7.5"
+      "MinimumVersion": "2.7.0"
     }
   ]
 }

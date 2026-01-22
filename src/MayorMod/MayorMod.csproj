@@ -6,7 +6,7 @@
         <Nullable>enable</Nullable>
         <Version>1.1.19</Version>
         <SMAPIVersion>4.1.0</SMAPIVersion>
-        <ContentPatcherVersion>2.7.5</ContentPatcherVersion>
+        <ContentPatcherVersion>2.7.0</ContentPatcherVersion>
         <EnableHarmony>true</EnableHarmony>
     </PropertyGroup>
 
@@ -38,6 +38,7 @@
         <JsonPoke ContentPath="$(MSBuildProjectDirectory)\[CP] MayorMod\manifest.json" Query="$.MinimumApiVersion" Value="$(SMAPIVersion)" />
         <JsonPoke ContentPath="$(MSBuildProjectDirectory)\[CP] MayorMod\manifest.json" Query="$.Dependencies[0].MinimumVersion" Value="$(ContentPatcherVersion)" />
         <JsonPoke ContentPath="$(MSBuildProjectDirectory)\[CP] MayorMod\manifest.json" Query="$.Dependencies[1].MinimumVersion" Value="$(Version)" />
+        <JsonPoke ContentPath="$(MSBuildProjectDirectory)\[CP] MayorMod\content.json" Query="$.Format" Value="$(ContentPatcherVersion)" />
         <JsonPoke ContentPath="$(MSBuildProjectDirectory)\manifest.json" Query="$.Version" Value="$(Version)" />
         <JsonPoke ContentPath="$(MSBuildProjectDirectory)\manifest.json" Query="$.MinimumApiVersion" Value="$(SMAPIVersion)" />
         <JsonPoke ContentPath="$(MSBuildProjectDirectory)\manifest.json" Query="$.Dependencies[0].MinimumVersion" Value="$(ContentPatcherVersion)" />

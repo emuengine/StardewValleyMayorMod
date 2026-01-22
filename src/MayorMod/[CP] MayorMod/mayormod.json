@@ -1,0 +1,74 @@
+{
+  "Changes": [
+    //Dialogue
+    {
+      "Action": "Include",
+      "FromFile": "Data/Dialogue/ConversationTopics.json"
+    },
+    //Events
+    {
+      "Action": "Include",
+      "FromFile": "Data/Events/MayorDebateEvent.json, Data/Events/MayorWinSpeechEvent.json, Data/Events/MayorLoseEvent.json, Data/Events/EmilyClothingTherapy.json, Data/Events/NeedMayorEvent.json, Data/Events/ManorHouseIntroEvent.json, Data/Events/WorriedLewisEvent.json, Data/Events/TreePlantingEvent.json, Data/Events/MarnieLewisLiving.json, Data/Events/ExpandGrandpasFarmEvent.json"
+    },
+    {
+      "Action": "Include",
+      "FromFile": "Data/Events/Council/CouncilMeetingIntroEvent.json, Data/Events/Council/CouncilMeetingSaloonHours.json, Data/Events/Council/CouncilMeetingTownSecurity.json, Data/Events/Council/CouncilMeetingCleanUpEvent.json, Data/Events/Council/CouncilMeetingRiverCleanUpEvent.json, Data/Events/Council/CouncilMeetingTownRoadsEvent.json, Data/Events/Council/CouncilMeetingStrategicReserveEvent.json"
+    },
+    //{
+    //	"Action": "Include",
+    //	"FromFile": "Data/Festivals/PassiveFestivals.json"
+    //},
+    //Items
+    {
+      "Action": "Include",
+      "FromFile": "Data/Items/ElectionSign.json, Data/Items/Ballot.json, Data/Items/Leaflet.json, Data/Items/Lecturn.json, Data/Items/DebateModeratorFurniture.json, Data/Items/MayorShirt.json, Data/Items/ShovelHole.json, Data/Items/OakSapling.json, Data/Items/GoldStatue.json"
+    },
+    //Mail
+    {
+      "Action": "Include",
+      "FromFile": "Data/Mail/MailUpdates.json"
+    },
+    //Maps
+    {
+      "Action": "Include",
+      "FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/ManorHouse.json, Data/Maps/Exterior/Town.json, Data/Maps/Exterior/ForestStageArea.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Interior/CommunityCenter.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/ManorHouseBasement.json, Data/Maps/Interior/VotingOffice.json, Data/Maps/Interior/MayorModWarpRoom.json"
+    },
+    //NPCs
+    {
+      "Action": "Include",
+      "FromFile": "Data/NPCs/Gil.json, Data/NPCs/Governor.json, Data/NPCs/Marlon.json, Data/NPCs/OfficerMike.json, Data/NPCs/Lewis.json, Data/NPCs/Gus.json"
+    },
+    {
+      "Action": "Include",
+      "FromFile": "Data/NPCs/Schedules/Schedule.json",
+      "When": {
+        "IsCommunityCenterComplete": false
+      }
+    },
+    {
+      "Action": "Include",
+      "FromFile": "Data/NPCs/Schedules/CCSchedule.json",
+      "When": {
+        "IsCommunityCenterComplete": true
+      }
+    },
+    //Powers
+    {
+      "Action": "Include",
+      "FromFile": "Data/Powers/Powers.json"
+    },
+    //Quests`
+    {
+      "Action": "Include",
+      "FromFile": "Data/SpecialOrders/StrategicReserve.json"
+    },
+    //Mayor Asset Patches
+    {
+      "Action": "Include",
+      "FromFile": "Data/MayorAssetPatchesCP.json",
+      "When": {
+        "HasFlag: hostPlayer | contains={{ModId}}_ElectedAsMayor": true
+      }
+    }
+  ]
+}
