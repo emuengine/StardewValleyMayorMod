@@ -19,4 +19,5 @@ public static class ProgressFlags
     public static readonly string CleanUpRivers = $"{ModKeys.MAYOR_MOD_CPID}_RiverCleanup";
     public static readonly string SecurityOnGuard = $"{ModKeys.MAYOR_MOD_CPID}_SecurityOnGuard";
     public static readonly string TaxCollection = $"{ModKeys.MAYOR_MOD_CPID}_TaxCollection";
+    public static readonly string StrategicReserve = $"{ModKeys.MAYOR_MOD_CPID}_StrategicReserve";
 }

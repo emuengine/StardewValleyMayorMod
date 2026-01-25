@@ -61,7 +61,10 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
     {
-        SaveHandler.LoadSaveData();
+        if (Game1.IsMasterGame)
+        {
+            SaveHandler.LoadSaveData();
+        }
         AssetInvalidationHandler.InvalidationNPCSchedules();
 
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))

@@ -22,7 +22,7 @@ public static class SaveHandler
     /// <param name="modManifest">The mod manifest containing version information.</param>
     public static void Init(IMod mod)
     {
-        _mod = mod;
+        _mod = mod;        
     }
 
     /// <summary>
@@ -82,9 +82,14 @@ public static class SaveHandler
         if (SaveData is not null && (SaveData.SaveVersion is null || SaveData.SaveVersion < currentVersion))
         {
             UpdateSaveDataTo1_1_16();
+            UpdateSaveDataTo1_1_20();
             UpdateSaveDataToLatest();
             _mod.Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
         }
+                
+        Game1.getFarm().modData.TryAdd(MultiplayerKeys.VOTING_DATE, SaveData?.VotingDate?.ToString());
+        Game1.getFarm().modData.TryAdd(MultiplayerKeys.TOWN_TREASURY, SaveData?.TownTreasury.ToString());
+        Game1.getFarm().modData.TryAdd(MultiplayerKeys.GOLD_STATUE_IMAGE, SaveData?.GoldStaueBase64Image);
     }
 
     /// <summary>
@@ -120,6 +125,27 @@ public static class SaveHandler
                 SaveData.VotingDate = null;
             }
             SaveData.SaveVersion = v1_1_16;
+        }
+    }
+
+    /// <summary>
+    /// Migrates save data to version 1.1.20.
+    /// </summary>
+    private static void UpdateSaveDataTo1_1_20()
+    {
+        var v1_1_20 = new Version(1, 1, 20);
+        if (SaveData is not null &&
+            (SaveData.SaveVersion is null ||
+            SaveData.SaveVersion < v1_1_20))
+        {
+            _mod.Monitor.Log($"Updating MayorMod save data to version {v1_1_20}", LogLevel.Info);
+            //Remove reserve special order if you havent seen the event yet.
+            if (Game1.MasterPlayer.team.specialOrders.Any(so => so.questKey.Equals(CouncilMeetingKeys.SpecialOrderStrategicReserve)) &&
+                !ModProgressHandler.HasProgressFlag(ProgressFlags.StrategicReserve))
+            {
+                Game1.MasterPlayer.team.specialOrders.RemoveWhere(so => so.questKey.Equals(CouncilMeetingKeys.SpecialOrderStrategicReserve));
+            }
+            SaveData.SaveVersion = v1_1_20;
         }
     }
 }

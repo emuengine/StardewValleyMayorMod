@@ -7,10 +7,10 @@
         "{{ModId}}_StrategicReserveSpecialOrder": {
           "Name": "{{i18n:{{ModId}}_SpecialOrders.StrategicReserve.Title}}",
           "Requester": "Maru",
-          "Duration": "twoweeks",
+          "Duration": "TwoWeeks",
           "Repeatable": "false",
-          "RequiredTags": "",
-          "OrderType": "",
+          "RequiredTags": "mail_{{ModId}}_StrategicReserve",
+          "OrderType": "MayorMod_SpecialOrders",
           "SpecialRule": "",
           "Text": "{{i18n:{{ModId}}_SpecialOrders.StrategicReserve.Description}}",
           "ItemToRemoveOnEnd": null,
