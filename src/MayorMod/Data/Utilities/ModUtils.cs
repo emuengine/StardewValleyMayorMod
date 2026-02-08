@@ -6,6 +6,7 @@ using StardewModdingAPI;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.GameData;
+using System.Text.Json;
 using static StardewValley.GameLocation;
 
 namespace MayorMod.Data.Utilities;
@@ -285,5 +286,47 @@ public static class ModUtils
     public static bool HasConversationTopic(string topicId)
     {
         return Game1.player.activeDialogueEvents.ContainsKey(topicId) && Game1.player.activeDialogueEvents[topicId] > 0;
+    }
+
+    public static bool UpsertFarmModData(string key, string? value)
+    {
+        if (!Context.IsWorldReady)
+        {
+            return false;
+        }
+
+        if (!Game1.getFarm().modData.ContainsKey(key))
+        {
+            return Game1.getFarm().modData.TryAdd(key, value);
+        }
+        else
+        {
+            Game1.getFarm().modData[key] = value;
+            return true;
+        }
+    }
+
+    public static string? GetFarmModData(string key)
+    {
+        if (!Context.IsWorldReady)
+        {
+            return null;
+        }
+
+        if (Game1.getFarm().modData.ContainsKey(key))
+        {
+            return Game1.getFarm().modData[key];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public static SDate? GetVotingDate()
+    {
+        var voteDateString = GetFarmModData(MultiplayerKeys.VOTING_DATE);
+        var voteDate = voteDateString?.ParseSDate();
+        return voteDate;
     }
 }

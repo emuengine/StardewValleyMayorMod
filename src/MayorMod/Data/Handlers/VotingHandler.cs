@@ -3,6 +3,7 @@ using MayorMod.Data.Models;
 using MayorMod.Data.Utilities;
 using StardewModdingAPI;
 using StardewValley;
+using System.Text.Json;
 
 namespace MayorMod.Data.Handlers;
 
@@ -60,7 +61,7 @@ public class VotingHandler
     /// <returns>True if the NPC has been canvassed, false otherwise.</returns>
     public bool HasNPCBeenCanvassed(string name)
     {
-        return _farmer.mailReceived.Any(m => m.Trim().Equals($"{name}_{DialogueKeys.ConversationTopics.TalkingToVotersTopic}", StringComparison.InvariantCultureIgnoreCase));
+        return _farmer.mailReceived.Any(m => m.Trim().Equals($"{name}_{ConversationTopicKeys.TalkingToVotersTopic}", StringComparison.InvariantCultureIgnoreCase));
     }
 
     /// <summary>
@@ -91,19 +92,48 @@ public class VotingHandler
     /// Calculates the number of votes the player has cast.
     /// </summary>
     /// <returns>The number of votes the player has cast.</returns>
-    public int CalculatePlayerVotes()
+    public int CalculatePlayerVotes(IModHelper helper)
     {
-        var votes = 0;
-        if (Game1.IsMultiplayer)
+        var allVotes = GetPlayerVotes();
+        var votesFor = allVotes.Count(v => v.VotedFor.Equals(Game1.MasterPlayer.Name, StringComparison.InvariantCultureIgnoreCase));
+        var votesAgainst = allVotes.Count(v => !v.VotedFor.Equals(Game1.MasterPlayer.Name, StringComparison.InvariantCultureIgnoreCase));
+        var voteNumber = votesFor - votesAgainst;
+        return voteNumber;
+    }
+
+    public static bool AddPlayerVote(Farmer farmer, string votedFor)
+    {
+        if (!Context.IsWorldReady)
         {
-            //TODO: Count votes for multiplayer
+            return false;
         }
-        if (ModProgressHandler.HasProgressFlag(ProgressFlags.VotedForMayor))
+
+        var playerVote = new PlayerVote()
         {
-            //If you dont for for yourself you're voting for Lewis
-            votes = ModProgressHandler.HasProgressFlag(ProgressFlags.HasVotedForHostFarmer) ? 1 : -1;
+            PlayerID = farmer.UniqueMultiplayerID,
+            VotedFor = votedFor
+        };
+
+        var existingVotesJson = ModUtils.GetFarmModData(MultiplayerKeys.PLAYER_VOTES);
+        var existingVotes = !string.IsNullOrEmpty(existingVotesJson)
+            ? JsonSerializer.Deserialize<List<PlayerVote>>(existingVotesJson) ?? new List<PlayerVote>()
+            : new List<PlayerVote>();
+        existingVotes.Add(playerVote);
+
+        return ModUtils.UpsertFarmModData(MultiplayerKeys.PLAYER_VOTES, JsonSerializer.Serialize(existingVotes));
+    }
+
+    public static List<PlayerVote> GetPlayerVotes()
+    {
+        if (!Context.IsWorldReady)
+        {
+            return new List<PlayerVote>();
         }
-        return votes;
+
+        var existingVotesJson = ModUtils.GetFarmModData(MultiplayerKeys.PLAYER_VOTES);
+        return !string.IsNullOrEmpty(existingVotesJson)
+            ? JsonSerializer.Deserialize<List<PlayerVote>>(existingVotesJson) ?? new List<PlayerVote>()
+            : new List<PlayerVote>();
     }
 
     /// <summary>
@@ -177,7 +207,7 @@ public class VotingHandler
     {
         var voters = GetVotingVillagers(helper);
         var votes = voters.Sum(v => VotingForFarmer(v) ? 1 : 0);
-        votes += CalculatePlayerVotes();
+        votes += CalculatePlayerVotes(helper);
         return votes;
     }
 

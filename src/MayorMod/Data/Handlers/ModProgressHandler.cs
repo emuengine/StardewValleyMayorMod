@@ -35,6 +35,20 @@ public static class ModProgressHandler
     }
 
     /// <summary>
+    /// Check if host has a progress flag.
+    /// </summary>
+    /// <param name="flagId">Progress flag Id</param>
+    /// <returns></returns>
+    public static bool HasHostGotProgressFlag(string flagId)
+    {
+        if (Game1.MasterPlayer is null)
+        {
+            return false;
+        }
+        return Game1.MasterPlayer.mailReceived.Contains(flagId);
+    }
+
+    /// <summary>
     /// Add a progress flag to a player.
     /// </summary>
     /// <param name="flagId">Progress flag Id</param>
@@ -67,10 +81,63 @@ public static class ModProgressHandler
     }
 
     /// <summary>
+    /// Check if player has a mail.
+    /// </summary>
+    /// <param name="flagId">Progress flag Id</param>
+    /// <returns></returns>
+    public static bool HasMail(Farmer farmer, string flagId)
+    {
+        if (farmer is null)
+        {
+            return false;
+        }
+        return farmer.mailReceived.Contains(flagId) ||
+               farmer.mailForTomorrow.Contains(flagId)||
+               farmer.mailbox.Contains(flagId);
+    }
+
+
+    public static void CampaignProgressUpdatesFarmhand()
+    {
+        if (Game1.IsMasterGame)
+        {
+            return;
+        }
+
+        if (HasHostGotProgressFlag(ProgressFlags.RunningForMayor))
+        {
+            //Farmhand updates for multiplayer
+            if (HasMail(Game1.MasterPlayer, MailKeys.RegisteredForElectionMail) &&
+                !HasMail(Game1.player, MailKeys.RegisteredForElectionFarmhandMail) &&
+                !Game1.player.mailbox.Contains(MailKeys.RegisteredForElectionFarmhandMail))
+            {
+                Game1.player.mailbox.Add(MailKeys.RegisteredForElectionFarmhandMail);
+                Game1.player.activeDialogueEvents.TryAdd(ConversationTopicKeys.MayorCampaignRunningTopic, 7);
+            }
+
+            var daysUntilVoting = ModUtils.GetVotingDate()?.DaysSinceStart - SDate.Now().DaysSinceStart;
+
+            //Set mail for debate date
+            if (daysUntilVoting < (ModKeys.DEBATE_DAY_OFFSET + 8))
+            {
+                if (!HasMail(Game1.player, MailKeys.DebateDateFarmhandMail))
+                {
+                    Game1.player.mailbox.Add(MailKeys.DebateDateFarmhandMail);
+                }
+            }
+        }
+    }
+
+    /// <summary>
     /// Does updates related to voting day. 
     /// </summary>
     public static void CampaignProgressUpdates()
     {
+        if (!Game1.IsMasterGame)
+        {
+            return;
+        }
+
         if (HasProgressFlag(ProgressFlags.RegisterVotingDate) && SaveHandler.SaveData is not null)
         {
             //Set voting date
@@ -79,27 +146,29 @@ public static class ModProgressHandler
             AssetInvalidationHandler.UpdateAssetInvalidations();
         }
 
-        if (SaveHandler.SaveData?.VotingDate is not null && HasProgressFlag(ProgressFlags.RunningForMayor))
+        if (HasHostGotProgressFlag(ProgressFlags.RunningForMayor) && SaveHandler.SaveData?.VotingDate is not null)
         {
             var daysUntilVoting = SaveHandler.SaveData.VotingDate.DaysSinceStart - SDate.Now().DaysSinceStart;
 
             //Set mail for debate date
-            if (daysUntilVoting < (ModKeys.DEBATE_DAY_OFFSET + 8) &&
-                !Game1.MasterPlayer.mailReceived.Contains($"{ModKeys.MAYOR_MOD_CPID}_DebateDateMail"))
+            if (daysUntilVoting < (ModKeys.DEBATE_DAY_OFFSET + 8))
             {
-                Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_DebateDateMail");
+                if (!HasMail(Game1.MasterPlayer, MailKeys.DebateDate))
+                {
+                    Game1.MasterPlayer.mailbox.Add(MailKeys.DebateDate);
+                }
             }
 
             //Debate is today
             if (daysUntilVoting == (ModKeys.DEBATE_DAY_OFFSET + 1))
             {
-                Game1.MasterPlayer.mailReceived.Add($"{ModKeys.MAYOR_MOD_CPID}_MayorDebateMail");
+                Game1.MasterPlayer.mailReceived.Add(MailKeys.MayorDebate);
             }
 
             switch (daysUntilVoting)
             {
                 //Set mail for day before voting
-                case 2: { Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_VoteTomorrowMail"); } break;
+                case 2: { Game1.player.mailbox.Add(MailKeys.VoteTomorrow); } break;
                 //Set as voting day
                 case 1: { AddProgressFlag(ProgressFlags.IsVotingDay); } break;
                 //Complete voting day
@@ -118,17 +187,20 @@ public static class ModProgressHandler
         var voteManager = new VotingHandler(Game1.MasterPlayer, ModConfigHandler.ModConfig);
         RemoveAllModFlags();
 
-        if (voteManager.HasWonElection(_mod.Helper))
+        if (Game1.IsMasterGame)
         {
-            AddProgressFlag(ProgressFlags.WonMayorElection);
-            Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonOfficialElectionMail");
-            Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_WonElectionMail");
-            AssetInvalidationHandler.UpdateAssetInvalidations();
-        }
-        else
-        {
-            Game1.MasterPlayer.mailbox.Add($"{ModKeys.MAYOR_MOD_CPID}_LoseOfficialElectionMail");
-            AddProgressFlag(ProgressFlags.LostMayorElection);
+            if (voteManager.HasWonElection(_mod.Helper))
+            {
+                AddProgressFlag(ProgressFlags.WonMayorElection);
+                Game1.MasterPlayer.mailbox.Add(MailKeys.WonOfficialElectioMail);
+                Game1.MasterPlayer.mailbox.Add(MailKeys.WonElectionMail);
+                AssetInvalidationHandler.UpdateAssetInvalidations();
+            }
+            else
+            {
+                Game1.MasterPlayer.mailbox.Add(MailKeys.LoseOfficialElectionMail);
+                AddProgressFlag(ProgressFlags.LostMayorElection);
+            }
         }
     }
 
@@ -238,16 +310,16 @@ public static class ModProgressHandler
         _mod.Monitor.Log("Reseting mod to fresh install.", LogLevel.Info);
 
         _mod.Monitor.Log("Removing mayor mod flags.", LogLevel.Info);
-        Game1.MasterPlayer.mailReceived.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
-        Game1.MasterPlayer.mailbox.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
-        Game1.MasterPlayer.mailForTomorrow.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.player.mailReceived.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.player.mailbox.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.player.mailForTomorrow.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
 
         _mod.Monitor.Log("Removing mayor mod from events seen.", LogLevel.Info);
-        Game1.MasterPlayer.eventsSeen.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
-        Game1.MasterPlayer.activeDialogueEvents.RemoveWhere(m => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
-        Game1.MasterPlayer.previousActiveDialogueEvents.RemoveWhere(m => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
-        Game1.MasterPlayer.triggerActionsRun.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
-        foreach (var item in Game1.MasterPlayer.giftedItems)
+        Game1.player.eventsSeen.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.player.activeDialogueEvents.RemoveWhere(m => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.player.previousActiveDialogueEvents.RemoveWhere(m => m.Key.Contains(ModKeys.MAYOR_MOD_CPID));
+        Game1.player.triggerActionsRun.RemoveWhere(m => m.Contains(ModKeys.MAYOR_MOD_CPID));
+        foreach (var item in Game1.player.giftedItems)
         {
             item.Value.RemoveWhere(g => g.Key.Contains(ModKeys.MAYOR_MOD_CPID));
         }

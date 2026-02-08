@@ -36,6 +36,7 @@ public static class SaveHandler
             SaveData.VotingDate = votingDate;
             _mod.Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
         }
+        UpdateFarmModData();
     }
 
     /// <summary>
@@ -50,6 +51,18 @@ public static class SaveHandler
             SaveData.GoldStaueBase64Image = TextureUtils.ConvertTextureToBase64String(_mod.Monitor, goldStatueTexture);
             _mod.Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
         }
+        UpdateFarmModData();
+    }
+
+    /// <summary>
+    /// Updates the farm's mod data with the current voting date, town treasury amount, and gold statue image
+    /// information from the save data. This allows syncing across multiplayer sessions.
+    /// </summary>
+    public static void UpdateFarmModData()
+    {
+        ModUtils.UpsertFarmModData(MultiplayerKeys.VOTING_DATE, SaveData?.VotingDate?.ToString());
+        ModUtils.UpsertFarmModData(MultiplayerKeys.TOWN_TREASURY, SaveData?.TownTreasury.ToString());
+        ModUtils.UpsertFarmModData(MultiplayerKeys.GOLD_STATUE_IMAGE, SaveData?.GoldStaueBase64Image);
     }
 
     /// <summary>
@@ -86,10 +99,8 @@ public static class SaveHandler
             UpdateSaveDataToLatest();
             _mod.Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
         }
-                
-        Game1.getFarm().modData.TryAdd(MultiplayerKeys.VOTING_DATE, SaveData?.VotingDate?.ToString());
-        Game1.getFarm().modData.TryAdd(MultiplayerKeys.TOWN_TREASURY, SaveData?.TownTreasury.ToString());
-        Game1.getFarm().modData.TryAdd(MultiplayerKeys.GOLD_STATUE_IMAGE, SaveData?.GoldStaueBase64Image);
+
+        UpdateFarmModData();
     }
 
     /// <summary>

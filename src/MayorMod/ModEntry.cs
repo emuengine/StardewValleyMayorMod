@@ -1,4 +1,5 @@
 ﻿using MayorMod.Constants;
+using MayorMod.Data;
 using MayorMod.Data.Handlers;
 using MayorMod.Data.Interfaces;
 using MayorMod.Data.Utilities;
@@ -117,6 +118,7 @@ internal sealed class ModEntry : Mod
     private void GameLoop_DayEnding(object? sender, DayEndingEventArgs e)
     {
         ModProgressHandler.CampaignProgressUpdates();
+        ModProgressHandler.CampaignProgressUpdatesFarmhand();
         ModProgressHandler.DayAsMayorUpdates();
         ModProgressHandler.UpdateIfMayorRetryNeeded();
         ModProgressHandler.HandleModResetIfNeeded();
@@ -150,9 +152,7 @@ internal sealed class ModEntry : Mod
             }
         }
 
-        if (SaveHandler.SaveData is not null &&
-            SaveHandler.SaveData.VotingDate is not null && 
-            ModProgressHandler.HasProgressFlag(ProgressFlags.RunningForMayor))
+        if (ModProgressHandler.HasHostGotProgressFlag(ProgressFlags.RunningForMayor))
         {
             if (e.NameWithoutLocale.StartsWith(XNBPathKeys.DIALOGUE))
             {
@@ -160,7 +160,7 @@ internal sealed class ModEntry : Mod
             }
             else if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.PASSIVE_FESTIVALS))
             {
-                AssetUpdateHandler.AssetUpdatesForPassiveFestivals(e, SaveHandler.SaveData.VotingDate);
+                AssetUpdateHandler.AssetUpdatesForPassiveFestivals(e);
             }
         }
     }
@@ -177,17 +177,18 @@ internal sealed class ModEntry : Mod
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_DAY_TOKEN, () =>
         {
-            var voteDate = SaveHandler.SaveData?.VotingDate;
+            var voteDate = ModUtils.GetVotingDate();
             return voteDate is not null ? new List<string>() { $"{voteDate.Day} {voteDate.Season}" } : new List<string>() { "NOT LOADED" };
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_RESULT_TOKEN, () =>
-        {
+        {            
             var result = new VotingHandler(Game1.MasterPlayer, ModConfigHandler.ModConfig).GetVotingResultText(Helper);
             return !string.IsNullOrEmpty(result) ? new List<string>() { result } : null;
         });
         api?.RegisterToken(this.ModManifest, ModKeys.DEBATE_DAY_TOKEN, () =>
         {
-            var debateDate = SaveHandler.SaveData?.VotingDate?.AddDays(-1 * ModKeys.DEBATE_DAY_OFFSET);
+            var voteDate = ModUtils.GetVotingDate();
+            var debateDate = voteDate?.AddDays(-1 * ModKeys.DEBATE_DAY_OFFSET);
             return debateDate is not null ? new List<string>() { $"{debateDate.Day} {debateDate.Season}" } : new List<string>() { "NOT LOADED" };
         });        
     }

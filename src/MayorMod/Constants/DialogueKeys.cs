@@ -2,12 +2,6 @@
 
 public static class DialogueKeys
 {
-    public static class ConversationTopics
-    {
-        public static readonly string PayingTax = $"{ModKeys.MAYOR_MOD_CPID}_PayingTaxTopic";
-        public static readonly string TalkingToVotersTopic = $"{ModKeys.MAYOR_MOD_CPID}_TalkingToVotersTopic";
-    }
-
     public static class VotingBooth
     {
         public static readonly string VotingBallotTitle = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_VotingBallotTitle";

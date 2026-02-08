@@ -116,10 +116,11 @@ public static class AssetUpdateHandler
     /// <summary>
     /// Updates Passive Festivals assets that depend on voting day
     /// </summary>
-    public static void AssetUpdatesForPassiveFestivals(AssetRequestedEventArgs e, SDate votingDate)
+    public static void AssetUpdatesForPassiveFestivals(AssetRequestedEventArgs e)
     {
         e.Edit(festivals =>
         {
+            var votingDate = ModUtils.GetVotingDate();
             var data = festivals.AsDictionary<string, PassiveFestivalData>().Data;
             var votingDay = new PassiveFestivalData()
             {

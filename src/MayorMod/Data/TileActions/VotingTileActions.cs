@@ -108,6 +108,7 @@ public static class VotingTileActions
         if (candidateIndex< Candidates.Count && Candidates[candidateIndex] == Game1.MasterPlayer.Name)
         {
             ModProgressHandler.AddProgressFlag(ProgressFlags.HasVotedForHostFarmer);
+            VotingHandler.AddPlayerVote(Game1.player, Candidates[candidateIndex]);
         }
 
         //Show filling in voting card

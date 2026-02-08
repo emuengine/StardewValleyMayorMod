@@ -35,6 +35,10 @@
 	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body": "^^Dear @,^^Re: Registration for Mayoral Election^^ We are pleased to acknowledge your registration as a candidate in the upcoming mayoral election. Your interest in serving our community in this esteemed position is commendable. The election will take place on",
 	"EmuEngine.MayorModCP_Mail.RegistrationMail.Body2": "so get campaigning. ^^If you have any questions or^concerns regarding the election^process, please do not hesitate^to contact us. We are more than^happy to assist you throughout this campaign.^^Sincerely,^Angela,^Chair of S.V. Election Committee",
 
+	"EmuEngine.MayorModCP_Mail.RegistrationFarmhandMail.Title": "Mayoral Election Date",
+	"EmuEngine.MayorModCP_Mail.RegistrationFarmhandMail.Body": "^^Dear @,^^Re: Mayoral Election^^ We are writing to inform you that an election for the position of Pelican Town Mayor will take place on",
+	"EmuEngine.MayorModCP_Mail.RegistrationFarmhandMail.Body2": ". A mayoral debate and supporting informational materials will be arranged to assist with informed decision making. If you have any questions or concerns regarding ^the election process, please ^do not hesitate to contact us.^^Sincerely,^Angela,^Chair of S.V. Election Committee",
+
 	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Title": "Talk with voters",
 	"EmuEngine.MayorModCP_Mail.TalkingToVotersMail.Body": "Hey @,^We need to communicate the vision you have for mayor to the town. As your campaign manager, I suggest that you make time for talking to the villagers. The more people like you, the more likely they are to vote for you. I'll track the campaign with regular polling so you can call me with the telephone for results. I've also printed out policy leaflets that we can hand out.^-Marlon",
 
@@ -44,6 +48,7 @@
 	"EmuEngine.MayorModCP_Mail.DebateDateMail.Title": "Mayoral debate",
 	"EmuEngine.MayorModCP_Mail.DebateDateMail.Body": "Dear @,^^Re: Pelican town election debate^^We would like to inform you that the mayoral debate will take place on",
 	"EmuEngine.MayorModCP_Mail.DebateDateMail.Body2": ". Please meet the team in town before proceeding to the debate stage.^^Sincerely,^Angela,^Chair of S.V. Election Committee",
+	"EmuEngine.MayorModCP_Mail.DebateDateMail.Body3": ". ^^Sincerely,^Angela,^Chair of S.V. Election Committee",
 
 	"EmuEngine.MayorModCP_Mail.VoteTomorrowMail.Title": "Voting Tomorrow",
 	"EmuEngine.MayorModCP_Mail.VoteTomorrowMail.Body": "^Dear Citizen,^Re: Mayoral Election^^ We are writing to remind you that voting for the Mayor of Pelican Town will take place tomorrow. The voting booths will be open all day, so we encourage you to vote early to avoid the crowds.^^Sincerely,^S.V. Election Committee",
@@ -788,6 +793,58 @@
 	"EmuEngine.MayorModCP_ConversationTopic.Willy.PayingTax": "I'd rather pay my dues to the sea than the mayor’s office.",
 	//"EmuEngine.MayorModCP_ConversationTopic.Willy.PayingTax": "Can I pay in fish next time?",
 	"EmuEngine.MayorModCP_ConversationTopic.Morris.PayingTax": "I've made my contribution, as always. A pleasure doing business with you!",
+
+	"EmuEngine.MayorModCP_ConversationTopic.Alex.MayorCampaignRunning": " I wonder would a new mayor invest in better sports facilities.",
+	//"EmuEngine.MayorModCP_ConversationTopic.Elliott.MayorCampaignRunning": "",
+	"EmuEngine.MayorModCP_ConversationTopic.Harvey.MayorCampaignRunning": "I'd like a mayor who takes seasonal flu preparedness seriously.",
+	"EmuEngine.MayorModCP_ConversationTopic.Sam.MayorCampaignRunning": "I wonder if the band could play when they annouce the election result.",
+	//"EmuEngine.MayorModCP_ConversationTopic.Sebastian.MayorCampaignRunning": "",
+	//"EmuEngine.MayorModCP_ConversationTopic.Shane.MayorCampaignRunning": "",
+	"EmuEngine.MayorModCP_ConversationTopic.Abigail.MayorCampaignRunning": "Wow a real election? That sounds important.",
+	"EmuEngine.MayorModCP_ConversationTopic.Emily.MayorCampaignRunning": "Who do you think you'll be voting for?",
+	"EmuEngine.MayorModCP_ConversationTopic.Haley.MayorCampaignRunning": "Do we get 'I Voted' badge? Because that would be adorable.",
+	//"EmuEngine.MayorModCP_ConversationTopic.Leah.MayorCampaignRunning": "",
+	"EmuEngine.MayorModCP_ConversationTopic.Maru.MayorCampaignRunning": "New leadership could mean exciting infrastructure projects!",
+	"EmuEngine.MayorModCP_ConversationTopic.Penny.MayorCampaignRunning": "I'm voting for the candidate who actually cares about education!",
+	"EmuEngine.MayorModCP_ConversationTopic.Caroline.MayorCampaignRunning": "A change can be healthy for a community. I do hope everyone stays kind about it though.",
+	"EmuEngine.MayorModCP_ConversationTopic.Clint.MayorCampaignRunning": "I wonder will taxes change under a new mayor.",
+	"EmuEngine.MayorModCP_ConversationTopic.Demetrius.MayorCampaignRunning": "It will be fascinating to analyze how leadership impacts the towns development.",
+	"EmuEngine.MayorModCP_ConversationTopic.Evelyn.MayorCampaignRunning": "In my life I've seen many mayors come and go. Not so much lately.",
+	"EmuEngine.MayorModCP_ConversationTopic.George.MayorCampaignRunning": "As long as they fix the sidewalks then they have got my vote. It's been harder and harder to get around lately.",
+	"EmuEngine.MayorModCP_ConversationTopic.Gus.MayorCampaignRunning": "Whoever wins this election is welcome to hold their celebration at the saloon!",
+	//"EmuEngine.MayorModCP_ConversationTopic.Jodi.MayorCampaignRunning": "",
+	//"EmuEngine.MayorModCP_ConversationTopic.Kent.MayorCampaignRunning": "",
+	"EmuEngine.MayorModCP_ConversationTopic.Lewis.MayorCampaignRunning": "I hope I can count on your vote in the upcoming election.",
+	"EmuEngine.MayorModCP_ConversationTopic.Linus.MayorCampaignRunning": "Leadership means little without compassion. I hope they consider that in their campaign.",
+	"EmuEngine.MayorModCP_ConversationTopic.Marnie.MayorCampaignRunning": "Oh my... this election is going to make the next festival a bit awkward isn't it?",
+	//"EmuEngine.MayorModCP_ConversationTopic.Pam.MayorCampaignRunning": "",
+	"EmuEngine.MayorModCP_ConversationTopic.Pierre.MayorCampaignRunning": "I trust that even a new mayor would understand the importance of shopping locally.",
+	//"EmuEngine.MayorModCP_ConversationTopic.Robin.MayorCampaignRunning": "",
+	"EmuEngine.MayorModCP_ConversationTopic.Willy.MayorCampaignRunning": "The town might get a new captain. Lets hope they keep the town off the rocks.",
+	"EmuEngine.MayorModCP_ConversationTopic.Wizard.MayorCampaignRunning": "The arcane currents are restless. A change in leadership could have many effects on the unseen world.",
+	//Kids
+	"EmuEngine.MayorModCP_ConversationTopic.Jas.MayorCampaignRunning": "The adults are all talking about picking a new mayor.",
+	//"EmuEngine.MayorModCP_ConversationTopic.Leo.MayorCampaignRunning": "",
+	"EmuEngine.MayorModCP_ConversationTopic.Vincent.MayorCampaignRunning": "Is voting like choosing your favorite toy? That sounds hard.",
+	//Non voters
+	//"EmuEngine.MayorModCP_ConversationTopic.Sandy.MayorCampaignRunning": "",
+	"EmuEngine.MayorModCP_ConversationTopic.Dwarf.MayorCampaignRunning": "Your leaders are chosen without combat? Curious.",
+	"EmuEngine.MayorModCP_ConversationTopic.Krobus.MayorCampaignRunning": "I do not vote but I sense this choice is important.",
+	//Non-giftable NPCs
+	//"EmuEngine.MayorModCP_ConversationTopic.Gil.MayorCampaignRunning": "",
+	//"EmuEngine.MayorModCP_ConversationTopic.Gunther.MayorCampaignRunning": "",
+	"EmuEngine.MayorModCP_ConversationTopic.Marlon.MayorCampaignRunning": "I just want a mayor who will take town security more seriously.",
+	"EmuEngine.MayorModCP_ConversationTopic.Morris.MayorCampaignRunning": "I've often thought about putting my own hat into the leadership race.",
+	//Stardew Valley Expanded NPCs
+	//"EmuEngine.MayorModCP_ConversationTopic.Claire.MayorCampaignRunning": "",
+	"EmuEngine.MayorModCP_ConversationTopic.Lance.MayorCampaignRunning": "Choosing a leader is no small matter. Pelican Town is worth protecting.",
+	//"EmuEngine.MayorModCP_ConversationTopic.Olivia.MayorCampaignRunning": "",
+	"EmuEngine.MayorModCP_ConversationTopic.Sophia.MayorCampaignRunning": "A vote? Oh gosh... what if I pick wrong?",
+	"EmuEngine.MayorModCP_ConversationTopic.Victor.MayorCampaignRunning": "I'm curious what improvements a new mayor might prioritize.",
+	"EmuEngine.MayorModCP_ConversationTopic.Andy.MayorCampaignRunning": "Politicians talk big but I'll believe it when I see it help folks like us.",
+	//"EmuEngine.MayorModCP_ConversationTopic.Susan.MayorCampaignRunning": "",
+	//"EmuEngine.MayorModCP_ConversationTopic.Martin.MayorCampaignRunning": "",
+
 
 	//Council Meeting reactions
 	"EmuEngine.MayorModCP_ConversationTopic.Jas.TownCleanup": "I like the cleaner playground.",

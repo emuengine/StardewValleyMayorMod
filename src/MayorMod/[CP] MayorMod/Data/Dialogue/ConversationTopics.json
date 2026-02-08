@@ -10,7 +10,8 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Alex.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Alex.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
-        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Alex.VotingDay}}"
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Alex.VotingDay}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Alex.MayorCampaignRunning}}"
       }
     },
     {
@@ -22,7 +23,8 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Elliott.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Elliott.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
-        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Elliott.VotingDay}}"
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Elliott.VotingDay}}",
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Elliott.MayorCampaignRunning}}"
       }
     },
     {
@@ -36,7 +38,8 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Harvey.VotingDay}}",
         "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.SaloonHours}}",
-        "{{ModId}}_TownSecurityTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.TownSecurity}}"
+        "{{ModId}}_TownSecurityTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.TownSecurity}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.MayorCampaignRunning}}"
       }
     },
     {
@@ -51,7 +54,8 @@
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Sam.VotingDay}}",
         "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Sam.SaloonHours}}",
         "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Sam.StrategicReserve}}",
-        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.Sam.TownRoads}}"
+        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.Sam.TownRoads}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Sam.MayorCampaignRunning}}"
       }
     },
     {
@@ -63,7 +67,8 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Sebastian.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sebastian.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
-        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Sebastian.VotingDay}}"
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Sebastian.VotingDay}}",
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Sebastian.MayorCampaignRunning}}"
       }
     },
     {
@@ -75,7 +80,8 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Shane.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Shane.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
-        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Shane.VotingDay}}"
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Shane.VotingDay}}",
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Shane.MayorCampaignRunning}}"
       }
     },
     //Bachelorettes
@@ -88,7 +94,8 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Abigail.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Abigail.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
-        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Abigail.VotingDay}}"
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Abigail.VotingDay}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Abigail.MayorCampaignRunning}}"
       }
     },
     {
@@ -101,7 +108,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Emily.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Emily.VotingDay}}",
-        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Emily.SaloonHours}}"
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Emily.SaloonHours}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Emily.MayorCampaignRunning}}"
       }
     },
     {
@@ -113,7 +121,8 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Haley.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Haley.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
-        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Haley.VotingDay}}"
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Haley.VotingDay}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Haley.MayorCampaignRunning}}"
       }
     },
     {
@@ -125,7 +134,8 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Leah.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Leah.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
-        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Leah.VotingDay}}"
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Leah.VotingDay}}",
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Leah.MayorCampaignRunning}}"
       }
     },
     {
@@ -139,7 +149,8 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Maru.VotingDay}}",
         "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Maru.CouncilMeetingIntro}}",
-        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Maru.StrategicReserve}}"
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Maru.StrategicReserve}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Maru.MayorCampaignRunning}}"
       }
     },
     {
@@ -153,7 +164,8 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Penny.VotingDay}}",
         "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.CouncilMeetingIntro}}",
-        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.SaloonHours}}"
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.SaloonHours}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.MayorCampaignRunning}}"
       }
     },
     //Non-marriage candidates
@@ -167,7 +179,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Caroline.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Caroline.VotingDay}}",
-        "{{ModId}}_RiverCleanupTopic": "{{i18n:{{ModId}}_ConversationTopic.Caroline.RiverCleanup}}"
+        "{{ModId}}_RiverCleanupTopic": "{{i18n:{{ModId}}_ConversationTopic.Caroline.RiverCleanup}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Caroline.MayorCampaignRunning}}"
       }
     },
     {
@@ -181,7 +194,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Clint.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Clint.VotingDay}}",
-        "{{ModId}}_RiverCleanupTopic": "{{i18n:{{ModId}}_ConversationTopic.Clint.RiverCleanup}}"
+        "{{ModId}}_RiverCleanupTopic": "{{i18n:{{ModId}}_ConversationTopic.Clint.RiverCleanup}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Clint.MayorCampaignRunning}}"
       }
     },
     {
@@ -194,7 +208,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Demetrius.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Demetrius.VotingDay}}",
-        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Demetrius.StrategicReserve}}"
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Demetrius.StrategicReserve}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Demetrius.MayorCampaignRunning}}"
       }
     },
     {
@@ -207,7 +222,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Evelyn.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.VotingDay}}",
-        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.TownRoads}}"
+        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.TownRoads}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.MayorCampaignRunning}}"
       }
     },
     {
@@ -220,7 +236,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.George.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.George.VotingDay}}",
-        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.George.TownRoads}}"
+        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.George.TownRoads}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.George.MayorCampaignRunning}}"
       }
     },
     {
@@ -235,7 +252,8 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Gus.VotingDay}}",
         "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.CouncilMeetingIntro}}",
-        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.SaloonHours}}"
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.SaloonHours}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.MayorCampaignRunning}}"
       }
     },
     {
@@ -248,7 +266,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Jodi.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Jodi.VotingDay}}",
-        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Jodi.StrategicReserve}}"
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Jodi.StrategicReserve}}",
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Jodi.MayorCampaignRunning}}"
       }
     },
     {
@@ -261,7 +280,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Kent.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Kent.VotingDay}}",
-        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Kent.StrategicReserve}}"
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Kent.StrategicReserve}}",
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Kent.MayorCampaignRunning}}"
       }
     },
     {
@@ -273,7 +293,8 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Lewis.ElectedMayor}}",
         "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Lewis.Leaflet}}",
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Lewis.VotingDay}}",
-        "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Lewis.CouncilMeetingIntro}}"
+        "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Lewis.CouncilMeetingIntro}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Lewis.MayorCampaignRunning}}"
       }
     },
     {
@@ -287,7 +308,8 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Linus.VotingDay}}",
         "{{ModId}}_TownCleanupTopic": "{{i18n:{{ModId}}_ConversationTopic.Linus.TownCleanup}}",
-        "{{ModId}}_TownSecurityTopic": "{{i18n:{{ModId}}_ConversationTopic.Linus.TownSecurity}}"
+        "{{ModId}}_TownSecurityTopic": "{{i18n:{{ModId}}_ConversationTopic.Linus.TownSecurity}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Linus.MayorCampaignRunning}}"
       }
     },
     {
@@ -301,7 +323,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Marnie.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Marnie.VotingDay}}",
-        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Marnie.SaloonHours}}"
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Marnie.SaloonHours}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Marnie.MayorCampaignRunning}}"
       }
     },
     {
@@ -314,7 +337,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Pam.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Pam.VotingDay}}",
-        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Pam.SaloonHours}}"
+        "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Pam.SaloonHours}}",
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Pam.MayorCampaignRunning}}"
       }
     },
     {
@@ -328,7 +352,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Pierre.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Pierre.VotingDay}}",
-        "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Pierre.CouncilMeetingIntro}}"
+        "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Pierre.CouncilMeetingIntro}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Pierre.MayorCampaignRunning}}"
       }
     },
     {
@@ -342,7 +367,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Robin.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Robin.VotingDay}}",
-        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.Robin.TownRoads}}"
+        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.Robin.TownRoads}}",
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Robin.MayorCampaignRunning}}"
       }
     },
     {
@@ -357,7 +383,8 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Willy.VotingDay}}",
         "{{ModId}}_RiverCleanupTopic": "{{i18n:{{ModId}}_ConversationTopic.Willy.RiverCleanup}}",
-        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Willy.StrategicReserve}}"
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Willy.StrategicReserve}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Willy.MayorCampaignRunning}}"
       }
     },
     {
@@ -370,7 +397,8 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Wizard.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Wizard.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
-        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Wizard.VotingDay}}"
+        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Wizard.VotingDay}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Wizard.MayorCampaignRunning}}"
       }
     },
     //Kids
@@ -383,7 +411,8 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Jas.ElectedMayor}}",
         "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Jas.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Jas.VotingDay}}",
-        "{{ModId}}_TownCleanupTopic": "{{i18n:{{ModId}}_ConversationTopic.Jas.TownCleanup}}"
+        "{{ModId}}_TownCleanupTopic": "{{i18n:{{ModId}}_ConversationTopic.Jas.TownCleanup}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Jas.MayorCampaignRunning}}"
       }
     },
     //{
@@ -395,6 +424,7 @@
     //        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Leo.ElectedMayor}}",
     //        "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Leo.Leaflet}}"
     //        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Leo.VotingDay}}",
+    //        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Leo.MayorCampaignRunning}}"
     //    }
     //},
     {
@@ -406,7 +436,8 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Vincent.ElectedMayor}}",
         "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Vincent.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Vincent.VotingDay}}",
-        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Vincent.StrategicReserve}}"
+        "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Vincent.StrategicReserve}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Vincent.MayorCampaignRunning}}"
       }
     },
     //Non-giftable NPCs
@@ -420,6 +451,7 @@
     //        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gil.Leaflet}}",
     //        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Gil.VotingDay}}",
     //        "RejectItem_(O){{ModId}}_Leaflet": null
+    //        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Gil.MayorCampaignRunning}}"
     //    }
     //},
     {
@@ -432,6 +464,7 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Gunther.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Gunther.VotingDay}}"
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Gunther.MayorCampaignRunning}}"
       }
     },
     {
@@ -446,7 +479,8 @@
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Marlon.VotingDay}}",
         "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Marlon.CouncilMeetingIntro}}",
         "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Marlon.StrategicReserve}}",
-        "{{ModId}}_TownSecurityTopic": "{{i18n:{{ModId}}_ConversationTopic.Marlon.TownSecurity}}"
+        "{{ModId}}_TownSecurityTopic": "{{i18n:{{ModId}}_ConversationTopic.Marlon.TownSecurity}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Marlon.MayorCampaignRunning}}"
       }
     },
     {
@@ -460,7 +494,8 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Morris.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Morris.VotingDay}}",
-        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.TownRoads}}"
+        "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.TownRoads}}",
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.MayorCampaignRunning}}"
       }
     },
 
@@ -475,6 +510,7 @@
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Morris.Leaflet}}",
         "RejectItem_(O){{ModId}}_Leaflet": null,
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Morris.VotingDay}}"
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.MayorCampaignRunning}}"
       }
     },
     //Non voters
@@ -488,6 +524,7 @@
     //        "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sandy.Leaflet}}",
     //        "RejectItem_(O){{ModId}}_Leaflet": null
     //        "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Sandy.VotingDay}}"
+    //        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Sandy.MayorCampaignRunning}}"
     //    }
     //},
     {
@@ -499,6 +536,7 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Dwarf.ElectedMayor}}",
         "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Dwarf.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Dwarf.VotingDay}}"
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Dwarf.MayorCampaignRunning}}"
       }
     },
     {
@@ -510,6 +548,7 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Krobus.ElectedMayor}}",
         "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Krobus.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Krobus.VotingDay}}"
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Krobus.MayorCampaignRunning}}"
       }
     },
     //Stardew Valley Expanded characters
@@ -522,6 +561,7 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Claire.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Claire.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Claire.VotingDay}}"
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Claire.MayorCampaignRunning}}"
       },
       "When": {
         "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
@@ -536,6 +576,7 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Lance.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Lance.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Lance.VotingDay}}"
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Lance.MayorCampaignRunning}}"
       },
       "When": {
         "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
@@ -550,6 +591,7 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Olivia.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Olivia.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Olivia.VotingDay}}"
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Olivia.MayorCampaignRunning}}"
       },
       "When": {
         "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
@@ -564,6 +606,7 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Sophia.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Sophia.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Sophia.VotingDay}}"
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Sophia.MayorCampaignRunning}}"
       },
       "When": {
         "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
@@ -578,6 +621,7 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Victor.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Victor.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Victor.VotingDay}}"
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Victor.MayorCampaignRunning}}"
       },
       "When": {
         "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
@@ -592,6 +636,7 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Andy.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Andy.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Andy.VotingDay}}"
+        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Andy.MayorCampaignRunning}}"
       },
       "When": {
         "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
@@ -606,6 +651,7 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Susan.ElectedMayor}}",
         "AcceptGift_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Susan.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Susan.VotingDay}}"
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Susan.MayorCampaignRunning}}"
       },
       "When": {
         "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
@@ -620,6 +666,7 @@
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Martin.ElectedMayor}}",
         "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Martin.Leaflet}}",
         //"{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Martin.VotingDay}}"
+        //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Martin.MayorCampaignRunning}}"
       },
       "When": {
         "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
