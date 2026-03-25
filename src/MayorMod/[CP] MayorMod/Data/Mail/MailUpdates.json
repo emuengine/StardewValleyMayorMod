@@ -24,6 +24,7 @@
         "{{ModId}}_WonOfficialElectionMail": "{{i18n:{{ModId}}_Mail.WonOfficialElectionMail.Body}}^{{EmuEngine.MayorMod/VotingResultText}}^{{i18n:{{ModId}}_Mail.OfficialElectionMail.Body2}} [letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black][#]{{i18n:{{ModId}}_Mail.WonOfficialElectionMail.Title}}",
         "{{ModId}}_LoseOfficialElectionMail": "{{i18n:{{ModId}}_Mail.LoseOfficialElectionMail.Body}}^{{EmuEngine.MayorMod/VotingResultText}}^{{i18n:{{ModId}}_Mail.OfficialElectionMail.Body2}} [letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black][#]{{i18n:{{ModId}}_Mail.LoseOfficialElectionMail.Title}}",
         "{{ModId}}_VoteTomorrowMail": "{{i18n:{{ModId}}_Mail.VoteTomorrowMail.Body}}[letterbg Mods/EmuEngine.MayorModCP/ElectionLetterBG 0] [textcolor black][#]{{i18n:{{ModId}}_Mail.VoteTomorrowMail.Title}}",
+        "{{ModId}}_StrategicReserveRoomReadyMail": "{{i18n:{{ModId}}_Mail.StrategicReserveRoomReadyMail.Body}} [#]{{i18n:{{ModId}}_Mail.StrategicReserveRoomReadyMail.Title}}",
         "{{ModId}}_StrategicReserveMail": "{{i18n:{{ModId}}_Mail.StrategicReserveMail.Body}} [#]{{i18n:{{ModId}}_Mail.StrategicReserveMail.Title}}"
       }
     },
