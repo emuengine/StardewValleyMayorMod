@@ -10,33 +10,16 @@ namespace MayorMod.Data.Handlers;
 /// <summary>
 /// Handles voting logic for the mayor mod.
 /// </summary>
-public class VotingHandler
+public static class VotingHandler
 {
-    public const int PointsPerHeart = 250;
-    public static readonly string MayorDebateEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorDebateEvent";
-    public static readonly string LeafletItem = $"{ModKeys.MAYOR_MOD_CPID}_Leaflet";
-    public static readonly IList<string> Voters =
-                                new List<string>(){"Alex","Elliott","Harvey","Sam","Sebastian","Shane",
-                                                   "Abigail","Emily","Haley","Leah","Maru","Penny","Caroline",
-                                                   "Clint","Demetrius","Evelyn","George","Gus","Jodi","Kent",
-                                                   "Lewis","Linus","Marnie","Pam","Pierre","Robin","Willy","Wizard" };
-    public static readonly IList<string> SVEVoters =
-                                new List<string>(){"Claire", "Lance", "Olivia", "Sophia", "Victor", "Andy",
-                                                   "Gunther", "Marlon", "Morris", "Susan"};
-    private readonly Farmer _farmer;
-    private readonly MayorModConfig _mayorModConfig;
+    private static IMod _mod = null!;
+    private static Farmer _candidateFarmer = Game1.MasterPlayer;
+    public const int POINTS_PER_HEART = 250;
+    public static bool Loaded => _mod != null && _candidateFarmer != null;
 
-    public bool IsVotingRNG { get; set; } = true;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="VotingHandler"/> class.
-    /// </summary>
-    /// <param name="farmer">The current farmer instance.</param>
-    /// <param name="mayorModConfig">The current mayor mod config instance.</param>
-    public VotingHandler(Farmer farmer, MayorModConfig mayorModConfig)
+    public static void Init(IMod mod)
     {
-        _farmer = farmer;
-        _mayorModConfig = mayorModConfig;
+        _mod = mod;
     }
 
     /// <summary>
@@ -44,12 +27,12 @@ public class VotingHandler
     /// </summary>
     /// <param name="name">The name of the NPC.</param>
     /// <returns>The number of hearts the NPC has.</returns>
-    public int GetNPCHearts(string name)
+    public static int GetNPCHearts(string name)
     {
         int hearts = 0;
-        if (_farmer.friendshipData.FieldDict.TryGetValue(name, out var popularity))
+        if (_candidateFarmer.friendshipData.FieldDict.TryGetValue(name, out var popularity))
         {
-            hearts = popularity.TargetValue.Points / PointsPerHeart;
+            hearts = popularity.TargetValue.Points / POINTS_PER_HEART;
         }
         return hearts;
     }
@@ -59,9 +42,9 @@ public class VotingHandler
     /// </summary>
     /// <param name="name">The name of the NPC.</param>
     /// <returns>True if the NPC has been canvassed, false otherwise.</returns>
-    public bool HasNPCBeenCanvassed(string name)
+    public static bool HasNPCBeenCanvassed(string name)
     {
-        return _farmer.mailReceived.Any(m => m.Trim().Equals($"{name}_{ConversationTopicKeys.TalkingToVotersTopic}", StringComparison.InvariantCultureIgnoreCase));
+        return _candidateFarmer.mailReceived.Any(m => m.Trim().Equals($"{name}_{ConversationTopicKeys.TalkingToVotersTopic}", StringComparison.InvariantCultureIgnoreCase));
     }
 
     /// <summary>
@@ -69,12 +52,12 @@ public class VotingHandler
     /// </summary>
     /// <param name="name">The name of the NPC.</param>
     /// <returns>True if the NPC has received a leaflet, false otherwise.</returns>
-    public bool HasNPCGotLeaflet(string name)
+    public static bool HasNPCGotLeaflet(string name)
     {
         bool hasLeaflet = false;
-        if (_farmer.giftedItems.TryGetValue(name, out var gifts))
+        if (_candidateFarmer.giftedItems.TryGetValue(name, out var gifts))
         {
-            hasLeaflet = gifts.ContainsKey(LeafletItem);
+            hasLeaflet = gifts.ContainsKey(ModItemKeys.Leaflet);
         }
         return hasLeaflet;
     }
@@ -83,57 +66,58 @@ public class VotingHandler
     /// Checks whether the player has won the debate event.
     /// </summary>
     /// <returns>True if the player has won the debate event, false otherwise.</returns>
-    public bool HasWonDebate()
+    public static bool HasWonDebate()
     {
-        return _farmer.eventsSeen.Any(e => e.Equals(MayorDebateEvent));
+        return _candidateFarmer.eventsSeen.Any(e => e.Equals(ProgressFlags.MayorDebateEvent));
     }
 
     /// <summary>
-    /// Calculates the number of votes the player has cast.
+    /// Calculates the number of votes by players (Host & farmhands).
     /// </summary>
-    /// <returns>The number of votes the player has cast.</returns>
-    public int CalculatePlayerVotes(IModHelper helper)
+    /// <returns>The number of votes for the player.</returns>
+    public static int CalculatePlayerVotes(IModHelper helper)
     {
-        var allVotes = GetPlayerVotes();
+        if (!Context.IsWorldReady)
+        {
+            return 0;
+        }
+
+        var existingVotesJson = ModUtils.GetFarmModData(MultiplayerKeys.PLAYER_VOTES);
+        var allVotes = !string.IsNullOrEmpty(existingVotesJson) ?
+            JsonSerializer.Deserialize<List<PlayerVote>>(existingVotesJson) ?? new List<PlayerVote>() : 
+            new List<PlayerVote>();
+
         var votesFor = allVotes.Count(v => v.VotedFor.Equals(Game1.MasterPlayer.Name, StringComparison.InvariantCultureIgnoreCase));
         var votesAgainst = allVotes.Count(v => !v.VotedFor.Equals(Game1.MasterPlayer.Name, StringComparison.InvariantCultureIgnoreCase));
         var voteNumber = votesFor - votesAgainst;
         return voteNumber;
     }
 
-    public static bool AddPlayerVote(Farmer farmer, string votedFor)
+    /// <summary>
+    /// Adds a vote for a specified player from the given farmer in the multiplayer farm data.
+    /// </summary>
+    /// <param name="voter">The farmer submitting the vote.</param>
+    /// <param name="votedFor">The unique identifier of the player being voted for.</param>
+    /// <returns>true if the vote was successfully recorded; otherwise, false.</returns>
+    public static void AddPlayerVote(Farmer voter, string votedFor)
     {
         if (!Context.IsWorldReady)
         {
-            return false;
+            return;
         }
 
         var playerVote = new PlayerVote()
         {
-            PlayerID = farmer.UniqueMultiplayerID,
+            PlayerID = voter.UniqueMultiplayerID,
             VotedFor = votedFor
         };
 
         var existingVotesJson = ModUtils.GetFarmModData(MultiplayerKeys.PLAYER_VOTES);
-        var existingVotes = !string.IsNullOrEmpty(existingVotesJson)
-            ? JsonSerializer.Deserialize<List<PlayerVote>>(existingVotesJson) ?? new List<PlayerVote>()
-            : new List<PlayerVote>();
-        existingVotes.Add(playerVote);
+        existingVotesJson = string.IsNullOrEmpty(existingVotesJson) ? "[]" : existingVotesJson;
+        var existingVotes = JsonSerializer.Deserialize<List<PlayerVote>>(existingVotesJson);
+        existingVotes!.Add(playerVote);
 
-        return ModUtils.UpsertFarmModData(MultiplayerKeys.PLAYER_VOTES, JsonSerializer.Serialize(existingVotes));
-    }
-
-    public static List<PlayerVote> GetPlayerVotes()
-    {
-        if (!Context.IsWorldReady)
-        {
-            return new List<PlayerVote>();
-        }
-
-        var existingVotesJson = ModUtils.GetFarmModData(MultiplayerKeys.PLAYER_VOTES);
-        return !string.IsNullOrEmpty(existingVotesJson)
-            ? JsonSerializer.Deserialize<List<PlayerVote>>(existingVotesJson) ?? new List<PlayerVote>()
-            : new List<PlayerVote>();
+        ModUtils.UpsertFarmModData(MultiplayerKeys.PLAYER_VOTES, JsonSerializer.Serialize(existingVotes));
     }
 
     /// <summary>
@@ -141,35 +125,42 @@ public class VotingHandler
     /// </summary>
     /// <param name="name">The name of the NPC.</param>
     /// <returns>True if the NPC is voting for the player, false otherwise.</returns>
-    public bool VotingForFarmer(string name)
+    public static bool VotingForFarmer(string name)
     {
+        var thresholdToBeat = ModConfigHandler.ModConfig.ThresholdForVote;
+
+        //Marlon is your manager so will always vote for you.
         if (name.Equals(ModNPCKeys.MarlonId, StringComparison.InvariantCultureIgnoreCase))
         {
             return true;
         }
 
+        //Gus will vote for you if you opened that mail.
         if (name.Equals(ModNPCKeys.GusId, StringComparison.InvariantCultureIgnoreCase) &&
             ModProgressHandler.HasProgressFlag(ProgressFlags.GusVotingForYou))
         {
             return true;
         }
-        var easyVotes = new List<string> { ModNPCKeys.GusId, ModNPCKeys.PennyId, ModNPCKeys.MaruId };
 
-        var hearts = GetNPCHearts(name);
-        hearts += HasNPCBeenCanvassed(name) ? 1 : 0;
-        hearts += HasNPCGotLeaflet(name) ? 1 : 0;
-        hearts += HasWonDebate() ? 1 : 0;
-        var threshold = _mayorModConfig.ThresholdForVote;
-        threshold += name.Equals(ModNPCKeys.LewisId, StringComparison.InvariantCultureIgnoreCase) ? 3 : 0;
-        threshold -= easyVotes.Contains(name) ? 2 : 0;
-        if (IsVotingRNG)
+        //The mayor so he is harder get votes from.
+        if (name.Equals(ModUtils.GetCurrentMayor(_mod.Helper), StringComparison.InvariantCultureIgnoreCase))
         {
-            return hearts * (1.0 / threshold) > ModUtils.RNG.NextDouble();
+            thresholdToBeat += 3;
         }
-        else
+
+        //Town people who were on the council are easier to get votes from.
+        var easyVotes = new List<string> { ModNPCKeys.GusId, ModNPCKeys.PennyId, ModNPCKeys.MaruId };
+        if (easyVotes.Contains(name))
         {
-            return hearts > threshold;
+            thresholdToBeat -= 2;
         }
+
+        var votingPoints = GetNPCHearts(name);
+        votingPoints += HasNPCBeenCanvassed(name) ? 1 : 0;
+        votingPoints += HasNPCGotLeaflet(name) ? 1 : 0;
+        votingPoints += HasWonDebate() ? 1 : 0;
+
+        return votingPoints > thresholdToBeat;
     }
 
     /// <summary>
@@ -177,9 +168,9 @@ public class VotingHandler
     /// </summary>
     /// <param name="helper">The mod helper instance.</param>
     /// <returns>The total number of leaflets received by voters.</returns>
-    public int CalculateTotalLeaflets(IModHelper helper)
+    public static int CalculateTotalLeaflets()
     {
-        var voters = GetVotingVillagers(helper);
+        var voters = GetVotingVillagers();
         return voters.Sum(v => HasNPCGotLeaflet(v) ? 1 : 0);
     }
 
@@ -188,12 +179,12 @@ public class VotingHandler
     /// </summary>
     /// <param name="helper">The mod helper instance.</param>
     /// <returns>A list of all eligible voters.</returns>
-    public static List<string> GetVotingVillagers(IModHelper helper)
+    public static List<string> GetVotingVillagers()
     {
-        var villagers = Voters.ToList();
-        if (helper.ModRegistry.IsLoaded(CompatibilityKeys.SVE_MOD_ID))
+        var villagers = ModNPCKeys.VanillaVoters.ToList();
+        if (_mod.Helper.ModRegistry.IsLoaded(CompatibilityKeys.SVE_MOD_ID))
         {
-            villagers.AddRange(SVEVoters);
+            villagers.AddRange(ModNPCKeys.SVEVoters);
         }
         return villagers;
     }
@@ -201,38 +192,40 @@ public class VotingHandler
     /// <summary>
     /// Calculates the total number of votes cast by voters.
     /// </summary>
-    /// <param name="helper">The mod helper instance.</param>
     /// <returns>The total number of votes cast by voters.</returns>
-    public int CalculateTotalVotes(IModHelper helper)
+    public static int CalculateTotalVotes()
     {
-        var voters = GetVotingVillagers(helper);
+        var voters = GetVotingVillagers();
         var votes = voters.Sum(v => VotingForFarmer(v) ? 1 : 0);
-        votes += CalculatePlayerVotes(helper);
+        votes += CalculatePlayerVotes(_mod.Helper);
         return votes;
     }
 
     /// <summary>
     /// Checks whether the player has won the election.
     /// </summary>
-    /// <param name="helper">The mod helper instance.</param>
     /// <returns>True if the player has won the election, false otherwise.</returns>
-    public bool HasWonElection(IModHelper helper)
+    public static bool HasWonElection()
     {
-        var voters = GetVotingVillagers(helper);
-        var threshold = voters.Count * (_mayorModConfig.VoterPercentageNeeded / 100.0);
-        return CalculateTotalVotes(helper) > threshold;
+        var voters = GetVotingVillagers();
+        var threshold = voters.Count * (ModConfigHandler.ModConfig.VoterPercentageNeeded / 100.0);
+        var electionResult =  CalculateTotalVotes() > threshold;
+        return electionResult;
     }
 
     /// <summary>
     /// Generates a formatted text summary of the voting results for the current mayoral election.
     /// </summary>
     /// <returns>The formatted voting results text.</returns>
-    public string GetVotingResultText(IModHelper helper)
+    public static string GetVotingResultText()
     {
-        var totalVoters = GetVotingVillagers(helper).Count;
-        var votesFor = CalculateTotalVotes(helper);
+        var playerVotesJson = ModUtils.GetFarmModData(MultiplayerKeys.PLAYER_VOTES) ?? "[]";
+        var playerVotes = JsonSerializer.Deserialize<List<PlayerVote>>(playerVotesJson);
+
+        var totalVoters = GetVotingVillagers().Count + Game1.getAllFarmers().Count();
+        var votesFor = CalculateTotalVotes();
         var votesAgainst = totalVoters - votesFor;
-        var currentMayorName = ModUtils.GetCurrentMayor(helper);
-        return string.Format(ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.OfficialElectionMail.ResultText"), votesFor, currentMayorName,votesAgainst);
+        var currentMayorName = ModUtils.GetCurrentMayor(_mod.Helper);
+        return string.Format(ModUtils.GetTranslationForKey(_mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.OfficialElectionMail.ResultText"), votesFor, currentMayorName,votesAgainst);
     }
 }

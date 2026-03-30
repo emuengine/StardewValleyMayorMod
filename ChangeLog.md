@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.22
+
+## Features
+
+## Bug fixes
+- Updated Strategic Reserve dialogue for clarity.
+- Removed RNG from voting.
+
+
 ## v1.1.19
 
 ## Bug fixes

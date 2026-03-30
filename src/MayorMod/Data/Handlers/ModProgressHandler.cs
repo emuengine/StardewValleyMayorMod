@@ -184,12 +184,11 @@ public static class ModProgressHandler
     private static void EndOfVotingDay()
     {
         SaveHandler.UpdateVotingDate(null);
-        var voteManager = new VotingHandler(Game1.MasterPlayer, ModConfigHandler.ModConfig);
         RemoveAllModFlags();
 
         if (Game1.IsMasterGame)
         {
-            if (voteManager.HasWonElection(_mod.Helper))
+            if (VotingHandler.HasWonElection())
             {
                 AddProgressFlag(ProgressFlags.WonMayorElection);
                 Game1.MasterPlayer.mailbox.Add(MailKeys.WonOfficialElectioMail);

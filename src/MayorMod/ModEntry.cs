@@ -31,6 +31,7 @@ internal sealed class ModEntry : Mod
         Phone.PhoneHandlers.Add(new PollingDataHandler(this));
         EventCommandHandler.Init(this);
         HarmonyHandler.Init(this);
+        VotingHandler.Init(this);
 
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
@@ -181,8 +182,8 @@ internal sealed class ModEntry : Mod
             return voteDate is not null ? new List<string>() { $"{voteDate.Day} {voteDate.Season}" } : new List<string>() { "NOT LOADED" };
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_RESULT_TOKEN, () =>
-        {            
-            var result = new VotingHandler(Game1.MasterPlayer, ModConfigHandler.ModConfig).GetVotingResultText(Helper);
+        {
+            var result = VotingHandler.Loaded ? VotingHandler.GetVotingResultText() : string.Empty;
             return !string.IsNullOrEmpty(result) ? new List<string>() { result } : null;
         });
         api?.RegisterToken(this.ModManifest, ModKeys.DEBATE_DAY_TOKEN, () =>

@@ -83,13 +83,9 @@ internal class PollingDataHandler : IPhoneHandler
             playSound("bigSelect", null);
             if (ModProgressHandler.HasProgressFlag(ProgressFlags.IsVotingDay))
             {
-                var polling = new VotingHandler(player, ModConfigHandler.ModConfig)
-                {
-                    IsVotingRNG = false,
-                };
-                DrawDialogue(ModUtils.MarlonNPC, 
-                             polling.HasWonElection(_mod.Helper) ? DialogueKeys.PollingData.PollingDataVotingDayWinning :
-                                                               DialogueKeys.PollingData.PollingDataVotingDayLosing);
+                DrawDialogue(ModUtils.MarlonNPC,
+                             VotingHandler.HasWonElection() ? DialogueKeys.PollingData.PollingDataVotingDayWinning :
+                                                              DialogueKeys.PollingData.PollingDataVotingDayLosing);
             }
             else
             {
@@ -109,17 +105,12 @@ internal class PollingDataHandler : IPhoneHandler
     /// </summary>
     private MayorModMenu GetPollingDataMenu()
     {
-        var voters = VotingHandler.GetVotingVillagers(_mod.Helper);
-
-        var polling = new VotingHandler(player, ModConfigHandler.ModConfig)
-        {
-            IsVotingRNG = false,
-        };
-        var totalVoters = voters.Count;
-        var debated = polling.HasWonDebate();
-        var leaflets = voters.Sum(v => polling.HasNPCGotLeaflet(v) ? 1 : 0);
-        var canvassed = voters.Sum(v => polling.HasNPCBeenCanvassed(v) ? 1 : 0);
-        var polls = polling.CalculateTotalVotes(_mod.Helper);
+        var voters = VotingHandler.GetVotingVillagers();
+        var totalVoters = voters.Count + Game1.getAllFarmers().Count();
+        var debated = VotingHandler.HasWonDebate();
+        var leaflets = voters.Sum(v => VotingHandler.HasNPCGotLeaflet(v) ? 1 : 0);
+        var canvassed = voters.Sum(v => VotingHandler.HasNPCBeenCanvassed(v) ? 1 : 0);
+        var polls = VotingHandler.CalculateTotalVotes();
 
         var menu = new MayorModMenu(_mod.Helper, 0.4f, 0.5f);
         menu.MenuItems = new List<IMenuItem>()
