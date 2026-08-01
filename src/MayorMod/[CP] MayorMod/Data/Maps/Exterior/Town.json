@@ -66,6 +66,59 @@
             "When": {
                 "HasFlag: hostPlayer | contains={{ModId}}_TownRoads": true,
                 "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true,
+                //check morris has not already done the roads
+                "HasSeenEvent: hostPlayer|contains=5553210": false
+            }
+        },
+        //I'm sure there is a better way to handle compatibility than just setting priority late for this mod but ¯\_(ツ)_/¯ I cant think of it.
+        {
+            "LogName": "Patching Maps/Town roads",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "Overlay",
+            "FromFile": "Assets/Maps/MapPatches/Town_Roads.tmx",
+			"Priority": "Late",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 130,
+                "Height": 110
+            },
+            "ToArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 130,
+                "Height": 110
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_TownRoads": true,
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": false,
+                "HasMod | contains=Xiddav.LittleRedSchoolHouse": true
+            }
+        },
+        {
+            "LogName": "Patching Maps/Town roads",
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "PatchMode": "Overlay",
+            "FromFile": "Assets/Maps/MapPatches/Town_Roads_SVE.tmx",
+			"Priority": "Late",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 130,
+                "Height": 110
+            },
+            "ToArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 130,
+                "Height": 110
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_TownRoads": true,
+                "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true,
+                "HasMod | contains=Xiddav.LittleRedSchoolHouse": true,
                 "HasSeenEvent: hostPlayer|contains=5553210": false
             }
         }
