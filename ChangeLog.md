@@ -7,6 +7,14 @@
 ## Bug fixes
 - Updated Strategic Reserve dialogue for clarity.
 - Removed RNG from voting.
+- Compatibility for LittleRedSchoolHouse.
+
+
+## v1.1.21
+
+## Bug fixes
+- Fix for special order bug.
+- Very basic multiplayer support.
 
 
 ## v1.1.19
