@@ -14,4 +14,9 @@ public static class CompatibilityKeys
     public const string LEWIS_UNDER_INVESTIGATION = "sdvhead.LawAndOrderSV_Mail_LewisNote";
     public const string LEWIS_IN_PRISON = "sdvhead.LawAndOrderSV_LewisInJail";
 
+    //MS Offerings
+    public const string MS_OFFERINGS_MOD_ID = "Nullnnow.MS-Offerings";
+    public const string LewisBasement = "LewisBasement";
+    public const string StaircaseItem = "(BC)71";
+
 }

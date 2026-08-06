@@ -38,10 +38,8 @@ internal sealed class ModEntry : Mod
         Helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
         Helper.Events.Content.AssetRequested += OnAssetRequested;
         Helper.Events.GameLoop.GameLaunched += OnGameLaunched;
-        if (helper.ModRegistry.IsLoaded(CompatibilityKeys.SVE_MOD_ID))
-        {
-            Helper.Events.Player.Warped += Player_Warped;
-        }
+        Helper.Events.Player.Warped += Player_Warped;
+
         Helper.ConsoleCommands.Add(ModKeys.RESET_COMMAND, ModKeys.RESET_COMMAND_HELP_TEXT, (arg1, arg2) => ModProgressHandler.ResignAndReset());
     }
 
@@ -132,8 +130,12 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void Player_Warped(object? sender, WarpedEventArgs e)
     {
-        ModProgressHandler.RemoveTownBushesOnVotingDay(e.NewLocation);
         ModProgressHandler.AddLewisShortsToAnimalShop(e.NewLocation);
+
+        if (Helper.ModRegistry.IsLoaded(CompatibilityKeys.SVE_MOD_ID))
+        {
+            ModProgressHandler.RemoveTownBushesOnVotingDay(e.NewLocation);
+        }
     }
 
     /// <summary>

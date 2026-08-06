@@ -64,6 +64,12 @@ public static class HarmonyHandler
             original: AccessTools.Method(typeof(Furniture), nameof(Furniture.checkForAction)),
             prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(Furniture_checkForAction_Prefix))
         );
+
+        //Basement warp for compatibility with Nullnnow.MS-Offerings
+        harmony.Patch(
+            original: AccessTools.Method(typeof(StardewValley.Object), "placementAction"),
+            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(Object_placementAction_Prefix))
+        );
     }
 
     /// <summary>
@@ -203,5 +209,23 @@ public static class HarmonyHandler
             }
         }
         return true;
+    }
+
+    /// <summary>
+    /// Harmony pre patch so the staircase in the mods manor house basement warps to Lewis' basement,
+    /// the same way the vanilla staircase in the ManorHouse location does (compat for Nullnnow.MS-Offerings).
+    /// Fuck you StardewValley.Object.CheckForActionOnStaircase
+    /// </summary>
+    public static bool Object_placementAction_Prefix(StardewValley.Object __instance, GameLocation location, int x, int y, Farmer who, ref bool __result)
+    {
+        if (__instance.Location?.Name != $"{ModKeys.MAYOR_MOD_CPID}_ManorHouseBasement" || __instance.QualifiedItemId != CompatibilityKeys.StaircaseItem)
+        {
+            return true;
+        }
+
+        Game1.warpFarmer(CompatibilityKeys.LewisBasement, 4, 4, 2);
+        Game1.playSound("stairsdown");
+        __result = true;
+        return false;
     }
 }

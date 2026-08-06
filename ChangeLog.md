@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.1.22
+## v1.1.23
 
 ## Features
 
@@ -8,6 +8,7 @@
 - Updated Strategic Reserve dialogue for clarity.
 - Removed RNG from voting.
 - Compatibility for LittleRedSchoolHouse.
+- Compatibility for MS-Offerings.
 
 
 ## v1.1.21
