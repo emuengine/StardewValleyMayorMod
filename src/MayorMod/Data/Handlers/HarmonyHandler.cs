@@ -247,7 +247,7 @@ public static class HarmonyHandler
         if (__instance.questKey.Value == CouncilMeetingKeys.SpecialOrderStrategicReserve &&
             __instance.questState.Value == SpecialOrderStatus.InProgress)
         {
-            __result = int.MaxValue;
+            __result = 100; //TODO: Countdown to disaster date.
             return false;
         }
         return true;
