@@ -225,16 +225,16 @@ public static class HarmonyHandler
     /// </summary>
     public static bool Object_placementAction_Prefix(StardewValley.Object __instance, GameLocation location, int x, int y, Farmer who, ref bool __result)
     {
-        if (__instance.Location?.Name != $"{ModKeys.MAYOR_MOD_CPID}_ManorHouseBasement" && 
-            __instance.QualifiedItemId != CompatibilityKeys.StaircaseItem)
+        if (location?.Name == $"{ModKeys.MAYOR_MOD_CPID}_ManorHouseBasement" && 
+            __instance.QualifiedItemId == CompatibilityKeys.StaircaseItem)
         {
-            return true;
+            Game1.warpFarmer(CompatibilityKeys.LewisBasement, 4, 4, 2);
+            Game1.playSound("stairsdown");
+            __result = true;
+            return false;
         }
 
-        Game1.warpFarmer(CompatibilityKeys.LewisBasement, 4, 4, 2);
-        Game1.playSound("stairsdown");
-        __result = true;
-        return false;
+        return true;
     }
 
     /// <summary>

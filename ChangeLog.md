@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.1.23
+## v1.1.24
 
 ## Features
 
@@ -9,6 +9,7 @@
 - Removed RNG from voting.
 - Compatibility for LittleRedSchoolHouse.
 - Compatibility for MS-Offerings.
+- Removed time for Strategic Reserve special order.
 
 
 ## v1.1.21
