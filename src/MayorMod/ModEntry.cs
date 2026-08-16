@@ -177,7 +177,7 @@ internal sealed class ModEntry : Mod
         var api = this.Helper.ModRegistry.GetApi<IContentPatcherAPI>("Pathoschild.ContentPatcher");
         api?.RegisterToken(this.ModManifest, ModKeys.MEETING_DAYS_TOKEN, () =>
         {
-            return Context.IsWorldReady ? new List<string>() { ModUtils.GetFormattedMeetingDays(Helper, ModConfigHandler.ModConfig) } : null;
+            return Context.IsWorldReady ? new List<string>() { ModUtils.GetFormattedMeetingDays(Helper, ModConfigHandler.ModConfig) } : new List<string>() { "NOT LOADED" };
         });
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_DAY_TOKEN, () =>
         {

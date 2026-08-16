@@ -16,7 +16,7 @@ public static class CompatibilityKeys
 
     //MS Offerings
     public const string MS_OFFERINGS_MOD_ID = "Nullnnow.MS-Offerings";
-    public const string LewisBasement = "LewisBasement";
-    public const string StaircaseItem = "(BC)71";
+    public static readonly string LewisBasement = "LewisBasement";
+    public static readonly string StaircaseItem = "(BC)71";
 
 }

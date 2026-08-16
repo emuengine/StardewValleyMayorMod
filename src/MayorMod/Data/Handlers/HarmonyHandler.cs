@@ -225,7 +225,8 @@ public static class HarmonyHandler
     /// </summary>
     public static bool Object_placementAction_Prefix(StardewValley.Object __instance, GameLocation location, int x, int y, Farmer who, ref bool __result)
     {
-        if (location?.Name == $"{ModKeys.MAYOR_MOD_CPID}_ManorHouseBasement" && 
+        if (_mod.Helper.ModRegistry.IsLoaded(CompatibilityKeys.MS_OFFERINGS_MOD_ID) &&
+            location?.Name == $"{ModKeys.MAYOR_MOD_CPID}_ManorHouseBasement" && 
             __instance.QualifiedItemId == CompatibilityKeys.StaircaseItem)
         {
             Game1.warpFarmer(CompatibilityKeys.LewisBasement, 4, 4, 2);
