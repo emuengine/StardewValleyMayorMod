@@ -186,7 +186,7 @@ internal sealed class ModEntry : Mod
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_RESULT_TOKEN, () =>
         {
             var result = VotingHandler.Loaded ? VotingHandler.GetVotingResultText() : string.Empty;
-            return !string.IsNullOrEmpty(result) ? new List<string>() { result } : null;
+            return !string.IsNullOrEmpty(result) ? new List<string>() { result } : new List<string>() { "NOT LOADED" };
         });
         api?.RegisterToken(this.ModManifest, ModKeys.DEBATE_DAY_TOKEN, () =>
         {
