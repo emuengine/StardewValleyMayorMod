@@ -31,7 +31,6 @@ internal sealed class ModEntry : Mod
         Phone.PhoneHandlers.Add(new PollingDataHandler(this));
         EventCommandHandler.Init(this);
         HarmonyHandler.Init(this);
-        VotingHandler.Init(this);
 
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
@@ -61,6 +60,8 @@ internal sealed class ModEntry : Mod
     /// <param name="e">event args</param>
     private void GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
     {
+        VotingHandler.Init(this);
+
         if (Game1.IsMasterGame)
         {
             SaveHandler.LoadSaveData();

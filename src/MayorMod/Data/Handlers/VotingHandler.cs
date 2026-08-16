@@ -20,6 +20,7 @@ public static class VotingHandler
     public static void Init(IMod mod)
     {
         _mod = mod;
+        _candidateFarmer = Game1.MasterPlayer;
     }
 
     /// <summary>
