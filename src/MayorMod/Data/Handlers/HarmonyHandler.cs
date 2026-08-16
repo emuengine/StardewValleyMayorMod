@@ -9,6 +9,7 @@ using StardewValley;
 using StardewValley.ItemTypeDefinitions;
 using StardewValley.Locations;
 using StardewValley.Objects;
+using StardewValley.SpecialOrders;
 using System.Reflection;
 
 namespace MayorMod.Data.Handlers;
@@ -69,6 +70,12 @@ public static class HarmonyHandler
         harmony.Patch(
             original: AccessTools.Method(typeof(StardewValley.Object), "placementAction"),
             prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(Object_placementAction_Prefix))
+        );
+
+        //Prevent the Strategic Reserve special order from expiring
+        harmony.Patch(
+            original: AccessTools.Method(typeof(SpecialOrder), nameof(SpecialOrder.GetDaysLeft)),
+            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(SpecialOrder_GetDaysLeft_Prefix))
         );
     }
 
@@ -218,7 +225,8 @@ public static class HarmonyHandler
     /// </summary>
     public static bool Object_placementAction_Prefix(StardewValley.Object __instance, GameLocation location, int x, int y, Farmer who, ref bool __result)
     {
-        if (__instance.Location?.Name != $"{ModKeys.MAYOR_MOD_CPID}_ManorHouseBasement" || __instance.QualifiedItemId != CompatibilityKeys.StaircaseItem)
+        if (__instance.Location?.Name != $"{ModKeys.MAYOR_MOD_CPID}_ManorHouseBasement" && 
+            __instance.QualifiedItemId != CompatibilityKeys.StaircaseItem)
         {
             return true;
         }
@@ -227,5 +235,20 @@ public static class HarmonyHandler
         Game1.playSound("stairsdown");
         __result = true;
         return false;
+    }
+
+    /// <summary>
+    /// Harmony pre patch so the Strategic Reserve special order never runs out of days, since it's a one-time
+    /// council event reward rather than a repeatable board order and shouldn't be missable due to a deadline.
+    /// </summary>
+    public static bool SpecialOrder_GetDaysLeft_Prefix(SpecialOrder __instance, ref int __result)
+    {
+        if (__instance.questKey.Value == CouncilMeetingKeys.SpecialOrderStrategicReserve &&
+            __instance.questState.Value == SpecialOrderStatus.InProgress)
+        {
+            __result = int.MaxValue;
+            return false;
+        }
+        return true;
     }
 }
