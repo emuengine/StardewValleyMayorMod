@@ -671,6 +671,137 @@
       "When": {
         "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
       }
+    },
+    //Spouse/roommate reaction: overrides the generic ElectedMayorTopic line above when married to (or living with) that NPC
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Alex",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Alex.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Alex"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Elliott",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Elliott.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Elliott"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Harvey",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Harvey"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Sam",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Sam.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Sam"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Sebastian",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Sebastian.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Sebastian"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Shane",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Shane.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Shane"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Abigail",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Abigail.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Abigail"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Emily",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Emily.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Emily"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Haley",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Haley.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Haley"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Leah",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Leah.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Leah"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Maru",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Maru.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Maru"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Penny",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Spouse": "Penny"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Krobus",
+      "Entries": {
+        "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Krobus.SpouseElectedMayor}}"
+      },
+      "When": {
+        "Roommate": "Krobus"
+      }
     }
   ]
 }
