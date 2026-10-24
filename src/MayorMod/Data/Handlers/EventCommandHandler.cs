@@ -11,6 +11,7 @@ public static class EventCommandHandler
     public const string RETRIEVE_MAP_TILE = "emuEngineMayorMod_retrieveMapTile";
     public const string CLEAR_DIALOGUE_EVENT = "emuEngineMayorMod_clearDialogueEvent";
     public const string CLEAR_SEEN_EVENT = "emuEngineMayorMod_clearSeenEvent";
+    public const string CHARGE_TREASURY = "emuEngineMayorMod_chargeTreasury";
 
     /// <summary>
     /// Stores full tile object. This allows restoring of animated tiles.
@@ -67,6 +68,16 @@ public static class EventCommandHandler
         }
         var clearSeenEventCommand = (EventCommandDelegate)Delegate.CreateDelegate(typeof(EventCommandDelegate), clearSeenEventMethodInfo);
         Event.RegisterCommand(CLEAR_SEEN_EVENT, clearSeenEventCommand);
+
+        //chargeTreasury
+        var chargeTreasuryMethodInfo = typeof(EventCommandHandler).GetMethod(nameof(ChargeTreasury));
+        if (chargeTreasuryMethodInfo is null)
+        {
+            monitor.Log($"Error: MethodInfo for {ChargeTreasury} not found");
+            return;
+        }
+        var chargeTreasuryCommand = (EventCommandDelegate)Delegate.CreateDelegate(typeof(EventCommandDelegate), chargeTreasuryMethodInfo);
+        Event.RegisterCommand(CHARGE_TREASURY, chargeTreasuryCommand);
     }
 
     /// <summary>
@@ -174,6 +185,25 @@ public static class EventCommandHandler
         }
 
         Game1.player.eventsSeen.RemoveWhere(m => m.Contains(seenEventId));
+        @event.CurrentCommand++;
+    }
+
+    /// <summary>
+    /// Charges a cost to the town treasury and starts its effects,
+    /// or keeps the cost as outstanding so the effects start once it is paid.
+    /// </summary>
+    /// <param name="event"></param>
+    /// <param name="args"></param>
+    /// <param name="context"></param>
+    public static void ChargeTreasury(Event @event, string[] args, EventContext context)
+    {
+        if (!ArgUtility.TryGet(args, 1, out var costKey, out var error, allowBlank: false, "string costKey"))
+        {
+            context.LogErrorAndSkip(error);
+            return;
+        }
+
+        TaxHandler.ChargeTreasury(costKey);
         @event.CurrentCommand++;
     }
 }

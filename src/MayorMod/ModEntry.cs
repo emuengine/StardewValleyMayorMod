@@ -36,6 +36,7 @@ internal sealed class ModEntry : Mod
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
         Helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
+        Helper.Events.GameLoop.Saving += GameLoop_Saving;
         Helper.Events.Content.AssetRequested += OnAssetRequested;
         Helper.Events.GameLoop.GameLaunched += OnGameLaunched;
         Helper.Events.Player.Warped += Player_Warped;
@@ -49,6 +50,7 @@ internal sealed class ModEntry : Mod
                 default: ModProgressHandler.ResignAndReset(ResetType.FreshInstall); break;
             }
         });
+        Helper.ConsoleCommands.Add(ModKeys.TREASURY_COMMAND, ModKeys.TREASURY_COMMAND_HELP_TEXT, (arg1, arg2) => TaxHandler.AdjustTreasuryCommand(Monitor, arg2));
     }
 
     /// <summary>
@@ -83,6 +85,19 @@ internal sealed class ModEntry : Mod
         }
 
         AssetInvalidationHandler.UpdateAssetInvalidations();
+    }
+
+    /// <summary>
+    /// Writes the mod save data when the game saves
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e">event args</param>
+    private void GameLoop_Saving(object? sender, SavingEventArgs e)
+    {
+        if (Game1.IsMasterGame)
+        {
+            SaveHandler.WriteSaveData();
+        }
     }
 
     /// <summary>
@@ -188,6 +203,10 @@ internal sealed class ModEntry : Mod
         {
             return Context.IsWorldReady ? new List<string>() { ModUtils.GetFormattedMeetingDays(Helper, ModConfigHandler.ModConfig) } : new List<string>() { "NOT LOADED" };
         });
+        foreach (var (costKey, cost) in TreasuryCostKeys.Costs)
+        {
+            api?.RegisterToken(this.ModManifest, ModKeys.TREASURY_COST_TOKEN + costKey, () => new List<string>() { cost.ToString() });
+        }
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_DAY_TOKEN, () =>
         {
             var voteDate = ModUtils.GetVotingDate();

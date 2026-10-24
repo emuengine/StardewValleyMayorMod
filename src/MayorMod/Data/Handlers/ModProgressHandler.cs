@@ -223,14 +223,14 @@ public static class ModProgressHandler
             }
 
             // Tax stuff
-            //if (SDate.Now().Day >= 21 && !ModUtils.HasConversationTopic(DialogueKeys.ConversationTopics.PayingTax))
-            //{
-            //    ModUtils.AddConversationTopic(DialogueKeys.ConversationTopics.PayingTax, 7);
-            //}
-            //else if(SDate.Now().Day < 21 && ModUtils.HasConversationTopic(DialogueKeys.ConversationTopics.PayingTax))
-            //{
-            //    ModUtils.RemoveConversationTopic(DialogueKeys.ConversationTopics.PayingTax);
-            //}
+            if (SDate.Now().Day >= 21 && !ModUtils.HasConversationTopic(ConversationTopicKeys.PayingTax))
+            {
+                ModUtils.AddConversationTopic(ConversationTopicKeys.PayingTax, 7);
+            }
+            else if(SDate.Now().Day < 21 && ModUtils.HasConversationTopic(ConversationTopicKeys.PayingTax))
+            {
+                ModUtils.RemoveConversationTopic(ConversationTopicKeys.PayingTax);
+            }
         }
     }
 

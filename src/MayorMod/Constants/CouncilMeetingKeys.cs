@@ -17,4 +17,6 @@ public class CouncilMeetingKeys
 
     //Special Order Keys
     public static readonly string SpecialOrderStrategicReserve = $"{ModKeys.MAYOR_MOD_CPID}_StrategicReserveSpecialOrder";
+
+    public static readonly string MailStrategicReserveRoomReady = $"{ModKeys.MAYOR_MOD_CPID}_StrategicReserveRoomReadyMail";
 }

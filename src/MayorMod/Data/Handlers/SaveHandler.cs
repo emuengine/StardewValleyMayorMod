@@ -55,6 +55,17 @@ public static class SaveHandler
     }
 
     /// <summary>
+    /// Writes the current save data (e.g. town treasury and outstanding costs) so it is kept when the game saves.
+    /// </summary>
+    public static void WriteSaveData()
+    {
+        if (SaveData is not null)
+        {
+            _mod.Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
+        }
+    }
+
+    /// <summary>
     /// Updates the farm's mod data with the current voting date, town treasury amount, and gold statue image
     /// information from the save data. This allows syncing across multiplayer sessions.
     /// </summary>

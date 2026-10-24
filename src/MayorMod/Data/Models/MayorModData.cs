@@ -11,4 +11,5 @@ public sealed class MayorModData
     public SDate? VotingDate { get; set; }
     public string? GoldStaueBase64Image { get; set; }
     public int TownTreasury { get; set; } = 0;
+    public List<string> OutstandingCouncilCosts { get; set; } = new List<string>();
 }

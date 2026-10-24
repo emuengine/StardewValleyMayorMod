@@ -120,8 +120,15 @@
 	//Mayor Desk
 	"EmuEngine.MayorModCP_UIMenu.MayorDeskTitle": "Mayor Desk",
 	"EmuEngine.MayorModCP_UIMenu.MayorDeskDescription": "What do you want to do?",
-	"EmuEngine.MayorModCP_UIMenu.SelectCouncilMeeting": "Select next council meeting",
+	"EmuEngine.MayorModCP_UIMenu.SelectCouncilMeeting": "Council meetings",
 	"EmuEngine.MayorModCP_UIMenu.TownTreasury": "Town treasury",
+	"EmuEngine.MayorModCP_UIMenu.NotEnoughFunds": "There's not enough in the town treasury for this yet.",
+	"EmuEngine.MayorModCP_UIMenu.Budget": "Budget",
+	"EmuEngine.MayorModCP_UIMenu.OutstandingCosts": "Outstanding costs:",
+	"EmuEngine.MayorModCP_UIMenu.NoOutstandingCosts": "No outstanding costs.",
+	"EmuEngine.MayorModCP_UIMenu.CostOwed": "There's not enough in the town treasury for this yet. You can pay in the budget menu at the mayor's desk.",
+	"EmuEngine.MayorModCP_UIMenu.CostPaid": "Outstanding cost paid.",
+	"EmuEngine.MayorModCP_UIMenu.CostFloodRepair": "Flood damage repairs.",
 
 	//Council meetings
 	"EmuEngine.MayorModCP_MapStrings.ManorHouseClosed": "Renovation is ongoing. Come back tomorrow.",

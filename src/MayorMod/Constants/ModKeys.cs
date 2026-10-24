@@ -9,6 +9,7 @@ public static partial class ModKeys
     public const string REPLACEMENT_STRING_CONFIG = "MayorAssetPatches.json";
     public const string RUBBISH_ID = "(O)167|(O)168|(O)169|(O)170|(O)171|(O)172";
     public const string MEETING_DAYS_TOKEN = "CouncilMeetingDays";
+    public const string TREASURY_COST_TOKEN = "TreasuryCost";
     public const string VOTING_DAY_TOKEN = "VotingDay";
     public const string VOTING_RESULT_TOKEN = "VotingResultText";
     public const string DEBATE_DAY_TOKEN = "DebateDayText";
@@ -17,5 +18,7 @@ public static partial class ModKeys
     public const string RESET_COMMAND_HELP_TEXT = "Resets the mod by removing all mail, events, and progress flags, restoring it to a fresh install state.\n\nUsage: MayorModReset [mayor|voting]\n- voting: resets mod to the day before voting day.\n- mayor: reset to just after being elected.";
     public const string RESET_COMMAND_MAYOR_ARG = "mayor";
     public const string RESET_COMMAND_VOTING_ARG = "voting";
+    public const string TREASURY_COMMAND = "MayorModTreasury";
+    public const string TREASURY_COMMAND_HELP_TEXT = "Add/Remove gold to/from the town treasury\n\nUsage: MayorModTreasury <amount>";
     public const int DEBATE_DAY_OFFSET = 3;
 }
