@@ -281,6 +281,7 @@ public static class ModUtils
     {
         Game1.MasterPlayer.previousActiveDialogueEvents.RemoveWhere(m => m.Key == topicId);
         Game1.MasterPlayer.activeDialogueEvents.RemoveWhere(m => m.Key == topicId);
+        Game1.MasterPlayer.mailReceived.RemoveWhere(m => m.EndsWith($"_{topicId}"));
         //look at HasNPCBeenCanvassed
     }
     public static bool HasConversationTopic(string topicId)

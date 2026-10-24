@@ -33,6 +33,11 @@ public static class DialogueKeys
         public static readonly string AgendaQuestion = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_AgendaQuestion";
         public static readonly string AlreadyPlanned = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_AlreadyPlanned";
         public static readonly string NoNewMeetings = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_NoNewMeetings";
+        public static readonly string NotEnoughFunds = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_NotEnoughFunds";
+        public static readonly string OutstandingCosts = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_OutstandingCosts";
+        public static readonly string NoOutstandingCosts = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_NoOutstandingCosts";
+        public static readonly string CostOwed = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_CostOwed";
+        public static readonly string CostPaid = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_CostPaid";
         public static readonly string MeetingIntro = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingIntro";
         public static readonly string MeetingSaloonHours = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingSaloonHours";
         public static readonly string MeetingTownSecurity = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingTownSecurity";

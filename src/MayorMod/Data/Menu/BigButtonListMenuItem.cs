@@ -52,6 +52,9 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
 
     public bool ScrollBarEnabled {get; set; }
 
+    public Texture2D? Icon { get; set; }
+    public IList<string>? RightText { get; set; }
+
     public BigButtonListMenuItem(MayorModMenu parent, Margin margin, IList<string> buttonText, Action<int> action)
     {
         _parent = parent;
@@ -146,11 +149,37 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
                                        new Vector2(button.BoundingBox.X + TextPadding,
                                                    button.BoundingBox.Y + (button.BoundingBox.Height / 2) - _fontHeight),
                                        Game1.textColor);
+            DrawRightText(spriteBatch, button);
         }
         if (ScrollBarEnabled)
         {
             DrawScrollBar(spriteBatch);
         }
+    }
+
+    /// <summary>
+    /// Draws the button's right aligned text with the Icon after it, like the prices in a shop
+    /// </summary>
+    private void DrawRightText(SpriteBatch spriteBatch, ButtonData button)
+    {
+        var text = RightText?.ElementAtOrDefault(button.Id + _buttonIndexOffset);
+        if (text is null)
+        {
+            return;
+        }
+
+        var textHeight = (int)(_fontHeight * 2);
+        var textY = button.BoundingBox.Y + (button.BoundingBox.Height / 2) - (int)_fontHeight;
+        var right = button.BoundingBox.X + button.BoundingBox.Width - TextPadding;
+        if (Icon is not null)
+        {
+            var iconSize = Icon.Height * Math.Max(1, textHeight / Icon.Height);
+            right -= iconSize;
+            spriteBatch.Draw(Icon, new Rectangle(right, textY + (textHeight - iconSize) / 2, iconSize, iconSize), Color.White);
+            right -= 8;
+        }
+        var textWidth = (int)Game1.dialogueFont.MeasureString(text).X;
+        Utility.drawTextWithShadow(spriteBatch, text, Game1.dialogueFont, new Vector2(right - textWidth, textY), Game1.textColor);
     }
 
     /// <summary>
