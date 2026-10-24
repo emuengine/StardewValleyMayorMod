@@ -11,6 +11,7 @@ public class AssetInvalidationHandler
     private static bool MailCacheInvalidate {get; set;}
     private static bool LocationCacheInvalidate { get; set; }
     private static bool PassiveFestivalCacheInvalidate { get; set; }
+    private static bool BuildingsCacheInvalidate { get; set; }
 
     public static void Init(IMod mod)
     {
@@ -44,6 +45,12 @@ public class AssetInvalidationHandler
             _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
             LocationCacheInvalidate = false;
         }
+
+        if (BuildingsCacheInvalidate || ModProgressHandler.HasHostGotProgressFlag(ProgressFlags.ConstructionGrant))
+        {
+            _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.BUILDINGS);
+            BuildingsCacheInvalidate = false;
+        }
     }
 
 
@@ -51,6 +58,7 @@ public class AssetInvalidationHandler
     {
         MailCacheInvalidate = true;
         PassiveFestivalCacheInvalidate = true;
+        BuildingsCacheInvalidate = true;
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor) &&
             ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
         {
@@ -69,5 +77,13 @@ public class AssetInvalidationHandler
     public static void InvalidationLocations()
     {
         LocationCacheInvalidate = true;
+    }
+
+    /// <summary>
+    /// Reloads the location contexts so the pass out cost goes back to normal when the guard is off duty.
+    /// </summary>
+    public static void InvalidateLocationContexts()
+    {
+        _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATION_CONTEXTS);
     }
 }

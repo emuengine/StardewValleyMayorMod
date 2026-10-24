@@ -88,6 +88,59 @@ public static class TaxHandler
     }
 
     /// <summary>
+    /// Charges all the monthly costs on the 1st of the month.
+    /// </summary>
+    public static void ChargeMonthlyCosts()
+    {
+        if (!Game1.IsMasterGame || Game1.dayOfMonth != 1)
+            return;
+
+        ChargeSecurityWages();
+    }
+
+    /// <summary>
+    /// Pays the monthly security guard wages.
+    /// </summary>
+    private static void ChargeSecurityWages()
+    {
+        ChargeMonthlyCost(CouncilMeetingKeys.MeetingTownSecurity,
+                          ProgressFlags.SecurityOnGuard,
+                          DialogueKeys.CouncilMeeting.SecurityWagesPaid,
+                          DialogueKeys.CouncilMeeting.SecurityWagesUnpaid,
+                          AssetInvalidationHandler.InvalidateLocationContexts);
+    }
+
+    /// <summary>
+    /// Charge a monthly cost while active. If the treasury can't pay then the effect stops and
+    /// the cost is added to the outstanding menu until it is paid from the budget.
+    /// </summary>
+    /// <param name="costKey">cost key in TreasuryCostKeys.Costs</param>
+    /// <param name="activeFlag">progress flag that is set while the effect is active</param>
+    /// <param name="paidMessageKey">message shown when paid, {0} is the amount</param>
+    /// <param name="unpaidMessageKey">message shown when it couldn't be paid</param>
+    /// <param name="onUnpaid">optional extra clean up when the effect stops</param>
+    private static void ChargeMonthlyCost(string costKey, string activeFlag, string paidMessageKey, string unpaidMessageKey, Action? onUnpaid = null)
+    {
+        if (!ModProgressHandler.HasProgressFlag(activeFlag))
+            return;
+
+        int cost = TreasuryCostKeys.Costs.GetValueOrDefault(costKey);
+        if (TrySpendTreasury(cost))
+        {
+            Game1.showGlobalMessage(Game1.content.LoadString(paidMessageKey, cost));
+            return;
+        }
+
+        ModProgressHandler.RemoveProgressFlag(activeFlag);
+        onUnpaid?.Invoke();
+        if (SaveHandler.SaveData is not null && !SaveHandler.SaveData.OutstandingCouncilCosts.Contains(costKey))
+        {
+            SaveHandler.SaveData.OutstandingCouncilCosts.Add(costKey);
+        }
+        Game1.showGlobalMessage(Game1.content.LoadString(unpaidMessageKey));
+    }
+
+    /// <summary>
     /// Switches on the council event effect after it has been paid for.
     /// </summary>
     public static void ApplyPaidCostEffects(string costKey)

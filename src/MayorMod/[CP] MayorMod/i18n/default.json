@@ -131,6 +131,10 @@
 	"EmuEngine.MayorModCP_UIMenu.CostFloodRepair": "Flood damage repairs.",
 	"EmuEngine.MayorModCP_UIMenu.CostBusFareHalf": "Half-price desert bus travel.",
 	"EmuEngine.MayorModCP_UIMenu.CostBusFareFree": "Free desert bus travel.",
+	"EmuEngine.MayorModCP_UIMenu.BusStop_FreeTicketToDesert": "Take the bus to Calico Desert?",
+	"EmuEngine.MayorModCP_UIMenu.CostConstructionGrant": "Construction grant for Robin.",
+	"EmuEngine.MayorModCP_UIMenu.SecurityWagesPaid": "{0}G security guard wages paid for this month.",
+	"EmuEngine.MayorModCP_UIMenu.SecurityWagesUnpaid": "Security guard wages not paid. Officer Mike is off duty until he is paid.",
 
 	//Council meetings
 	"EmuEngine.MayorModCP_MapStrings.ManorHouseClosed": "Renovation is ongoing. Come back tomorrow.",
@@ -415,6 +419,14 @@
 	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_9A1": "Don't expand the farm.",
 	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_10_No": "All right. I'm not purchasing more land.",
 	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_10_Yes": "All right, I should go check the red book of deeds at the town hall to see if it can be purchased.",
+	
+	"EmuEngine.MayorModCP_Events.ConstructionGrant_0": "Hey Mayor. Do you have a minute? I was hoping to talk to you about my construction business.",
+	"EmuEngine.MayorModCP_Events.ConstructionGrant_1": "Business has been really good lately but I don't think I can keep up on my own. I't would be so good if I could hire a few more people to help but I don't think I can afford it yet.#$e#Do you think that maybe the town could give me a grant to help take on more employees. I think then we would be able to finish buildings on the same day that they are ordered!",
+	"EmuEngine.MayorModCP_Events.ConstructionGrant_2Q": "What do you think? Could the town help me out?",
+	"EmuEngine.MayorModCP_Events.ConstructionGrant_2A0": "Absolutly! Helping growing businesses helps the whole town.",
+	"EmuEngine.MayorModCP_Events.ConstructionGrant_2A1": "I'm sorry Robin but the towns budget is too stretched as it is right now.",
+	"EmuEngine.MayorModCP_Events.ConstructionGrant_3": "Really? Thank you so much! As soon as the money comes through I can start hiring! This is so exciting!",
+	"EmuEngine.MayorModCP_Events.NoConstructionGrant_0": "O ok sure I understand. I'll just have to keep working the old fashioned way.",
 
 
 	// Council meetings
@@ -950,6 +962,13 @@
 	"EmuEngine.MayorModCP_ConversationTopic.Kent.BusFare": "We went to visit the desert as a family recently. All that open sky and heat really reminded me of my days in the army.#$e#Not the bad parts... the good ones. Sitting around with the guys at night telling stories under the stars. It was nice to remember that for a change.",
 	"EmuEngine.MayorModCP_ConversationTopic.Lewis.BusFare": "Hmmm helping out with the bus fare eh? I always meant to do something like that.#$e#.",
 	
+	"EmuEngine.MayorModCP_ConversationTopic.Robin.ConstructionGrant": "With my new crew I can finish a building the same day it's ordered. Business has never been better!",
+	"EmuEngine.MayorModCP_ConversationTopic.Demetrius.ConstructionGrant": "Robin has been so busy lately. Hiring some crew really helps.",
+
+	//Mayor decision reactions
+	"EmuEngine.MayorModCP_ConstructionGrant.Robin_Instant": "With the help of my new crew your {0} is already finished!.$h",
+	"EmuEngine.MayorModCP_ConstructionGrant.Robin_HouseUpgrade_Accepted": "Thank you! My crew and I will work throughout the night so it'll be ready by tomorrow morning.$h",
+
 	//////////////////////
 	//Mayor asset updates
 	//////////////////////

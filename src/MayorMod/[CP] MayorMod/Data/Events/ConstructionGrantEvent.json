@@ -1,0 +1,13 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading construction grant event",
+            "Action": "EditData",
+            "Target": "Data/Events/{{ModId}}_ManorHouse",
+            "Entries": {
+				"{{ModId}}_ConstructionGrantEvent/IsHost/HostMail {{ModId}}_ElectedAsMayor/SawEvent {{ModId}}_TaxIntroEvent": "continue/19 5/farmer 19 5 2 Robin 16 10 0 Vincent -1000 -1000 0 Jas -1000 -1000 0/positionOffset farmer 8 0/pause 1000/move Robin 0 -3 0/move Robin 3 0 0/speak Robin \"{{i18n:{{ModId}}_Events.ConstructionGrant_0}}\"/speak Robin \"{{i18n:{{ModId}}_Events.ConstructionGrant_1}}\"/question fork1 \"{{i18n:{{ModId}}_Events.ConstructionGrant_2Q}}#{{i18n:{{ModId}}_Events.ConstructionGrant_2A0}} ({{EmuEngine.MayorMod/TreasuryCostConstructionGrant}}G)#{{i18n:{{ModId}}_Events.ConstructionGrant_2A1}}\"/fork {{ModId}}_NoConstructionGrant/addConversationTopic {{ModId}}_ConstructionGrantTopic 7/speak Robin \"{{i18n:{{ModId}}_Events.ConstructionGrant_3}}\"/emuEngineMayorMod_chargeTreasury ConstructionGrant/fade/viewport -1000 1000/end",
+				"{{ModId}}_NoConstructionGrant": "speak Robin \"{{i18n:{{ModId}}_Events.NoConstructionGrant_0}}\"/fade/viewport -1000 1000/end"
+            }
+        }
+    ]
+}

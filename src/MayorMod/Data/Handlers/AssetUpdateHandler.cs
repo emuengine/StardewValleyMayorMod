@@ -1,10 +1,10 @@
 ﻿using MayorMod.Constants;
 using StardewModdingAPI.Events;
 using StardewModdingAPI;
+using StardewValley.GameData.Buildings;
 using StardewValley.GameData.Locations;
 using System.Text.Json;
 using MayorMod.Data.Models;
-using StardewModdingAPI.Utilities;
 using StardewValley.GameData;
 using MayorMod.Data.Utilities;
 
@@ -112,6 +112,25 @@ public static class AssetUpdateHandler
         });
     }
 
+
+    /// <summary>
+    /// Robins building upgrades now finish instantly.
+    /// </summary>
+    public static void RobinBuildsInstantly(AssetRequestedEventArgs e)
+    {
+        e.Edit((asset) =>
+        {
+            var data = asset.AsDictionary<string, BuildingData>().Data;
+            foreach (var building in data.Values.Where(b => b.Builder == ModNPCKeys.RobinId))
+            {
+                building.BuildDays = 0;
+                foreach (var skin in building.Skins)
+                {
+                    skin.BuildDays = null;
+                }
+            }
+        });
+    }
 
     /// <summary>
     /// Updates Passive Festivals assets that depend on voting day

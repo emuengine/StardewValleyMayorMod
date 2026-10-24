@@ -11,5 +11,7 @@ public static class XNBPathKeys
     public const string CC_EVENTS = "Data/Events/CommunityCenter";
     public const string SECRET_NOTES = "Data/SecretNotes";
     public const string LOCATIONS = "Data/Locations";
+    public const string LOCATION_CONTEXTS = "Data/LocationContexts";
+    public const string BUILDINGS = "Data/Buildings";
     public const string CHARACTERS = "Data/Characters";
 }

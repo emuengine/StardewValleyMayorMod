@@ -158,7 +158,7 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
     }
 
     /// <summary>
-    /// Draws the button's right aligned text with the Icon after it, like the prices in a shop
+    /// Draws the button's right aligned text with the Icon after it.
     /// </summary>
     private void DrawRightText(SpriteBatch spriteBatch, ButtonData button)
     {

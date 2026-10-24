@@ -222,6 +222,12 @@ public static class ModProgressHandler
                 AssetInvalidationHandler.InvalidationLocations();
             }
 
+            // Finish Robin building
+            if (HasProgressFlag(ProgressFlags.ConstructionGrant))
+            {
+                FinishRobinsConstruction();
+            }
+
             // Tax stuff
             if (SDate.Now().Day >= 21 && !ModUtils.HasConversationTopic(ConversationTopicKeys.PayingTax))
             {
@@ -377,6 +383,32 @@ public static class ModProgressHandler
                 var busStop = Game1.getLocationFromName(nameof(BusStop)) as BusStop;
                 busStop.TicketPrice = ModKeys.SUBSIDISED_BUS_FARE;
             }
+        }
+    }
+
+    /// <summary>
+    /// If any building or upgrading finish immediatly.
+    /// </summary>
+    public static void FinishRobinsConstruction()
+    {
+        if (!Game1.netWorldState.Value.Builders.TryGetValue(ModNPCKeys.RobinId, out var builderData))
+        {
+            return;
+        }
+
+        var location = Game1.getLocationFromName(builderData.buildingLocation.Value);
+        var building = location?.getBuildingAt(Utility.PointToVector2(builderData.buildingTile.Value));
+        building?.FinishConstruction();
+    }
+
+    /// <summary>
+    /// Finish farmers house upgrade overnight.
+    /// </summary>
+    public static void FinishHouseUpgradeOvernight()
+    {
+        if (HasHostGotProgressFlag(ProgressFlags.ConstructionGrant) && Game1.player.daysUntilHouseUpgrade.Value > 1)
+        {
+            Game1.player.daysUntilHouseUpgrade.Value = 1;
         }
     }
 }

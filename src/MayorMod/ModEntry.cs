@@ -128,6 +128,7 @@ internal sealed class ModEntry : Mod
             }
 
             //Security guard so no money loss on passout
+            TaxHandler.ChargeMonthlyCosts();
             if (ModProgressHandler.HasProgressFlag(ProgressFlags.SecurityOnGuard))
             {
                 LocationContexts.Default.MaxPassOutCost = 0;
@@ -145,6 +146,7 @@ internal sealed class ModEntry : Mod
         ModProgressHandler.CampaignProgressUpdates();
         ModProgressHandler.CampaignProgressUpdatesFarmhand();
         ModProgressHandler.DayAsMayorUpdates();
+        ModProgressHandler.FinishHouseUpgradeOvernight();
         ModProgressHandler.UpdateIfMayorRetryNeeded();
         ModProgressHandler.HandleModResetIfNeeded();
     }
@@ -192,6 +194,11 @@ internal sealed class ModEntry : Mod
             {
                 AssetUpdateHandler.AssetUpdatesForPassiveFestivals(e);
             }
+        }
+
+        if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.BUILDINGS) && ModProgressHandler.HasHostGotProgressFlag(ProgressFlags.ConstructionGrant))
+        {
+            AssetUpdateHandler.RobinBuildsInstantly(e);
         }
     }
 
