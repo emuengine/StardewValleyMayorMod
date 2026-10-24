@@ -6,6 +6,7 @@ using MayorMod.Data.Utilities;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
 
@@ -147,6 +148,7 @@ internal sealed class ModEntry : Mod
     private void Player_Warped(object? sender, WarpedEventArgs e)
     {
         ModProgressHandler.AddLewisShortsToAnimalShop(e.NewLocation);
+        ModProgressHandler.UpdateBusFare(e.NewLocation);
 
         if (Helper.ModRegistry.IsLoaded(CompatibilityKeys.SVE_MOD_ID))
         {

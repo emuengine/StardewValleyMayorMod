@@ -14,6 +14,7 @@ public static partial class ModKeys
     public const string VOTING_RESULT_TOKEN = "VotingResultText";
     public const string DEBATE_DAY_TOKEN = "DebateDayText";
     public const int DEED_COST = 250000;
+    public const int SUBSIDISED_BUS_FARE = 250;
     public const string RESET_COMMAND = "MayorModReset";
     public const string RESET_COMMAND_HELP_TEXT = "Resets the mod by removing all mail, events, and progress flags, restoring it to a fresh install state.\n\nUsage: MayorModReset";
     public const string TREASURY_COMMAND = "MayorModTreasury";

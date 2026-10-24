@@ -14,6 +14,7 @@ public class CouncilMeetingKeys
     public static readonly string MeetingRiverCleanup = "RiverCleanup";
     public static readonly string MeetingTownRoads = "TownRoads";
     public static readonly string MeetingStrategicReserve = "StrategicReserve";
+    public static readonly string MeetingBusFare = "BusFare";
 
     //Special Order Keys
     public static readonly string SpecialOrderStrategicReserve = $"{ModKeys.MAYOR_MOD_CPID}_StrategicReserveSpecialOrder";
