@@ -19,10 +19,12 @@ public static class ProgressFlags
     public static readonly string GusVotingForYou = $"{ModKeys.MAYOR_MOD_CPID}_CampaignMail";
     public static readonly string NeedMayorRetryEvent = $"{ModKeys.MAYOR_MOD_CPID}_NeedMayorRetryEvent";
     public static readonly string MayorDebateEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorDebateEvent";
+    public static readonly string MayorWinSpeechEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorWinSpeechEvent";
     public static readonly string CleanUpRivers = $"{ModKeys.MAYOR_MOD_CPID}_RiverCleanup";
     public static readonly string SecurityOnGuard = $"{ModKeys.MAYOR_MOD_CPID}_SecurityOnGuard";
     public static readonly string TaxCollection = $"{ModKeys.MAYOR_MOD_CPID}_TaxCollection";
     public static readonly string StrategicReserve = $"{ModKeys.MAYOR_MOD_CPID}_StrategicReserve";
     public static readonly string BusFareHalf = $"{ModKeys.MAYOR_MOD_CPID}_BusFareHalf";
     public static readonly string BusFareFree = $"{ModKeys.MAYOR_MOD_CPID}_BusFareFree";
+    public static readonly string ConstructionGrant = $"{ModKeys.MAYOR_MOD_CPID}_ConstructionGrant";
 }

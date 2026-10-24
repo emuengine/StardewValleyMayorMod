@@ -1,0 +1,16 @@
+{
+    "Changes": [
+        {
+            "LogName": "Update Robin's dialogue after construction grant",
+            "Action": "EditData",
+            "Target": "Data/ExtraDialogue",
+            "Entries": {
+                "Robin_Instant": "{{i18n:{{ModId}}_ConstructionGrant.Robin_Instant}}",
+                "Robin_HouseUpgrade_Accepted": "{{i18n:{{ModId}}_ConstructionGrant.Robin_HouseUpgrade_Accepted}}"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_ConstructionGrant": true
+            }
+        }
+    ]
+}

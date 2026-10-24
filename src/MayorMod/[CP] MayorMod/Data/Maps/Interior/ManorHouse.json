@@ -64,6 +64,8 @@
         "{{ModId}}_NoOutstandingCosts": "{{i18n:{{ModId}}_UIMenu.NoOutstandingCosts}}",
         "{{ModId}}_CostOwed": "{{i18n:{{ModId}}_UIMenu.CostOwed}}",
         "{{ModId}}_CostPaid": "{{i18n:{{ModId}}_UIMenu.CostPaid}}",
+        "{{ModId}}_SecurityWagesPaid": "{{i18n:{{ModId}}_UIMenu.SecurityWagesPaid}}",
+        "{{ModId}}_SecurityWagesUnpaid": "{{i18n:{{ModId}}_UIMenu.SecurityWagesUnpaid}}",
         "{{ModId}}_CostTownSecurity": "{{i18n:{{ModId}}_UIMenu.MeetingTownSecurity}}",
         "{{ModId}}_CostTownCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingTownCleanup}}",
         "{{ModId}}_CostRiverCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingRiverCleanup}}",
@@ -71,6 +73,7 @@
         "{{ModId}}_CostStrategicReserve": "{{i18n:{{ModId}}_UIMenu.MeetingStrategicReserve}}",
         "{{ModId}}_CostBusFareHalf": "{{i18n:{{ModId}}_UIMenu.CostBusFareHalf}}",
         "{{ModId}}_CostBusFareFree": "{{i18n:{{ModId}}_UIMenu.CostBusFareFree}}",
+        "{{ModId}}_CostConstructionGrant": "{{i18n:{{ModId}}_UIMenu.CostConstructionGrant}}",
         "{{ModId}}_CostFloodRepair": "{{i18n:{{ModId}}_UIMenu.CostFloodRepair}}"
       }
     }

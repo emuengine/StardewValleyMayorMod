@@ -1,0 +1,15 @@
+{
+    "Changes": [
+        {
+            "LogName": "Update bus ticket question when the bus is free",
+            "Action": "EditData",
+            "Target": "Strings/Locations",
+            "Entries": {
+                "BusStop_BuyTicketToDesert": "{{i18n:{{ModId}}_UIMenu.BusStop_FreeTicketToDesert}}"
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_BusFareFree": true
+            }
+        }
+    ]
+}

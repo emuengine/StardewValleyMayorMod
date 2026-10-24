@@ -16,7 +16,8 @@ public static partial class ModKeys
     public const int DEED_COST = 250000;
     public const int SUBSIDISED_BUS_FARE = 250;
     public const string RESET_COMMAND = "MayorModReset";
-    public const string RESET_COMMAND_HELP_TEXT = "Resets the mod by removing all mail, events, and progress flags, restoring it to a fresh install state.\n\nUsage: MayorModReset";
+    public const string RESET_COMMAND_HELP_TEXT = "Resets the mod by removing all mail, events, and progress flags, restoring it to a fresh install state.\n\nUsage: MayorModReset [mayor]\n- mayor: reset to just after being elected.";
+    public const string RESET_COMMAND_MAYOR_ARG = "mayor";
     public const string TREASURY_COMMAND = "MayorModTreasury";
     public const string TREASURY_COMMAND_HELP_TEXT = "Add/Remove gold to/from the town treasury\n\nUsage: MayorModTreasury <amount>";
     public const int DEBATE_DAY_OFFSET = 3;
