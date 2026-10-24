@@ -349,6 +349,8 @@ namespace MayorMod.Data.Utilities
             var farmerTexture = GetFarmerStandingTexture();
             var goldFarmerTexture = GoldifyTexture(farmerTexture);
             var mergedTexture = MergeTextures(statueBaseTexture, goldFarmerTexture);
+            farmerTexture.Dispose();
+            goldFarmerTexture.Dispose();
             SaveHandler.UpdateGoldStatueTexture(mergedTexture);
             return mergedTexture;
         }

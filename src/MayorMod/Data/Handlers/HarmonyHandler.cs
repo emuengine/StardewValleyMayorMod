@@ -28,6 +28,7 @@ public static class HarmonyHandler
 
     private static IMod _mod = null!;
     private static Texture2D? _cachedGoldStatueTexture;
+    private static string? _cachedGoldStatueBase64Image;
 
     public static void Init(IMod mod)
     {
@@ -85,14 +86,20 @@ public static class HarmonyHandler
     /// </summary>
     public static bool ParsedItemData_GetTexture_Prefix(ParsedItemData __instance, ref Texture2D __result)
     {
-        if (__instance.QualifiedItemId == $"(F){ModItemKeys.GoldStatue}" && SaveHandler.SaveData is not null)
+        if (__instance.QualifiedItemId == $"(F){ModItemKeys.GoldStatue}")
         {
-            if (!string.IsNullOrEmpty(SaveHandler.SaveData.GoldStaueBase64Image))
+            var goldStatueBase64Image = ModUtils.GetFarmModData(MultiplayerKeys.GOLD_STATUE_IMAGE);
+            if (goldStatueBase64Image != _cachedGoldStatueBase64Image)
             {
-                _cachedGoldStatueTexture = TextureUtils.DecodeTextureFromBase64String(_mod.Monitor, SaveHandler.SaveData.GoldStaueBase64Image);
+                _cachedGoldStatueTexture?.Dispose();
+                _cachedGoldStatueTexture = TextureUtils.DecodeTextureFromBase64String(_mod.Monitor, goldStatueBase64Image);
+                _cachedGoldStatueBase64Image = goldStatueBase64Image;
             }
 
-            _cachedGoldStatueTexture ??= TextureUtils.InitGoldStatueTexture();
+            if (SaveHandler.SaveData is not null)
+            {
+                _cachedGoldStatueTexture ??= TextureUtils.InitGoldStatueTexture();
+            }
 
             if (_cachedGoldStatueTexture is not null)
             {
@@ -105,7 +112,8 @@ public static class HarmonyHandler
 
 
     /// <summary>
-    /// Adds a Harmony pre patch to intercept interaction with the Gold Statue furniture item
+    /// Adds a Harmony pre patch to intercept interaction with the Gold Statue furniture item. Only the host should 
+    /// update the staute becuase they have no SaveData.
     /// </summary>
     /// <param name="__instance"></param>
     /// <param name="who"></param>
@@ -116,7 +124,10 @@ public static class HarmonyHandler
     {
         if (__instance.QualifiedItemId == $"(F){ModItemKeys.GoldStatue}")
         {
-            _cachedGoldStatueTexture = TextureUtils.InitGoldStatueTexture();
+            if (SaveHandler.SaveData is not null)
+            {
+                _cachedGoldStatueTexture = TextureUtils.InitGoldStatueTexture();
+            }
 
             return false;
         }
