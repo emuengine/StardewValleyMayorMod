@@ -45,6 +45,7 @@ public static class DialogueKeys
         public static readonly string MeetingRiverCleanup = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingRiverCleanup";
         public static readonly string MeetingTownRoads = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingTownRoads";
         public static readonly string MeetingStrategicReserve = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingStrategicReserve";
+        public static readonly string MeetingBusFare = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingBusFare";
     }
 
     public static class OfficerMike

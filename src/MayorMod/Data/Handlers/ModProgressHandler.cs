@@ -358,4 +358,25 @@ public static class ModProgressHandler
         _mod.Monitor.Log("Done.", LogLevel.Info);
         _mod.Monitor.Log("Please go to sleep and save and the mod should be reset.", LogLevel.Info);
     }
+
+    /// <summary>
+    /// Update the bus stop fare if changed by council.
+    /// </summary>
+    /// <param name="location"></param>
+    public static void UpdateBusFare(GameLocation location)
+    {
+        if (location.NameOrUniqueName == nameof(BusStop))
+        {
+            if (HasProgressFlag(ProgressFlags.BusFareFree))
+            {
+                var busStop = Game1.getLocationFromName(nameof(BusStop)) as BusStop;
+                busStop.TicketPrice = 0;
+            }
+            else if (HasProgressFlag(ProgressFlags.BusFareHalf))
+            {
+                var busStop = Game1.getLocationFromName(nameof(BusStop)) as BusStop;
+                busStop.TicketPrice = ModKeys.SUBSIDISED_BUS_FARE;
+            }
+        }
+    }
 }

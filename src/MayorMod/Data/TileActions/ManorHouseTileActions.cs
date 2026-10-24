@@ -158,6 +158,10 @@ public static partial class ManorHouseTileActions
             {
                 meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownRoads), CouncilMeetingKeys.MeetingTownRoads));
             }
+            if (Game1.MasterPlayer.mailReceived.Contains(ProgressFlags.CompleteBusRepair))
+            {
+                meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingBusFare), CouncilMeetingKeys.MeetingBusFare));
+            }
         }
 
         return meetings.Where(m=>!m.EventHasHappened).ToList();

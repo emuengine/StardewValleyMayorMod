@@ -2,6 +2,9 @@
 
 public static class ProgressFlags
 {
+    public static readonly string CompleteTrashBearWorldState = "trashBearDone";
+    public static readonly string CompleteBusRepair = "ccVault";
+
     public static readonly string ModNeedsReset = $"{ModKeys.MAYOR_MOD_CPID}_ModNeedsReset";
     public static readonly string RunningForMayor = $"{ModKeys.MAYOR_MOD_CPID}_RunningForMayor";
     public static readonly string RegisterVotingDate = $"{ModKeys.MAYOR_MOD_CPID}_RegisterVotingDate";
@@ -14,7 +17,6 @@ public static class ProgressFlags
     public static readonly string IsCouncilDay = $"{ModKeys.MAYOR_MOD_CPID}_IsCouncilDay";
     public static readonly string TownCleanup = $"{ModKeys.MAYOR_MOD_CPID}_TownCleanup";
     public static readonly string GusVotingForYou = $"{ModKeys.MAYOR_MOD_CPID}_CampaignMail";
-    public static readonly string CompleteTrashBearWorldState = "trashBearDone";
     public static readonly string NeedMayorEvent = $"{ModKeys.MAYOR_MOD_CPID}_NeedMayorEvent";
     public static readonly string NeedMayorMorrisEvent = $"{ModKeys.MAYOR_MOD_CPID}_NeedMayorMorrisEvent";
     public static readonly string NeedMayorRetryEvent = $"{ModKeys.MAYOR_MOD_CPID}_NeedMayorRetryEvent";
@@ -24,4 +26,6 @@ public static class ProgressFlags
     public static readonly string SecurityOnGuard = $"{ModKeys.MAYOR_MOD_CPID}_SecurityOnGuard";
     public static readonly string TaxCollection = $"{ModKeys.MAYOR_MOD_CPID}_TaxCollection";
     public static readonly string StrategicReserve = $"{ModKeys.MAYOR_MOD_CPID}_StrategicReserve";
+    public static readonly string BusFareHalf = $"{ModKeys.MAYOR_MOD_CPID}_BusFareHalf";
+    public static readonly string BusFareFree = $"{ModKeys.MAYOR_MOD_CPID}_BusFareFree";
 }

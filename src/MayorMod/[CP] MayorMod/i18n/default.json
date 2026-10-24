@@ -129,6 +129,8 @@
 	"EmuEngine.MayorModCP_UIMenu.CostOwed": "There's not enough in the town treasury for this yet. You can pay in the budget menu at the mayor's desk.",
 	"EmuEngine.MayorModCP_UIMenu.CostPaid": "Outstanding cost paid.",
 	"EmuEngine.MayorModCP_UIMenu.CostFloodRepair": "Flood damage repairs.",
+	"EmuEngine.MayorModCP_UIMenu.CostBusFareHalf": "Half-price desert bus travel.",
+	"EmuEngine.MayorModCP_UIMenu.CostBusFareFree": "Free desert bus travel.",
 
 	//Council meetings
 	"EmuEngine.MayorModCP_MapStrings.ManorHouseClosed": "Renovation is ongoing. Come back tomorrow.",
@@ -147,6 +149,7 @@
 	"EmuEngine.MayorModCP_UIMenu.MeetingRiverCleanup": "Clean river initiative.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingTownRoads": "Road infrastructure improvement.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingStrategicReserve": "Strategic supply reserve.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingBusFare": "Desert bus fare subsidy.",
 
 	//Config menu
 	"EmuEngine.MayorModCP_UIMenu.VotingOptions": "Voting Options",
@@ -446,6 +449,18 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_6A1": "No, I don't this this is a priority right now.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownRoads_7": "Great! If we coordinate with the county, we might even qualify for funds on this project.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoRoads_0": "Well the current roads do have their charm.",
+	
+	"EmuEngine.MayorModCP_Events.CouncilMeetingBusFare_0": "Ok for this weeks agenda we are discussing the bus to Calico Desert. Many of the villagers have been concerned about the cost of living lately and asked if the town could help with the price of tickets.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingBusFare_1": "Mom has mentioned that some people would love to visit the desert but said that 500g a trip is too much for them to justify it.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingBusFare_2": "Cheaper trips would be good for the tavern business. When people come back from the desert they are always thirsty and full of stories.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingBusFare_3": "Maybe the we could have the town pay for half of each ticket or even make the bus free. It will will be pricy for the treasury up front but more visitors should be good news for everyone.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingBusFare_4Q": "What do you think Mayor? Should we use some of the budget to help pay for bus tickets to the desert?",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingBusFare_4A0": "Let's pay for half of each ticket.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingBusFare_4A1": "Let's make the bus free for everyone!",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingBusFare_4A2": "No we cant afford that. We have more important things to budget for right now.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingBusFare_5": "That's wonderful! Im sure this will be a big help for everyone in town.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingBusFare_6": "Free?! I think this will really help people out. The bus is going to be packed!",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingNoBusFare_0": "Oh well. I suppose the bus can stay as a treat for special occasions.",
 
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_0": "Hello everyone. I've been waiting for this meeting for quite some time. We are here to discuss the town's security.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_1": "For the past while there have been incidents of monsters sneaking out of the mines at night. Most of the time this just results in anybody foolish enough to be out past 2am having their belongings stolen by the more sneaky monsters. I am worried though that the nastier ones will really hurt someone one of these days.",
@@ -909,8 +924,8 @@
 	"EmuEngine.MayorModCP_ConversationTopic.Marnie.SaloonHours": "While I appreciate the effort, I'm not the biggest fan of the saloon's longer opening hours.",
 
 	"EmuEngine.MayorModCP_ConversationTopic.Jodi.StrategicReserve": "Kent seems a bit more relaxed since you announced the strategic reserve.",
-	"EmuEngine.MayorModCP_ConversationTopic.Sam.StrategicReserve": "My dad seems less stressed. Maybe he’ll join us on the beach next time Vincent wants to look at the starfish.",
-	"EmuEngine.MayorModCP_ConversationTopic.Vincent.StrategicReserve": "I saw daddy smile the other day. I haven’t seen him smile since he left! Does this mean he'll play with me again?",
+	"EmuEngine.MayorModCP_ConversationTopic.Sam.StrategicReserve": "My dad seems less stressed. Maybe he will join us on the beach next time Vincent wants to look at the starfish.",
+	"EmuEngine.MayorModCP_ConversationTopic.Vincent.StrategicReserve": "I saw daddy smile the other day. I haven't seen him smile since he left! Does this mean he'll play with me again?",
 	"EmuEngine.MayorModCP_ConversationTopic.Kent.StrategicReserve": "I've been having trouble sleeping since I came back, the peacefulness of the town has felt like a mask. It's always felt wrong to be back and pretend the war was far away and not effecting the valley. This strategic reserve makes me feel a bit safer in the valley in case the war comes here.",
 	"EmuEngine.MayorModCP_ConversationTopic.Maru.StrategicReserve": "I am gald we are working to be prepared in case an emergency happens.",
 	"EmuEngine.MayorModCP_ConversationTopic.Marlon.StrategicReserve": "You've not only shaped up to be a fine adventurer but also a fine mayor. The town reserve could be used if the barrier breaks and monsters slip through. But with the town's added security and Rasmodius working on the barrier, let's hope it doesn’t come to that.",
@@ -926,8 +941,15 @@
 	"EmuEngine.MayorModCP_ConversationTopic.Marlon.TownSecurity": "I've been trying to get more security around here for years. It's so good to have a competent mayor.",
 	"EmuEngine.MayorModCP_ConversationTopic.Harvey.TownSecurity": "The extra security has really helped with injuries around the mines.",
 	"EmuEngine.MayorModCP_ConversationTopic.Linus.TownSecurity": " It's been nice and quiet since Officer Mike has been on guard at night.",
-
-
+	
+	"EmuEngine.MayorModCP_ConversationTopic.Pam.BusFare": "Since the town started helping with tickets, I've got more passengers than ever. I must admit I kinda like the company.",
+	"EmuEngine.MayorModCP_ConversationTopic.Penny.BusFare": "Mom seems to really enjoy having more people riding the bus all of the time. Keeps her company.",
+	"EmuEngine.MayorModCP_ConversationTopic.Evelyn.BusFare": "George and I took the bus out to the desert. I haven't seen that much sand since I was a girl!#$e#He grumbled the whole way there, but I think he secretly enjoyed it.",
+	"EmuEngine.MayorModCP_ConversationTopic.Sandy.BusFare": "I've had a lot of new customers from the Town lately! We really appreciate what you have done for us and the economy out here.",
+	"EmuEngine.MayorModCP_ConversationTopic.Gus.BusFare": "I've actually seen quite a few new faces come into the saloon after thier day trips to the desert. Its been good for business!",
+	"EmuEngine.MayorModCP_ConversationTopic.Kent.BusFare": "We went to visit the desert as a family recently. All that open sky and heat really reminded me of my days in the army.#$e#Not the bad parts... the good ones. Sitting around with the guys at night telling stories under the stars. It was nice to remember that for a change.",
+	"EmuEngine.MayorModCP_ConversationTopic.Lewis.BusFare": "Hmmm helping out with the bus fare eh? I always meant to do something like that.#$e#.",
+	
 	//////////////////////
 	//Mayor asset updates
 	//////////////////////

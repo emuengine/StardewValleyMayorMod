@@ -12,7 +12,7 @@
     },
     {
       "Action": "Include",
-      "FromFile": "Data/Events/Council/CouncilMeetingIntroEvent.json, Data/Events/Council/CouncilMeetingSaloonHours.json, Data/Events/Council/CouncilMeetingTownSecurity.json, Data/Events/Council/CouncilMeetingCleanUpEvent.json, Data/Events/Council/CouncilMeetingRiverCleanUpEvent.json, Data/Events/Council/CouncilMeetingTownRoadsEvent.json, Data/Events/Council/CouncilMeetingStrategicReserveEvent.json"
+      "FromFile": "Data/Events/Council/CouncilMeetingIntroEvent.json, Data/Events/Council/CouncilMeetingSaloonHours.json, Data/Events/Council/CouncilMeetingTownSecurity.json, Data/Events/Council/CouncilMeetingCleanUpEvent.json, Data/Events/Council/CouncilMeetingRiverCleanUpEvent.json, Data/Events/Council/CouncilMeetingTownRoadsEvent.json, Data/Events/Council/CouncilMeetingStrategicReserveEvent.json, Data/Events/Council/CouncilMeetingBusFareEvent.json"
     },
     //{
     //	"Action": "Include",

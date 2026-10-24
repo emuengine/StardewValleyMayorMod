@@ -1,0 +1,12 @@
+{
+    "Changes": [
+        {
+            "LogName": "Loading council meeting event for BusFare",
+            "Action": "EditData",
+            "Target": "Data/Events/{{ModId}}_ManorHouse",
+            "Entries": {
+                "{{ModId}}_CouncilMeetingBusFareEvent/IsHost/HostMail {{ModId}}_CouncilMeetingPlannedBusFare/HostMail {{ModId}}_IsCouncilDay/!HostMail {{ModId}}_CouncilMeetingNotToday": "continue/9 6/farmer 12 6 1 Marlon 8 4 2 Maru 10 4 2 Gus -1008 7 0 Penny -10010 7 0/mailReceived  {{ModId}}_CouncilMeetingPlannedBusFare false/showFrame farmer 117 true/addTemporaryActor Penny 16 16 10 6 0 false Character PennyHead/showFrame PennyHead 16/positionOffset PennyHead 0 32/addTemporaryActor Gus 16 16 8 6 0 false Character GusHead/showFrame GusHead 16/positionOffset GusHead 0 32/pause 1000/speak Marlon \"{{i18n:{{ModId}}_Events.CouncilMeetingBusFare_0}}\"/speak Penny \"{{i18n:{{ModId}}_Events.CouncilMeetingBusFare_1}}\"/speak Gus \"{{i18n:{{ModId}}_Events.CouncilMeetingBusFare_2}}\"/speak Maru \"{{i18n:{{ModId}}_Events.CouncilMeetingBusFare_3}}\"/quickQuestion {{i18n:{{ModId}}_Events.CouncilMeetingBusFare_4Q}}#{{i18n:{{ModId}}_Events.CouncilMeetingBusFare_4A0}} ({{EmuEngine.MayorMod/TreasuryCostBusFareHalf}}G)#{{i18n:{{ModId}}_Events.CouncilMeetingBusFare_4A1}} ({{EmuEngine.MayorMod/TreasuryCostBusFareFree}}G)#{{i18n:{{ModId}}_Events.CouncilMeetingBusFare_4A2}}(break)addConversationTopic {{ModId}}_BusFareTopic 7\\speak Penny \"{{i18n:{{ModId}}_Events.CouncilMeetingBusFare_5}}\"\\emuEngineMayorMod_chargeTreasury BusFareHalf(break)addConversationTopic {{ModId}}_BusFareTopic 7\\speak Penny \"{{i18n:{{ModId}}_Events.CouncilMeetingBusFare_6}}\"\\emuEngineMayorMod_chargeTreasury BusFareFree(break)speak Penny \"{{i18n:{{ModId}}_Events.CouncilMeetingNoBusFare_0}}\"/globalFade/viewport -1000 -1000/end"
+            }
+        }
+    ]
+}

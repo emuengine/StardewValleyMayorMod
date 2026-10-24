@@ -58,6 +58,7 @@
         "{{ModId}}_MeetingRiverCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingRiverCleanup}}",
         "{{ModId}}_MeetingTownRoads": "{{i18n:{{ModId}}_UIMenu.MeetingTownRoads}}",
         "{{ModId}}_MeetingStrategicReserve": "{{i18n:{{ModId}}_UIMenu.MeetingStrategicReserve}}",
+        "{{ModId}}_MeetingBusFare": "{{i18n:{{ModId}}_UIMenu.MeetingBusFare}}",
         "{{ModId}}_NotEnoughFunds": "{{i18n:{{ModId}}_UIMenu.NotEnoughFunds}}",
         "{{ModId}}_OutstandingCosts": "{{i18n:{{ModId}}_UIMenu.OutstandingCosts}}",
         "{{ModId}}_NoOutstandingCosts": "{{i18n:{{ModId}}_UIMenu.NoOutstandingCosts}}",
@@ -68,6 +69,8 @@
         "{{ModId}}_CostRiverCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingRiverCleanup}}",
         "{{ModId}}_CostTownRoads": "{{i18n:{{ModId}}_UIMenu.MeetingTownRoads}}",
         "{{ModId}}_CostStrategicReserve": "{{i18n:{{ModId}}_UIMenu.MeetingStrategicReserve}}",
+        "{{ModId}}_CostBusFareHalf": "{{i18n:{{ModId}}_UIMenu.CostBusFareHalf}}",
+        "{{ModId}}_CostBusFareFree": "{{i18n:{{ModId}}_UIMenu.CostBusFareFree}}",
         "{{ModId}}_CostFloodRepair": "{{i18n:{{ModId}}_UIMenu.CostFloodRepair}}"
       }
     }

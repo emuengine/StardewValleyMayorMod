@@ -165,6 +165,7 @@
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Penny.VotingDay}}",
         "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.CouncilMeetingIntro}}",
         "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.SaloonHours}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.BusFare}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.MayorCampaignRunning}}"
       }
     },
@@ -223,6 +224,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.VotingDay}}",
         "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.TownRoads}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.BusFare}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.MayorCampaignRunning}}"
       }
     },
@@ -253,6 +255,7 @@
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Gus.VotingDay}}",
         "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.CouncilMeetingIntro}}",
         "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.SaloonHours}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.BusFare}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.MayorCampaignRunning}}"
       }
     },
@@ -281,6 +284,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Kent.VotingDay}}",
         "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Kent.StrategicReserve}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Kent.BusFare}}",
         //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Kent.MayorCampaignRunning}}"
       }
     },
@@ -294,6 +298,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Lewis.Leaflet}}",
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Lewis.VotingDay}}",
         "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Lewis.CouncilMeetingIntro}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Lewis.BusFare}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Lewis.MayorCampaignRunning}}"
       }
     },
@@ -338,6 +343,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Pam.VotingDay}}",
         "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Pam.SaloonHours}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Pam.BusFare}}",
         //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Pam.MayorCampaignRunning}}"
       }
     },
@@ -527,6 +533,13 @@
     //        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Sandy.MayorCampaignRunning}}"
     //    }
     //},
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Sandy",
+      "Entries": {
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Sandy.BusFare}}"
+      }
+    },
     {
       "Action": "EditData",
       "Target": "Characters/Dialogue/Dwarf",
