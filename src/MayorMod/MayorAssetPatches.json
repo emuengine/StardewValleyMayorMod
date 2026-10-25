@@ -103,8 +103,8 @@
     "strings/stringsfromcsfiles": {
         "Event.cs.1584": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
         // Ridgeside & East Scarp
-        "Utility.cs.5371": [ { "SearchKey": "AssetUpdates.SubString.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.FemaleWeddingFix-rep", "IsTranslationKey": true } ],
-        "Utility.cs.5377": [ { "SearchKey": "AssetUpdates.SubString.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.FemaleWeddingFix-rep", "IsTranslationKey": true } ]
+        "Utility.cs.5371": [ { "SearchKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix-rep", "IsTranslationKey": true } ],
+        "Utility.cs.5377": [ { "SearchKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix-rep", "IsTranslationKey": true } ]
     },
     
     //SVE Patches
