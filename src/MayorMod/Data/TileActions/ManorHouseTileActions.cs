@@ -165,6 +165,10 @@ public static partial class ManorHouseTileActions
             {
                 meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingBusFare), CouncilMeetingKeys.MeetingBusFare));
             }
+            if (SaveHandler.SaveData?.TownTreasury < 0)
+            {
+                meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingFundraiser), CouncilMeetingKeys.MeetingFundraiser));
+            }
         }
 
         return meetings.Where(m=>!m.EventHasHappened).ToList();
