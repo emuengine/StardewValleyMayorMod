@@ -53,7 +53,7 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
     public bool ScrollBarEnabled {get; set; }
 
     public Texture2D? Icon { get; set; }
-    public IList<string>? RightText { get; set; }
+    public IList<string?>? RightText { get; set; }
 
     public BigButtonListMenuItem(MayorModMenu parent, Margin margin, IList<string> buttonText, Action<int> action)
     {

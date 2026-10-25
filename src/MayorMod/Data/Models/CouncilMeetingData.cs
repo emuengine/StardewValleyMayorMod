@@ -7,6 +7,7 @@ public class CouncilMeetingData
 {
     public string Name { get; set; }
     public string EventMailId { get; set; }
+    public bool IsPaid { get; set; }
 
     public bool EventHasHappened => HasMeetingHappened(EventMailId);
 
