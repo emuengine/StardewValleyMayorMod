@@ -157,6 +157,7 @@
 	"EmuEngine.MayorModCP_UIMenu.MeetingStrategicReserve": "Strategic supply reserve.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingBusFare": "Desert bus fare subsidy.",
 	"EmuEngine.MayorModCP_UIMenu.MeetingHealthcareFunding": "Healthcare funding.",
+	"EmuEngine.MayorModCP_UIMenu.MeetingFundraiser": "Community fundraiser.",
 
 	//Config menu
 	"EmuEngine.MayorModCP_UIMenu.VotingOptions": "Voting Options",
@@ -428,6 +429,17 @@
 	"EmuEngine.MayorModCP_Events.ConstructionGrant_3": "Really? Thank you so much! As soon as the money comes through I can start hiring! This is so exciting!",
 	"EmuEngine.MayorModCP_Events.NoConstructionGrant_0": "O ok sure I understand. I'll just have to keep working the old fashioned way.",
 
+	"EmuEngine.MayorModCP_Events.Fundraiser_0": "@! You made it! Welcome to the Pelican Town fundraiser. Everything we raise tonight goes towards helping the town.$h",
+	"EmuEngine.MayorModCP_Events.Fundraiser_1": "We made cookies with Penny today so we could help. Vincent ate four of them!$h",
+	"EmuEngine.MayorModCP_Events.Fundraiser_2": "It was only three!$s",
+	"EmuEngine.MayorModCP_Events.Fundraiser_3": "This is the busiest the saloon has been in a while. Part of every drink tonight is going to help the town!",
+	"EmuEngine.MayorModCP_Events.Fundraiser_Pam": "Such a good cause!",
+	"EmuEngine.MayorModCP_Events.Fundraiser_Shane": "I like drinking for charity.",
+	"EmuEngine.MayorModCP_Events.Fundraiser_Pierre": "Those cookies are cheaper than mine...",
+	"EmuEngine.MayorModCP_Events.Fundraiser_Willy": "Hooray for Pelican town!",
+	"EmuEngine.MayorModCP_Events.Fundraiser_Lewis": "*cough* My generous donation *cough*",
+	"EmuEngine.MayorModCP_Events.Fundraiser_5": "It's so lovely to see the whole town pitching in. This is a great success.",
+
 
 	// Council meetings
 	"EmuEngine.MayorModCP_Events.CouncilMeetingIntro_0": "Welcome everyone to the first council meeting of the new term. Maybe we can go around the table and talk about our roles.",
@@ -484,6 +496,17 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingHealthcareFunding_5A1": "I don't think we can right now. It would be too costly.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingHealthcareFunding_6": "I can't wait to tell Harvey. People will be able to get the care they need.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoHealthcareFunding_0": "I understand. Im sure Harvey will do his best to keep looking after everyone.",
+
+	"EmuEngine.MayorModCP_Events.CouncilMeetingFundraiser_0": "I've had an idea to help with the towns financing. I thought maybe we could hold a fundraiser.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingFundraiser_1": "The children could learn about helping their community. We could run a bake sale. Vincent and Jas have been looking for a school project.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingFundraiser_2": "Why not hold it at the saloon? I'll even put part of the sales towards the fundraiser.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingFundraiser_3": "If we all chips in it could really help the town.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingFundraiser_4": "As long as nobody expects me to bake unless you all want to eat charcoal cookies.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingFundraiser_5Q": "Should we hold a town fundraiser?",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingFundraiser_5A0": "Let's do it!",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingFundraiser_5A1": "I don't think that is necessary.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingFundraiser_6": "Ok we'll set up at the saloon then. Make sure to come by in the evening and see how we're doing!",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingNoFundraiser_0": "Oh ... alright then. Well i'm sure the kids can find another project.",
 
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_0": "Hello everyone. I've been waiting for this meeting for quite some time. We are here to discuss the town's security.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingTownSecurity_1": "For the past while there have been incidents of monsters sneaking out of the mines at night. Most of the time this just results in anybody foolish enough to be out past 2am having their belongings stolen by the more sneaky monsters. I am worried though that the nastier ones will really hurt someone one of these days.",

@@ -60,6 +60,7 @@
         "{{ModId}}_MeetingStrategicReserve": "{{i18n:{{ModId}}_UIMenu.MeetingStrategicReserve}}",
         "{{ModId}}_MeetingBusFare": "{{i18n:{{ModId}}_UIMenu.MeetingBusFare}}",
         "{{ModId}}_MeetingHealthcareFunding": "{{i18n:{{ModId}}_UIMenu.MeetingHealthcareFunding}}",
+        "{{ModId}}_MeetingFundraiser": "{{i18n:{{ModId}}_UIMenu.MeetingFundraiser}}",
         "{{ModId}}_NotEnoughFunds": "{{i18n:{{ModId}}_UIMenu.NotEnoughFunds}}",
         "{{ModId}}_OutstandingCosts": "{{i18n:{{ModId}}_UIMenu.OutstandingCosts}}",
         "{{ModId}}_NoOutstandingCosts": "{{i18n:{{ModId}}_UIMenu.NoOutstandingCosts}}",
