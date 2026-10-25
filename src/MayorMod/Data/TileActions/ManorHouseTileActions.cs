@@ -27,10 +27,12 @@ public static partial class ManorHouseTileActions
 
     private static void ShowDeskMenu(IModHelper helper, MayorModConfig modConfig)
     {
-        var menuItems = new string[]{
-            ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.SelectCouncilMeeting"),
-            ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Budget")
-        };
+        var menuItems = new List<string>{ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.SelectCouncilMeeting")};
+
+        if (Game1.MasterPlayer.eventsSeen.Contains(ProgressFlags.TaxIntroEvent))
+        {
+            menuItems.Add(ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Budget"));
+        }
 
         //Show menu
         var menu = new MayorModMenu(helper, 0.8f, 0.8f);

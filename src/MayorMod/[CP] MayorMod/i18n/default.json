@@ -427,6 +427,14 @@
 	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_10_No": "All right. I'm not purchasing more land.",
 	"EmuEngine.MayorModCP_Events.ExpandGrandpasFarmEvent_10_Yes": "All right, I should go check the red book of deeds at the town hall to see if it can be purchased.",
 
+	"EmuEngine.MayorModCP_Events.TaxIntro_0": "Ah well there you are. Have you got a minute? Marlon came to see me and ... well I suppose I should hand over details for the town's accounts.",
+	"EmuEngine.MayorModCP_Events.TaxIntro_1": "All of the businesses in the town pay a small tax each month. That money can then be used to pay for ... mmmm ... well ... projects.",
+	"EmuEngine.MayorModCP_Events.TaxIntro_2": "So about the current treasury ... there may have been a few ... expenses.",
+	"EmuEngine.MayorModCP_Events.TaxIntro_3": "So the treasury is currently a little bit in the red. Just a little! Nothing you can't fix I'm sure.$h",
+	"EmuEngine.MayorModCP_Events.TaxIntro_4": "Usually on the 22nd of each month I would pay a visit to Clint, Gus, Marnie, Pierre, Robin, Willy and Morris.",
+	"EmuEngine.MayorModCP_Events.TaxIntro_5": "All of the towns expenses come out of the treasury. You can now check the budget at your desk.",
+	"EmuEngine.MayorModCP_Events.TaxIntro_6": "Well I'd best be off ... hmmm it's interesting what you have done with the place.",
+
 	"EmuEngine.MayorModCP_Events.ConstructionGrant_0": "Hey Mayor. Do you have a minute? I was hoping to talk to you about my construction business.",
 	"EmuEngine.MayorModCP_Events.ConstructionGrant_1": "Business has been really good lately but I don't think I can keep up on my own. I't would be so good if I could hire a few more people to help but I don't think I can afford it yet.#$e#Do you think that maybe the town could give me a grant to help take on more employees. I think then we would be able to finish buildings on the same day that they are ordered!",
 	"EmuEngine.MayorModCP_Events.ConstructionGrant_2Q": "What do you think? Could the town help me out?",
@@ -482,7 +490,7 @@
 	"EmuEngine.MayorModCP_Events.CouncilMeetingNoBusFare_0": "Oh well. I suppose the bus can stay as a treat for special occasions.",
 
 	"EmuEngine.MayorModCP_Events.CouncilMeetingHealthcareFunding_0": "We should discuss the health of our town. I think we should make sure everyone can see a doctor if they need one.",
-	"EmuEngine.MayorModCP_Events.CouncilMeetingHealthcareFunding_1": "When working at the clinic I sometimes see people putting off getting help because of the cost. This lets small problems become a big ones.",
+	"EmuEngine.MayorModCP_Events.CouncilMeetingHealthcareFunding_1": "When working at the clinic I sometimes see people putting off getting help because of the cost. This lets small problems become a big ones. I think the treasury should help cover some of the costs.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingHealthcareFunding_2": "The people of this town work hard. Farming, fishing and not to mention the mines all take its toll.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingHealthcareFunding_3": "The general ongoing health expenses do all add up for people. Then they have less to spend on other things which help the economy.",
 	"EmuEngine.MayorModCP_Events.CouncilMeetingHealthcareFunding_4": "I've patched up enough adventurers to know how important a good doctor is. But this would be expensive though. Can the treasury afford it?",
