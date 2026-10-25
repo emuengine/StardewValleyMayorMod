@@ -149,6 +149,7 @@ public static partial class ManorHouseTileActions
                 new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingSaloonHours), CouncilMeetingKeys.MeetingSaloonHours),
                 new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownCleanup), CouncilMeetingKeys.MeetingTownCleanup),
                 new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingStrategicReserve), CouncilMeetingKeys.MeetingStrategicReserve),
+                new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingHealthcareFunding), CouncilMeetingKeys.MeetingHealthcareFunding),
             };
             if (CouncilMeetingData.HasMeetingHappened(CouncilMeetingKeys.MeetingTownCleanup))
             {
