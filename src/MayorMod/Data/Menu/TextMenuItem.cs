@@ -13,6 +13,7 @@ public class TextMenuItem : IMenuItem
     public SpriteFont Font { get; set; } = Game1.dialogueFont;
     public bool IsBold { get; set; }
     public Texture2D? Icon { get; set; }
+    public Color TextColor { get; set; } = Game1.textColor;
     public MenuItemAlign Align { get; set; } = MenuItemAlign.Left;
 
     public enum MenuItemAlign
@@ -62,11 +63,11 @@ public class TextMenuItem : IMenuItem
 
         if (IsBold)
         {
-            Utility.drawBoldText(spriteBatch, Text, Font, position, Game1.textColor);
+            Utility.drawBoldText(spriteBatch, Text, Font, position, TextColor);
         }
         else
         {
-            Utility.drawTextWithColoredShadow(spriteBatch, Text, Font, position, Game1.textColor, Color.Transparent);
+            Utility.drawTextWithColoredShadow(spriteBatch, Text, Font, position, TextColor, Color.Transparent);
         }
 
         if (Icon is not null)

@@ -78,7 +78,7 @@ public static partial class ManorHouseTileActions
         {
             new TextMenuItem(budgetMenu, ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Budget"), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
             new TextMenuItem(budgetMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.OutstandingCosts), new Margin(20, 60, 0, 0)),
-            new TextMenuItem(budgetMenu, $"{ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.TownTreasury")}: {SaveHandler.SaveData?.TownTreasury ?? 0}", new Margin(0, 60, 110, 0)){ Align = TextMenuItem.MenuItemAlign.Right, Icon = coinIcon },
+            new TextMenuItem(budgetMenu, $"{ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.TownTreasury")}: {SaveHandler.SaveData?.TownTreasury ?? 0}", new Margin(0, 60, 110, 0)){ Align = TextMenuItem.MenuItemAlign.Right, Icon = coinIcon, TextColor = SaveHandler.SaveData?.TownTreasury < 0 ? Color.Red : Game1.textColor },
         };
 
         if (costs.Count == 0)
@@ -87,7 +87,7 @@ public static partial class ManorHouseTileActions
         }
         else
         {
-            items.Add(new BigButtonListMenuItem(budgetMenu, new Margin(30, 110, 60, 130), costs.Select(c => Game1.content.LoadString($"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_Cost{c}")).ToList(), (i) => OnOutstandingCostSelected(costs[i])){ ScrollBarEnabled = true, Icon = coinIcon, RightText = costs.Select(c => TreasuryCostKeys.Costs.GetValueOrDefault(c).ToString()).ToList() });
+            items.Add(new BigButtonListMenuItem(budgetMenu, new Margin(30, 110, 60, 130), costs.Select(c => Game1.content.LoadString($"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_Cost{c}")).ToList(), (i) => OnOutstandingCostSelected(costs[i])){ ScrollBarEnabled = true, Icon = coinIcon, RightText = costs.Select(c => TreasuryCostKeys.Costs.GetValueOrDefault(c).ToString()).ToList<string?>() });
         }
         items.Add(new ButtonMenuItem(budgetMenu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
         {
@@ -118,13 +118,14 @@ public static partial class ManorHouseTileActions
             return;
         }
 
-        //Show council menu
+        //Show council menu, paid meetings get the treasury coin
         var councilMenu = new MayorModMenu(helper, 0.8f, 0.8f);
+        var coinIcon = helper.ModContent.Load<Texture2D>("assets/treasuryMoney.png");
         councilMenu.MenuItems = new List<IMenuItem>()
         {
             new TextMenuItem(councilMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.HoldCouncilMeeting), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
             new TextMenuItem(councilMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.AgendaQuestion), new Margin(20, 60, 0, 0)),
-            new BigButtonListMenuItem(councilMenu, new Margin(30, 110, 60, 130), meetings.Select((cm, index) => $"{index + 1}. " + cm.Name).ToList(), (i)  => OnCoucilMeetingSelected(meetings[i])){ ScrollBarEnabled = true },
+            new BigButtonListMenuItem(councilMenu, new Margin(30, 110, 60, 130), meetings.Select((cm, index) => $"{index + 1}. " + cm.Name).ToList(), (i)  => OnCoucilMeetingSelected(meetings[i])){ ScrollBarEnabled = true, Icon = coinIcon, RightText = meetings.Select(cm => cm.IsPaid ? string.Empty : null).ToList() },
             new ButtonMenuItem(councilMenu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
             {
                 ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
@@ -147,27 +148,35 @@ public static partial class ManorHouseTileActions
         {
             meetings = new List<CouncilMeetingData>()
             {
-                new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownSecurity), CouncilMeetingKeys.MeetingTownSecurity),
                 new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingSaloonHours), CouncilMeetingKeys.MeetingSaloonHours),
-                new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownCleanup), CouncilMeetingKeys.MeetingTownCleanup),
-                new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingStrategicReserve), CouncilMeetingKeys.MeetingStrategicReserve),
-                new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingHealthcareFunding), CouncilMeetingKeys.MeetingHealthcareFunding),
             };
-            if (CouncilMeetingData.HasMeetingHappened(CouncilMeetingKeys.MeetingTownCleanup))
+
+            //Paid meetings unlock once Lewis has handed over the town's accounts
+            if (Game1.MasterPlayer.eventsSeen.Contains(ProgressFlags.TaxIntroEvent))
             {
-                meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingRiverCleanup), CouncilMeetingKeys.MeetingRiverCleanup));
-            }
-            if (!Game1.MasterPlayer.eventsSeen.Contains(CompatibilityKeys.MorrisIsCampaigningForMayorEventID)) //SVE event for Mayor Morris
-            {
-                meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownRoads), CouncilMeetingKeys.MeetingTownRoads));
-            }
-            if (Game1.MasterPlayer.mailReceived.Contains(ProgressFlags.CompleteBusRepair))
-            {
-                meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingBusFare), CouncilMeetingKeys.MeetingBusFare));
-            }
-            if (SaveHandler.SaveData?.TownTreasury < 0)
-            {
-                meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingFundraiser), CouncilMeetingKeys.MeetingFundraiser));
+                if (SaveHandler.SaveData?.TownTreasury < 0)
+                {
+                    meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingFundraiser), CouncilMeetingKeys.MeetingFundraiser));
+                }
+                meetings.AddRange(new List<CouncilMeetingData>()
+                {
+                    new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownSecurity), CouncilMeetingKeys.MeetingTownSecurity){ IsPaid = true },
+                    new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownCleanup), CouncilMeetingKeys.MeetingTownCleanup){ IsPaid = true },
+                    new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingStrategicReserve), CouncilMeetingKeys.MeetingStrategicReserve){ IsPaid = true },
+                    new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingHealthcareFunding), CouncilMeetingKeys.MeetingHealthcareFunding){ IsPaid = true },
+                });
+                if (CouncilMeetingData.HasMeetingHappened(CouncilMeetingKeys.MeetingTownCleanup))
+                {
+                    meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingRiverCleanup), CouncilMeetingKeys.MeetingRiverCleanup){ IsPaid = true });
+                }
+                if (!Game1.MasterPlayer.eventsSeen.Contains(CompatibilityKeys.MorrisIsCampaigningForMayorEventID)) //SVE event for Mayor Morris
+                {
+                    meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingTownRoads), CouncilMeetingKeys.MeetingTownRoads){ IsPaid = true });
+                }
+                if (Game1.MasterPlayer.mailReceived.Contains(ProgressFlags.CompleteBusRepair))
+                {
+                    meetings.Add(new CouncilMeetingData(Game1.content.LoadString(DialogueKeys.CouncilMeeting.MeetingBusFare), CouncilMeetingKeys.MeetingBusFare){ IsPaid = true });
+                }
             }
         }
 
