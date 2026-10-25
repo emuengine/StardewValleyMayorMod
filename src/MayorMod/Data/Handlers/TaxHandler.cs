@@ -52,7 +52,7 @@ public static class TaxHandler
             return;
         }
 
-        SaveHandler.SaveData.TownTreasury = Math.Max(0, SaveHandler.SaveData.TownTreasury + amount);
+        SaveHandler.SaveData.TownTreasury += amount;
         SaveHandler.UpdateFarmModData();
         monitor.Log($"Town Treasury : {SaveHandler.SaveData.TownTreasury}G", LogLevel.Info);
     }
@@ -123,8 +123,8 @@ public static class TaxHandler
     }
 
     /// <summary>
-    /// Charge a monthly cost while active. If the treasury can't pay then the effect stops and
-    /// the cost is added to the outstanding menu until it is paid from the budget.
+    /// Charges a monthly cost while active. The treasury can go into debt as far as MIN_TREASURY_FOR_MONTHLY_COSTS.
+    /// There is a borrow limit and then the effects stop. These costs is added back to the outstanding menu until the budget is paid.
     /// </summary>
     /// <param name="costKey">cost key in TreasuryCostKeys.Costs</param>
     /// <param name="activeFlag">progress flag that is set while the effect is active</param>
@@ -137,7 +137,7 @@ public static class TaxHandler
             return;
 
         int cost = TreasuryCostKeys.Costs.GetValueOrDefault(costKey);
-        if (TrySpendTreasury(cost))
+        if (TrySpendTreasury(cost, ModKeys.MIN_TREASURY_FOR_MONTHLY_COSTS))
         {
             Game1.showGlobalMessage(Game1.content.LoadString(paidMessageKey, cost));
             return;
@@ -173,12 +173,13 @@ public static class TaxHandler
     }
 
     /// <summary>
-    /// Takes gold out of the town treasury if there is enough to cover the amount.
+    /// Takes gold out of the town treasury if it won't go below the minimum balance.
     /// </summary>
+    /// <param name="minBalance">lowest amount needed</param>
     /// <returns>true if the gold was taken, false if not</returns>
-    public static bool TrySpendTreasury(int amount)
+    public static bool TrySpendTreasury(int amount, int minBalance = 0)
     {
-        if (SaveHandler.SaveData is null || SaveHandler.SaveData.TownTreasury < amount)
+        if (SaveHandler.SaveData is null || SaveHandler.SaveData.TownTreasury - amount < minBalance)
             return false;
 
         SaveHandler.SaveData.TownTreasury -= amount;

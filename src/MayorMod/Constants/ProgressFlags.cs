@@ -20,6 +20,7 @@ public static class ProgressFlags
     public static readonly string NeedMayorRetryEvent = $"{ModKeys.MAYOR_MOD_CPID}_NeedMayorRetryEvent";
     public static readonly string MayorDebateEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorDebateEvent";
     public static readonly string MayorWinSpeechEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorWinSpeechEvent";
+    public static readonly string TaxIntroEvent = $"{ModKeys.MAYOR_MOD_CPID}_TaxIntroEvent";
     public static readonly string CleanUpRivers = $"{ModKeys.MAYOR_MOD_CPID}_RiverCleanup";
     public static readonly string SecurityOnGuard = $"{ModKeys.MAYOR_MOD_CPID}_SecurityOnGuard";
     public static readonly string TaxCollection = $"{ModKeys.MAYOR_MOD_CPID}_TaxCollection";
