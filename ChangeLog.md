@@ -10,6 +10,9 @@
 - Added construction grant event.
 - Added bus fare council meeting.
 - Added healthcare council meeting.
+- Added healthcare funding council meeting.
+- Added fundraiser council meeting and event.
+- Added tax intro event.
 - Updated some dialogue for Officer Mike.
 - Added MayorModTreasury command.
 - Added param to MayorModReset command to reset to post election.
@@ -20,6 +23,7 @@
 
 ## Bug fixes
 - Fix for gold statue in multiplayer.
+- Tweaks for event timings.
 
 
 ## v1.1.24
