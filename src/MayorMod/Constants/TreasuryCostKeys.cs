@@ -17,6 +17,7 @@ public static class TreasuryCostKeys
         { CouncilMeetingKeys.MeetingRiverCleanup, 300 },
         { CouncilMeetingKeys.MeetingTownRoads, 3000 },
         { CouncilMeetingKeys.MeetingStrategicReserve, 1000 },
+        { CouncilMeetingKeys.MeetingHealthcareFunding, 500 },
         { BusFareHalf, 1000 },
         { BusFareFree, 2500 },
         { ConstructionGrant, 2800 },

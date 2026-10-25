@@ -1,8 +1,28 @@
 # Changelog
 
-## v1.1.24
+## v1.2.0
 
 ## Features
+- Add dialogue for spouse when you become mayor.
+- Added basic taxation mechanic.
+- Council decisions now cost money from a town treasury.
+- Added budget section to desk menu.
+- Added construction grant event.
+- Added bus fare council meeting.
+- Added healthcare council meeting.
+- Updated some dialogue for Officer Mike.
+- Added MayorModTreasury command.
+- Added param to MayorModReset command to reset to post election.
+- From now using proper versioning.
+    - major = big breaking feature.
+    - minor = new feature.
+    - patch = bug fix.
+
+## Bug fixes
+- Fix for gold statue in multiplayer.
+
+
+## v1.1.24
 
 ## Bug fixes
 - Updated Strategic Reserve dialogue for clarity.

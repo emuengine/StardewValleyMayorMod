@@ -96,6 +96,7 @@ public static class TaxHandler
             return;
 
         ChargeSecurityWages();
+        ChargeHealthcareFunding();
     }
 
     /// <summary>
@@ -108,6 +109,17 @@ public static class TaxHandler
                           DialogueKeys.CouncilMeeting.SecurityWagesPaid,
                           DialogueKeys.CouncilMeeting.SecurityWagesUnpaid,
                           AssetInvalidationHandler.InvalidateLocationContexts);
+    }
+
+    /// <summary>
+    /// Pays the monthly healthcare funding.
+    /// </summary>
+    private static void ChargeHealthcareFunding()
+    {
+        ChargeMonthlyCost(CouncilMeetingKeys.MeetingHealthcareFunding,
+                          ProgressFlags.HealthcareFunding,
+                          DialogueKeys.CouncilMeeting.HealthcareFundingPaid,
+                          DialogueKeys.CouncilMeeting.HealthcareFundingUnpaid);
     }
 
     /// <summary>

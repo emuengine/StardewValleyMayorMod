@@ -1,0 +1,23 @@
+{
+    "Changes": [
+        {
+            "LogName": "Half price clinic shop after healthcare funding",
+            "Action": "EditData",
+            "Target": "Data/Shops",
+            "Fields": {
+                "Hospital": {
+                    "PriceModifiers": [
+                        {
+                            "Id": "{{ModId}}_HealthcareFunding",
+                            "Modification": "Multiply",
+                            "Amount": 0.2
+                        }
+                    ]
+                }
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_HealthcareFunding": true
+            }
+        }
+    ]
+}

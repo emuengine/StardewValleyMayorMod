@@ -40,6 +40,8 @@ public static class DialogueKeys
         public static readonly string CostPaid = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_CostPaid";
         public static readonly string SecurityWagesPaid = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_SecurityWagesPaid";
         public static readonly string SecurityWagesUnpaid = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_SecurityWagesUnpaid";
+        public static readonly string HealthcareFundingPaid = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_HealthcareFundingPaid";
+        public static readonly string HealthcareFundingUnpaid = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_HealthcareFundingUnpaid";
         public static readonly string MeetingIntro = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingIntro";
         public static readonly string MeetingSaloonHours = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingSaloonHours";
         public static readonly string MeetingTownSecurity = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingTownSecurity";
@@ -48,6 +50,7 @@ public static class DialogueKeys
         public static readonly string MeetingTownRoads = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingTownRoads";
         public static readonly string MeetingStrategicReserve = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingStrategicReserve";
         public static readonly string MeetingBusFare = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingBusFare";
+        public static readonly string MeetingHealthcareFunding = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingHealthcareFunding";
     }
 
     public static class OfficerMike

@@ -59,6 +59,7 @@
         "{{ModId}}_MeetingTownRoads": "{{i18n:{{ModId}}_UIMenu.MeetingTownRoads}}",
         "{{ModId}}_MeetingStrategicReserve": "{{i18n:{{ModId}}_UIMenu.MeetingStrategicReserve}}",
         "{{ModId}}_MeetingBusFare": "{{i18n:{{ModId}}_UIMenu.MeetingBusFare}}",
+        "{{ModId}}_MeetingHealthcareFunding": "{{i18n:{{ModId}}_UIMenu.MeetingHealthcareFunding}}",
         "{{ModId}}_NotEnoughFunds": "{{i18n:{{ModId}}_UIMenu.NotEnoughFunds}}",
         "{{ModId}}_OutstandingCosts": "{{i18n:{{ModId}}_UIMenu.OutstandingCosts}}",
         "{{ModId}}_NoOutstandingCosts": "{{i18n:{{ModId}}_UIMenu.NoOutstandingCosts}}",
@@ -66,6 +67,8 @@
         "{{ModId}}_CostPaid": "{{i18n:{{ModId}}_UIMenu.CostPaid}}",
         "{{ModId}}_SecurityWagesPaid": "{{i18n:{{ModId}}_UIMenu.SecurityWagesPaid}}",
         "{{ModId}}_SecurityWagesUnpaid": "{{i18n:{{ModId}}_UIMenu.SecurityWagesUnpaid}}",
+        "{{ModId}}_HealthcareFundingPaid": "{{i18n:{{ModId}}_UIMenu.HealthcareFundingPaid}}",
+        "{{ModId}}_HealthcareFundingUnpaid": "{{i18n:{{ModId}}_UIMenu.HealthcareFundingUnpaid}}",
         "{{ModId}}_CostTownSecurity": "{{i18n:{{ModId}}_UIMenu.MeetingTownSecurity}}",
         "{{ModId}}_CostTownCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingTownCleanup}}",
         "{{ModId}}_CostRiverCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingRiverCleanup}}",
@@ -74,7 +77,8 @@
         "{{ModId}}_CostBusFareHalf": "{{i18n:{{ModId}}_UIMenu.CostBusFareHalf}}",
         "{{ModId}}_CostBusFareFree": "{{i18n:{{ModId}}_UIMenu.CostBusFareFree}}",
         "{{ModId}}_CostConstructionGrant": "{{i18n:{{ModId}}_UIMenu.CostConstructionGrant}}",
-        "{{ModId}}_CostFloodRepair": "{{i18n:{{ModId}}_UIMenu.CostFloodRepair}}"
+        "{{ModId}}_CostFloodRepair": "{{i18n:{{ModId}}_UIMenu.CostFloodRepair}}",
+        "{{ModId}}_CostHealthcareFunding": "{{i18n:{{ModId}}_UIMenu.MeetingHealthcareFunding}}"
       }
     }
   ]

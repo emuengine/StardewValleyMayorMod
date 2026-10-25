@@ -39,6 +39,7 @@
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Harvey.VotingDay}}",
         "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.SaloonHours}}",
         "{{ModId}}_TownSecurityTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.TownSecurity}}",
+        "{{ModId}}_HealthcareFundingTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.HealthcareFunding}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.MayorCampaignRunning}}"
       }
     },
@@ -240,6 +241,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.George.VotingDay}}",
         "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.George.TownRoads}}",
+        "{{ModId}}_HealthcareFundingTopic": "{{i18n:{{ModId}}_ConversationTopic.George.HealthcareFunding}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.George.MayorCampaignRunning}}"
       }
     },
