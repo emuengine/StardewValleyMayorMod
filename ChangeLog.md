@@ -29,6 +29,14 @@
 - Prize ticket & Clothing Therapy events use event move system.
 - Fix for Lewis' six heart event.
 
+
+## v1.1.25
+
+## Bug fixes
+- Removed time for Strategic Reserve special order.
+- Various fixes.
+
+
 ## v1.1.24
 
 ## Bug fixes

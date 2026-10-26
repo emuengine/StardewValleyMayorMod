@@ -3,6 +3,9 @@
     "characters/dialogue/leomainland": {
         "Wed": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
+    "characters/dialogue/penny": {
+        "summer_Fri": [ { "SearchKey": "AssetUpdates.SubString.MayorSays", "ReplaceKey": "AssetUpdates.SubString.LewisAlwaysSaid", "IsTranslationKey": true } ]
+    },
     "characters/dialogue/marnie": {
         "Fair_Judged_PlayerLost_PurpleShorts": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
@@ -10,6 +13,7 @@
         "Fair_Judged": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
     "data/mail": {
+        "EmilyClothingTherapy": [ { "SearchKey": "AssetUpdates.SubString.TheMayorsHouse", "ReplaceKey": "AssetUpdates.SubString.TheTownHall", "IsTranslationKey": true } ],
         "foundLostTools": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
         "winter_18": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
         "ccBulletinThankYou": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
@@ -122,8 +126,22 @@
         // Sword & Sorcery
         "Hector": [ { "SearchKey": "AssetUpdates.SubString.Hector.spring13.False.1", "ReplaceKey": "AssetUpdates.SubString.Hector.spring13.False.1-rep", "IsTranslationKey": true } ]
     },
+    "data/extradialogue": {
+        "SummitEvent_Dialogue2_Lewis": [ { "SearchKey": "AssetUpdates.SubString.IveBeenMayor", "ReplaceKey": "AssetUpdates.SubString.IWasMayor", "IsTranslationKey": true } ],
+        "Morris_PlayerSignedUp": [ { "SearchKey": "AssetUpdates.SubString.Morris.PlayerSignedUp", "ReplaceKey": "AssetUpdates.SubString.Morris.PlayerSignedUp-rep", "IsTranslationKey": true } ],
+        "Morris_WeekendGreeting_MembershipAvailable": [
+            { "SearchKey": "AssetUpdates.SubString.Morris.PromisedUs", "ReplaceKey": "AssetUpdates.SubString.Morris.PromisedUs-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.Morris.HedLetUs", "ReplaceKey": "AssetUpdates.SubString.Morris.HedLetUs-rep", "IsTranslationKey": true }
+        ],
+        "Morris_FirstGreeting_MembershipAvailable": [
+            { "SearchKey": "AssetUpdates.SubString.Morris.PromisedUs", "ReplaceKey": "AssetUpdates.SubString.Morris.PromisedUs-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.Morris.HedLetUs", "ReplaceKey": "AssetUpdates.SubString.Morris.HedLetUs-rep", "IsTranslationKey": true }
+        ]
+    },
     "strings/moviereactions": {
-        "Lewis_summer_movie_0_DuringMovie_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+        "Lewis_summer_movie_0_DuringMovie_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "Lewis_like_BeforeMovie": [ { "SearchKey": "AssetUpdates.SubString.Lewis.BeforeMovie", "ReplaceKey": "AssetUpdates.SubString.Lewis.BeforeMovie-rep", "IsTranslationKey": true } ],
+        "Lewis_like_AfterMovie": [ { "SearchKey": "AssetUpdates.SubString.Lewis.AfterMovie", "ReplaceKey": "AssetUpdates.SubString.Lewis.AfterMovie-rep", "IsTranslationKey": true } ]
     },
     "strings/stringsfromcsfiles": {
         "Event.cs.1584": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
@@ -208,7 +226,9 @@
     
     // East Scarp
     "data/festivals/winter25": {
-        "JosephineK": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+        "JosephineK": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        // Vanilla
+        "Linus_y2": [ { "SearchKey": "AssetUpdates.SubString.TheMayorStart", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
     "data/events/busstop": {
         "57873001/e 57873000/t 600 1200": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
@@ -266,7 +286,18 @@
 
     // Sword & Sorcery
     "characters/dialogue/lewis": {
-        "CGuildComplete": [ { "SearchKey": "AssetUpdates.SubString.Lewis.CGuildComplete", "ReplaceKey": "EMPTY", "IsTranslationKey": true } ]
+        "CGuildComplete": [ { "SearchKey": "AssetUpdates.SubString.Lewis.CGuildComplete", "ReplaceKey": "EMPTY", "IsTranslationKey": true } ],
+        // Vanilla
+        "Sun": [
+            { "SearchKey": "AssetUpdates.SubString.Lewis.Sun.1", "ReplaceKey": "AssetUpdates.SubString.Lewis.Sun.1-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.Lewis.Sun.2", "ReplaceKey": "AssetUpdates.SubString.Lewis.Sun.2-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.Lewis.Sun.3", "ReplaceKey": "AssetUpdates.SubString.Lewis.Sun.3-rep", "IsTranslationKey": true }
+        ],
+        "joja_Begin": [ { "SearchKey": "AssetUpdates.SubString.MyRecord", "ReplaceKey": "AssetUpdates.SubString.YourRecord", "IsTranslationKey": true } ],
+        "winter_Fri6": [
+            { "SearchKey": "AssetUpdates.SubString.Lewis.winter_Fri6.1", "ReplaceKey": "AssetUpdates.SubString.Lewis.winter_Fri6.1-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.Lewis.winter_Fri6.2", "ReplaceKey": "AssetUpdates.SubString.Lewis.winter_Fri6.2-rep", "IsTranslationKey": true }
+        ]
     },
     "characters/dialogue/hector": {
         "Mon": [ { "SearchKey": "AssetUpdates.SubString.Hector.EarlyHeart.26", "ReplaceKey": "AssetUpdates.SubString.Hector.EarlyHeart.26-rep", "IsTranslationKey": true },

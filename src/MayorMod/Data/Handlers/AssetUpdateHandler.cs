@@ -28,11 +28,13 @@ public static class AssetUpdateHandler
         }
         var stringPatchFile = File.ReadAllText(stringPatchLocation);
 
-        _mayorStringReplacements = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<StringPatch>>>>(stringPatchFile, new JsonSerializerOptions
+        var stringReplacements = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<StringPatch>>>>(stringPatchFile, new JsonSerializerOptions
         {
             ReadCommentHandling = JsonCommentHandling.Skip,
             AllowTrailingCommas = true
         }) ?? new Dictionary<string, Dictionary<string, List<StringPatch>>>();
+        
+        _mayorStringReplacements = new Dictionary<string, Dictionary<string, List<StringPatch>>>(stringReplacements, StringComparer.OrdinalIgnoreCase);
     }
 
     /// <summary>
