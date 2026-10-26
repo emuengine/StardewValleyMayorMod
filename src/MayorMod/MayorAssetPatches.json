@@ -48,6 +48,10 @@
         "afraid": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },    
     "data/events/town": {
+        "639373/": [
+            { "SearchKey": "AssetUpdates.SubString.LewisMarnieSecret.Lewis", "ReplaceKey": "AssetUpdates.SubString.LewisMarnieSecret.Lewis-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.LewisMarnieSecret.Marnie", "ReplaceKey": "AssetUpdates.SubString.LewisMarnieSecret.Marnie-rep", "IsTranslationKey": true }
+        ],
         "6184644": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
         "191393": [
             { "SearchKey": "Lewis", "ReplaceKey": "Governor_NewMayorEvent", "IsTranslationKey": false },

@@ -16,7 +16,7 @@
 - Updated some dialogue for Officer Mike.
 - Added MayorModTreasury command.
 - Added param to MayorModReset command to reset to post election.
-- Sword & Sorcery compatibility
+- Sword & Sorcery compatibility.
 - From now using proper versioning.
     - major = big breaking feature.
     - minor = new feature.
@@ -27,6 +27,7 @@
 - Tweaks for event timings.
 - The vanilla wedding fix.
 - Prize ticket & Clothing Therapy events use event move system.
+- Fix for Lewis' six heart event.
 
 ## v1.1.24
 
