@@ -7,6 +7,7 @@ using System.Text.Json;
 using MayorMod.Data.Models;
 using StardewValley.GameData;
 using MayorMod.Data.Utilities;
+using System.Collections;
 
 namespace MayorMod.Data.Handlers;
 
@@ -14,6 +15,7 @@ public static class AssetUpdateHandler
 {
     private static IMod _mod = null!;
     private static Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements = new();
+    private const string DISABLED_EVENT_PRECONDITION = "/G FALSE";
 
     public static void Init(IMod mod)
     {
@@ -94,6 +96,76 @@ public static class AssetUpdateHandler
                 data[$"RejectItem_(O){ModItemKeys.Leaflet}"] = ModUtils.GetTranslationForKey(_mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_Gifting.Default.Leaflet");
             }
         });
+    }
+
+    /// <summary>
+    /// Moves events to another location for compatibility.
+    /// </summary>
+    public static void MoveEvents(AssetRequestedEventArgs e, EventTransfer transfer)
+    {
+        if (e.NameWithoutLocale.IsEquivalentTo(transfer.FromEventsAsset))
+        {
+            e.Edit((asset) =>
+            {
+                var data = asset.AsDictionary<string, string>().Data;
+                foreach (var eventKey in data.Keys.Where(k => transfer.EventIds.Contains(k.Split('/')[0]) && !k.EndsWith(DISABLED_EVENT_PRECONDITION)).ToList())
+                {
+                    data[eventKey + DISABLED_EVENT_PRECONDITION] = data[eventKey];
+                    data.Remove(eventKey);
+                }
+            }, AssetEditPriority.Late);
+        }
+        else if (e.NameWithoutLocale.IsEquivalentTo(transfer.ToEventsAsset))
+        {
+            e.Edit((asset) =>
+            {
+                var data = asset.AsDictionary<string, string>().Data;
+                var fromData = _mod.Helper.GameContent.Load<Dictionary<string, string>>(transfer.FromEventsAsset);
+                foreach (var eventId in transfer.EventIds)
+                {
+                    var eventKey = fromData.Keys.FirstOrDefault(k => k.Split('/')[0] == eventId);
+                    if (eventKey != null)
+                    {
+                        data[eventKey.Replace(DISABLED_EVENT_PRECONDITION, string.Empty)] = fromData[eventKey];
+                    }
+                }
+            });
+        }
+    }
+
+    /// <summary>
+    /// Replaces substrings in the pages of a SpaceCore guidebook.
+    /// </summary>
+    public static void GuidebookSubstringPatch(AssetRequestedEventArgs e, string guidebookId, string searchKey, string replaceKey)
+    {
+        var patch = new StringPatch() { SearchKey = searchKey, ReplaceKey = replaceKey, IsTranslationKey = true };
+        e.Edit((asset) =>
+        {
+            if (asset.Data is not IDictionary guidebooks)
+            {
+                return;
+            }
+            var guidebook = guidebooks[guidebookId];
+            if (guidebook?.GetType().GetProperty("Chapters")?.GetValue(guidebook) is not IDictionary chapters)
+            {
+                return;
+            }
+            foreach (var chapter in chapters.Values)
+            {
+                if (chapter?.GetType().GetProperty("Pages")?.GetValue(chapter) is not IEnumerable pages)
+                {
+                    continue;
+                }
+                foreach (var page in pages)
+                {
+                    var contents = page.GetType().GetProperty("Contents");
+                    if (contents?.GetValue(page) is string text)
+                    {
+                        contents.SetValue(page, patch.PatchString(_mod.Helper, text));
+                    }
+                }
+            }
+        }, AssetEditPriority.Late);
     }
 
     /// <summary>

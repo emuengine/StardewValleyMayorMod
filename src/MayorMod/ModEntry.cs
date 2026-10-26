@@ -176,6 +176,19 @@ internal sealed class ModEntry : Mod
     {
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
+            foreach (var move in CompatibilityKeys.EventMoves)
+            {
+                AssetUpdateHandler.MoveEvents(e, move);
+            }
+
+            //Sword & Sorcery handbook patching ... Fucking Spacecore
+            if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.SPACECORE_GUIDEBOOKS))
+            {
+                AssetUpdateHandler.GuidebookSubstringPatch(e, CompatibilityKeys.SwordAndSorceryGuidebookId,
+                                                           CompatibilityKeys.SwordAndSorceryHandbookHint,
+                                                           CompatibilityKeys.SwordAndSorceryHandbookHintReplacement);
+            }
+            
             AssetUpdateHandler.AssetSubstringPatch(e);
             if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.LOCATIONS) && ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
             {

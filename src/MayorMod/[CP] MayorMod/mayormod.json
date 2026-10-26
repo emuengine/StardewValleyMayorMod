@@ -8,7 +8,7 @@
     //Events
     {
       "Action": "Include",
-      "FromFile": "Data/Events/MayorDebateEvent.json, Data/Events/MayorWinSpeechEvent.json, Data/Events/MayorLoseEvent.json, Data/Events/EmilyClothingTherapy.json, Data/Events/NeedMayorEvent.json, Data/Events/ManorHouseIntroEvent.json, Data/Events/WorriedLewisEvent.json, Data/Events/TreePlantingEvent.json, Data/Events/MarnieLewisLiving.json, Data/Events/ExpandGrandpasFarmEvent.json, Data/Events/TaxIntroEvent.json, Data/Events/ConstructionGrantEvent.json, Data/Events/FundraiserEvent.json"
+      "FromFile": "Data/Events/MayorDebateEvent.json, Data/Events/MayorWinSpeechEvent.json, Data/Events/MayorLoseEvent.json, Data/Events/NeedMayorEvent.json, Data/Events/ManorHouseIntroEvent.json, Data/Events/WorriedLewisEvent.json, Data/Events/TreePlantingEvent.json, Data/Events/MarnieLewisLiving.json, Data/Events/ExpandGrandpasFarmEvent.json, Data/Events/TaxIntroEvent.json, Data/Events/ConstructionGrantEvent.json, Data/Events/FundraiserEvent.json"
     },
     {
       "Action": "Include",
