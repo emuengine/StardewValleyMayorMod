@@ -112,6 +112,15 @@ public partial class MayorModMenu : IClickableMenu
         }
     }
 
+    public override void update(GameTime time)
+    {
+        base.update(time);
+        if (_selectedCursorItem is null && Game1.options.SnappyMenus)
+        {
+            CustomSnapBehavior(0);
+        }
+    }
+
     public override void applyMovementKey(int direction)
     {
         base.applyMovementKey(direction);
@@ -132,6 +141,7 @@ public partial class MayorModMenu : IClickableMenu
             return;
         }
 
+        var isFirstSnap = _selectedCursorItem is null;
         if (_selectedCursorItem is null)
         {
             _selectedCursorItem = new CursorSnapMenuItem(cursorButtons[0], 0);
@@ -152,5 +162,27 @@ public partial class MayorModMenu : IClickableMenu
                 _selectedCursorItem.MenuItem.UpdateCursor(_selectedCursorItem.Index);
             }
         }
+
+        var screenReaderText = _selectedCursorItem.MenuItem.GetScreenReaderText(_selectedCursorItem.Index);
+        if (isFirstSnap)
+        {
+            screenReaderText = $"{GetMenuScreenReaderText()}. {screenReaderText}";
+        }
+        currentlySnappedComponent = new ClickableComponent(Rectangle.Empty, nameof(MayorModMenu)) 
+        {
+            ScreenReaderText = screenReaderText
+        };
+    }
+
+
+    private string GetMenuScreenReaderText()
+    {
+        var text = MenuItems.Select(mi => mi switch
+        {
+            TextMenuItem textItem => textItem.Text,
+            BoolMenuItem boolItem => $"{boolItem.Text} {Game1.content.LoadString(boolItem.IsTicked ? "Strings\\Lexicon:QuestionDialogue_Yes" : "Strings\\Lexicon:QuestionDialogue_No")}",
+            _ => string.Empty
+        });
+        return string.Join(". ", text.Where(t => !string.IsNullOrWhiteSpace(t)));
     }
 }

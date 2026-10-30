@@ -2,6 +2,7 @@
 using MayorMod.Data;
 using MayorMod.Data.Handlers;
 using MayorMod.Data.Interfaces;
+using MayorMod.Data.Models;
 using MayorMod.Data.Utilities;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
@@ -39,7 +40,15 @@ internal sealed class ModEntry : Mod
         Helper.Events.GameLoop.GameLaunched += OnGameLaunched;
         Helper.Events.Player.Warped += Player_Warped;
 
-        Helper.ConsoleCommands.Add(ModKeys.RESET_COMMAND, ModKeys.RESET_COMMAND_HELP_TEXT, (arg1, arg2) => ModProgressHandler.ResignAndReset());
+        Helper.ConsoleCommands.Add(ModKeys.RESET_COMMAND, ModKeys.RESET_COMMAND_HELP_TEXT, (arg1, arg2) =>
+        {
+            switch (arg2.FirstOrDefault())
+            {
+                case ModKeys.RESET_COMMAND_VOTING_ARG: ModProgressHandler.ResignAndReset(ResetType.VotingDay); break;
+                case ModKeys.RESET_COMMAND_MAYOR_ARG: ModProgressHandler.ResignAndReset(ResetType.NewMayor); break;
+                default: ModProgressHandler.ResignAndReset(ResetType.FreshInstall); break;
+            }
+        });
     }
 
     /// <summary>

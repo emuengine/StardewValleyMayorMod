@@ -121,6 +121,10 @@ public static class AssetUpdateHandler
         e.Edit(festivals =>
         {
             var votingDate = ModUtils.GetVotingDate();
+            if (votingDate is null)
+            {
+                return;
+            }
             var data = festivals.AsDictionary<string, PassiveFestivalData>().Data;
             var votingDay = new PassiveFestivalData()
             {

@@ -176,6 +176,20 @@
 	"EmuEngine.MayorModCP_UIMenu.Resign_DoubleCheck": "Are you sure you wish to resign as mayor? (This will reset the MayorMod data)",
 	"EmuEngine.MayorModCP_UIMenu.Resign_ResignText": "Wish granted! After you have slept for two days it will be like this never happened.",
 
+	//Stardew Access tile names
+	"EmuEngine.MayorModCP_AccessibleTiles.BallotDesk": "Ballot Desk",
+	"EmuEngine.MayorModCP_AccessibleTiles.VotingBooth": "Voting Booth",
+	"EmuEngine.MayorModCP_AccessibleTiles.BallotBox": "Ballot Box",
+	"EmuEngine.MayorModCP_AccessibleTiles.MayorDesk": "Mayor's Desk",
+	"EmuEngine.MayorModCP_AccessibleTiles.PrizeTicketMachine": "Prize Ticket Machine",
+	"EmuEngine.MayorModCP_AccessibleTiles.TownLedgerBook": "Town Ledger Book",
+	"EmuEngine.MayorModCP_AccessibleTiles.MarriageLogBook": "Marriage Log Book",
+	"EmuEngine.MayorModCP_AccessibleTiles.LostAndFoundBox": "Lost and Found Box",
+	"EmuEngine.MayorModCP_AccessibleTiles.PropertyDeeds": "Property Deeds",
+	"EmuEngine.MayorModCP_AccessibleTiles.MiniFridge": "Mini Fridge",
+	"EmuEngine.MayorModCP_AccessibleTiles.FarmPhotos": "Farm Photos",
+
+
 	//////////////////////
 	//Locations
 	//////////////////////
@@ -184,6 +198,7 @@
 	"EmuEngine.MayorModCP_Locations.ManorHouseBasement": "Manor House Basement",
 	"EmuEngine.MayorModCP_Locations.VotingOffice": "Voting Office",
 	"EmuEngine.MayorModCP_Locations.MayorModWarpRoom": "MayorMod Warp Room",
+
 
 	//////////////////////
 	//NPCs

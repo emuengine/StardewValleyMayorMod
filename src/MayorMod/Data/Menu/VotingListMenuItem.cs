@@ -162,4 +162,9 @@ internal partial class VotingListMenuItem : IClickableMenuItem
         }
         return -1;
     }
+
+    public string GetScreenReaderText(int index)
+    {
+        return _buttons[index].Name;
+    }
 }

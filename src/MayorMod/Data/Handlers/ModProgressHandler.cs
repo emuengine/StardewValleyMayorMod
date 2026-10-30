@@ -1,4 +1,5 @@
 ﻿using MayorMod.Constants;
+using MayorMod.Data.Models;
 using MayorMod.Data.Utilities;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
@@ -298,7 +299,8 @@ public static class ModProgressHandler
     /// <summary>
     /// Reset the mod to factory settings.
     /// </summary>
-    public static void ResignAndReset()
+    /// <param name="resetType">progress reset point</param>
+    public static void ResignAndReset(ResetType resetType = ResetType.FreshInstall)
     {
         if (!Context.IsWorldReady)
         {
@@ -331,6 +333,27 @@ public static class ModProgressHandler
         _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.PASSIVE_FESTIVALS);
         _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
         _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.CHARACTERS);
+
+        if (resetType == ResetType.NewMayor)
+        {
+            _mod.Monitor.Log("Resetting to be a newly elected mayor.", LogLevel.Info);
+            Game1.player.eventsSeen.Add(ProgressFlags.MayorWinSpeechEvent);
+            Game1.player.mailReceived.Add(MailKeys.WonOfficialElectioMail);
+            Game1.player.mailReceived.Add(MailKeys.WonElectionMail);
+            AddProgressFlag(ProgressFlags.ElectedAsMayor);
+        }
+
+        if (resetType == ResetType.VotingDay)
+        {
+            _mod.Monitor.Log("Resetting to the day before voting day.", LogLevel.Info);
+            Game1.player.eventsSeen.Add(ProgressFlags.NeedMayorEvent);
+            Game1.player.eventsSeen.Add(ProgressFlags.NeedMayorMorrisEvent);
+            Game1.player.mailReceived.Add(MailKeys.RegisteredForElectionMail);
+            Game1.player.mailReceived.Add(MailKeys.DebateDate);
+            SaveHandler.UpdateVotingDate(ModUtils.GetDateWithoutFestival(1));
+            AddProgressFlag(ProgressFlags.RunningForMayor);
+            AssetInvalidationHandler.UpdateAssetInvalidations();
+        }
 
         _mod.Monitor.Log("Done.", LogLevel.Info);
         _mod.Monitor.Log("Please go to sleep and save and the mod should be reset.", LogLevel.Info);

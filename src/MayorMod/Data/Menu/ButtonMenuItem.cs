@@ -153,4 +153,9 @@ public class ButtonMenuItem : IClickableMenuItem
             return -1;
         }
     }
+
+    public string GetScreenReaderText(int index)
+    {
+        return Game1.content.LoadString(ButtonTypeSelected == ButtonType.Cancel ? "Strings\\UI:Cancel" : "Strings\\UI:Confirm");
+    }
 }

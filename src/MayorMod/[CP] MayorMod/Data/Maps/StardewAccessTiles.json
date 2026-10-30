@@ -1,0 +1,75 @@
+{
+    "Changes": [
+        {
+            "LogName": "Adding Stardew Access tile names for voting booths in CommunityCenter",
+            "Action": "EditData",
+            "Target": "shoaib.stardewaccess/AccessibleTilesData",
+            "Entries": {
+                "{{ModId}}_CommunityCenterVotingDay": {
+                    "Maps": [
+                        {
+                            "Id": "CommunityCenter",
+                            "Tiles": [
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.BallotDesk}}", "X": [ 23 ], "Y": [ 11 ], "Category": "interactables" },
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.VotingBooth}}", "X": [ 25, 26, 27, 28 ], "Y": [ 9 ], "Category": "interactables" },
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.BallotBox}}", "X": [ 29, 30 ], "Y": [ 8 ], "Category": "interactables" }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "When": {
+                "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
+                "IsCommunityCenterComplete": true
+            }
+        },
+        {
+            "LogName": "Adding Stardew Access tile names for {{ModId}}_VotingOffice",
+            "Action": "EditData",
+            "Target": "shoaib.stardewaccess/AccessibleTilesData",
+            "Entries": {
+                "{{ModId}}_VotingOffice": {
+                    "Maps": [
+                        {
+                            "Id": "{{ModId}}_VotingOffice",
+                            "Tiles": [
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.BallotDesk}}", "X": [ 2 ], "Y": [ 6, 7 ], "Category": "interactables" },
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.VotingBooth}}", "X": [ 7, 8, 9, 10, 11, 12 ], "Y": [ 5 ], "Category": "interactables" },
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.BallotBox}}", "X": [ 2 ], "Y": [ 4 ], "Category": "interactables" }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "LogName": "Adding Stardew Access tile names for {{ModId}}_ManorHouse",
+            "Action": "EditData",
+            "Target": "shoaib.stardewaccess/AccessibleTilesData",
+            "Entries": {
+                "{{ModId}}_ManorHouse": {
+                    "Maps": [
+                        {
+                            "Id": "{{ModId}}_ManorHouse",
+                            "Tiles": [
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.MayorDesk}}", "X": [ 19, 20 ], "Y": [ 4, 6 ], "Category": "interactables" },
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.PrizeTicketMachine}}", "X": [ 1 ], "Y": [ 5 ], "Category": "interactables" },
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.TownLedgerBook}}", "X": [ 2 ], "Y": [ 5 ], "Category": "interactables" },
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.MarriageLogBook}}", "X": [ 3 ], "Y": [ 5 ], "Category": "interactables" },
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.LostAndFoundBox}}", "X": [ 4 ], "Y": [ 5 ], "Category": "interactables" },
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.PropertyDeeds}}", "X": [ 1 ], "Y": [ 7 ], "Category": "interactables" }
+                            ]
+                        },
+                        {
+                            "Id": "{{ModId}}_ManorHouseBasement",
+                            "Tiles": [
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.MiniFridge}}", "X": [ 2 ], "Y": [ 4 ], "Category": "interactables" },
+                                { "DisplayName": "{{i18n:{{ModId}}_AccessibleTiles.FarmPhotos}}", "X": [ 16 ], "Y": [ 3 ], "Category": "interactables" }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

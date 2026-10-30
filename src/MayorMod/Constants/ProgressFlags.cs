@@ -15,8 +15,11 @@ public static class ProgressFlags
     public static readonly string TownCleanup = $"{ModKeys.MAYOR_MOD_CPID}_TownCleanup";
     public static readonly string GusVotingForYou = $"{ModKeys.MAYOR_MOD_CPID}_CampaignMail";
     public static readonly string CompleteTrashBearWorldState = "trashBearDone";
+    public static readonly string NeedMayorEvent = $"{ModKeys.MAYOR_MOD_CPID}_NeedMayorEvent";
+    public static readonly string NeedMayorMorrisEvent = $"{ModKeys.MAYOR_MOD_CPID}_NeedMayorMorrisEvent";
     public static readonly string NeedMayorRetryEvent = $"{ModKeys.MAYOR_MOD_CPID}_NeedMayorRetryEvent";
     public static readonly string MayorDebateEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorDebateEvent";
+    public static readonly string MayorWinSpeechEvent = $"{ModKeys.MAYOR_MOD_CPID}_MayorWinSpeechEvent";
     public static readonly string CleanUpRivers = $"{ModKeys.MAYOR_MOD_CPID}_RiverCleanup";
     public static readonly string SecurityOnGuard = $"{ModKeys.MAYOR_MOD_CPID}_SecurityOnGuard";
     public static readonly string TaxCollection = $"{ModKeys.MAYOR_MOD_CPID}_TaxCollection";

@@ -14,6 +14,8 @@ public static partial class ModKeys
     public const string DEBATE_DAY_TOKEN = "DebateDayText";
     public const int DEED_COST = 250000;
     public const string RESET_COMMAND = "MayorModReset";
-    public const string RESET_COMMAND_HELP_TEXT = "Resets the mod by removing all mail, events, and progress flags, restoring it to a fresh install state.";
+    public const string RESET_COMMAND_HELP_TEXT = "Resets the mod by removing all mail, events, and progress flags, restoring it to a fresh install state.\n\nUsage: MayorModReset [mayor|voting]\n- voting: resets mod to the day before voting day.\n- mayor: reset to just after being elected.";
+    public const string RESET_COMMAND_MAYOR_ARG = "mayor";
+    public const string RESET_COMMAND_VOTING_ARG = "voting";
     public const int DEBATE_DAY_OFFSET = 3;
 }

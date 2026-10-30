@@ -277,4 +277,9 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
 
         return -1;
     }
+
+    public string GetScreenReaderText(int index)
+    {
+        return _buttonText[index + _buttonIndexOffset];
+    }
 }
