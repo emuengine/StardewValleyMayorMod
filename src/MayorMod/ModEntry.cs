@@ -7,7 +7,6 @@ using MayorMod.Data.Utilities;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
-using StardewValley.Locations;
 using StardewValley.Network;
 using StardewValley.Objects;
 
@@ -26,6 +25,7 @@ internal sealed class ModEntry : Mod
     {
         AssetUpdateHandler.Init(this);
         TaxHandler.Init();
+        TreasuryDisplayHandler.Init(this);
         SaveHandler.Init(this);
         ModProgressHandler.Init(this);
         AssetInvalidationHandler.Init(this);

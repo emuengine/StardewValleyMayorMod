@@ -15,8 +15,9 @@
 - Added tax intro event.
 - Updated some dialogue for Officer Mike.
 - Added MayorModTreasury command.
-- Added param to MayorModReset command to reset to post election.
-- Sword & Sorcery compatibility.
+- Added params to MayorModReset command.
+- Added Sword & Sorcery compatibility.
+- Added Stardew Access compatibility.
 - From now using proper versioning.
     - major = big breaking feature.
     - minor = new feature.

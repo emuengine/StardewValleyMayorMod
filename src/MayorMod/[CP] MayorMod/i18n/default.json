@@ -124,6 +124,7 @@
 	"EmuEngine.MayorModCP_UIMenu.TownTreasury": "Town treasury",
 	"EmuEngine.MayorModCP_UIMenu.NotEnoughFunds": "There's not enough in the town treasury for this yet.",
 	"EmuEngine.MayorModCP_UIMenu.Budget": "Budget",
+	"EmuEngine.MayorModCP_UIMenu.Back": "Back",
 	"EmuEngine.MayorModCP_UIMenu.OutstandingCosts": "Outstanding costs:",
 	"EmuEngine.MayorModCP_UIMenu.NoOutstandingCosts": "No outstanding costs.",
 	"EmuEngine.MayorModCP_UIMenu.CostOwed": "There's not enough in the town treasury for this yet. You can pay in the budget menu at the mayor's desk.",

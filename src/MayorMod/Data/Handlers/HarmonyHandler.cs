@@ -20,6 +20,7 @@ public static class HarmonyHandler
     public const string TILESHEET_WALLS_FLOORS = "walls_and_floors";
     public const string LAYER_BACK = "Back";
     public const string LAYER_BUILDINGS = "Buildings";
+    public const string JOIN_JOJA_ACTION = "JoinJoja";
     public const string WALL_ID = "WallID";
     public const string FLOOR_ID = "FloorID";
     public const string INIT_ID = "512";
@@ -78,7 +79,14 @@ public static class HarmonyHandler
             original: AccessTools.Method(typeof(SpecialOrder), nameof(SpecialOrder.GetDaysLeft)),
             prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(SpecialOrder_GetDaysLeft_Prefix))
         );
+
+        //Allow vanilla Morris to pay tax
+        harmony.Patch(
+            original: AccessTools.Method(typeof(JojaMart), nameof(JojaMart.checkAction)),
+            prefix: new HarmonyMethod(typeof(HarmonyHandler), nameof(JojaMart_checkAction_Prefix))
+        );
     }
+
 
     /// <summary>
     /// Intercepts texture retrieval for a ParsedItemData instance and provides a custom texture for the Gold Statue
@@ -262,5 +270,28 @@ public static class HarmonyHandler
             return false;
         }
         return true;
+    }
+
+    /// <summary>
+    /// Add tax action to vanilla morris.
+    /// </summary>
+    public static bool JojaMart_checkAction_Prefix(JojaMart __instance, xTile.Dimensions.Location tileLocation, ref bool __result)
+    {
+        var mailKey = $"{ModNPCKeys.MorrisId}_{ConversationTopicKeys.PayingTax}";
+        var dialogue = JojaMart.Morris?.TryGetDialogue(ConversationTopicKeys.PayingTax);
+        if (dialogue is null ||
+            __instance.doesTileHaveProperty(tileLocation.X, tileLocation.Y, "Action", LAYER_BUILDINGS) != JOIN_JOJA_ACTION ||
+            !ModUtils.HasConversationTopic(ConversationTopicKeys.PayingTax) ||
+            Game1.player.mailReceived.Contains(mailKey))
+        {
+            return true;
+        }
+
+        Game1.player.mailReceived.Add(mailKey);
+        JojaMart.Morris!.CurrentDialogue.Clear();
+        JojaMart.Morris.setNewDialogue(dialogue);
+        Game1.drawDialogue(JojaMart.Morris);
+        __result = true;
+        return false;
     }
 }

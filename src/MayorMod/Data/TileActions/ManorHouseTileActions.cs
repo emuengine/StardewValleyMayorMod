@@ -61,15 +61,15 @@ public static partial class ManorHouseTileActions
                 ShowCouncilMeetingMenu(helper, modConfig);
                 break;
             case 1:
-                ShowBudgetMenu(helper);
+                ShowBudgetMenu(helper, modConfig);
                 break;
         }
     }
 
     /// <summary>
-    /// Show what the town still owes, with the treasury balance in the top right
+    /// Show what the town still owes
     /// </summary>
-    private static void ShowBudgetMenu(IModHelper helper)
+    private static void ShowBudgetMenu(IModHelper helper, MayorModConfig modConfig)
     {
         var budgetMenu = new MayorModMenu(helper, 0.8f, 0.8f);
         var costs = SaveHandler.SaveData?.OutstandingCouncilCosts ?? new List<string>();
@@ -78,7 +78,6 @@ public static partial class ManorHouseTileActions
         {
             new TextMenuItem(budgetMenu, ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Budget"), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
             new TextMenuItem(budgetMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.OutstandingCosts), new Margin(20, 60, 0, 0)),
-            new TextMenuItem(budgetMenu, $"{ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.TownTreasury")}: {SaveHandler.SaveData?.TownTreasury ?? 0}", new Margin(0, 60, 110, 0)){ Align = TextMenuItem.MenuItemAlign.Right, Icon = coinIcon, TextColor = SaveHandler.SaveData?.TownTreasury < 0 ? Color.Red : Game1.textColor },
         };
 
         if (costs.Count == 0)
@@ -89,6 +88,10 @@ public static partial class ManorHouseTileActions
         {
             items.Add(new BigButtonListMenuItem(budgetMenu, new Margin(30, 110, 60, 130), costs.Select(c => Game1.content.LoadString($"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_Cost{c}")).ToList(), (i) => OnOutstandingCostSelected(costs[i])){ ScrollBarEnabled = true, Icon = coinIcon, RightText = costs.Select(c => TreasuryCostKeys.Costs.GetValueOrDefault(c).ToString()).ToList<string?>() });
         }
+        items.Add(new ButtonMenuItem(budgetMenu, new Vector2(24, 20), () => { ShowDeskMenu(helper, modConfig); })
+        {
+            ButtonTypeSelected = ButtonMenuItem.ButtonType.Back
+        });
         items.Add(new ButtonMenuItem(budgetMenu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
         {
             ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
@@ -126,6 +129,10 @@ public static partial class ManorHouseTileActions
             new TextMenuItem(councilMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.HoldCouncilMeeting), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
             new TextMenuItem(councilMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.AgendaQuestion), new Margin(20, 60, 0, 0)),
             new BigButtonListMenuItem(councilMenu, new Margin(30, 110, 60, 130), meetings.Select((cm, index) => $"{index + 1}. " + cm.Name).ToList(), (i)  => OnCoucilMeetingSelected(meetings[i])){ ScrollBarEnabled = true, Icon = coinIcon, RightText = meetings.Select(cm => cm.IsPaid ? string.Empty : null).ToList() },
+            new ButtonMenuItem(councilMenu, new Vector2(24, 20), () => { ShowDeskMenu(helper, modConfig); })
+            {
+                ButtonTypeSelected = ButtonMenuItem.ButtonType.Back
+            },
             new ButtonMenuItem(councilMenu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
             {
                 ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel

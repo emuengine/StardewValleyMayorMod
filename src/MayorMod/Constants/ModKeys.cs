@@ -5,6 +5,7 @@ public static partial class ModKeys
     public const string MAYOR_MOD_ID = "EmuEngine.MayorMod";
     public const string MAYOR_MOD_CPID = "EmuEngine.MayorModCP";
     public const string SAVE_KEY = "EmuEngine.MayorMod_SaveData";
+    public const string MANOR_HOUSE_LOCATION = $"{MAYOR_MOD_CPID}_ManorHouse";
     public const string CONFIG_MENU_ID = "spacechase0.GenericModConfigMenu";
     public const string REPLACEMENT_STRING_CONFIG = "MayorAssetPatches.json";
     public const string RUBBISH_ID = "(O)167|(O)168|(O)169|(O)170|(O)171|(O)172";
@@ -17,7 +18,7 @@ public static partial class ModKeys
     public const int SUBSIDISED_BUS_FARE = 250;
     public const int MIN_TREASURY_FOR_MONTHLY_COSTS = -1400;
     public const string RESET_COMMAND = "MayorModReset";
-    public const string RESET_COMMAND_HELP_TEXT = "Resets the mod by removing all mail, events, and progress flags, restoring it to a fresh install state.\n\nUsage: MayorModReset [mayor|voting]\n- voting: resets mod to the day before voting day.\n- mayor: reset to just after being elected.";
+    public const string RESET_COMMAND_HELP_TEXT = "Resets the mod by removing all mail, events, and progress flags, restoring it to a fresh install state.\n\nUsage: MayorModReset [voting|mayor]\n- voting: resets mod to the day before voting day.\n- mayor: reset to just after being elected.";
     public const string RESET_COMMAND_MAYOR_ARG = "mayor";
     public const string RESET_COMMAND_VOTING_ARG = "voting";
     public const string TREASURY_COMMAND = "MayorModTreasury";

@@ -30,7 +30,7 @@ public static class TaxHandler
         }
 
         SaveHandler.SaveData.TownTreasury += amount;
-        Game1.showGlobalMessage($"Town Treasury : {SaveHandler.SaveData.TownTreasury}G");
+        TreasuryDisplayHandler.ShowBriefly();
 
         return true;
     }

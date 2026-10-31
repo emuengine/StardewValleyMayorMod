@@ -494,6 +494,12 @@
       }
     },
     {
+      "Action": "Load",
+      "Priority": "Low",
+      "Target": "Characters/Dialogue/Morris",
+      "FromFile": "blank.json"
+    },
+    {
       "Action": "EditData",
       "Target": "Characters/Dialogue/Morris",
       "Entries": {
