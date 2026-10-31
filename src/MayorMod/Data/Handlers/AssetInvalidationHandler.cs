@@ -12,6 +12,7 @@ public class AssetInvalidationHandler
     private static bool LocationCacheInvalidate { get; set; }
     private static bool PassiveFestivalCacheInvalidate { get; set; }
     private static bool BuildingsCacheInvalidate { get; set; }
+    private static bool SubstringPatchesAppliedForMayor { get; set; }
 
     public static void Init(IMod mod)
     {
@@ -50,6 +51,13 @@ public class AssetInvalidationHandler
         {
             _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.BUILDINGS);
             BuildingsCacheInvalidate = false;
+        }
+
+        var isMayor = ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor);
+        if (SubstringPatchesAppliedForMayor != isMayor)
+        {
+            AssetUpdateHandler.InvalidateSubstringPatchedAssets();
+            SubstringPatchesAppliedForMayor = isMayor;
         }
     }
 

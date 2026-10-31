@@ -38,7 +38,18 @@ public static class AssetUpdateHandler
     }
 
     /// <summary>
-    /// Replaces substrings in assets from patches loaded from json 
+    /// Reload cache for strings that are cached before a save is loaded.
+    /// </summary>
+    public static void InvalidateSubstringPatchedAssets()
+    {
+        foreach (var assetName in _mayorStringReplacements.Keys)
+        {
+            _mod.Helper.GameContent.InvalidateCache(assetName);
+        }
+    }
+
+    /// <summary>
+    /// Replaces substrings in assets from patches loaded from json
     /// NOTE: Can possibly be done by content patcher but I couldn't work out how.
     /// </summary>
     public static void AssetSubstringPatch(AssetRequestedEventArgs e)
