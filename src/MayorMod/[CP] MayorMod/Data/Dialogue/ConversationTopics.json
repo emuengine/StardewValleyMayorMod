@@ -519,7 +519,27 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/MorrisTod",
       "Entries": {
-        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 200",
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 200"
+      },
+      "When": {
+        "HasSeenEvent: anyPlayer |contains=191393": false
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/MorrisTod",
+      "Entries": {
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 400"
+      },
+      "When": {
+        "HasSeenEvent: anyPlayer |contains=191393": false,
+        "HasSeenEvent: anyPlayer |contains=5553213": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/MorrisTod",
+      "Entries": {
         "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.RegisteredForBallot}}",
         "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.TalkingToVoters}}",
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.ElectedMayor}}",

@@ -18,6 +18,7 @@ public static class TreasuryDisplayHandler
     private const int DIGIT_WIDTH = 6;
     private const float POPUP_SECONDS = 5f;
     private const float SLIDE_SECONDS = 0.5f;
+    public const int HUD_HEIGHT = 26 * 4;
     private static Texture2D _coinIcon = null!;
     private static float _popupTimeLeft;
     private static float _slidePosition;

@@ -229,13 +229,15 @@ public static class ModProgressHandler
             }
 
             // Tax stuff
-            if (SDate.Now().Day >= 21 && !ModUtils.HasConversationTopic(ConversationTopicKeys.PayingTax))
-            {
-                ModUtils.AddConversationTopic(ConversationTopicKeys.PayingTax, 7);
-            }
-            else if(SDate.Now().Day < 21 && ModUtils.HasConversationTopic(ConversationTopicKeys.PayingTax))
+            if (SDate.Now().Day == WorldDate.DaysPerMonth)
             {
                 ModUtils.RemoveConversationTopic(ConversationTopicKeys.PayingTax);
+                RemoveProgressFlag(ProgressFlags.FundraiserIncome);
+                SaveHandler.SaveData?.CostsPaidThisMonth.Clear();
+            }
+            if (!ModUtils.HasConversationTopic(ConversationTopicKeys.PayingTax))
+            {
+                ModUtils.AddConversationTopic(ConversationTopicKeys.PayingTax, WorldDate.DaysPerMonth + 1);
             }
         }
     }

@@ -2,6 +2,8 @@
 using StardewValley.Delegates;
 using StardewValley.Triggers;
 using MayorMod.Constants;
+using MayorMod.Data.Models;
+using MayorMod.Data.Utilities;
 using StardewModdingAPI;
 
 namespace MayorMod.Data.Handlers;
@@ -9,6 +11,10 @@ namespace MayorMod.Data.Handlers;
 public static class TaxHandler
 {
     public const string PAY_TAX_ACTION = "emuEngineMayorMod_payTax";
+    public const int TAX_AMOUNT = 200;
+    public const int EMPORIUM_TAX_AMOUNT = TAX_AMOUNT * 2;
+    public const int FUNDRAISER_AMOUNT = 500;
+    private const string CC_CEREMONY_EVENT_ID = "191393";
 
     public static void Init()
     {
@@ -19,7 +25,8 @@ public static class TaxHandler
     public static bool PayTaxAction(string[] args, TriggerActionContext context, out string error)
     {
         // get args
-        if (!ArgUtility.TryGetInt(args, 1, out int amount, out error))
+        if (!ArgUtility.TryGetInt(args, 1, out int amount, out error) ||
+            !ArgUtility.TryGetOptional(args, 2, out string? incomeSource, out error))
             return false;
 
         // apply
@@ -32,7 +39,74 @@ public static class TaxHandler
         SaveHandler.SaveData.TownTreasury += amount;
         TreasuryDisplayHandler.ShowBriefly();
 
+        //One off income
+        if (!string.IsNullOrEmpty(incomeSource))
+        {
+            ModProgressHandler.AddProgressFlag($"{ModKeys.MAYOR_MOD_CPID}_{incomeSource}Income");
+        }
+
         return true;
+    }
+
+    /// <summary>
+    /// Gets budget rows for tax payers.
+    /// </summary>
+    public static IList<TableRow> GetTaxPayers(IModHelper helper)
+    {
+        var taxPayers = ModNPCKeys.TaxPayers.Select(id => CreateTaxPayerRow(helper, id, TAX_AMOUNT, HasPaidTax(id))).ToList();
+
+        var isJojaMartOpen = !Utility.HasAnyPlayerSeenEvent(CC_CEREMONY_EVENT_ID);
+        if (isJojaMartOpen)
+        {
+            var hasEmporium = Utility.HasAnyPlayerSeenEvent(CompatibilityKeys.JojaEmporiumOpenEventID);
+            taxPayers.Add(CreateTaxPayerRow(helper,
+                                            hasEmporium ? CompatibilityKeys.JojaEmporium : ModNPCKeys.MorrisId,
+                                            hasEmporium ? EMPORIUM_TAX_AMOUNT : TAX_AMOUNT,
+                                            HasPaidTax(ModNPCKeys.MorrisId) || HasPaidTax(ModNPCKeys.MorrisTodId)));
+        }
+        return taxPayers;
+    }
+
+    /// <summary>
+    /// Gets budget row for a business that pays tax.
+    /// </summary>
+    private static TableRow CreateTaxPayerRow(IModHelper helper, string name, int amount, bool hasPaid)
+    {
+        var text = ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Business{name}");
+        return new TableRow(text, hasPaid ? amount : null, hasPaid);
+    }
+
+    /// <summary>
+    /// Check has NPC paid tax this month.
+    /// </summary>
+    private static bool HasPaidTax(string npcId)
+    {
+        return Game1.player.mailReceived.Contains($"{npcId}_{ConversationTopicKeys.PayingTax}");
+    }
+
+    /// <summary>
+    /// Do we have fundraiser money this month.
+    /// </summary>
+    public static bool HasFundraiserIncome()
+    {
+        return ModProgressHandler.HasHostGotProgressFlag(ProgressFlags.FundraiserIncome);
+    }
+
+    /// <summary>
+    /// Get active monthly costs.
+    /// </summary>
+    public static IList<string> GetActiveMonthlyCosts()
+    {
+        var costs = new List<string>();
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.SecurityOnGuard))
+        {
+            costs.Add(CouncilMeetingKeys.MeetingTownSecurity);
+        }
+        if (ModProgressHandler.HasProgressFlag(ProgressFlags.HealthcareFunding))
+        {
+            costs.Add(CouncilMeetingKeys.MeetingHealthcareFunding);
+        }
+        return costs;
     }
 
     /// <summary>
@@ -157,6 +231,8 @@ public static class TaxHandler
     /// </summary>
     public static void ApplyPaidCostEffects(string costKey)
     {
+        SaveHandler.SaveData?.CostsPaidThisMonth.Add(costKey);
+
         var flag = (costKey == CouncilMeetingKeys.MeetingTownSecurity) ?
                    ProgressFlags.SecurityOnGuard :
                    $"{ModKeys.MAYOR_MOD_CPID}_{costKey}";

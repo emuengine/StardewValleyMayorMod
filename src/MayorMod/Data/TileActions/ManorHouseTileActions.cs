@@ -25,6 +25,11 @@ public static partial class ManorHouseTileActions
         ShowDeskMenu(helper, modConfig);
     }
 
+    /// <summary>
+    ///  Show the desk menu
+    /// </summary>
+    /// <param name="helper"></param>
+    /// <param name="modConfig"></param>
     private static void ShowDeskMenu(IModHelper helper, MayorModConfig modConfig)
     {
         var menuItems = new List<string>{ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.SelectCouncilMeeting")};
@@ -35,7 +40,7 @@ public static partial class ManorHouseTileActions
         }
 
         //Show menu
-        var menu = new MayorModMenu(helper, 0.8f, 0.8f);
+        var menu = new MayorModMenu(helper, 0.8f, 0.9f, TreasuryDisplayHandler.HUD_HEIGHT + 8);
         menu.MenuItems = new List<IMenuItem>()
         {
            new TextMenuItem(menu, Game1.content.LoadString(DialogueKeys.MayorDesk.Title), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
@@ -67,27 +72,43 @@ public static partial class ManorHouseTileActions
     }
 
     /// <summary>
-    /// Show what the town still owes
+    /// Show the town's tax income and costs.
     /// </summary>
     private static void ShowBudgetMenu(IModHelper helper, MayorModConfig modConfig)
     {
-        var budgetMenu = new MayorModMenu(helper, 0.8f, 0.8f);
-        var costs = SaveHandler.SaveData?.OutstandingCouncilCosts ?? new List<string>();
+        var budgetMenu = new MayorModMenu(helper, 0.8f, 0.9f, TreasuryDisplayHandler.HUD_HEIGHT + 8);
         var coinIcon = helper.ModContent.Load<Texture2D>("assets/treasuryMoney.png");
+        var incomeRows = GetIncomeRows(helper);
+        var monthlyRows = GetCostRows(helper);
+        var incomeCollected = incomeRows.Sum(r => r.Amount ?? 0);
+        var costsTotal = monthlyRows.Sum(r => r.Amount ?? 0);
+
+        var taxTable = new TableMenuItem(budgetMenu, ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.TaxIncome"), incomeRows, 80)
+        {
+            EndPercent = 0.5f,
+            Icon = coinIcon,
+            TotalRow = new TableRow(ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.MonthlyTotal"), incomeCollected)
+        };
+
+        var monthlyTable = new TableMenuItem(budgetMenu, ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.MonthlyCosts"), monthlyRows, 80)
+        {
+            StartPercent = 0.5f,
+            Icon = coinIcon,
+            TotalRow = new TableRow(ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.MonthlyTotal"), costsTotal)
+        };
+
+        var outstandingTop = monthlyTable.Top + monthlyTable.Height + 30;
+        var netTable = CreateNetTable(helper, budgetMenu, coinIcon, incomeCollected - costsTotal);
+
         var items = new List<IMenuItem>()
         {
             new TextMenuItem(budgetMenu, ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Budget"), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
-            new TextMenuItem(budgetMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.OutstandingCosts), new Margin(20, 60, 0, 0)),
+            taxTable,
+            monthlyTable,
+            netTable,
         };
 
-        if (costs.Count == 0)
-        {
-            items.Add(new TextMenuItem(budgetMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.NoOutstandingCosts), new Margin(30, 120, 0, 0)));
-        }
-        else
-        {
-            items.Add(new BigButtonListMenuItem(budgetMenu, new Margin(30, 110, 60, 130), costs.Select(c => Game1.content.LoadString($"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_Cost{c}")).ToList(), (i) => OnOutstandingCostSelected(costs[i])){ ScrollBarEnabled = true, Icon = coinIcon, RightText = costs.Select(c => TreasuryCostKeys.Costs.GetValueOrDefault(c).ToString()).ToList<string?>() });
-        }
+        items.Add(CreateOutstandingCostsItem(helper, modConfig, budgetMenu, coinIcon, outstandingTop, netTable.Top + netTable.RowHeight));
         items.Add(new ButtonMenuItem(budgetMenu, new Vector2(24, 20), () => { ShowDeskMenu(helper, modConfig); })
         {
             ButtonTypeSelected = ButtonMenuItem.ButtonType.Back
@@ -98,11 +119,101 @@ public static partial class ManorHouseTileActions
         });
 
         budgetMenu.MenuItems = items;
+        budgetMenu.RebuildMenu = () => ShowBudgetMenu(helper, modConfig);
         Game1.activeClickableMenu = budgetMenu;
     }
 
     /// <summary>
-    /// Show the council meeting planning menu
+    /// Gets the budget income.
+    /// </summary>
+    private static IList<TableRow> GetIncomeRows(IModHelper helper)
+    {
+        var incomeRows = TaxHandler.GetTaxPayers(helper);
+        if (TaxHandler.HasFundraiserIncome())
+        {
+            incomeRows.Add(new TableRow(ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.IncomeFundraiser"), TaxHandler.FUNDRAISER_AMOUNT));
+        }
+        return incomeRows;
+    }
+
+    /// <summary>
+    /// Gets the budget costs.
+    /// </summary>
+    private static IList<TableRow> GetCostRows(IModHelper helper)
+    {
+        var paidCosts = TaxHandler.GetActiveMonthlyCosts()
+                                  .Union(SaveHandler.SaveData?.CostsPaidThisMonth ?? new List<string>())
+                                  .ToList();
+        var monthlyRows = paidCosts.Select(c => new TableRow(Game1.content.LoadString($"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_Cost{c}").TrimEnd('.'), TreasuryCostKeys.Costs.GetValueOrDefault(c))).ToList();
+        if (monthlyRows.Count == 0)
+        {
+            monthlyRows.Add(new TableRow(ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.NoMonthlyCosts")));
+        }
+        return monthlyRows;
+    }
+
+    /// <summary>
+    /// Get net total.
+    /// </summary>
+    private static TableMenuItem CreateNetTable(IModHelper helper, MayorModMenu budgetMenu, Texture2D coinIcon, int netThisMonth)
+    {
+        var netTable = new TableMenuItem(budgetMenu, string.Empty, new List<TableRow>(), 0)
+        {
+            Icon = coinIcon,
+            TotalRow = new TableRow(ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.NetTotal"), netThisMonth) { IsBold = true, AmountColor = netThisMonth < 0 ? Color.Red : netThisMonth > 0 ? Color.Green : Game1.textColor }
+        };
+        netTable.Top = budgetMenu.MenuRect.Height - netTable.Height - 20;
+        return netTable;
+    }
+
+    /// <summary>
+    /// Creates outstanding costs section
+    /// </summary>
+    private static IMenuItem CreateOutstandingCostsItem(IModHelper helper, MayorModConfig modConfig, MayorModMenu budgetMenu, Texture2D coinIcon, int outstandingTop, int netLineTop)
+    {
+        var costs = SaveHandler.SaveData?.OutstandingCouncilCosts ?? new List<string>();
+        if (costs.Count == 0)
+        {
+            var noCostsTable = new TableMenuItem(budgetMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.OutstandingCosts), new List<TableRow>() { new(Game1.content.LoadString(DialogueKeys.CouncilMeeting.NoOutstandingCosts)) }, 0) { StartPercent = 0.5f };
+            noCostsTable.Top = Math.Max(outstandingTop, netLineTop - noCostsTable.Height - 16);
+            return noCostsTable;
+        }
+
+        var buttonHeight = 72;
+        var buttonTop = Math.Max(outstandingTop, netLineTop - buttonHeight - 16);
+        var buttonLeft = budgetMenu.MenuRect.Width / 2 + 20;
+        var summary = string.Format(ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.OutstandingSummary"), costs.Count);
+        var owed = costs.Sum(c => TreasuryCostKeys.Costs.GetValueOrDefault(c)).ToString();
+        return new BigButtonListMenuItem(budgetMenu, new Margin(buttonLeft, buttonTop, buttonLeft - 20, budgetMenu.MenuRect.Height - buttonHeight), new List<string>() { summary }, (i) => ShowOutstandingCostsMenu(helper, modConfig)){ Icon = coinIcon, RightText = new List<string?>() { owed }, Font = Game1.smallFont, NumberOfButtons = 1 };
+    }
+
+    /// <summary>
+    /// Show what the town still owes so it can be paid.
+    /// </summary>
+    private static void ShowOutstandingCostsMenu(IModHelper helper, MayorModConfig modConfig)
+    {
+        var costsMenu = new MayorModMenu(helper, 0.8f, 0.9f, TreasuryDisplayHandler.HUD_HEIGHT + 8);
+        var costs = SaveHandler.SaveData?.OutstandingCouncilCosts ?? new List<string>();
+        var coinIcon = helper.ModContent.Load<Texture2D>("assets/treasuryMoney.png");
+        costsMenu.MenuItems = new List<IMenuItem>()
+        {
+            new TextMenuItem(costsMenu, ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Budget"), new Margin(0, 15, 0, 0)){ IsBold = true, Align = TextMenuItem.MenuItemAlign.Center },
+            new TextMenuItem(costsMenu, Game1.content.LoadString(DialogueKeys.CouncilMeeting.OutstandingCosts), new Margin(20, 60, 0, 0)),
+            new BigButtonListMenuItem(costsMenu, new Margin(30, 110, 60, 130), costs.Select(c => Game1.content.LoadString($"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_Cost{c}")).ToList(), (i) => OnOutstandingCostSelected(costs[i])){ ScrollBarEnabled = costs.Count > 4, Icon = coinIcon, RightText = costs.Select(c => TreasuryCostKeys.Costs.GetValueOrDefault(c).ToString()).ToList<string?>() },
+            new ButtonMenuItem(costsMenu, new Vector2(24, 20), () => { ShowBudgetMenu(helper, modConfig); })
+            {
+                ButtonTypeSelected = ButtonMenuItem.ButtonType.Back
+            },
+            new ButtonMenuItem(costsMenu, new Vector2(-84, 20), () => { Game1.exitActiveMenu(); })
+            {
+                ButtonTypeSelected = ButtonMenuItem.ButtonType.Cancel
+            }
+        };
+        Game1.activeClickableMenu = costsMenu;
+    }
+
+    /// <summary>
+    /// Show the council meeting planning menu.
     /// </summary>
     public static void ShowCouncilMeetingMenu(IModHelper helper, MayorModConfig modConfig)
     {
@@ -122,7 +233,7 @@ public static partial class ManorHouseTileActions
         }
 
         //Show council menu, paid meetings get the treasury coin
-        var councilMenu = new MayorModMenu(helper, 0.8f, 0.8f);
+        var councilMenu = new MayorModMenu(helper, 0.8f, 0.9f, TreasuryDisplayHandler.HUD_HEIGHT + 8);
         var coinIcon = helper.ModContent.Load<Texture2D>("assets/treasuryMoney.png");
         councilMenu.MenuItems = new List<IMenuItem>()
         {

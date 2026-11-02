@@ -11,6 +11,8 @@ public static class CompatibilityKeys
     public static readonly string LewisSpecialOrderEventID = "8033861";
     public static readonly string MorrisIsMayorEventID = "6665293";
     public static readonly string MorrisIsCampaigningForMayorEventID = "5553210";
+    public static readonly string JojaEmporiumOpenEventID = "5553213";
+    public static readonly string JojaEmporium = "JojaEmporium";
 
     //Law and Order SV Keys
     public const string LEWIS_UNDER_INVESTIGATION = "sdvhead.LawAndOrderSV_Mail_LewisNote";

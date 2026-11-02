@@ -17,7 +17,7 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
     private readonly MayorModMenu _parent;
     private readonly Rectangle _buttonBackgroundSourceRect;
     private readonly Margin _margin;
-    private readonly float _fontHeight;
+    private float _fontHeight => Font.MeasureString("TEXT").Y / 2;
     private int _buttonIndexOffset;
     private int _scrollBarStart;
     private int _scrollBarEnd;
@@ -54,12 +54,12 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
 
     public Texture2D? Icon { get; set; }
     public IList<string?>? RightText { get; set; }
+    public SpriteFont Font { get; set; } = Game1.dialogueFont;
 
     public BigButtonListMenuItem(MayorModMenu parent, Margin margin, IList<string> buttonText, Action<int> action)
     {
         _parent = parent;
         _margin = margin;
-        _fontHeight = Game1.dialogueFont.MeasureString("TEXT").Y / 2;
         _buttonBackgroundSourceRect = new Rectangle(0, 256, 60, 60);
         _buttonText = buttonText;
         ButtonAction = action;
@@ -145,7 +145,7 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
                                           colour);
             Utility.drawTextWithShadow(spriteBatch,
                                        _buttonText[button.Id + _buttonIndexOffset],
-                                       Game1.dialogueFont,
+                                       Font,
                                        new Vector2(button.BoundingBox.X + TextPadding,
                                                    button.BoundingBox.Y + (button.BoundingBox.Height / 2) - _fontHeight),
                                        Game1.textColor);
@@ -178,8 +178,8 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
             spriteBatch.Draw(Icon, new Rectangle(right, textY + (textHeight - iconSize) / 2, iconSize, iconSize), Color.White);
             right -= 8;
         }
-        var textWidth = (int)Game1.dialogueFont.MeasureString(text).X;
-        Utility.drawTextWithShadow(spriteBatch, text, Game1.dialogueFont, new Vector2(right - textWidth, textY), Game1.textColor);
+        var textWidth = (int)Font.MeasureString(text).X;
+        Utility.drawTextWithShadow(spriteBatch, text, Font, new Vector2(right - textWidth, textY), Game1.textColor);
     }
 
     /// <summary>

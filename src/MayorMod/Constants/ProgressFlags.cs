@@ -31,4 +31,5 @@ public static class ProgressFlags
     public static readonly string BusFareFree = $"{ModKeys.MAYOR_MOD_CPID}_BusFareFree";
     public static readonly string ConstructionGrant = $"{ModKeys.MAYOR_MOD_CPID}_ConstructionGrant";
     public static readonly string HealthcareFunding = $"{ModKeys.MAYOR_MOD_CPID}_HealthcareFunding";
+    public static readonly string FundraiserIncome = $"{ModKeys.MAYOR_MOD_CPID}_FundraiserIncome";
 }

@@ -5,7 +5,7 @@
             "Action": "EditData",
             "Target": "Data/Events/{{ModId}}_ManorHouse",
             "Entries": {                
-				"{{ModId}}_TaxIntroEvent/IsHost/HostMail {{ModId}}_ElectedAsMayor/DayOfWeek Mon Tue":"continue/19 5/farmer 19 5 2 Lewis 16 10 0 Vincent -1000 -1000 0 Jas -1000 -1000 0/positionOffset farmer 8 0/pause 1000/move Lewis 0 -3 0/move Lewis 3 0 0/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_0}}\"/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_1}}\"/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_2}}\"/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_3}}\"/action emuEngineMayorMod_payTax -1000/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_4}}\"/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_5}}\"/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_6}}\"/fade/viewport -1000 1000/end"
+				"{{ModId}}_TaxIntroEvent/IsHost/HostMail {{ModId}}_ElectedAsMayor/DayOfWeek Mon Tue":"continue/19 5/farmer 19 5 2 Lewis 16 10 0 Vincent -1000 -1000 0 Jas -1000 -1000 0/positionOffset farmer 8 0/pause 1000/move Lewis 0 -3 0/move Lewis 3 0 0/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_0}}\"/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_1}}\"/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_2}}\"/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_3}}\"/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_4}}\"/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_5}}\"/action emuEngineMayorMod_payTax -1000/speak Lewis \"{{i18n:{{ModId}}_Events.TaxIntro_6}}\"/fade/viewport -1000 1000/end"
             }
         }
     ]

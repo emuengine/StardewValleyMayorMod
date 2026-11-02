@@ -70,7 +70,7 @@
         "{{ModId}}_SecurityWagesUnpaid": "{{i18n:{{ModId}}_UIMenu.SecurityWagesUnpaid}}",
         "{{ModId}}_HealthcareFundingPaid": "{{i18n:{{ModId}}_UIMenu.HealthcareFundingPaid}}",
         "{{ModId}}_HealthcareFundingUnpaid": "{{i18n:{{ModId}}_UIMenu.HealthcareFundingUnpaid}}",
-        "{{ModId}}_CostTownSecurity": "{{i18n:{{ModId}}_UIMenu.MeetingTownSecurity}}",
+        "{{ModId}}_CostTownSecurity": "{{i18n:{{ModId}}_UIMenu.MonthlyTownSecurity}}",
         "{{ModId}}_CostTownCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingTownCleanup}}",
         "{{ModId}}_CostRiverCleanup": "{{i18n:{{ModId}}_UIMenu.MeetingRiverCleanup}}",
         "{{ModId}}_CostTownRoads": "{{i18n:{{ModId}}_UIMenu.MeetingTownRoads}}",
@@ -79,7 +79,7 @@
         "{{ModId}}_CostBusFareFree": "{{i18n:{{ModId}}_UIMenu.CostBusFareFree}}",
         "{{ModId}}_CostConstructionGrant": "{{i18n:{{ModId}}_UIMenu.CostConstructionGrant}}",
         "{{ModId}}_CostFloodRepair": "{{i18n:{{ModId}}_UIMenu.CostFloodRepair}}",
-        "{{ModId}}_CostHealthcareFunding": "{{i18n:{{ModId}}_UIMenu.MeetingHealthcareFunding}}"
+        "{{ModId}}_CostHealthcareFunding": "{{i18n:{{ModId}}_UIMenu.MonthlyHealthcareFunding}}"
       }
     }
   ]
