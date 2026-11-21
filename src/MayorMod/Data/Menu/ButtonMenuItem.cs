@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+using MayorMod.Constants;
+using MayorMod.Data.Utilities;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
 using StardewValley.Menus;
@@ -45,8 +47,16 @@ public class ButtonMenuItem : IClickableMenuItem
         Star = 25,
         Target = 32,
         Ok = 46,
-        Cancel = 47
+        Cancel = 47,
+        Back = -1,
+        Options = -2
     }
+
+    private static readonly Dictionary<ButtonType, Rectangle> ButtonTypeToSourceRect = new()
+    {
+        { ButtonType.Back, new Rectangle(352, 495, 12, 11) },
+        { ButtonType.Options, new Rectangle(162, 440, 16, 16) }
+    };
 
     /// <summary>
     /// Creates a new button item with given properties.
@@ -70,21 +80,25 @@ public class ButtonMenuItem : IClickableMenuItem
     /// </summary>
     private void UpdateButtonComponent()
     {
+        var specificSourceRect = ButtonTypeToSourceRect.ContainsKey(ButtonTypeSelected);
+
         var bounds = new Rectangle((int)(Location.X>0?
                                             Location.X + _parent.MenuRect.X: 
                                             Location.X + _parent.MenuRect.Width + _parent.MenuRect.X),
                                    (int)(Location.Y > 0 ? 
                                             Location.Y + _parent.MenuRect.Y : 
                                             Location.Y + _parent.MenuRect.Height + _parent.MenuRect.Y),
-                                    64, 64);
+                                   specificSourceRect ? ButtonTypeToSourceRect[ButtonTypeSelected].Width * 4 : 64,
+                                   specificSourceRect ? ButtonTypeToSourceRect[ButtonTypeSelected].Height * 4 : 64);
 
         ButtonComponent = new ClickableTextureComponent(Name,
                                 bounds,
                                 Text,
                                 HoverText,
                                 Game1.mouseCursors,
-                                Game1.getSourceRectForStandardTileSheet(Game1.mouseCursors, (int)ButtonTypeSelected),
-                                1f);
+                                specificSourceRect ? ButtonTypeToSourceRect[ButtonTypeSelected] : 
+                                                     Game1.getSourceRectForStandardTileSheet(Game1.mouseCursors, (int)ButtonTypeSelected),
+                                specificSourceRect ? 4f : 1f);
 
         var old = _parent.allClickableComponents.FirstOrDefault(b => b.name == this.Name);
         if (old is not null)
@@ -156,6 +170,24 @@ public class ButtonMenuItem : IClickableMenuItem
 
     public string GetScreenReaderText(int index)
     {
-        return Game1.content.LoadString(ButtonTypeSelected == ButtonType.Cancel ? "Strings\\UI:Cancel" : "Strings\\UI:Confirm");
+        if (!string.IsNullOrEmpty(HoverText))
+        {
+            return HoverText;
+        }
+
+        return ButtonTypeSelected switch
+        {
+            ButtonType.Options => ModUtils.GetTranslationForKey(_parent.Helper, UIMenuKeys.Options),
+            ButtonType.Back => ModUtils.GetTranslationForKey(_parent.Helper, UIMenuKeys.Back),
+            ButtonType.ArrowDown => ModUtils.GetTranslationForKey(_parent.Helper, UIMenuKeys.Down),
+            ButtonType.ArrowUp => ModUtils.GetTranslationForKey(_parent.Helper, UIMenuKeys.Up),
+            ButtonType.ArrowRight => ModUtils.GetTranslationForKey(_parent.Helper, UIMenuKeys.Right),
+            ButtonType.ArrowLeft => ModUtils.GetTranslationForKey(_parent.Helper, UIMenuKeys.Left),
+            ButtonType.Star => ModUtils.GetTranslationForKey(_parent.Helper, UIMenuKeys.Star),
+            ButtonType.Target => ModUtils.GetTranslationForKey(_parent.Helper, UIMenuKeys.Target),
+            ButtonType.Cancel => Game1.content.LoadString("Strings\\UI:Cancel"),
+            ButtonType.Ok => Game1.content.LoadString("Strings\\UI:Confirm"),
+            _ => Game1.content.LoadString("Strings\\UI:Confirm"),
+        };
     }
 }

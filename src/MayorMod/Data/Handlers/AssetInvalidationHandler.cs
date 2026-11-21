@@ -1,4 +1,4 @@
-﻿using MayorMod.Constants;
+using MayorMod.Constants;
 using StardewModdingAPI;
 using StardewModdingAPI.Utilities;
 using StardewValley;
@@ -9,8 +9,10 @@ public class AssetInvalidationHandler
 {
     private static IMod _mod = null!;
     private static bool MailCacheInvalidate {get; set;}
-    private static bool LocationCacheInvalidate { get; set; }
     private static bool PassiveFestivalCacheInvalidate { get; set; }
+    private static bool? RiverCleanupInvalidate { get; set; }
+    private static bool? ConstructionGrantInvalidate { get; set; }
+    private static bool SubstringPatchesAppliedForMayor { get; set; }
 
     public static void Init(IMod mod)
     {
@@ -39,23 +41,52 @@ public class AssetInvalidationHandler
             PassiveFestivalCacheInvalidate = false;
         }
 
-        if (LocationCacheInvalidate)
+        var riverCleanupNeedsInvalidation = ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor) &&
+                           ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers);
+        if (RiverCleanupInvalidate != riverCleanupNeedsInvalidation)
         {
             _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
-            LocationCacheInvalidate = false;
+            RiverCleanupInvalidate = riverCleanupNeedsInvalidation;
+        }
+
+        var constructionGrantNeedsInvalidation = ModProgressHandler.HasHostGotProgressFlag(ProgressFlags.ConstructionGrant);
+        if (ConstructionGrantInvalidate != constructionGrantNeedsInvalidation)
+        {
+            _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.BUILDINGS);
+            ConstructionGrantInvalidate = constructionGrantNeedsInvalidation;
+        }
+
+        var isMayor = ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor);
+        if (SubstringPatchesAppliedForMayor != isMayor)
+        {
+            AssetUpdateHandler.InvalidateSubstringPatchedAssets();
+            SubstringPatchesAppliedForMayor = isMayor;
         }
     }
 
 
-    public static void UpdateAssetInvalidations()
+    /// <summary>
+    /// Queues assets for invalidation when save files are loaded.
+    /// </summary>
+    public static void QueueSaveInvalidations(bool resetCharacters = false)
+    {
+        QueueElectionInvalidations();
+        RiverCleanupInvalidate = null;
+        ConstructionGrantInvalidate = null;
+        InvalidateLocationContexts();
+        if (resetCharacters)
+        {
+            _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.CHARACTERS);
+        }
+    }
+
+    /// <summary>
+    /// Queues assets for invalidation when election dates have changed.
+    /// </summary>
+    public static void QueueElectionInvalidations()
     {
         MailCacheInvalidate = true;
         PassiveFestivalCacheInvalidate = true;
-        if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor) &&
-            ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
-        {
-            LocationCacheInvalidate = true;
-        }
     }
 
     public static void InvalidationNPCSchedules()
@@ -66,8 +97,15 @@ public class AssetInvalidationHandler
         }
     }
 
-    public static void InvalidationLocations()
+    /// <summary>
+    /// Reloads the location contexts so the pass out cost goes back to normal when the guard is off duty.
+    /// </summary>
+    public static void InvalidateLocationContexts()
     {
-        LocationCacheInvalidate = true;
+        _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATION_CONTEXTS);
+        if (ModProgressHandler.HasHostGotProgressFlag(ProgressFlags.SecurityOnGuard))
+        {
+            LocationContexts.Default.MaxPassOutCost = 0;
+        }
     }
 }

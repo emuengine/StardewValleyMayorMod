@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewValley;
@@ -10,7 +10,8 @@ namespace MayorMod.Data.Menu;
 public partial class MayorModMenu : IClickableMenu
 {
     private CursorSnapMenuItem _selectedCursorItem;
-
+    private readonly int _minRectTop;
+    
     private float _marginWidthPercent;
     public float MarginWidthPercent
     {
@@ -31,15 +32,18 @@ public partial class MayorModMenu : IClickableMenu
             CalculateMenuRect();
         }
     }
+
+    public Action? RebuildMenu { get; set; }
     public IModHelper Helper { get; private set; }
     public IList<IMenuItem> MenuItems { get; set; } = new List<IMenuItem>();
     public Rectangle MenuRect { get; set; }
     public Color BackgoundColour { get; set; } = Color.Transparent;
 
 #pragma warning disable CS8618
-    public MayorModMenu(IModHelper helper, float marginWidthPercent = 1.0f, float marginHeightPercent = 1.0f)
+    public MayorModMenu(IModHelper helper, float marginWidthPercent = 1.0f, float marginHeightPercent = 1.0f, int minTop = 0)
     {
         Helper = helper;
+        _minRectTop = minTop;
         MarginHeightPercent = marginHeightPercent;
         MarginWidthPercent = marginWidthPercent;
         allClickableComponents = new List<ClickableComponent>();
@@ -51,7 +55,9 @@ public partial class MayorModMenu : IClickableMenu
         var menuSize = new Vector2(Game1.uiViewport.Width * MarginWidthPercent, Game1.uiViewport.Height * MarginHeightPercent);
         int bufferWidthSpace = (int)(Game1.uiViewport.Width - menuSize.X);
         int bufferHeightSpace = (int)(Game1.uiViewport.Height - menuSize.Y);
-        MenuRect = new(bufferWidthSpace / 2, bufferHeightSpace / 2, (int)menuSize.X, (int)menuSize.Y);
+        int top = Math.Max(bufferHeightSpace / 2, _minRectTop);
+        int height = Math.Min((int)menuSize.Y, Game1.uiViewport.Height - top - Math.Min(bufferHeightSpace / 2, 16));
+        MenuRect = new(bufferWidthSpace / 2, top, (int)menuSize.X, height);
     }
 
     public override void draw(SpriteBatch spriteBatch)
@@ -83,6 +89,7 @@ public partial class MayorModMenu : IClickableMenu
         {
             component.OnWindowResize(oldBounds, newBounds);
         }
+        RebuildMenu?.Invoke();
     }
 
     public override void receiveLeftClick(int x, int y, bool playSound = true)
@@ -181,6 +188,7 @@ public partial class MayorModMenu : IClickableMenu
         {
             TextMenuItem textItem => textItem.Text,
             BoolMenuItem boolItem => $"{boolItem.Text} {Game1.content.LoadString(boolItem.IsTicked ? "Strings\\Lexicon:QuestionDialogue_Yes" : "Strings\\Lexicon:QuestionDialogue_No")}",
+            TableMenuItem tableItem => tableItem.GetScreenReaderText(),
             _ => string.Empty
         });
         return string.Join(". ", text.Where(t => !string.IsNullOrWhiteSpace(t)));

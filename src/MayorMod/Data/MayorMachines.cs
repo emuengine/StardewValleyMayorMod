@@ -1,4 +1,4 @@
-﻿using StardewValley;
+using StardewValley;
 using StardewValley.Locations;
 using StardewValley.SpecialOrders;
 using xTile.Dimensions;
@@ -255,11 +255,11 @@ public class MayorMachines
                         farmer.Money -= ModKeys.DEED_COST;
                         ModProgressHandler.AddProgressFlag(CompatibilityKeys.DeedOfLand);
                         Game1.MasterPlayer.eventsSeen.Add(CompatibilityKeys.LewisSpecialOrderEventID);
-                        Game1.drawObjectDialogue(ModUtils.GetTranslationForKey(helper, DialogueKeys.TownHall.BoughtDeed));
+                        Game1.drawObjectDialogue(ModUtils.GetTranslationForKey(helper, UIMenuKeys.ManorHouseBoughtDeed));
                     }
                     else
                     {
-                        Game1.drawObjectDialogue(ModUtils.GetTranslationForKey(helper, DialogueKeys.TownHall.NotEnoughMoney));
+                        Game1.drawObjectDialogue(ModUtils.GetTranslationForKey(helper, UIMenuKeys.ManorHouseNotEnoughMoney));
                     }
                 }, 1);
             }
@@ -269,13 +269,13 @@ public class MayorMachines
             !ModProgressHandler.HasProgressFlag(CompatibilityKeys.DeedOfLand) &&
             helper.ModRegistry.IsLoaded(CompatibilityKeys.SVE_MOD_ID))
         {
-            Game1.player.currentLocation.createQuestionDialogue(ModUtils.GetTranslationForKey(helper, DialogueKeys.TownHall.DeedsQuestion),
+            Game1.player.currentLocation.createQuestionDialogue(ModUtils.GetTranslationForKey(helper, UIMenuKeys.ManorHouseDeedBookQuestion),
                                                                 farmer.currentLocation.createYesNoResponses(),
                                                                 buyDeed);
         }
         else
         {
-            Game1.drawObjectDialogue(ModUtils.GetTranslationForKey(helper, DialogueKeys.TownHall.DeedBook));
+            Game1.drawObjectDialogue(ModUtils.GetTranslationForKey(helper, UIMenuKeys.ManorHouseDeedBook));
         }
     }
 }

@@ -1,12 +1,13 @@
-﻿using MayorMod.Constants;
+using MayorMod.Constants;
 using StardewModdingAPI.Events;
 using StardewModdingAPI;
+using StardewValley.GameData.Buildings;
 using StardewValley.GameData.Locations;
 using System.Text.Json;
 using MayorMod.Data.Models;
-using StardewModdingAPI.Utilities;
 using StardewValley.GameData;
 using MayorMod.Data.Utilities;
+using System.Collections;
 
 namespace MayorMod.Data.Handlers;
 
@@ -14,6 +15,7 @@ public static class AssetUpdateHandler
 {
     private static IMod _mod = null!;
     private static Dictionary<string, Dictionary<string, List<StringPatch>>> _mayorStringReplacements = new();
+    private const string DISABLED_EVENT_PRECONDITION = "/G FALSE";
 
     public static void Init(IMod mod)
     {
@@ -26,15 +28,28 @@ public static class AssetUpdateHandler
         }
         var stringPatchFile = File.ReadAllText(stringPatchLocation);
 
-        _mayorStringReplacements = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<StringPatch>>>>(stringPatchFile, new JsonSerializerOptions
+        var stringReplacements = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<StringPatch>>>>(stringPatchFile, new JsonSerializerOptions
         {
             ReadCommentHandling = JsonCommentHandling.Skip,
             AllowTrailingCommas = true
         }) ?? new Dictionary<string, Dictionary<string, List<StringPatch>>>();
+        
+        _mayorStringReplacements = new Dictionary<string, Dictionary<string, List<StringPatch>>>(stringReplacements, StringComparer.OrdinalIgnoreCase);
     }
 
     /// <summary>
-    /// Replaces substrings in assets from patches loaded from json 
+    /// Reload cache for strings that are cached before a save is loaded.
+    /// </summary>
+    public static void InvalidateSubstringPatchedAssets()
+    {
+        foreach (var assetName in _mayorStringReplacements.Keys)
+        {
+            _mod.Helper.GameContent.InvalidateCache(assetName);
+        }
+    }
+
+    /// <summary>
+    /// Replaces substrings in assets from patches loaded from json
     /// NOTE: Can possibly be done by content patcher but I couldn't work out how.
     /// </summary>
     public static void AssetSubstringPatch(AssetRequestedEventArgs e)
@@ -97,6 +112,76 @@ public static class AssetUpdateHandler
     }
 
     /// <summary>
+    /// Moves events to another location for compatibility.
+    /// </summary>
+    public static void MoveEvents(AssetRequestedEventArgs e, EventTransfer transfer)
+    {
+        if (e.NameWithoutLocale.IsEquivalentTo(transfer.FromEventsAsset))
+        {
+            e.Edit((asset) =>
+            {
+                var data = asset.AsDictionary<string, string>().Data;
+                foreach (var eventKey in data.Keys.Where(k => transfer.EventIds.Contains(k.Split('/')[0]) && !k.EndsWith(DISABLED_EVENT_PRECONDITION)).ToList())
+                {
+                    data[eventKey + DISABLED_EVENT_PRECONDITION] = data[eventKey];
+                    data.Remove(eventKey);
+                }
+            }, AssetEditPriority.Late);
+        }
+        else if (e.NameWithoutLocale.IsEquivalentTo(transfer.ToEventsAsset))
+        {
+            e.Edit((asset) =>
+            {
+                var data = asset.AsDictionary<string, string>().Data;
+                var fromData = _mod.Helper.GameContent.Load<Dictionary<string, string>>(transfer.FromEventsAsset);
+                foreach (var eventId in transfer.EventIds)
+                {
+                    var eventKey = fromData.Keys.FirstOrDefault(k => k.Split('/')[0] == eventId);
+                    if (eventKey != null)
+                    {
+                        data[eventKey.Replace(DISABLED_EVENT_PRECONDITION, string.Empty)] = fromData[eventKey];
+                    }
+                }
+            });
+        }
+    }
+
+    /// <summary>
+    /// Replaces substrings in the pages of a SpaceCore guidebook.
+    /// </summary>
+    public static void GuidebookSubstringPatch(AssetRequestedEventArgs e, string guidebookId, string searchKey, string replaceKey)
+    {
+        var patch = new StringPatch() { SearchKey = searchKey, ReplaceKey = replaceKey, IsTranslationKey = true };
+        e.Edit((asset) =>
+        {
+            if (asset.Data is not IDictionary guidebooks)
+            {
+                return;
+            }
+            var guidebook = guidebooks[guidebookId];
+            if (guidebook?.GetType().GetProperty("Chapters")?.GetValue(guidebook) is not IDictionary chapters)
+            {
+                return;
+            }
+            foreach (var chapter in chapters.Values)
+            {
+                if (chapter?.GetType().GetProperty("Pages")?.GetValue(chapter) is not IEnumerable pages)
+                {
+                    continue;
+                }
+                foreach (var page in pages)
+                {
+                    var contents = page.GetType().GetProperty("Contents");
+                    if (contents?.GetValue(page) is string text)
+                    {
+                        contents.SetValue(page, patch.PatchString(_mod.Helper, text));
+                    }
+                }
+            }
+        }, AssetEditPriority.Late);
+    }
+
+    /// <summary>
     /// Update the Locations default fish catch rate
     /// </summary>
     public static void RemoveTrashFromRivers(AssetRequestedEventArgs e)
@@ -112,6 +197,25 @@ public static class AssetUpdateHandler
         });
     }
 
+
+    /// <summary>
+    /// Robins building upgrades now finish instantly.
+    /// </summary>
+    public static void RobinBuildsInstantly(AssetRequestedEventArgs e)
+    {
+        e.Edit((asset) =>
+        {
+            var data = asset.AsDictionary<string, BuildingData>().Data;
+            foreach (var building in data.Values.Where(b => b.Builder == ModNPCKeys.RobinId))
+            {
+                building.BuildDays = 0;
+                foreach (var skin in building.Skins)
+                {
+                    skin.BuildDays = null;
+                }
+            }
+        });
+    }
 
     /// <summary>
     /// Updates Passive Festivals assets that depend on voting day

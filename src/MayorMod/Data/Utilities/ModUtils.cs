@@ -1,4 +1,4 @@
-﻿using MayorMod.Constants;
+using MayorMod.Constants;
 using MayorMod.Data.Handlers;
 using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
@@ -6,7 +6,6 @@ using StardewModdingAPI;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.GameData;
-using System.Text.Json;
 using static StardewValley.GameLocation;
 
 namespace MayorMod.Data.Utilities;
@@ -184,7 +183,7 @@ public static class ModUtils
             if (whichAnswer == "Yes")
             {
                 ModProgressHandler.AddProgressFlag(ProgressFlags.ModNeedsReset);
-                Game1.drawObjectDialogue(GetTranslationForKey(helper, DialogueKeys.Resignation.ResignText));
+                Game1.drawObjectDialogue(GetTranslationForKey(helper, UIMenuKeys.ResignResignText));
             }
         };
 
@@ -194,7 +193,7 @@ public static class ModUtils
             {
                 DelayedAction.functionAfterDelay(()=> // Hack to chain question dialogues
                 {
-                    farmer.currentLocation.createQuestionDialogue(GetTranslationForKey(helper, DialogueKeys.Resignation.DoubleCheck),
+                    farmer.currentLocation.createQuestionDialogue(GetTranslationForKey(helper, UIMenuKeys.ResignDoubleCheck),
                                                                   farmer.currentLocation.createYesNoResponses(),
                                                                   resign);
                 }, 1);
@@ -203,7 +202,7 @@ public static class ModUtils
 
         if (!ModProgressHandler.HasProgressFlag(ProgressFlags.ModNeedsReset))
         {
-            Game1.player.currentLocation.createQuestionDialogue(GetTranslationForKey(helper, DialogueKeys.Resignation.Question), 
+            Game1.player.currentLocation.createQuestionDialogue(GetTranslationForKey(helper, UIMenuKeys.ResignQuestion), 
                                                                 farmer.currentLocation.createYesNoResponses(), 
                                                                 doubleCheckResign);
         }
@@ -224,7 +223,7 @@ public static class ModUtils
             .Select(offset => (today + offset) % 7)
             .FirstOrDefault(i => modConfig.MeetingDays[i]);
 
-        return ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.{DayNames[nextMeetingDay]}");
+        return ModUtils.GetTranslationForKey(helper, UIMenuKeys.Day(DayNames[nextMeetingDay]));
     }
 
     /// <summary>
@@ -236,10 +235,10 @@ public static class ModUtils
     /// <returns>A formatted, localized string of meeting days (e.g., "Monday and Wednesday").</returns>
     public static string GetFormattedMeetingDays(IModHelper helper, MayorModConfig modConfig)
     {
-        var activeDays = DayNames.Select( dt => ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.{dt}"))
+        var activeDays = DayNames.Select( dt => ModUtils.GetTranslationForKey(helper, UIMenuKeys.Day(dt)))
             .Where((day, index) => modConfig.MeetingDays[index])
             .ToList();
-        var and = ModUtils.GetTranslationForKey(helper, $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.And");
+        var and = ModUtils.GetTranslationForKey(helper, UIMenuKeys.And);
 
         return activeDays.Count switch
         {
@@ -279,10 +278,11 @@ public static class ModUtils
 
     public static void RemoveConversationTopic(string topicId)
     {
-        Game1.MasterPlayer.previousActiveDialogueEvents.RemoveWhere(m => m.Key == topicId);
-        Game1.MasterPlayer.activeDialogueEvents.RemoveWhere(m => m.Key == topicId);
-        //look at HasNPCBeenCanvassed
+        Game1.player.previousActiveDialogueEvents.RemoveWhere(m => m.Key == topicId);
+        Game1.player.activeDialogueEvents.RemoveWhere(m => m.Key == topicId);
+        Game1.player.mailReceived.RemoveWhere(m => m.EndsWith($"_{topicId}"));
     }
+
     public static bool HasConversationTopic(string topicId)
     {
         return Game1.player.activeDialogueEvents.ContainsKey(topicId) && Game1.player.activeDialogueEvents[topicId] > 0;

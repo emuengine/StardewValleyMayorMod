@@ -1,4 +1,4 @@
-﻿namespace MayorMod.Constants;
+namespace MayorMod.Constants;
 
 public static class ModNPCKeys
 {
@@ -45,6 +45,7 @@ public static class ModNPCKeys
     public static readonly string AndyId = "Andy";
     public static readonly string SusanId = "Susan";
     public static readonly string GuntherId = "Gunther";
+    public static readonly string MorrisTodId = "MorrisTod";
 
     // Voter Lists
     public static readonly IList<string> VanillaVoters = new List<string>
@@ -59,5 +60,11 @@ public static class ModNPCKeys
     {
         ClaireId, LanceId, OliviaId, SophiaId, VictorId, AndyId,
         GuntherId, MarlonId, MorrisId, SusanId
+    };
+
+    // Tax Payers
+    public static readonly IList<string> TaxPayers = new List<string>
+    {
+        ClintId, GusId, MarnieId, PierreId, RobinId, WillyId
     };
 }

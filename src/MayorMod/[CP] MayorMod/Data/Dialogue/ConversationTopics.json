@@ -39,6 +39,7 @@
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Harvey.VotingDay}}",
         "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.SaloonHours}}",
         "{{ModId}}_TownSecurityTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.TownSecurity}}",
+        "{{ModId}}_HealthcareFundingTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.HealthcareFunding}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Harvey.MayorCampaignRunning}}"
       }
     },
@@ -165,6 +166,7 @@
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Penny.VotingDay}}",
         "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.CouncilMeetingIntro}}",
         "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.SaloonHours}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.BusFare}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Penny.MayorCampaignRunning}}"
       }
     },
@@ -187,7 +189,7 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Clint",
       "Entries": {
-        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Clint.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Clint.PayingTax}} #$action emuEngineMayorMod_payTax 200",
         "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConversationTopic.Clint.RegisteredForBallot}}",
         "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConversationTopic.Clint.TalkingToVoters}}",
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Clint.ElectedMayor}}",
@@ -209,6 +211,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Demetrius.VotingDay}}",
         "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Demetrius.StrategicReserve}}",
+        "{{ModId}}_ConstructionGrantTopic": "{{i18n:{{ModId}}_ConversationTopic.Demetrius.ConstructionGrant}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Demetrius.MayorCampaignRunning}}"
       }
     },
@@ -223,6 +226,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.VotingDay}}",
         "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.TownRoads}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.BusFare}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Evelyn.MayorCampaignRunning}}"
       }
     },
@@ -237,6 +241,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.George.VotingDay}}",
         "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.George.TownRoads}}",
+        "{{ModId}}_HealthcareFundingTopic": "{{i18n:{{ModId}}_ConversationTopic.George.HealthcareFunding}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.George.MayorCampaignRunning}}"
       }
     },
@@ -244,7 +249,7 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Gus",
       "Entries": {
-        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.PayingTax}} #$action emuEngineMayorMod_payTax 200",
         "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.RegisteredForBallot}}",
         "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.TalkingToVoters}}",
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.ElectedMayor}}",
@@ -253,6 +258,7 @@
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Gus.VotingDay}}",
         "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.CouncilMeetingIntro}}",
         "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.SaloonHours}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.BusFare}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Gus.MayorCampaignRunning}}"
       }
     },
@@ -281,6 +287,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Kent.VotingDay}}",
         "{{ModId}}_StrategicReserveTopic": "{{i18n:{{ModId}}_ConversationTopic.Kent.StrategicReserve}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Kent.BusFare}}",
         //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Kent.MayorCampaignRunning}}"
       }
     },
@@ -294,6 +301,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": "{{i18n:{{ModId}}_Gifting.Lewis.Leaflet}}",
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Lewis.VotingDay}}",
         "{{ModId}}_CouncilMeetingIntroTopic": "{{i18n:{{ModId}}_ConversationTopic.Lewis.CouncilMeetingIntro}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Lewis.BusFare}}",
         "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Lewis.MayorCampaignRunning}}"
       }
     },
@@ -316,7 +324,7 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Marnie",
       "Entries": {
-        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Marnie.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Marnie.PayingTax}} #$action emuEngineMayorMod_payTax 200",
         "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConversationTopic.Marnie.RegisteredForBallot}}",
         "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConversationTopic.Marnie.TalkingToVoters}}",
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Marnie.ElectedMayor}}",
@@ -338,6 +346,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Pam.VotingDay}}",
         "{{ModId}}_SaloonHoursTopic": "{{i18n:{{ModId}}_ConversationTopic.Pam.SaloonHours}}",
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Pam.BusFare}}",
         //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Pam.MayorCampaignRunning}}"
       }
     },
@@ -345,7 +354,7 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Pierre",
       "Entries": {
-        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Pierre.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Pierre.PayingTax}} #$action emuEngineMayorMod_payTax 200",
         "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConversationTopic.Pierre.RegisteredForBallot}}",
         "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConversationTopic.Pierre.TalkingToVoters}}",
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Pierre.ElectedMayor}}",
@@ -360,7 +369,7 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Robin",
       "Entries": {
-        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Robin.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Robin.PayingTax}} #$action emuEngineMayorMod_payTax 200",
         "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConversationTopic.Robin.RegisteredForBallot}}",
         "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConversationTopic.Robin.TalkingToVoters}}",
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Robin.ElectedMayor}}",
@@ -368,6 +377,7 @@
         "RejectItem_(O){{ModId}}_Leaflet": null,
         "{{ModId}}_VotingOffice": "{{i18n:{{ModId}}_ConversationTopic.Robin.VotingDay}}",
         "{{ModId}}_TownRoadsTopic": "{{i18n:{{ModId}}_ConversationTopic.Robin.TownRoads}}",
+        "{{ModId}}_ConstructionGrantTopic": "{{i18n:{{ModId}}_ConversationTopic.Robin.ConstructionGrant}}",
         //"{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Robin.MayorCampaignRunning}}"
       }
     },
@@ -375,7 +385,7 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Willy",
       "Entries": {
-        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Willy.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Willy.PayingTax}} #$action emuEngineMayorMod_payTax 200",
         "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConversationTopic.Willy.RegisteredForBallot}}",
         "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConversationTopic.Willy.TalkingToVoters}}",
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Willy.ElectedMayor}}",
@@ -484,10 +494,16 @@
       }
     },
     {
+      "Action": "Load",
+      "Priority": "Low",
+      "Target": "Characters/Dialogue/Morris",
+      "FromFile": "blank.json"
+    },
+    {
       "Action": "EditData",
       "Target": "Characters/Dialogue/Morris",
       "Entries": {
-        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 200",
         "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.RegisteredForBallot}}",
         "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.TalkingToVoters}}",
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.ElectedMayor}}",
@@ -503,7 +519,27 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/MorrisTod",
       "Entries": {
-        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 50",
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 200"
+      },
+      "When": {
+        "HasSeenEvent: anyPlayer |contains=191393": false
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/MorrisTod",
+      "Entries": {
+        "{{ModId}}_PayingTaxTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.PayingTax}} #$action emuEngineMayorMod_payTax 400"
+      },
+      "When": {
+        "HasSeenEvent: anyPlayer |contains=191393": false,
+        "HasSeenEvent: anyPlayer |contains=5553213": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/MorrisTod",
+      "Entries": {
         "{{ModId}}_RegisteredForBallotTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.RegisteredForBallot}}",
         "{{ModId}}_TalkingToVotersTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.TalkingToVoters}}",
         "{{ModId}}_ElectedMayorTopic": "{{i18n:{{ModId}}_ConversationTopic.Morris.ElectedMayor}}",
@@ -527,6 +563,13 @@
     //        "{{ModId}}_MayorCampaignRunningTopic": "{{i18n:{{ModId}}_ConversationTopic.Sandy.MayorCampaignRunning}}"
     //    }
     //},
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/Sandy",
+      "Entries": {
+        "{{ModId}}_BusFareTopic": "{{i18n:{{ModId}}_ConversationTopic.Sandy.BusFare}}"
+      }
+    },
     {
       "Action": "EditData",
       "Target": "Characters/Dialogue/Dwarf",

@@ -8,11 +8,11 @@
     //Events
     {
       "Action": "Include",
-      "FromFile": "Data/Events/MayorDebateEvent.json, Data/Events/MayorWinSpeechEvent.json, Data/Events/MayorLoseEvent.json, Data/Events/EmilyClothingTherapy.json, Data/Events/NeedMayorEvent.json, Data/Events/ManorHouseIntroEvent.json, Data/Events/WorriedLewisEvent.json, Data/Events/TreePlantingEvent.json, Data/Events/MarnieLewisLiving.json, Data/Events/ExpandGrandpasFarmEvent.json"
+      "FromFile": "Data/Events/MayorDebateEvent.json, Data/Events/MayorWinSpeechEvent.json, Data/Events/MayorLoseEvent.json, Data/Events/NeedMayorEvent.json, Data/Events/ManorHouseIntroEvent.json, Data/Events/WorriedLewisEvent.json, Data/Events/TreePlantingEvent.json, Data/Events/MarnieLewisLiving.json, Data/Events/ExpandGrandpasFarmEvent.json, Data/Events/TaxIntroEvent.json, Data/Events/ConstructionGrantEvent.json, Data/Events/FundraiserEvent.json"
     },
     {
       "Action": "Include",
-      "FromFile": "Data/Events/Council/CouncilMeetingIntroEvent.json, Data/Events/Council/CouncilMeetingSaloonHours.json, Data/Events/Council/CouncilMeetingTownSecurity.json, Data/Events/Council/CouncilMeetingCleanUpEvent.json, Data/Events/Council/CouncilMeetingRiverCleanUpEvent.json, Data/Events/Council/CouncilMeetingTownRoadsEvent.json, Data/Events/Council/CouncilMeetingStrategicReserveEvent.json"
+      "FromFile": "Data/Events/Council/CouncilMeetingIntroEvent.json, Data/Events/Council/CouncilMeetingSaloonHours.json, Data/Events/Council/CouncilMeetingTownSecurity.json, Data/Events/Council/CouncilMeetingCleanUpEvent.json, Data/Events/Council/CouncilMeetingRiverCleanUpEvent.json, Data/Events/Council/CouncilMeetingTownRoadsEvent.json, Data/Events/Council/CouncilMeetingStrategicReserveEvent.json, Data/Events/Council/CouncilMeetingBusFareEvent.json, Data/Events/Council/CouncilMeetingHealthcareFundingEvent.json, Data/Events/Council/CouncilMeetingFundraiserEvent.json"
     },
     //{
     //	"Action": "Include",
@@ -31,7 +31,7 @@
     //Maps
     {
       "Action": "Include",
-      "FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/ManorHouse.json, Data/Maps/Exterior/Town.json, Data/Maps/Exterior/ForestStageArea.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Interior/CommunityCenter.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/ManorHouseBasement.json, Data/Maps/Interior/VotingOffice.json, Data/Maps/Interior/MayorModWarpRoom.json"
+      "FromFile": "Data/Maps/Tilesheets.json, Data/Maps/Exterior/ManorHouse.json, Data/Maps/Exterior/Town.json, Data/Maps/Exterior/ForestStageArea.json, Data/Maps/Exterior/VotingOffice.json, Data/Maps/Exterior/BusStop.json,Data/Maps/Interior/CommunityCenter.json, Data/Maps/Interior/ManorHouse.json, Data/Maps/Interior/ManorHouseBasement.json, Data/Maps/Interior/VotingOffice.json, Data/Maps/Interior/ScienceHouse.json, Data/Maps/Interior/MayorModWarpRoom.json, Data/Maps/Interior/Hospital.json"
     },
     {
       "Action": "Include",

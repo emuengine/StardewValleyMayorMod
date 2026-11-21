@@ -3,6 +3,9 @@
     "characters/dialogue/leomainland": {
         "Wed": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
+    "characters/dialogue/penny": {
+        "summer_Fri": [ { "SearchKey": "AssetUpdates.SubString.MayorSays", "ReplaceKey": "AssetUpdates.SubString.LewisAlwaysSaid", "IsTranslationKey": true } ]
+    },
     "characters/dialogue/marnie": {
         "Fair_Judged_PlayerLost_PurpleShorts": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
@@ -10,6 +13,7 @@
         "Fair_Judged": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
     "data/mail": {
+        "EmilyClothingTherapy": [ { "SearchKey": "AssetUpdates.SubString.TheMayorsHouse", "ReplaceKey": "AssetUpdates.SubString.TheTownHall", "IsTranslationKey": true } ],
         "foundLostTools": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
         "winter_18": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
         "ccBulletinThankYou": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
@@ -48,6 +52,10 @@
         "afraid": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },    
     "data/events/town": {
+        "639373/": [
+            { "SearchKey": "AssetUpdates.SubString.LewisMarnieSecret.Lewis", "ReplaceKey": "AssetUpdates.SubString.LewisMarnieSecret.Lewis-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.LewisMarnieSecret.Marnie", "ReplaceKey": "AssetUpdates.SubString.LewisMarnieSecret.Marnie-rep", "IsTranslationKey": true }
+        ],
         "6184644": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
         "191393": [
             { "SearchKey": "Lewis", "ReplaceKey": "Governor_NewMayorEvent", "IsTranslationKey": false },
@@ -86,25 +94,62 @@
     "data/events/communitycenter": {
         "Punch": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ]
     },
+    "data/events/emuengine.mayormodcp_manorhouse": {
+        // Move the table out of the way. Not skippable or the tiles wont get put back properly.
+        "2123243/": [
+            { "SearchKey": "/skippable/", "ReplaceKey": "/emuEngineMayorMod_storeMapTile Back3 8 6 ct0/emuEngineMayorMod_storeMapTile Back3 10 6 ct1/emuEngineMayorMod_storeMapTile Back3 8 7 ct2/emuEngineMayorMod_storeMapTile Back3 10 7 ct3/emuEngineMayorMod_storeMapTile Buildings 7 4 ct4/emuEngineMayorMod_storeMapTile Buildings 7 5 ct5/emuEngineMayorMod_storeMapTile Buildings 7 6 ct6/emuEngineMayorMod_storeMapTile Buildings 7 7 ct7/emuEngineMayorMod_storeMapTile Buildings 8 4 ct8/emuEngineMayorMod_storeMapTile Buildings 8 5 ct9/emuEngineMayorMod_storeMapTile Buildings 8 6 ct10/emuEngineMayorMod_storeMapTile Buildings 8 7 ct11/emuEngineMayorMod_storeMapTile Buildings 9 5 ct12/emuEngineMayorMod_storeMapTile Buildings 9 6 ct13/emuEngineMayorMod_storeMapTile Buildings 9 7 ct14/emuEngineMayorMod_storeMapTile Buildings 10 4 ct15/emuEngineMayorMod_storeMapTile Buildings 10 5 ct16/emuEngineMayorMod_storeMapTile Buildings 10 6 ct17/emuEngineMayorMod_storeMapTile Buildings 10 7 ct18/emuEngineMayorMod_storeMapTile Buildings 11 4 ct19/emuEngineMayorMod_storeMapTile Buildings 11 5 ct20/emuEngineMayorMod_storeMapTile Buildings 11 6 ct21/emuEngineMayorMod_storeMapTile Buildings 11 7 ct22/emuEngineMayorMod_storeMapTile Buildings 12 5 ct23/emuEngineMayorMod_storeMapTile Buildings 12 6 ct24/emuEngineMayorMod_storeMapTile Buildings2 8 3 ct25/emuEngineMayorMod_storeMapTile Buildings2 10 3 ct26/emuEngineMayorMod_storeMapTile AlwaysFront 8 4 ct27/emuEngineMayorMod_storeMapTile AlwaysFront 9 4 ct28/emuEngineMayorMod_storeMapTile AlwaysFront 10 4 ct29/emuEngineMayorMod_storeMapTile AlwaysFront 10 4 ct30/emuEngineMayorMod_storeMapTile AlwaysFront 8 6 ct31/emuEngineMayorMod_storeMapTile AlwaysFront 10 6 ct32/removeTile 8 6 Back3/removeTile 10 6 Back3/removeTile 8 7 Back3/removeTile 10 7 Back3/removeTile 7 4 Buildings/removeTile 7 5 Buildings/removeTile 7 6 Buildings/removeTile 7 7 Buildings/removeTile 8 4 Buildings/removeTile 8 5 Buildings/removeTile 8 6 Buildings/removeTile 8 7 Buildings/removeTile 9 5 Buildings/removeTile 9 6 Buildings/removeTile 9 7 Buildings/removeTile 10 4 Buildings/removeTile 10 5 Buildings/removeTile 10 6 Buildings/removeTile 10 7 Buildings/removeTile 11 4 Buildings/removeTile 11 5 Buildings/removeTile 11 6 Buildings/removeTile 11 7 Buildings/removeTile 12 5 Buildings/removeTile 12 6 Buildings/removeTile 8 3 Buildings2/removeTile 10 3 Buildings2/removeTile 8 4 AlwaysFront/removeTile 9 4 AlwaysFront/removeTile 10 4 AlwaysFront/removeTile 10 4 AlwaysFront/removeTile 8 6 AlwaysFront/removeTile 10 6 AlwaysFront/", "IsTranslationKey": false },
+            { "SearchKey": "pause 2000/end", "ReplaceKey": "pause 2000/globalFade/viewport 1000 1000/emuEngineMayorMod_retrieveMapTile Back3 8 6 ct0/emuEngineMayorMod_retrieveMapTile Back3 10 6 ct1/emuEngineMayorMod_retrieveMapTile Back3 8 7 ct2/emuEngineMayorMod_retrieveMapTile Back3 10 7 ct3/emuEngineMayorMod_retrieveMapTile Buildings 7 4 ct4/emuEngineMayorMod_retrieveMapTile Buildings 7 5 ct5/emuEngineMayorMod_retrieveMapTile Buildings 7 6 ct6/emuEngineMayorMod_retrieveMapTile Buildings 7 7 ct7/emuEngineMayorMod_retrieveMapTile Buildings 8 4 ct8/emuEngineMayorMod_retrieveMapTile Buildings 8 5 ct9/emuEngineMayorMod_retrieveMapTile Buildings 8 6 ct10/emuEngineMayorMod_retrieveMapTile Buildings 8 7 ct11/emuEngineMayorMod_retrieveMapTile Buildings 9 5 ct12/emuEngineMayorMod_retrieveMapTile Buildings 9 6 ct13/emuEngineMayorMod_retrieveMapTile Buildings 9 7 ct14/emuEngineMayorMod_retrieveMapTile Buildings 10 4 ct15/emuEngineMayorMod_retrieveMapTile Buildings 10 5 ct16/emuEngineMayorMod_retrieveMapTile Buildings 10 6 ct17/emuEngineMayorMod_retrieveMapTile Buildings 10 7 ct18/emuEngineMayorMod_retrieveMapTile Buildings 11 4 ct19/emuEngineMayorMod_retrieveMapTile Buildings 11 5 ct20/emuEngineMayorMod_retrieveMapTile Buildings 11 6 ct21/emuEngineMayorMod_retrieveMapTile Buildings 11 7 ct22/emuEngineMayorMod_retrieveMapTile Buildings 12 5 ct23/emuEngineMayorMod_retrieveMapTile Buildings 12 6 ct24/emuEngineMayorMod_retrieveMapTile Buildings2 8 3 ct25/emuEngineMayorMod_retrieveMapTile Buildings2 10 3 ct26/emuEngineMayorMod_retrieveMapTile AlwaysFront 8 4 ct27/emuEngineMayorMod_retrieveMapTile AlwaysFront 9 4 ct28/emuEngineMayorMod_retrieveMapTile AlwaysFront 10 4 ct29/emuEngineMayorMod_retrieveMapTile AlwaysFront 10 4 ct30/emuEngineMayorMod_retrieveMapTile AlwaysFront 8 6 ct31/emuEngineMayorMod_retrieveMapTile AlwaysFront 10 6 ct32/end", "IsTranslationKey": false },
+            { "SearchKey": "AssetUpdates.SubString.ClothingTherapy.Ah", "ReplaceKey": "AssetUpdates.SubString.ClothingTherapy.Ah-rep", "IsTranslationKey": true }
+        ],
+        "prizeTicketIntro/": [
+            { "SearchKey": "/quickQuestion [^/]*", "ReplaceKey": "EMPTY", "IsTranslationKey": false, "IsRegEx": true },
+            { "SearchKey": "AssetUpdates.SubString.PrizeTicketIntro.1", "ReplaceKey": "AssetUpdates.SubString.PrizeTicketIntro.1-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.PrizeTicketIntro.2", "ReplaceKey": "AssetUpdates.SubString.PrizeTicketIntro.2-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.PrizeTicketIntro.3", "ReplaceKey": "AssetUpdates.SubString.PrizeTicketIntro.3-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.PrizeTicketIntro.4", "ReplaceKey": "AssetUpdates.SubString.PrizeTicketIntro.4-rep", "IsTranslationKey": true }
+        ]
+    },
     "data/festivals/fall16": {
         "Jodi": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
         "Gus": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ],
         // Ridgeside
-        "Kenneth": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
-    },    
+        "Kenneth": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        // Sword & Sorcery
+        "Hector": [ { "SearchKey": "AssetUpdates.SubString.Hector.fall16.False.1", "ReplaceKey": "EMPTY", "IsTranslationKey": true },
+                    { "SearchKey": "AssetUpdates.SubString.TheMayorLowercase", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "Roslin": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
     "data/festivals/spring13": {
         "Sebastian": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
         // East Scarp
-        "Aideen": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
-    },    
+        "Aideen": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        // Sword & Sorcery
+        "Hector": [ { "SearchKey": "AssetUpdates.SubString.Hector.spring13.False.1", "ReplaceKey": "AssetUpdates.SubString.Hector.spring13.False.1-rep", "IsTranslationKey": true } ]
+    },
+    "data/extradialogue": {
+        "SummitEvent_Dialogue2_Lewis": [ { "SearchKey": "AssetUpdates.SubString.IveBeenMayor", "ReplaceKey": "AssetUpdates.SubString.IWasMayor", "IsTranslationKey": true } ],
+        "Morris_PlayerSignedUp": [ { "SearchKey": "AssetUpdates.SubString.Morris.PlayerSignedUp", "ReplaceKey": "AssetUpdates.SubString.Morris.PlayerSignedUp-rep", "IsTranslationKey": true } ],
+        "Morris_WeekendGreeting_MembershipAvailable": [
+            { "SearchKey": "AssetUpdates.SubString.Morris.PromisedUs", "ReplaceKey": "AssetUpdates.SubString.Morris.PromisedUs-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.Morris.HedLetUs", "ReplaceKey": "AssetUpdates.SubString.Morris.HedLetUs-rep", "IsTranslationKey": true }
+        ],
+        "Morris_FirstGreeting_MembershipAvailable": [
+            { "SearchKey": "AssetUpdates.SubString.Morris.PromisedUs", "ReplaceKey": "AssetUpdates.SubString.Morris.PromisedUs-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.Morris.HedLetUs", "ReplaceKey": "AssetUpdates.SubString.Morris.HedLetUs-rep", "IsTranslationKey": true }
+        ]
+    },
     "strings/moviereactions": {
-        "Lewis_summer_movie_0_DuringMovie_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+        "Lewis_summer_movie_0_DuringMovie_2": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "Lewis_like_BeforeMovie": [ { "SearchKey": "AssetUpdates.SubString.Lewis.BeforeMovie", "ReplaceKey": "AssetUpdates.SubString.Lewis.BeforeMovie-rep", "IsTranslationKey": true } ],
+        "Lewis_like_AfterMovie": [ { "SearchKey": "AssetUpdates.SubString.Lewis.AfterMovie", "ReplaceKey": "AssetUpdates.SubString.Lewis.AfterMovie-rep", "IsTranslationKey": true } ]
     },
     "strings/stringsfromcsfiles": {
         "Event.cs.1584": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
         // Ridgeside & East Scarp
-        "Utility.cs.5371": [ { "SearchKey": "AssetUpdates.SubString.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.FemaleWeddingFix-rep", "IsTranslationKey": true } ],
-        "Utility.cs.5377": [ { "SearchKey": "AssetUpdates.SubString.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.FemaleWeddingFix-rep", "IsTranslationKey": true } ]
+        "Utility.cs.5371": [ { "SearchKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix-rep", "IsTranslationKey": true } ],
+        "Utility.cs.5373": [ { "SearchKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix-rep", "IsTranslationKey": true } ],
+        "Utility.cs.5375": [ { "SearchKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix-rep", "IsTranslationKey": true } ],
+        "Utility.cs.5377": [ { "SearchKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix", "ReplaceKey": "AssetUpdates.SubString.Romance.FemaleWeddingFix-rep", "IsTranslationKey": true } ]
     },
     
     //SVE Patches
@@ -121,7 +166,12 @@
         "Sean": [ { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.TownCouncil", "IsTranslationKey": true } ]
     },
     "data/events/forest": {
-        "5000003": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+        "5000003": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        // Sword & Sorcery
+        "SnS.Ch1.Mateo.7/": [
+            { "SearchKey": "farmer 55 98 0 Mateo 54 99 0 Lewis 59 86 0", "ReplaceKey": "farmer 86 28 0 Mateo 85 29 0 Lewis 90 16 0", "IsTranslationKey": false },
+            { "SearchKey": "viewport 59 87", "ReplaceKey": "viewport 90 17", "IsTranslationKey": false }
+        ]
     },
     "strings/stringsfrommaps":  {
         "PelicanTown.11": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
@@ -167,15 +217,18 @@
         "spring_12": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
     "data/festivals/winter8": {
-        "Kiarra": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
-        "Kiarra_spouse": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
-        "Faye": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ],
-        "Faye_spouse": [ { "SearchKey": "AssetUpdates.SubString.Lewis", "ReplaceKey": "AssetUpdates.SubString.Governor", "IsTranslationKey": true } ]
+        "Kiarra_spouse": [ { "SearchKey": "AssetUpdates.SubString.TheMayorLowercase", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "Faye_spouse": [ { "SearchKey": "AssetUpdates.SubString.TheMayorLowercase", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        // Sword & Sorcery
+        "Hector": [ { "SearchKey": "AssetUpdates.SubString.Hector.winter8.False.1", "ReplaceKey": "EMPTY", "IsTranslationKey": true },
+                    { "SearchKey": "AssetUpdates.SubString.Hector.winter8.False.2", "ReplaceKey": "EMPTY", "IsTranslationKey": true } ]
     },
     
     // East Scarp
     "data/festivals/winter25": {
-        "JosephineK": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+        "JosephineK": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        // Vanilla
+        "Linus_y2": [ { "SearchKey": "AssetUpdates.SubString.TheMayorStart", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
     },
     "data/events/busstop": {
         "57873001/e 57873000/t 600 1200": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
@@ -228,6 +281,103 @@
             { "SearchKey": "skippable/", "ReplaceKey": "skippable/addTemporaryActor Governor_NewMayorEvent 16 32 3 18 0 true Character/", "IsTranslationKey": false },
             { "SearchKey": "Governor_NewMayorEvent 3 18 0", "ReplaceKey": "Governor 1000 1000 0", "IsTranslationKey": false },
             { "SearchKey": "speak Governor_NewMayorEvent", "ReplaceKey": "speak Governor", "IsTranslationKey": false }
+        ]
+    },
+
+    // Sword & Sorcery
+    "characters/dialogue/lewis": {
+        "CGuildComplete": [ { "SearchKey": "AssetUpdates.SubString.Lewis.CGuildComplete", "ReplaceKey": "EMPTY", "IsTranslationKey": true } ],
+        // Vanilla
+        "Sun": [
+            { "SearchKey": "AssetUpdates.SubString.Lewis.Sun.1", "ReplaceKey": "AssetUpdates.SubString.Lewis.Sun.1-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.Lewis.Sun.2", "ReplaceKey": "AssetUpdates.SubString.Lewis.Sun.2-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.Lewis.Sun.3", "ReplaceKey": "AssetUpdates.SubString.Lewis.Sun.3-rep", "IsTranslationKey": true }
+        ],
+        "joja_Begin": [ { "SearchKey": "AssetUpdates.SubString.MyRecord", "ReplaceKey": "AssetUpdates.SubString.YourRecord", "IsTranslationKey": true } ],
+        "winter_Fri6": [
+            { "SearchKey": "AssetUpdates.SubString.Lewis.winter_Fri6.1", "ReplaceKey": "AssetUpdates.SubString.Lewis.winter_Fri6.1-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.Lewis.winter_Fri6.2", "ReplaceKey": "AssetUpdates.SubString.Lewis.winter_Fri6.2-rep", "IsTranslationKey": true }
+        ]
+    },
+    "characters/dialogue/hector": {
+        "Mon": [ { "SearchKey": "AssetUpdates.SubString.Hector.EarlyHeart.26", "ReplaceKey": "AssetUpdates.SubString.Hector.EarlyHeart.26-rep", "IsTranslationKey": true },
+                 { "SearchKey": "AssetUpdates.SubString.TheMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "Tue": [ { "SearchKey": "AssetUpdates.SubString.Hector.EarlyHeart.26", "ReplaceKey": "AssetUpdates.SubString.Hector.EarlyHeart.26-rep", "IsTranslationKey": true },
+                 { "SearchKey": "AssetUpdates.SubString.TheMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "Wed": [ { "SearchKey": "AssetUpdates.SubString.Hector.EarlyHeart.26", "ReplaceKey": "AssetUpdates.SubString.Hector.EarlyHeart.26-rep", "IsTranslationKey": true },
+                 { "SearchKey": "AssetUpdates.SubString.TheMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "Thu": [ { "SearchKey": "AssetUpdates.SubString.Hector.EarlyHeart.26", "ReplaceKey": "AssetUpdates.SubString.Hector.EarlyHeart.26-rep", "IsTranslationKey": true },
+                 { "SearchKey": "AssetUpdates.SubString.TheMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "Fri": [ { "SearchKey": "AssetUpdates.SubString.Hector.EarlyHeart.26", "ReplaceKey": "AssetUpdates.SubString.Hector.EarlyHeart.26-rep", "IsTranslationKey": true },
+                 { "SearchKey": "AssetUpdates.SubString.TheMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "Sat": [ { "SearchKey": "AssetUpdates.SubString.Hector.EarlyHeart.26", "ReplaceKey": "AssetUpdates.SubString.Hector.EarlyHeart.26-rep", "IsTranslationKey": true },
+                 { "SearchKey": "AssetUpdates.SubString.TheMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "Sun": [ { "SearchKey": "AssetUpdates.SubString.Hector.EarlyHeart.26", "ReplaceKey": "AssetUpdates.SubString.Hector.EarlyHeart.26-rep", "IsTranslationKey": true },
+                 { "SearchKey": "AssetUpdates.SubString.TheMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "fall_16": [ { "SearchKey": "AssetUpdates.SubString.TheMayorLowercase", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "winter_8": [ { "SearchKey": "AssetUpdates.SubString.YourMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+    "characters/dialogue/marriagedialoguehector": {
+        "fall_16": [ { "SearchKey": "AssetUpdates.SubString.TheMayorLowercase", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "winter_8": [ { "SearchKey": "AssetUpdates.SubString.YourMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ]
+    },
+    "data/festivals/fall1": {
+        "Aideen": [ { "SearchKey": "AssetUpdates.SubString.MayorLewis", "ReplaceKey": "AssetUpdates.SubString.You", "IsTranslationKey": true },
+                    { "SearchKey": "AssetUpdates.SubString.VioletMoon.Aideen.2", "ReplaceKey": "AssetUpdates.SubString.VioletMoon.Aideen.2-rep", "IsTranslationKey": true } ],
+        "Juliet": [ { "SearchKey": "AssetUpdates.SubString.VioletMoon.Juliet.3", "ReplaceKey": "AssetUpdates.SubString.VioletMoon.Juliet.3-rep", "IsTranslationKey": true } ]
+    },
+    "data/events/eastscarp_coastalguild": {
+        "SnS.Ch4.Roslin.1/": [ { "SearchKey": "AssetUpdates.SubString.YourMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true } ],
+        "SnS.Ch4.Roslin.5/": [
+            { "SearchKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.5.Lewis.17a", "ReplaceKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.5.Lewis.17a-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.5.Lewis.17b", "ReplaceKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.5.Lewis.17b-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.5.Hector.31", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true }
+        ],
+        "SnS.Ch5.Roslin/": [ { "SearchKey": "AssetUpdates.SubString.SnS.Ch5.Roslin.Mateo.02", "ReplaceKey": "AssetUpdates.SubString.SnS.Ch5.Roslin.Mateo.02-rep", "IsTranslationKey": true } ]
+    },
+    "data/events/animalshop": {
+        "SnS.Ch1.Roslin/": [
+            { "SearchKey": "Lewis 3 7 2", "ReplaceKey": "Lewis 15 15 2", "IsTranslationKey": false },
+            { "SearchKey": "addTemporaryActor FakeDandelion 16 32 2 8 1", "ReplaceKey": "addTemporaryActor FakeDandelion 16 32 16 16 3", "IsTranslationKey": false },
+            { "SearchKey": "addTemporaryActor FakeRoslin 16 32 4 8 3", "ReplaceKey": "addTemporaryActor FakeRoslin 16 32 14 16 1", "IsTranslationKey": false },
+            { "SearchKey": "viewport 11 7", "ReplaceKey": "viewport 14 16", "IsTranslationKey": false },
+            { "SearchKey": "warp farmer 5 11", "ReplaceKey": "warp farmer 13 19", "IsTranslationKey": false },
+            { "SearchKey": "advancedMove farmer false 0 -3 3 10", "ReplaceKey": "advancedMove farmer false 0 -3 1 10", "IsTranslationKey": false },
+            { "SearchKey": "faceDirection FakeRoslin 1", "ReplaceKey": "faceDirection FakeRoslin LEFT", "IsTranslationKey": false },
+            { "SearchKey": "faceDirection FakeRoslin 3", "ReplaceKey": "faceDirection FakeRoslin 1", "IsTranslationKey": false },
+            { "SearchKey": "faceDirection FakeRoslin LEFT", "ReplaceKey": "faceDirection FakeRoslin 3", "IsTranslationKey": false },
+            { "SearchKey": "positionOffset farmer 4 0", "ReplaceKey": "positionOffset farmer -4 0", "IsTranslationKey": false },
+            { "SearchKey": "warp farmer 6 8", "ReplaceKey": "warp farmer 12 16", "IsTranslationKey": false },
+            { "SearchKey": "advancedMove FakeRoslin false 0 3 2 10", "ReplaceKey": "advancedMove FakeRoslin false -1 0 0 3 2 10", "IsTranslationKey": false },
+            { "SearchKey": "advancedMove FakeDandelion false 0 1 3 0 0 2 2 10", "ReplaceKey": "advancedMove FakeDandelion false -3 0 0 3 2 10", "IsTranslationKey": false },
+            { "SearchKey": "faceDirection farmer 3 true", "ReplaceKey": "faceDirection farmer 1 true", "IsTranslationKey": false },
+            { "SearchKey": "faceDirection Lewis 1", "ReplaceKey": "faceDirection Lewis 3", "IsTranslationKey": false },
+            { "SearchKey": "AssetUpdates.SubString.MrMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Intro.Lewis.1", "ReplaceKey": "AssetUpdates.SubString.SnS.Intro.Lewis.1-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Intro.Lewis.2", "ReplaceKey": "AssetUpdates.SubString.SnS.Intro.Lewis.2-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Intro.Roslin.2", "ReplaceKey": "AssetUpdates.SubString.SnS.Intro.Roslin.2-rep", "IsTranslationKey": true }
+        ],
+        "SnS.Ch4.Roslin.2/": [
+            { "SearchKey": "Lewis 6 6 1", "ReplaceKey": "Lewis 13 16 1", "IsTranslationKey": false },
+            { "SearchKey": "addTemporaryActor MateoMarlon 16 32 8 6 3", "ReplaceKey": "addTemporaryActor MateoMarlon 16 32 15 16 3", "IsTranslationKey": false },
+            { "SearchKey": "viewport 7 9 clamp true", "ReplaceKey": "viewport 14 16 clamp true", "IsTranslationKey": false },
+            { "SearchKey": "warp Roslin 4 11", "ReplaceKey": "warp Roslin 13 19", "IsTranslationKey": false },
+            { "SearchKey": "warp Mateo 5 11", "ReplaceKey": "warp Mateo 13 19", "IsTranslationKey": false },
+            { "SearchKey": "advancedMove Mateo false 0 -3 3 0 4 10", "ReplaceKey": "advancedMove Mateo false 0 -1 2 0 4 10", "IsTranslationKey": false },
+            { "SearchKey": "advancedMove Roslin false 0 -3 2 0 4 10", "ReplaceKey": "advancedMove Roslin false 0 -1 4 10", "IsTranslationKey": false },
+            { "SearchKey": "warp farmer 4 11", "ReplaceKey": "warp farmer 13 19", "IsTranslationKey": false },
+            { "SearchKey": "advancedMove farmer false 0 -4 1 0 1 10", "ReplaceKey": "advancedMove farmer false 0 -2 -1 0 1 10", "IsTranslationKey": false },
+            { "SearchKey": "advancedMove Roslin false -1 0 0 3 2 10", "ReplaceKey": "advancedMove Roslin false 0 1 2 10", "IsTranslationKey": false },
+            { "SearchKey": "advancedMove Mateo false -4 0 0 3 2 10", "ReplaceKey": "advancedMove Mateo false -2 0 0 1 2 10", "IsTranslationKey": false },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.Lewis.02.1", "ReplaceKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.Lewis.02.1-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.Lewis.02.2", "ReplaceKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.Lewis.02.2-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.Lewis.02.3", "ReplaceKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.Lewis.02.3-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.OurMayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.Mayor", "ReplaceKey": "AssetUpdates.SubString.Lewis", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.MateoMarlon.04", "ReplaceKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.MateoMarlon.04-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.Roslin.09", "ReplaceKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.Roslin.09-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.QuickQuestion.18", "ReplaceKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.QuickQuestion.18-rep", "IsTranslationKey": true },
+            { "SearchKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.Lewis.20", "ReplaceKey": "AssetUpdates.SubString.SnS.Ch4.Roslin.2.Lewis.20-rep", "IsTranslationKey": true }
         ]
     }
 }

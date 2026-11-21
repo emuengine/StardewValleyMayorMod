@@ -1,4 +1,4 @@
-﻿using MayorMod.Constants;
+using MayorMod.Constants;
 using MayorMod.Data.Models;
 using MayorMod.Data.Utilities;
 using Microsoft.Xna.Framework.Graphics;
@@ -55,6 +55,17 @@ public static class SaveHandler
     }
 
     /// <summary>
+    /// Write the current save data.
+    /// </summary>
+    public static void WriteSaveData()
+    {
+        if (SaveData is not null)
+        {
+            _mod.Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
+        }
+    }
+
+    /// <summary>
     /// Updates the farm's mod data with the current voting date, town treasury amount, and gold statue image
     /// information from the save data. This allows syncing across multiplayer sessions.
     /// </summary>
@@ -96,6 +107,7 @@ public static class SaveHandler
         {
             UpdateSaveDataTo1_1_16();
             UpdateSaveDataTo1_1_20();
+            UpdateSaveDataTo1_2_0();
             UpdateSaveDataToLatest();
             _mod.Helper.Data.WriteSaveData(ModKeys.SAVE_KEY, SaveData);
         }
@@ -157,6 +169,32 @@ public static class SaveHandler
                 Game1.MasterPlayer.team.specialOrders.RemoveWhere(so => so.questKey.Equals(CouncilMeetingKeys.SpecialOrderStrategicReserve));
             }
             SaveData.SaveVersion = v1_1_20;
+        }
+    }
+
+    /// <summary>
+    /// Migrates save data to version 1.2.0.
+    /// </summary>
+    private static void UpdateSaveDataTo1_2_0()
+    {
+        var v1_2_0 = new Version(1, 2, 0);
+        if (SaveData is not null &&
+            (SaveData.SaveVersion is null ||
+            SaveData.SaveVersion < v1_2_0))
+        {
+            _mod.Monitor.Log($"Updating MayorMod save data to version {v1_2_0}", LogLevel.Info);
+            //Events were copied before so original was not marked as seen.
+            foreach (var farmer in Game1.getAllFarmers())
+            {
+                foreach (var eventId in CompatibilityKeys.EventMoves.SelectMany(m => m.EventIds))
+                {
+                    if (farmer.eventsSeen.Contains($"{ModKeys.MAYOR_MOD_CPID}_{eventId}"))
+                    {
+                        farmer.eventsSeen.Add(eventId);
+                    }
+                }
+            }
+            SaveData.SaveVersion = v1_2_0;
         }
     }
 }

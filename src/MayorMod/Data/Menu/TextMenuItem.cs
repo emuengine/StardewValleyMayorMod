@@ -1,4 +1,4 @@
-﻿using MayorMod.Data.Models;
+using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
@@ -12,6 +12,8 @@ public class TextMenuItem : IMenuItem
     public Margin TextMargin { get; set; }
     public SpriteFont Font { get; set; } = Game1.dialogueFont;
     public bool IsBold { get; set; }
+    public Texture2D? Icon { get; set; }
+    public Color TextColor { get; set; } = Game1.textColor;
     public MenuItemAlign Align { get; set; } = MenuItemAlign.Left;
 
     public enum MenuItemAlign
@@ -40,6 +42,8 @@ public class TextMenuItem : IMenuItem
     /// <param name="spriteBatch">The SpriteBatch to draw with.</param>
     public void Draw(SpriteBatch spriteBatch)
     {
+        var textSize = Font.MeasureString(Text);
+        var iconSize = Icon is null ? 0 : Icon.Height * Math.Max(1, (int)(textSize.Y / Icon.Height));
         int xVal;
         if (Align == MenuItemAlign.Left)
         {
@@ -47,7 +51,7 @@ public class TextMenuItem : IMenuItem
         }
         else if (Align == MenuItemAlign.Right)
         {
-            xVal = (_parent.MenuRect.X + _parent.MenuRect.Width) - TextMargin.Right;
+            xVal = (_parent.MenuRect.X + _parent.MenuRect.Width) - TextMargin.Right - (int)textSize.X - (Icon is null ? 0 : iconSize + 5);
         }
         else
         {
@@ -59,11 +63,17 @@ public class TextMenuItem : IMenuItem
 
         if (IsBold)
         {
-            Utility.drawBoldText(spriteBatch, Text, Font, position, Game1.textColor);
+            Utility.drawBoldText(spriteBatch, Text, Font, position, TextColor);
         }
         else
         {
-            Utility.drawTextWithColoredShadow(spriteBatch, Text, Font, position, Game1.textColor, Color.Transparent);
+            Utility.drawTextWithColoredShadow(spriteBatch, Text, Font, position, TextColor, Color.Transparent);
+        }
+
+        if (Icon is not null)
+        {
+            var iconBounds = new Rectangle((int)(position.X + textSize.X) + 5, (int)(position.Y + (textSize.Y - iconSize) / 2), iconSize, iconSize);
+            spriteBatch.Draw(Icon, iconBounds, Color.White);
         }
     }
 

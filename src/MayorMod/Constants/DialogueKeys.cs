@@ -1,4 +1,4 @@
-﻿namespace MayorMod.Constants;
+namespace MayorMod.Constants;
 
 public static class DialogueKeys
 {
@@ -31,8 +31,21 @@ public static class DialogueKeys
         public static readonly string MeetingPlanned = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingPlanned";
         public static readonly string HoldCouncilMeeting = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_HoldCouncilMeeting";
         public static readonly string AgendaQuestion = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_AgendaQuestion";
+        public static readonly string Reconsider = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_Reconsider";
+        public static readonly string ReconsiderTitle = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_ReconsiderTitle";
+        public static readonly string ReconsiderDescription = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_ReconsiderDescription";
+        public static readonly string PerMonth = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_PerMonth";
         public static readonly string AlreadyPlanned = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_AlreadyPlanned";
         public static readonly string NoNewMeetings = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_NoNewMeetings";
+        public static readonly string NotEnoughFunds = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_NotEnoughFunds";
+        public static readonly string OutstandingCosts = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_OutstandingCosts";
+        public static readonly string NoOutstandingCosts = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_NoOutstandingCosts";
+        public static readonly string CostOwed = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_CostOwed";
+        public static readonly string CostPaid = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_CostPaid";
+        public static readonly string SecurityWagesPaid = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_SecurityWagesPaid";
+        public static readonly string SecurityWagesUnpaid = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_SecurityWagesUnpaid";
+        public static readonly string HealthcareFundingPaid = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_HealthcareFundingPaid";
+        public static readonly string HealthcareFundingUnpaid = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_HealthcareFundingUnpaid";
         public static readonly string MeetingIntro = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingIntro";
         public static readonly string MeetingSaloonHours = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingSaloonHours";
         public static readonly string MeetingTownSecurity = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingTownSecurity";
@@ -40,6 +53,9 @@ public static class DialogueKeys
         public static readonly string MeetingRiverCleanup = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingRiverCleanup";
         public static readonly string MeetingTownRoads = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingTownRoads";
         public static readonly string MeetingStrategicReserve = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingStrategicReserve";
+        public static readonly string MeetingBusFare = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingBusFare";
+        public static readonly string MeetingHealthcareFunding = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingHealthcareFunding";
+        public static readonly string MeetingFundraiser = $"{XNBPathKeys.UI}:{ModKeys.MAYOR_MOD_CPID}_MeetingFundraiser";
     }
 
     public static class OfficerMike
@@ -54,17 +70,4 @@ public static class DialogueKeys
         public static readonly string NeedToVote = $"{XNBPathKeys.DIALOGUE}/{ModKeys.MAYOR_MOD_CPID}_OfficerMike:NeedToVote";
     }
 
-    public static class Resignation
-    {
-        public static readonly string Question = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Resign_Question";
-        public static readonly string DoubleCheck = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Resign_DoubleCheck";
-        public static readonly string ResignText = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.Resign_ResignText";
-    }
-    public static class TownHall
-    {
-        public static readonly string DeedBook = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.ManorHouse_DeedBook";
-        public static readonly string DeedsQuestion = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.ManorHouse_DeedBookQuestion";
-        public static readonly string BoughtDeed = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.ManorHouse_BoughtDeed";
-        public static readonly string NotEnoughMoney = $"{ModKeys.MAYOR_MOD_CPID}_UIMenu.ManorHouse_NotEnoughMoney";
-    }
 }

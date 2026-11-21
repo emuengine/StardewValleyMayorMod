@@ -1,8 +1,47 @@
 # Changelog
 
-## v1.1.24
+## v1.2.0
 
 ## Features
+- Add dialogue for spouse when you become mayor.
+- Added basic taxation mechanic.
+- Council decisions now cost money from a town treasury.
+- Added budget section to desk menu.
+- Added construction grant event.
+- Added bus fare council meeting.
+- Added healthcare council meeting.
+- Added healthcare funding council meeting.
+- Added fundraiser council meeting and event.
+- Added tax intro event.
+- Updated some dialogue for Officer Mike.
+- Added MayorModTreasury command.
+- Added params to MayorModReset command.
+- Added Sword & Sorcery compatibility.
+- Added Stardew Access compatibility.
+- Added menu for reconsidering council meetings.
+- From now using proper versioning.
+    - major = big breaking feature.
+    - minor = new feature.
+    - patch = bug fix.
+
+## Bug fixes
+- Fix for gold statue in multiplayer.
+- Tweaks for event timings.
+- The vanilla wedding fix.
+- Prize ticket & Clothing Therapy events use event move system.
+- Fix for Lewis' six heart event.
+- Typo and spelling pass.
+- Refactor cache invalidation logic.
+
+
+## v1.1.25
+
+## Bug fixes
+- Removed time for Strategic Reserve special order.
+- Various fixes.
+
+
+## v1.1.24
 
 ## Bug fixes
 - Updated Strategic Reserve dialogue for clarity.

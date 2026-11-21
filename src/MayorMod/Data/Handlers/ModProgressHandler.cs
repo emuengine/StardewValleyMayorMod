@@ -1,4 +1,4 @@
-﻿using MayorMod.Constants;
+using MayorMod.Constants;
 using MayorMod.Data.Models;
 using MayorMod.Data.Utilities;
 using Microsoft.Xna.Framework;
@@ -12,8 +12,6 @@ namespace MayorMod.Data.Handlers;
 
 public static class ModProgressHandler
 {
-    public static bool RiverCleanUpRunOnce { get; set; } = true;
-
     private static IMod _mod = null!;
 
     public static void Init(IMod mod)
@@ -144,7 +142,7 @@ public static class ModProgressHandler
             //Set voting date
             SaveHandler.UpdateVotingDate(ModUtils.GetDateWithoutFestival(ModConfigHandler.ModConfig.NumberOfCampaignDays));
             RemoveProgressFlag(ProgressFlags.RegisterVotingDate);
-            AssetInvalidationHandler.UpdateAssetInvalidations();
+            AssetInvalidationHandler.QueueElectionInvalidations();
         }
 
         if (HasHostGotProgressFlag(ProgressFlags.RunningForMayor) && SaveHandler.SaveData?.VotingDate is not null)
@@ -186,6 +184,7 @@ public static class ModProgressHandler
     {
         SaveHandler.UpdateVotingDate(null);
         RemoveAllModFlags();
+        AssetInvalidationHandler.QueueElectionInvalidations();
 
         if (Game1.IsMasterGame)
         {
@@ -194,7 +193,6 @@ public static class ModProgressHandler
                 AddProgressFlag(ProgressFlags.WonMayorElection);
                 Game1.MasterPlayer.mailbox.Add(MailKeys.WonOfficialElectioMail);
                 Game1.MasterPlayer.mailbox.Add(MailKeys.WonElectionMail);
-                AssetInvalidationHandler.UpdateAssetInvalidations();
             }
             else
             {
@@ -216,21 +214,23 @@ public static class ModProgressHandler
             RemoveProgressFlag(ProgressFlags.WonMayorElection);
             RemoveProgressFlag(CouncilMeetingKeys.NotToday);
 
-            if (RiverCleanUpRunOnce && HasProgressFlag(ProgressFlags.CleanUpRivers))
+            // Finish Robin building
+            if (HasProgressFlag(ProgressFlags.ConstructionGrant))
             {
-                RiverCleanUpRunOnce = false;
-                AssetInvalidationHandler.InvalidationLocations();
+                FinishRobinsConstruction();
             }
 
             // Tax stuff
-            //if (SDate.Now().Day >= 21 && !ModUtils.HasConversationTopic(DialogueKeys.ConversationTopics.PayingTax))
-            //{
-            //    ModUtils.AddConversationTopic(DialogueKeys.ConversationTopics.PayingTax, 7);
-            //}
-            //else if(SDate.Now().Day < 21 && ModUtils.HasConversationTopic(DialogueKeys.ConversationTopics.PayingTax))
-            //{
-            //    ModUtils.RemoveConversationTopic(DialogueKeys.ConversationTopics.PayingTax);
-            //}
+            if (SDate.Now().Day == WorldDate.DaysPerMonth)
+            {
+                ModUtils.RemoveConversationTopic(ConversationTopicKeys.PayingTax);
+                RemoveProgressFlag(ProgressFlags.FundraiserIncome);
+                SaveHandler.SaveData?.CostsPaidThisMonth.Clear();
+            }
+            if (!ModUtils.HasConversationTopic(ConversationTopicKeys.PayingTax))
+            {
+                ModUtils.AddConversationTopic(ConversationTopicKeys.PayingTax, WorldDate.DaysPerMonth + 1);
+            }
         }
     }
 
@@ -328,12 +328,6 @@ public static class ModProgressHandler
         _mod.Monitor.Log("Clearing save data.", LogLevel.Info);
         SaveHandler.ResetSave();
 
-        _mod.Monitor.Log("Invalidating cache for patched assets.", LogLevel.Info);
-        _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.MAIL);
-        _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.PASSIVE_FESTIVALS);
-        _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.LOCATIONS);
-        _mod.Helper.GameContent.InvalidateCache(XNBPathKeys.CHARACTERS);
-
         if (resetType == ResetType.NewMayor)
         {
             _mod.Monitor.Log("Resetting to be a newly elected mayor.", LogLevel.Info);
@@ -352,10 +346,60 @@ public static class ModProgressHandler
             Game1.player.mailReceived.Add(MailKeys.DebateDate);
             SaveHandler.UpdateVotingDate(ModUtils.GetDateWithoutFestival(1));
             AddProgressFlag(ProgressFlags.RunningForMayor);
-            AssetInvalidationHandler.UpdateAssetInvalidations();
         }
+
+        AssetInvalidationHandler.QueueSaveInvalidations(true);
 
         _mod.Monitor.Log("Done.", LogLevel.Info);
         _mod.Monitor.Log("Please go to sleep and save and the mod should be reset.", LogLevel.Info);
+    }
+
+    /// <summary>
+    /// Update the bus stop fare if changed by council.
+    /// </summary>
+    /// <param name="location"></param>
+    public static void UpdateBusFare(GameLocation location)
+    {
+        if (location is BusStop busStop)
+        {
+            if (HasHostGotProgressFlag(ProgressFlags.BusFareFree))
+            {
+                busStop.TicketPrice = 0;
+            }
+            else if (HasHostGotProgressFlag(ProgressFlags.BusFareHalf))
+            {
+                busStop.TicketPrice = ModKeys.SUBSIDISED_BUS_FARE;
+            }
+            else
+            {
+                busStop.TicketPrice = ModKeys.DEFAULT_BUS_FARE;
+            }
+        }
+    }
+
+    /// <summary>
+    /// If any building or upgrading finish immediatly.
+    /// </summary>
+    public static void FinishRobinsConstruction()
+    {
+        if (!Game1.netWorldState.Value.Builders.TryGetValue(ModNPCKeys.RobinId, out var builderData))
+        {
+            return;
+        }
+
+        var location = Game1.getLocationFromName(builderData.buildingLocation.Value);
+        var building = location?.getBuildingAt(Utility.PointToVector2(builderData.buildingTile.Value));
+        building?.FinishConstruction();
+    }
+
+    /// <summary>
+    /// Finish farmers house upgrade overnight.
+    /// </summary>
+    public static void FinishHouseUpgradeOvernight()
+    {
+        if (HasHostGotProgressFlag(ProgressFlags.ConstructionGrant) && Game1.player.daysUntilHouseUpgrade.Value > 1)
+        {
+            Game1.player.daysUntilHouseUpgrade.Value = 1;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace MayorMod.Constants;
+namespace MayorMod.Constants;
 
 public class CouncilMeetingKeys
 {
@@ -14,7 +14,12 @@ public class CouncilMeetingKeys
     public static readonly string MeetingRiverCleanup = "RiverCleanup";
     public static readonly string MeetingTownRoads = "TownRoads";
     public static readonly string MeetingStrategicReserve = "StrategicReserve";
+    public static readonly string MeetingBusFare = "BusFare";
+    public static readonly string MeetingHealthcareFunding = "HealthcareFunding";
+    public static readonly string MeetingFundraiser = "Fundraiser";
 
     //Special Order Keys
     public static readonly string SpecialOrderStrategicReserve = $"{ModKeys.MAYOR_MOD_CPID}_StrategicReserveSpecialOrder";
+
+    public static readonly string MailStrategicReserveRoomReady = $"{ModKeys.MAYOR_MOD_CPID}_StrategicReserveRoomReadyMail";
 }

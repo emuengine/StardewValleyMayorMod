@@ -1,4 +1,4 @@
-﻿using MayorMod.Data.Models;
+using MayorMod.Data.Models;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
@@ -17,7 +17,7 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
     private readonly MayorModMenu _parent;
     private readonly Rectangle _buttonBackgroundSourceRect;
     private readonly Margin _margin;
-    private readonly float _fontHeight;
+    private float _fontHeight => Font.MeasureString("TEXT").Y / 2;
     private int _buttonIndexOffset;
     private int _scrollBarStart;
     private int _scrollBarEnd;
@@ -52,11 +52,17 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
 
     public bool ScrollBarEnabled {get; set; }
 
+    public IList<bool>? CheckedStates { get; set; }
+    public IList<string>? AccessibleLabels { get; set; }
+
+    public Texture2D? Icon { get; set; }
+    public IList<string?>? RightText { get; set; }
+    public SpriteFont Font { get; set; } = Game1.dialogueFont;
+
     public BigButtonListMenuItem(MayorModMenu parent, Margin margin, IList<string> buttonText, Action<int> action)
     {
         _parent = parent;
         _margin = margin;
-        _fontHeight = Game1.dialogueFont.MeasureString("TEXT").Y / 2;
         _buttonBackgroundSourceRect = new Rectangle(0, 256, 60, 60);
         _buttonText = buttonText;
         ButtonAction = action;
@@ -140,17 +146,56 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
                                           button.BoundingBox.Width,
                                           button.BoundingBox.Height,
                                           colour);
+
             Utility.drawTextWithShadow(spriteBatch,
                                        _buttonText[button.Id + _buttonIndexOffset],
-                                       Game1.dialogueFont,
+                                       Font,
                                        new Vector2(button.BoundingBox.X + TextPadding,
                                                    button.BoundingBox.Y + (button.BoundingBox.Height / 2) - _fontHeight),
                                        Game1.textColor);
+
+            if (CheckedStates is not null)
+            {
+                var source = CheckedStates[button.Id + _buttonIndexOffset]? 
+                                OptionsCheckbox.sourceRectChecked : 
+                                OptionsCheckbox.sourceRectUnchecked;
+
+                spriteBatch.Draw(Game1.mouseCursors,
+                                 new Rectangle(button.BoundingBox.Right - TextPadding - 36, button.BoundingBox.Center.Y - 18, 36, 36), 
+                                 source, 
+                                 Color.White);
+            }
+            DrawRightText(spriteBatch, button);
         }
         if (ScrollBarEnabled)
         {
             DrawScrollBar(spriteBatch);
         }
+    }
+
+    /// <summary>
+    /// Draws the button's right aligned text with the Icon after it.
+    /// </summary>
+    private void DrawRightText(SpriteBatch spriteBatch, ButtonData button)
+    {
+        var text = RightText?.ElementAtOrDefault(button.Id + _buttonIndexOffset);
+        if (text is null)
+        {
+            return;
+        }
+
+        var textHeight = (int)(_fontHeight * 2);
+        var textY = button.BoundingBox.Y + (button.BoundingBox.Height / 2) - (int)_fontHeight;
+        var right = button.BoundingBox.X + button.BoundingBox.Width - TextPadding;
+        if (Icon is not null)
+        {
+            var iconSize = Icon.Height * Math.Max(1, textHeight / Icon.Height);
+            right -= iconSize;
+            spriteBatch.Draw(Icon, new Rectangle(right, textY + (textHeight - iconSize) / 2, iconSize, iconSize), Color.White);
+            right -= 8;
+        }
+        var textWidth = (int)Font.MeasureString(text).X;
+        Utility.drawTextWithShadow(spriteBatch, text, Font, new Vector2(right - textWidth, textY), Game1.textColor);
     }
 
     /// <summary>
@@ -280,6 +325,6 @@ public partial class BigButtonListMenuItem : IClickableMenuItem, IScrollableMenu
 
     public string GetScreenReaderText(int index)
     {
-        return _buttonText[index + _buttonIndexOffset];
+        return AccessibleLabels?[index + _buttonIndexOffset] ?? _buttonText[index + _buttonIndexOffset];
     }
 }

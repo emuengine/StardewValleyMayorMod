@@ -1,4 +1,4 @@
-﻿using MayorMod.Constants;
+using MayorMod.Constants;
 using MayorMod.Data;
 using MayorMod.Data.Handlers;
 using MayorMod.Data.Interfaces;
@@ -25,6 +25,7 @@ internal sealed class ModEntry : Mod
     {
         AssetUpdateHandler.Init(this);
         TaxHandler.Init();
+        TreasuryDisplayHandler.Init(this);
         SaveHandler.Init(this);
         ModProgressHandler.Init(this);
         AssetInvalidationHandler.Init(this);
@@ -36,6 +37,7 @@ internal sealed class ModEntry : Mod
         Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
         Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
         Helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
+        Helper.Events.GameLoop.Saving += GameLoop_Saving;
         Helper.Events.Content.AssetRequested += OnAssetRequested;
         Helper.Events.GameLoop.GameLaunched += OnGameLaunched;
         Helper.Events.Player.Warped += Player_Warped;
@@ -49,6 +51,7 @@ internal sealed class ModEntry : Mod
                 default: ModProgressHandler.ResignAndReset(ResetType.FreshInstall); break;
             }
         });
+        Helper.ConsoleCommands.Add(ModKeys.TREASURY_COMMAND, ModKeys.TREASURY_COMMAND_HELP_TEXT, (arg1, arg2) => TaxHandler.AdjustTreasuryCommand(Monitor, arg2));
     }
 
     /// <summary>
@@ -76,13 +79,20 @@ internal sealed class ModEntry : Mod
             SaveHandler.LoadSaveData();
         }
         AssetInvalidationHandler.InvalidationNPCSchedules();
+        AssetInvalidationHandler.QueueSaveInvalidations();
+    }
 
-        if (ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
+    /// <summary>
+    /// Write mod save data when the game saving.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e">event args</param>
+    private void GameLoop_Saving(object? sender, SavingEventArgs e)
+    {
+        if (Game1.IsMasterGame)
         {
-            ModProgressHandler.RiverCleanUpRunOnce = false;
+            SaveHandler.WriteSaveData();
         }
-
-        AssetInvalidationHandler.UpdateAssetInvalidations();
     }
 
     /// <summary>
@@ -112,6 +122,7 @@ internal sealed class ModEntry : Mod
             }
 
             //Security guard so no money loss on passout
+            TaxHandler.ChargeMonthlyCosts();
             if (ModProgressHandler.HasProgressFlag(ProgressFlags.SecurityOnGuard))
             {
                 LocationContexts.Default.MaxPassOutCost = 0;
@@ -129,6 +140,7 @@ internal sealed class ModEntry : Mod
         ModProgressHandler.CampaignProgressUpdates();
         ModProgressHandler.CampaignProgressUpdatesFarmhand();
         ModProgressHandler.DayAsMayorUpdates();
+        ModProgressHandler.FinishHouseUpgradeOvernight();
         ModProgressHandler.UpdateIfMayorRetryNeeded();
         ModProgressHandler.HandleModResetIfNeeded();
     }
@@ -141,6 +153,7 @@ internal sealed class ModEntry : Mod
     private void Player_Warped(object? sender, WarpedEventArgs e)
     {
         ModProgressHandler.AddLewisShortsToAnimalShop(e.NewLocation);
+        ModProgressHandler.UpdateBusFare(e.NewLocation);
 
         if (Helper.ModRegistry.IsLoaded(CompatibilityKeys.SVE_MOD_ID))
         {
@@ -157,6 +170,19 @@ internal sealed class ModEntry : Mod
     {
         if (ModProgressHandler.HasProgressFlag(ProgressFlags.ElectedAsMayor))
         {
+            foreach (var move in CompatibilityKeys.EventMoves)
+            {
+                AssetUpdateHandler.MoveEvents(e, move);
+            }
+
+            //Sword & Sorcery handbook patching ... Fucking Spacecore
+            if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.SPACECORE_GUIDEBOOKS))
+            {
+                AssetUpdateHandler.GuidebookSubstringPatch(e, CompatibilityKeys.SwordAndSorceryGuidebookId,
+                                                           CompatibilityKeys.SwordAndSorceryHandbookHint,
+                                                           CompatibilityKeys.SwordAndSorceryHandbookHintReplacement);
+            }
+            
             AssetUpdateHandler.AssetSubstringPatch(e);
             if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.LOCATIONS) && ModProgressHandler.HasProgressFlag(ProgressFlags.CleanUpRivers))
             {
@@ -176,6 +202,11 @@ internal sealed class ModEntry : Mod
                 AssetUpdateHandler.AssetUpdatesForPassiveFestivals(e);
             }
         }
+
+        if (e.NameWithoutLocale.IsEquivalentTo(XNBPathKeys.BUILDINGS) && ModProgressHandler.HasHostGotProgressFlag(ProgressFlags.ConstructionGrant))
+        {
+            AssetUpdateHandler.RobinBuildsInstantly(e);
+        }
     }
 
     /// <summary>
@@ -188,6 +219,10 @@ internal sealed class ModEntry : Mod
         {
             return Context.IsWorldReady ? new List<string>() { ModUtils.GetFormattedMeetingDays(Helper, ModConfigHandler.ModConfig) } : new List<string>() { "NOT LOADED" };
         });
+        foreach (var (costKey, cost) in TreasuryCostKeys.Costs)
+        {
+            api?.RegisterToken(this.ModManifest, ModKeys.TREASURY_COST_TOKEN + costKey, () => new List<string>() { cost.ToString() });
+        }
         api?.RegisterToken(this.ModManifest, ModKeys.VOTING_DAY_TOKEN, () =>
         {
             var voteDate = ModUtils.GetVotingDate();
