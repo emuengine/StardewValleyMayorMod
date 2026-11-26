@@ -1,6 +1,21 @@
 {
   "Format": "2.7.0",
   "$schema": "https://smapi.io/schemas/content-patcher.json",
+  "DynamicTokens": [
+    {
+      "Name": "HasVotingInCommunityCenter",
+      "Value": false
+    },
+    {
+      "Name": "HasVotingInCommunityCenter",
+      "Value": true,
+      "When": {
+        "IsCommunityCenterComplete": true,
+        "HasFlag: hostPlayer | contains=JojaMember": false,
+        "IsJojaMartComplete": false
+      }
+    }
+  ],
   "Changes": [
     {
       "Action": "Include",

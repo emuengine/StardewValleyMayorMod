@@ -115,8 +115,12 @@ public static class VotingHandler
 
         var existingVotesJson = ModUtils.GetFarmModData(MultiplayerKeys.PLAYER_VOTES);
         existingVotesJson = string.IsNullOrEmpty(existingVotesJson) ? "[]" : existingVotesJson;
-        var existingVotes = JsonSerializer.Deserialize<List<PlayerVote>>(existingVotesJson);
-        existingVotes!.Add(playerVote);
+        var existingVotes = JsonSerializer.Deserialize<List<PlayerVote>>(existingVotesJson) ?? new List<PlayerVote>();
+        if (existingVotes.Any(v => v.PlayerID == voter.UniqueMultiplayerID))
+        {
+            return;
+        }
+        existingVotes.Add(playerVote);
 
         ModUtils.UpsertFarmModData(MultiplayerKeys.PLAYER_VOTES, JsonSerializer.Serialize(existingVotes));
     }
@@ -220,13 +224,31 @@ public static class VotingHandler
     /// <returns>The formatted voting results text.</returns>
     public static string GetVotingResultText()
     {
-        var playerVotesJson = ModUtils.GetFarmModData(MultiplayerKeys.PLAYER_VOTES) ?? "[]";
-        var playerVotes = JsonSerializer.Deserialize<List<PlayerVote>>(playerVotesJson);
+        var savedResult = ModUtils.GetFarmModData(MultiplayerKeys.ELECTION_RESULT);
+        if (!string.IsNullOrEmpty(savedResult))
+        {
+            return savedResult;
+        }
 
         var totalVoters = GetVotingVillagers().Count + Game1.getAllFarmers().Count();
         var votesFor = CalculateTotalVotes();
         var votesAgainst = totalVoters - votesFor;
         var currentMayorName = ModUtils.GetCurrentMayor(_mod.Helper);
         return string.Format(ModUtils.GetTranslationForKey(_mod.Helper, $"{ModKeys.MAYOR_MOD_CPID}_Mail.OfficialElectionMail.ResultText"), votesFor, currentMayorName,votesAgainst);
+    }
+
+
+    /// <summary>
+    /// Clear election results for reset
+    /// </summary>
+    public static void ResetElection()
+    {
+        ModUtils.UpsertFarmModData(MultiplayerKeys.PLAYER_VOTES, "[]");
+        ModUtils.UpsertFarmModData(MultiplayerKeys.ELECTION_RESULT, null);
+        foreach (var farmer in Game1.getAllFarmers())
+        {
+            farmer.mailReceived.Remove(ProgressFlags.VotedForMayor);
+            farmer.mailReceived.Remove(ProgressFlags.HasVotedForHostFarmer);
+        }
     }
 }

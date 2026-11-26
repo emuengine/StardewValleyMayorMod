@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.2.1
+
+## Bug fixes
+- Fix voting booth not appearing with Joja route.
+- Reset election results properly.
+- Multiplayer voting duplicate counting fix.
+
+
 ## v1.2.0
 
 ## Features

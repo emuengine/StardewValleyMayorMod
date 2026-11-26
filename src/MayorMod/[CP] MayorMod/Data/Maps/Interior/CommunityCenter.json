@@ -21,7 +21,7 @@
             },
             "When": {
                 "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
-                "IsCommunityCenterComplete": true,
+                "HasVotingInCommunityCenter": true,
                 "HasMod | contains=FlashShifter.StardewValleyExpandedCP": false
             }
         },
@@ -46,7 +46,7 @@
             },
             "When": {
                 "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
-                "IsCommunityCenterComplete": true,
+                "HasVotingInCommunityCenter": true,
                 "HasMod | contains=FlashShifter.StardewValleyExpandedCP": true
             }
         },
@@ -71,7 +71,7 @@
             },
             "When": {
                 "HasFlag: hostPlayer | contains={{ModId}}_VotingDay": true,
-                "IsCommunityCenterComplete": true,
+                "HasVotingInCommunityCenter": true,
                 "HasMod | contains=sapphicsaph_pitv": true
             }
         }

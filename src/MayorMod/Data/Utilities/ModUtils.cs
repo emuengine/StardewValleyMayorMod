@@ -139,7 +139,7 @@ public static class ModUtils
     public static bool IsBooksellerVisiting(SDate date)
     {
         var rngSeeded = Utility.CreateRandom(date.Year * 11, Game1.uniqueIDForThisGame, date.SeasonIndex);
-        int[] possible_days = Game1.season switch
+        int[] possible_days = date.Season switch
         {
             Season.Spring => new int[] { 11, 12, 21, 22, 25 },
             Season.Summer => new int[] { 9, 12, 18, 25, 27 },

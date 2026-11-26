@@ -49,14 +49,14 @@
       "Action": "Include",
       "FromFile": "Data/NPCs/Schedules/Schedule.json",
       "When": {
-        "IsCommunityCenterComplete": false
+        "HasVotingInCommunityCenter": false
       }
     },
     {
       "Action": "Include",
       "FromFile": "Data/NPCs/Schedules/CCSchedule.json",
       "When": {
-        "IsCommunityCenterComplete": true
+        "HasVotingInCommunityCenter": true
       }
     },
     //Powers

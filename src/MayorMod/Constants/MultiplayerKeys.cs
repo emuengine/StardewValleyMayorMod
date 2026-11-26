@@ -6,4 +6,5 @@ public class MultiplayerKeys
     public const string TOWN_TREASURY = "MayorMod_Treasury";
     public const string GOLD_STATUE_IMAGE = "MayorMod_GoldStatueImage";
     public const string PLAYER_VOTES = "MayorMod_PlayerVotes";
+    public const string ELECTION_RESULT = "MayorMod_ElectionResult";
 }

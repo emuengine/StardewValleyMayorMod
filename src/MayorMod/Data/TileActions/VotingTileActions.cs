@@ -11,7 +11,7 @@ namespace MayorMod.Data.TileActions;
 
 public static class VotingTileActions
 {
-    public static IList<string> Candidates { get; set; } = new List<string>() { Game1.MasterPlayer.eventsSeen.Contains(CompatibilityKeys.MorrisIsMayorEventID)? 
+    public static IList<string> Candidates => new List<string>() { Game1.MasterPlayer.eventsSeen.Contains(CompatibilityKeys.MorrisIsMayorEventID)? 
                                                                                         ModNPCKeys.MorrisId: 
                                                                                         ModNPCKeys.LewisId, 
                                                                                 Game1.MasterPlayer.Name };
@@ -105,10 +105,15 @@ public static class VotingTileActions
     {
         Game1.exitActiveMenu();
 
-        if (candidateIndex< Candidates.Count && Candidates[candidateIndex] == Game1.MasterPlayer.Name)
+        if (candidateIndex < 0 || candidateIndex >= Candidates.Count)
+        {
+            return;
+        }
+
+        ModProgressHandler.RemoveProgressFlag(ProgressFlags.HasVotedForHostFarmer);
+        if (Candidates[candidateIndex] == Game1.MasterPlayer.Name)
         {
             ModProgressHandler.AddProgressFlag(ProgressFlags.HasVotedForHostFarmer);
-            VotingHandler.AddPlayerVote(Game1.player, Candidates[candidateIndex]);
         }
 
         //Show filling in voting card
@@ -145,6 +150,10 @@ public static class VotingTileActions
 
         if (ballot is not null)
         {
+            if (farmer.mailReceived.Contains(ProgressFlags.HasVotedForHostFarmer))
+            {
+                VotingHandler.AddPlayerVote(farmer, Game1.MasterPlayer.Name);
+            }
             farmer.removeItemFromInventory(ballot);
             ModProgressHandler.AddProgressFlag(ProgressFlags.VotedForMayor);
             Game1.DrawDialogue(ModUtils.OfficerMikeNPC, DialogueKeys.OfficerMike.HaveVoted);

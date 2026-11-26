@@ -140,6 +140,7 @@ public static class ModProgressHandler
         if (HasProgressFlag(ProgressFlags.RegisterVotingDate) && SaveHandler.SaveData is not null)
         {
             //Set voting date
+            VotingHandler.ResetElection();
             SaveHandler.UpdateVotingDate(ModUtils.GetDateWithoutFestival(ModConfigHandler.ModConfig.NumberOfCampaignDays));
             RemoveProgressFlag(ProgressFlags.RegisterVotingDate);
             AssetInvalidationHandler.QueueElectionInvalidations();
@@ -182,6 +183,7 @@ public static class ModProgressHandler
     /// </summary>
     private static void EndOfVotingDay()
     {
+        ModUtils.UpsertFarmModData(MultiplayerKeys.ELECTION_RESULT, VotingHandler.GetVotingResultText());
         SaveHandler.UpdateVotingDate(null);
         RemoveAllModFlags();
         AssetInvalidationHandler.QueueElectionInvalidations();
@@ -327,6 +329,7 @@ public static class ModProgressHandler
 
         _mod.Monitor.Log("Clearing save data.", LogLevel.Info);
         SaveHandler.ResetSave();
+        VotingHandler.ResetElection();
 
         if (resetType == ResetType.NewMayor)
         {
@@ -339,13 +342,14 @@ public static class ModProgressHandler
 
         if (resetType == ResetType.VotingDay)
         {
-            _mod.Monitor.Log("Resetting to the day before voting day.", LogLevel.Info);
             Game1.player.eventsSeen.Add(ProgressFlags.NeedMayorEvent);
             Game1.player.eventsSeen.Add(ProgressFlags.NeedMayorMorrisEvent);
             Game1.player.mailReceived.Add(MailKeys.RegisteredForElectionMail);
             Game1.player.mailReceived.Add(MailKeys.DebateDate);
-            SaveHandler.UpdateVotingDate(ModUtils.GetDateWithoutFestival(1));
+            var votingDate = ModUtils.GetDateWithoutFestival(1);
+            SaveHandler.UpdateVotingDate(votingDate);
             AddProgressFlag(ProgressFlags.RunningForMayor);
+            _mod.Monitor.Log($"Voting is scheduled for {votingDate}.", LogLevel.Info);
         }
 
         AssetInvalidationHandler.QueueSaveInvalidations(true);
